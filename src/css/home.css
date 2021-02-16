@@ -1,5 +1,6 @@
 .home{
     display: flex;
+    height: 559px;
 }
 .get_started{
     align-content: center;
