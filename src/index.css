@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background-color: #fff  !important;
+  background-image: linear-gradient(rgb(253, 253, 253),#e4e4f7);
 }
 
 .navbar-brand{
@@ -47,6 +47,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(rgb(253, 253, 253),#918fc0);
 }
 
 code {
@@ -61,7 +62,7 @@ body {
 .btn {
   background-color: #565387;
   padding: 0.5em 1.5em;
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: #fff;
   outline: none;
   border: none;

@@ -1,0 +1,14 @@
+.home{
+    display: flex;
+}
+.get_started{
+    align-content: center;
+    margin-right: 15em;
+    padding-right: 2em;
+    margin-top:5em;
+}
+.brand-name{
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #565387;
+}

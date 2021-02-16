@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../index.css';
-import web from "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\src\\images\\Capture-removebg-preview.png";
+import '../css/navbar.css'
+import web from "../images/Capture-removebg-preview.png";
 
 const Navbar = () => {
     return (
@@ -13,10 +14,8 @@ const Navbar = () => {
                   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
     <NavLink  className="navbar-brand" to = "/">
-    <img src={web} className = "image-fluid animated" alt = "home image"/>
+    <img src={web} className = "image-fluid animated logo" alt = "home image"/>
     </NavLink>
-    <div className="container-fluid">
-      </div>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
