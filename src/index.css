@@ -118,3 +118,9 @@ body {
   transform: translateY((-10px));
   box-shadow: 0 5px 5px #00000040;
 }
+.login_form{
+  border-radius: 25px;
+  border-width: 2px;
+  border-color: #565387;
+  width: 250px;
+}
