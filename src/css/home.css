@@ -13,3 +13,22 @@
     font-weight: bold;
     color: #565387;
 }
+#join-us {
+    height: 730px;
+    color: #565387;
+       
+} 
+.student{
+    height: 200px;
+    width: 350px;
+}
+.company{
+    height: 200px;
+    width: 200px;
+}
+.logos{
+    margin-left: 5% !important; 
+}
+.pop{
+    display: flex;
+}

@@ -8,13 +8,13 @@ const Navbar = () => {
     return (
         <>
         <div className = "container-fluid nav_bg">
-              <div className = "row">
-                  <div className = "col-10 mx-auto">
+              <div className = "row navbar">
+                  <div className = "col-10 mx-auto navbar">
 
-                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+  <div className="container-fluid navbar">
     <NavLink  className="navbar-brand" to = "/">
-    <img src={web} className = "image-fluid animated logo" alt = "home image"/>
+    <img src={web} className = "image-fluid  logo" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
