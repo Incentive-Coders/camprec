@@ -36,7 +36,7 @@ const Home =() => {
         <section id = "join-us">
         <img src={web4} className = "logo logos" alt = "home img"/>
         <div className = "my-5 mx-auto align-item-center ">
-            <h1 className="tab-center align-item-center join_us"> <strong>Join Us</strong></h1>
+            <h1 className="tab-center align-item-center join_us"> <strong>Join us</strong></h1>
         </div>
         <div className = "row">
             <div className="col-10 mx-auto">
@@ -47,7 +47,7 @@ const Home =() => {
                                 <img src={web1} className = "student card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Student</strong></h5>
                                 <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">Login</a>
+                                <a href="#" class="btn ">Login</a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Home =() => {
                             <img src={web2} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Company</strong></h5>
                                 <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">Login</a>
+                                <a href="#" class="btn ">Login</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const Home =() => {
                             <img src={web3} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title card_us"><strong>For Admin</strong></h5>
                                 <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">Login</a>
+                                <a href="#" class="btn">Login</a>
                             </div>
                         </div>
                     </div>
