@@ -50,7 +50,7 @@ const Home =() => {
                                 <img src={web1} className = "student card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Student</strong></h5>
                                 <p class="card-text"></p>
-                                <Buttons name="Student Login"/>
+                                <a className="btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ const Home =() => {
                             <img src={web2} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Company</strong></h5>
                                 <p class="card-text"></p>
-                                <Buttons name="Company Login"/>
+                                <a className="btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@ const Home =() => {
                             <img src={web3} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title card_us"><strong>For Admin</strong></h5>
                                 <p class="card-text"></p>
-                                <Buttons name="Admin Login"/></div>
-                            
+                                <a className="btn">Login</a>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -81,95 +81,6 @@ const Home =() => {
         </>
     );
 };
-class Buttons extends React.Component {
-  render(){
-     // popup and form code
-      const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
-          const [form] = Form.useForm();
-          return (
-            <Modal
-            visible={visible}
-            title={this.props.name}
-            okText="Login"
-            cancelText="Cancel"
-            onCancel={onCancel}
-            onOk={() => {
-              form
-                .validateFields()
-                .then((values) => {
-                  form.resetFields();
-                  onCreate(values);
-                })
-                .catch((info) => {
-                  console.log('Validate Failed:', info);
-                });
-            }}
-          >
-              <section className="card_us">
-              <img src={web5} className = "login_img card_us" alt = "home img"/>
-              </section>              
-            <Form 
-            
-              form={form}
-              layout="vertical"
-              name="form_in_modal"
-              initialValues={{
-                modifier: 'public',
-              }}>
-              <Form.Item 
-                name="username"
-                label="User Name"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter username!',
-                  },
-                ]}
-              >
-                <Input className="login_form "/>
-              </Form.Item>
-              <Form.Item name="password" label="Password"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please enter password!',
-                },
-              ]}
-              >
-                <Input type="password" className="login_form"/>
-              </Form.Item>  
-            </Form>
-          </Modal>
-          );
-        };
-        const CollectionsPage = () => {
-          const [visible, setVisible] = useState(false);
-        
-          const onCreate = (values) => {
-            console.log('Received values of form: ', values);
-            setVisible(false);
-          };
-          return (
-            <div>
-                <a className="btn" onClick={() => { setVisible(true);}}>
-                Login
-              </a>
-              <CollectionCreateForm
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
-                }}
-              />
-            </div>
-          );
-        };
-    return (
-        <div>
-            <CollectionsPage/>
-       </div>
-    );
-  }
-  }
+
 
 export default Home;

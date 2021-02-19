@@ -14,7 +14,7 @@
     color: #565387;
 }
 #join-us {
-    height: 730px;
+    height: 735px;
     color: #565387;
        
 } 
@@ -35,4 +35,7 @@
 .login_img{
     height: 150px;
     width: auto;
+}
+.form_model{
+    border-radius: 25px;
 }
