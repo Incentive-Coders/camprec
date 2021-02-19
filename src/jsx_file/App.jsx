@@ -1,6 +1,6 @@
 import React from 'react';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "E:/camprec2/node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
 import About from "./About"

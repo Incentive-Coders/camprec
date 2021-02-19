@@ -1,35 +1,37 @@
 import React from 'react';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
-import web5 from "../images/login.jpg";
+import web5 from "../images/student_login.jpg";
 import "../css/login.css";
-
+import FormItem from 'antd/lib/form/FormItem';
+import {Form, Input} from 'antd';
 const studentlogin =() => {
     return (
         <>
-        <div >
-        <div className="login-container text-c animated flipInX card-us">
-                <div>
-                <img src={web5} className = "student card_us" alt = "login img"/>
+        <div className="pop">
+            <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
+            <div className = "col-md-4 col-10 left_margin ">
+                        <div className="card card_border margin-t-lg image">
+                            <div className="card-body card_us">
+                             <h3 className="card-title card_us"><strong>Student Login</strong></h3>
+                                <Form>
+                                    <FormItem>
+                                    <div className="form-group margin-t">
+                                        <Input type="text" className="form-control" placeholder="Username" required/>
+                                    </div>
+                                    </FormItem>
+                                    <FormItem>
+                                    <div className="form-group margin-t">
+                                        <Input type="password" className="form-control" placeholder="password" required/>
+                                    </div>
+                                    </FormItem>
+                                    <Input type= "submit" className="btn margin-t" value="Login"/>
+                                </Form>
+                    </div>
                 </div>
-                    <h3 className="text-purple">Student Sign-in </h3>
-                    <p className="text-purple">Sign In</p>
-                <div className="container-content">
-                    <form className="margin-t">
-                        <div className="form-group margin-t">
-                            <input type="text" className="form-control" placeholder="Username" required="" />
-                        </div>
-                        <div className="form-group margin-t">
-                            <input type="password" className="form-control" placeholder="*****" required="" />
-                        </div>
-                        <div className=" margin-t">
-                        <button type="submit" className="loginbtn">Sign In</button>
-                        </div>
-                    </form>
-               </div>         
-               </div> 
-               </div>
+            </div>
+        </div> 
         </>
     );
 };
