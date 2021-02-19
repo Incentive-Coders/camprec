@@ -7,17 +7,18 @@ import About from "./About"
 import Service from "./Service"
 import Contact from "./Contact"
 import Navbar from "./Navbar";
-
+import Login from './login';
 const App =() => {
     return (
         <>
         <Navbar />
         <Switch>
-            <Route exact path = "/" component = {Home} />
-            <Route exact path = "/about" component = {About} />
-            <Route exact path = "/service" component = {Service} />
-            <Route exact path = "/contact" component = {Contact} />
-            <Redirect to = "/" />
+        <Route exact path = "/" component = {Home} />
+        <Route exact path = "/about" component = {About} />
+        <Route exact path = "/service" component = {Service} />
+        <Route exact path = "/contact" component = {Contact} />
+        <Route exact path="/login" component={Login}/>
+        <Redirect to = "/" />
         </Switch>
         </>
     );

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import web from "../images/4180157-removebg-preview.png";
 import web1 from "../images/student-removebg.png"
 import web2 from "../images/company.jpg";
 import web3 from "../images/admin.jpg";
 import web4 from "../images/Capture-removebg-preview.png";
-import web5 from "../images/login.jpg"
-import { Button, Modal, Form, Input, Radio } from 'antd';
-import "antd/dist/antd.css";
+import {Link, NavLink} from 'react-router-dom';
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
+import"./App"
 const Home =() => {
     return (
       <>
@@ -70,7 +70,9 @@ const Home =() => {
                             <img src={web3} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title card_us"><strong>For Admin</strong></h5>
                                 <p class="card-text"></p>
-                                <a className="btn">Login</a>
+                                <NavLink className="btn" to = "/login">
+                                        Login
+                                </NavLink>
                           </div>
                         </div>
                     </div>
@@ -81,6 +83,5 @@ const Home =() => {
         </>
     );
 };
-
 
 export default Home;
