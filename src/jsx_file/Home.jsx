@@ -49,7 +49,7 @@ const Home =() => {
                             <div class="card-body card_us">
                                 <img src={web1} className = "student card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Student</strong></h5>
-                                <p class="card-text"></p>
+                                <p class="card-text">You are on Right Track. Working with you to Achieve Vision. Join us to get your dream company.</p>
                                 <NavLink className="btn" to = "/studentlogin">
                                         Login
                                 </NavLink>
@@ -61,7 +61,7 @@ const Home =() => {
                             <div class="card-body card_us">
                             <img src={web2} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title"><strong>For Company</strong></h5>
-                                <p class="card-text"></p>
+                                <p class="card-text">The Key To Success Is Staying On Target so, we are the one who provides you. Choose the best employees amongst the best.</p>
                                 <NavLink className="btn" to = "/companylogin">
                                         Login
                                 </NavLink>
@@ -73,7 +73,7 @@ const Home =() => {
                             <div class="card-body card_us">
                             <img src={web3} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title card_us"><strong>For Admin</strong></h5>
-                                <p class="card-text"></p>
+                                <p class="card-text">We are here to manage and interlink between companies and students as a invisible string.Keep Calm and Focused.</p>
                                 <NavLink className="btn" to = "/adminlogin">
                                         Login
                                 </NavLink>
