@@ -1,6 +1,6 @@
 .home{
     display: flex;
-    height: 559px;
+    height: 600px;
 }
 .get_started{
     align-content: center;
@@ -14,7 +14,7 @@
     color: #565387;
 }
 #join-us {
-    height: 735px;
+    height: 750px;
     color: #565387;
        
 } 

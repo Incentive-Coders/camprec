@@ -9,13 +9,13 @@ import {Form, Input} from 'antd';
 const studentlogin =() => {
     return (
         <>
-        <div className="pop bg">
+        <div className="pop image width height">
             <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
-            <div className = "col-md-4 col-10 left_margin ">
+            <div className = "col-md-4 col-10 left_margin">
                         <div className="margin-t-lg">
                             <div className="card-body card_us">
                              <h3 className="card-title card_us"><strong>Student Login</strong></h3>
-                                <Form>
+                                <Form >
                                     <FormItem>
                                     <div className="form-group margin-t">
                                         <Input type="text" className="form-control" placeholder="Username" required/>

@@ -10,7 +10,7 @@ import {Form, Input} from 'antd';
 const adminLogin =() => {
     return (
         <>
-        <div className="pop bg">
+        <div className="pop width height image">
             <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
             <div className = "col-md-4 col-10 left_margin ">
                         <div className="margin-t-lg">

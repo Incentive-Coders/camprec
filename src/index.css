@@ -53,7 +53,9 @@
 }
 .bg{
   background-image: linear-gradient(rgb(253, 253, 253),#918fc0);
-  width: 1506px;
+  width: 1520px;
+  margin-right: 0%;
+  padding-right: 0px;
 }
 .image{
   background-image: linear-gradient(rgb(253, 253, 253),#918fc0);
@@ -150,8 +152,14 @@ body {
   height: 400px;
 }
 .width{
-  width:1507px;
+  width:1540px;
+}
+.height{
+  height: 512px;
 }
 .size{
   height:150px;
+}
+.pad{
+  padding-right: 60px;
 }
