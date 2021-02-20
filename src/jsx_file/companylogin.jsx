@@ -9,10 +9,10 @@ import {Form, Input} from 'antd';
 const companyLogin =() => {
     return (
         <>
-        <div className="pop">
+        <div className="pop bg">
             <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
             <div className = "col-md-4 col-10 left_margin ">
-                        <div className="card card_border margin-t-lg image">
+                        <div className="margin-t-lg">
                             <div className="card-body card_us">
                              <h3 className="card-title card_us"><strong>Company Login</strong></h3>
                                 <Form>

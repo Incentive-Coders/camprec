@@ -18,18 +18,22 @@ const About =() => {
                                 <Form>
                                     <FormItem>
                                     <div className="form-group margin-t">
-                                        <Input type="text" className="form-control boderwidth" placeholder="ENTER YOUR NAME" />
+                                        <Input type="TEXT" className="form-control" placeholder="ENTER YOUR NAME" required />
                                     </div>
                                     </FormItem>
                                     <FormItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control boderwidth" placeholder="ENTER YOUR EMAIL-ID"/>
+                                        <Input type="TEXT" className="form-control" placeholder="ENTER YOUR EMAIL-ID" required/>
                                     </div>
+                                    </FormItem>
+                                        <FormItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control boderwidth" placeholder="SUBJECT"/>
+                                        <Input type="TEXT" className="form-control" placeholder="SUBJECT" required/>
                                     </div>
+                                    </FormItem>
+                                    <FormItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control size boderwidth" placeholder="MESSAGE "/>
+                                        <Input type="TEXT" className="size form-control" placeholder="MESSAGE " required/>
                                     </div>
                                     </FormItem>
                                     <Input type= "submit" className="btn margin-t" value="Submit"/>
