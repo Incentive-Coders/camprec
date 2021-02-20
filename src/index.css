@@ -143,9 +143,18 @@ body {
   margin-top:10px;
   margin-left:100px;
 }
+.topmargin{
+  margin-top: -100px;
+}
 .aboutimg{
   height: 400px;
 }
 .width{
   width:1507px;
+}
+.size{
+  height:150px;
+}
+.boderwidth{
+  border-width: 0px;
 }
