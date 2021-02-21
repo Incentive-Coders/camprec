@@ -4,12 +4,13 @@ import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
 
-const Navbar_home = () => {
+const Navbar = () => {
     return (
         <>
         <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
+
                   <nav class="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
     <NavLink  className="navbar-brand" to = "/">
@@ -23,7 +24,7 @@ const Navbar_home = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/"
+          to = "/companyhome"
           >
             Home
           
@@ -33,11 +34,17 @@ const Navbar_home = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/about"
+          to = "/companyjobs"
           >
             Jobs
           
           </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/logout">Logout</NavLink>
         </li>
       </ul>
     </div>
@@ -50,4 +57,4 @@ const Navbar_home = () => {
     );
 };
 
-export default Navbar_home;
+export default Navbar;
