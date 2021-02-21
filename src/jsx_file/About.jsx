@@ -3,10 +3,12 @@ import web from "../images/about.png";
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
+import Navbar from "./Navbar";
 
 const About =() => {
     return (
         <>
+        <Navbar/>
         <section className="image width">
             <div className = "contianer-fluid ">
                 <div className = "row ">

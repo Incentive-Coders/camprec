@@ -5,9 +5,11 @@ import"../css/home.css";
 import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
-const About =() => {
+import Navbar from "./Navbar";
+const Contact =() => {
     return (
         <>
+        <Navbar/>
         <section className="image width">
             <div className = "contianer">
                 <div className = "row ">
@@ -52,4 +54,4 @@ const About =() => {
     );
 };
 
-export default About;
+export default Contact;

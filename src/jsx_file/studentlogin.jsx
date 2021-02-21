@@ -4,11 +4,13 @@ import "../index.css";
 import"../css/home.css";
 import web5 from "../images/student_login.png";
 import "../css/login.css";
+import Navbar from "./Navbar";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 const Studentlogin =() => {
     return (
         <>
+        <Navbar/>
         <div className="pop image width height">
             <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
             <div className = "col-md-4 col-10 left_margin">

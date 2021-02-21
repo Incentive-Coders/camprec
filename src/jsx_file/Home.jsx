@@ -6,6 +6,7 @@ import web3 from "../images/admin.jpg";
 import web4 from "../images/Capture-removebg-preview.png";
 import {Link, NavLink} from 'react-router-dom';
 import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Navbar";
 import "../index.css";
 import"../css/home.css";
 import"./App"

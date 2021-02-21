@@ -1,14 +1,17 @@
 import React from 'react';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
 import web5 from "../images/company_login.png";
 import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
+import Navbar from "./Navbar";
+
 const CompanyLogin =() => {
     return (
         <>
+        <Navbar/>
         <div className="pop image width height">
             <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
             <div className = "col-md-4 col-10 left_margin ">
@@ -25,8 +28,8 @@ const CompanyLogin =() => {
                                     <div className="form-group margin-t">
                                         <Input type="password" className="form-control" placeholder="password" required/>
                                     </div>
-                                    </FormItem>
-                                    <Input type= "submit" className="btn margin-t" value="Login"  onClick={<companyhome/>}/>
+                                    </FormItem> 
+                                    <Input type= "submit" className="btn margin-t" value="Login"/>
                                 </Form>
                     </div>
                 </div>
@@ -35,5 +38,4 @@ const CompanyLogin =() => {
         </>
     );
 };
-
 export default CompanyLogin;
