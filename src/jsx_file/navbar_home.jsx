@@ -7,9 +7,10 @@ import web from "../images/Capture-removebg-preview.png";
 const Navbar_home = () => {
     return (
         <>
-        <div className = "container-fluid nav_bg">
+       <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
+
                   <nav class="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
     <NavLink  className="navbar-brand" to = "/">
@@ -35,9 +36,15 @@ const Navbar_home = () => {
           className="nav-link" 
           to = "/about"
           >
-            Jobs
+            About
           
           </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/contact">Contact</NavLink>
         </li>
       </ul>
     </div>
