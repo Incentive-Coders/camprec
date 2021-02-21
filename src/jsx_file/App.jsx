@@ -6,7 +6,9 @@ import Home from "./Home"
 import About from "./About"
 import Contact from "./Contact"
 import Companyhome from './companyhome';
+import Studenthome from './studenthome';
 import AdminLogin from './adminlogin';
+import Adminhome from './adminhome';
 import Studentlogin from './studentlogin';
 import CompanyLogin from './companylogin';
 const App =() => {
@@ -17,6 +19,8 @@ const App =() => {
         <Route exact path = "/about" component = {About} />
         <Route exact path = "/contact" component = {Contact} />
         <Route exact path = "/companyhome" component = {Companyhome} />
+        <Route exact path = "/studenthome" component = {Studenthome} />
+        <Route exact path = "/adminhome" component = {Adminhome} />
         <Route exact path="/adminlogin" component={AdminLogin}/>
         <Route exact path="/studentlogin" component={Studentlogin}/>
         <Route exact path="/companylogin" component={CompanyLogin}/>

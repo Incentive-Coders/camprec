@@ -3,12 +3,12 @@ import web from "../images/about.png";
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import Navbar_company from './navbar_company';
+import Navbar_student from './navbar_student';
 import {Form, Input} from 'antd';
-const Companyhome =() => {
+const Studenthome =() => {
     return (
         <>
-        <Navbar_company />
+        <Navbar_student />
         <section className="">
     
           
@@ -17,4 +17,4 @@ const Companyhome =() => {
     );
 };
 
-export default Companyhome;
+export default Studenthome;

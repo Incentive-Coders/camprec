@@ -7,7 +7,7 @@ import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
-
+import { NavLink } from 'react-router-dom';
 const AdminLogin =() => {
     return (
         <>
@@ -29,7 +29,9 @@ const AdminLogin =() => {
                                         <Input type="password" className="form-control" placeholder="password" required/>
                                     </div>
                                     </FormItem>
+                                    <NavLink to='/adminhome'>
                                     <Input type= "submit" className="btn margin-t" value="Login"/>
+                                    </NavLink>
                                 </Form>
                     </div>
                 </div>
