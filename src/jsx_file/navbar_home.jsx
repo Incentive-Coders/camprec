@@ -36,7 +36,7 @@ const Navbar = () => {
           className="nav-link" 
           to = "/companyjobs"
           >
-            About
+            jobs
           
           </NavLink>
         </li>
@@ -44,12 +44,8 @@ const Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-<<<<<<< HEAD
-          to = "/contact">Contact</NavLink>
-=======
           to = "/logout">Logout</NavLink>
->>>>>>> a074ec9fd335eff297be5a5212dae60d14f6ee67
-        </li>
+          </li>
       </ul>
     </div>
   </div>
