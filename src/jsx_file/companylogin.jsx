@@ -1,5 +1,5 @@
 import React from 'react';
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
 import web5 from "../images/company_login.png";
@@ -7,6 +7,7 @@ import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
+import { NavLink } from 'react-router-dom';
 
 const CompanyLogin =() => {
     return (
@@ -29,7 +30,9 @@ const CompanyLogin =() => {
                                         <Input type="password" className="form-control" placeholder="password" required/>
                                     </div>
                                     </FormItem> 
+                                    <NavLink to='/companyhome'>
                                     <Input type= "submit" className="btn margin-t" value="Login"/>
+                                    </NavLink>
                                 </Form>
                     </div>
                 </div>
