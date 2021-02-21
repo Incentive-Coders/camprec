@@ -6,8 +6,7 @@ import web5 from "../images/company_login.png";
 import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
-import companyhome from "./companyhome"
-const companyLogin =() => {
+const CompanyLogin =() => {
     return (
         <>
         <div className="pop image width height">
@@ -37,4 +36,4 @@ const companyLogin =() => {
     );
 };
 
-export default companyLogin;
+export default CompanyLogin;

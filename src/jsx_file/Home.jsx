@@ -12,6 +12,7 @@ import"./App"
 const Home =() => {
     return (
       <>
+      <Navbar/>
         <section id = "header" className = "bg d-flex align-items-center">
             <div className = "contianer-fluid ">
                 <div className = "row ">

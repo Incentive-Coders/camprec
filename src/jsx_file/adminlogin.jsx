@@ -7,7 +7,7 @@ import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 
-const adminLogin =() => {
+const AdminLogin =() => {
     return (
         <>
         <div className="pop width height image">
@@ -37,4 +37,4 @@ const adminLogin =() => {
     );
 };
 
-export default adminLogin;
+export default AdminLogin;
