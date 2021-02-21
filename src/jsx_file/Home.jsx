@@ -4,6 +4,7 @@ import web1 from "../images/student-removebg.png"
 import web2 from "../images/company.jpg";
 import web3 from "../images/admin.jpg";
 import web4 from "../images/Capture-removebg-preview.png";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import {Link, NavLink} from 'react-router-dom';
 import Navbar from "./Navbar";
 import "../index.css";
@@ -88,26 +89,26 @@ const Home =() => {
             </div>
         </div>
         </section>
-        <footer className='pop color padding-b backg'>
+        <footer className='pop bg margin-t-l'>
         <div className='join_us pader'>
                 <h2 className='tab-center align-item-center card-title card_us color'><strong>Student</strong></h2>
                 <CountUp 
-                    end={30000}
-                    duration={8}
+                    end={35000}
+                    duration={15}
                 />
             </div>
             <div className='join_us pader'>
                 <h2 className='tab-center align-item-center card-title  color'><strong>Companies</strong></h2>
                 <CountUp 
-                    end={300}
-                    duration={8}
+                    end={500}
+                    duration={15}
                 />
             </div>
             <div className='join_us pader'>
                 <h2 className='tab-center align-item-center card-title card_us color'><strong>Colleges</strong></h2>
                 <CountUp 
-                    end={100}
-                    duration={8}
+                    end={150}
+                    duration={15}
                 />
             </div>
             
