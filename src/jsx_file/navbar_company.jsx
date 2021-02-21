@@ -14,7 +14,7 @@ const company_Navbar = () => {
                   <nav class="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
     <NavLink  className="navbar-brand" to = "/">
-    <img src={web} className = "image-fluid  logo" alt = "home image"/>
+    <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,6 +37,16 @@ const company_Navbar = () => {
           to = "/companyjobs"
           >
             jobs
+          
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/companycolleges"
+          >
+            Colleges
           
           </NavLink>
         </li>

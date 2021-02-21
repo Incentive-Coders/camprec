@@ -6,3 +6,18 @@
 .padding{
     padding-right: 40ex;
 }
+.padl{
+    padding-right: 45ex;
+}
+.pader{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.padding-b{
+    margin-top: 5ex;
+    margin-bottom: 5ex;
+}
+.backg{
+    background-color: #0d0a3d !important;
+}

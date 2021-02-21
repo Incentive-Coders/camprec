@@ -21,7 +21,15 @@
   font-size: 1.9rem !important;
   color: #565387  !important;
 }
-
+.color{
+  color: #565387
+}
+.colors{
+  color: #ededf1
+}
+.back{
+  background-color: black;
+}
 .navbar a{
   font-size: 1.3rem;
   text-transform: capitalize;
@@ -162,4 +170,7 @@ body {
 }
 .pad{
   padding-right: 60px;
+}
+.center{
+  align-content: center;
 }
