@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import "../index.css";
 import"../css/home.css";
 import"./App"
+import reactimportCountUp from 'react-countup';
 const Home =() => {
     return (
       <>
@@ -74,7 +75,7 @@ const Home =() => {
                         <div class="card card_border">
                             <div class="card-body card_us">
                             <img src={web3} className = "company card_us" alt = "home img"/>
-                                <h5 class="card-title card_us"><strong>For Admin</strong></h5>
+                                <h5 class="card-title card_us"><strong>For College Admin</strong></h5>
                                 <p class="card-text">We are here to manage and interlink between companies and students as a invisible string.Keep Calm and Focused.</p>
                                 <NavLink className="btn" to = "/adminlogin">
                                         Login
@@ -86,6 +87,30 @@ const Home =() => {
             </div>
         </div>
         </section>
+        <footer className='pop color padding-b backg'>
+        <div className='join_us pader'>
+                <h2 className='tab-center align-item-center card-title card_us color'><strong>Student</strong></h2>
+                <CountUp 
+                    end={30000}
+                    duration={8}
+                />
+            </div>
+            <div className='join_us pader'>
+                <h2 className='tab-center align-item-center card-title  color'><strong>Companies</strong></h2>
+                <CountUp 
+                    end={300}
+                    duration={8}
+                />
+            </div>
+            <div className='join_us pader'>
+                <h2 className='tab-center align-item-center card-title card_us color'><strong>Colleges</strong></h2>
+                <CountUp 
+                    end={100}
+                    duration={8}
+                />
+            </div>
+            
+        </footer>
         </>
     );
 };
