@@ -4,7 +4,7 @@ import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
 
-const Navbar_home = () => {
+const Navbar = () => {
     return (
         <>
        <div className = "container-fluid nav_bg">
@@ -24,7 +24,7 @@ const Navbar_home = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/"
+          to = "/companyhome"
           >
             Home
           
@@ -34,7 +34,7 @@ const Navbar_home = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/about"
+          to = "/companyjobs"
           >
             About
           
@@ -44,7 +44,11 @@ const Navbar_home = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
+<<<<<<< HEAD
           to = "/contact">Contact</NavLink>
+=======
+          to = "/logout">Logout</NavLink>
+>>>>>>> a074ec9fd335eff297be5a5212dae60d14f6ee67
         </li>
       </ul>
     </div>
@@ -57,4 +61,4 @@ const Navbar_home = () => {
     );
 };
 
-export default Navbar_home;
+export default Navbar;
