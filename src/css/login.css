@@ -19,7 +19,7 @@
 
 
 /* Buttons */
-.loginbtn {
+/*.loginbtn {
     background-color: #565387;
     padding: 0.5em 1.5em;
     font-size: 1.1em;
@@ -34,7 +34,7 @@
   .loginbtn:hover {
     transform: translateY((-5px));
     box-shadow: 0 5px 5px #00000040;
-  }
+  }*/
 /* Margins g(global) - l(left) - r(right) - t(top) - b(bottom) */
 
 .margin-g {
@@ -77,10 +77,7 @@
 }
 
 .margin-t {
-    margin-top: 20px;
-}
-.margin-t-l{
-    margin-top: -50px
+    margin-top: 10px;
 }
 .margin-t-sm {
     margin-top: 10px;
@@ -118,7 +115,10 @@
     display: block;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
+    width:100%;
+}
+.length{
+    width:100%;
 }
 .form-control:focus,
 .border-line:focus {
@@ -134,7 +134,7 @@
 
 /* Container */
 
-.container-content {
+/*.container-content {
     background-color: #6e6ba3;
     color: inherit;
     padding: 15px 20px 20px 20px;
@@ -144,10 +144,10 @@
     border-style: solid solid none;
     border-width: 1px 0;
 }
-
+*/
 /* Logins*/
 
-.login-container {
+/*.login-container {
     max-width: 400px;
     z-index: 100;
     margin: 0 auto;
@@ -161,11 +161,11 @@
 }
 .wrapper.login-container {
     margin-top: 140px;
-}
+}*/
 .size_img{
     size: cover;
-    height: 500px;
-    width: 700px;
+    height:100%;
+    width: 100%;
 }
 .left_margin{
     margin-left: 200px;
