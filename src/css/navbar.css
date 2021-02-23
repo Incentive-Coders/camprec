@@ -1,40 +1,22 @@
 .logo{
     height: 90pt;
-/*    padding-right: 50ex;*/
-/*    margin-left: 10px; */ 
-margin-left:auto;
+    padding-right: 50ex;
+    margin-left: -9%;  
 }
-.mg{
-  margin-right:auto;
+.padding{
+    padding-right: 40ex;
 }
-.navbar {
-  background-color: transparent;
+.padl{
+    padding-right: 45ex;
 }
-.navbar-brand{
-  font-size: 1.9rem !important;
-  color: #565387  !important;
-}
+.pader{
+    margin-left: 280px;
 
-.navbar a{
-  font-size: 1.3rem;
-  text-transform: capitalize;
 }
-
-.menu_active{
-  font-weight: bold;
-  border-bottom: 1px solid#565387;
+.padding-b{
+    margin-top: 5ex;
+    margin-bottom: 5ex;
 }
-
-.navbar a:hover {
-    color: #3498db  !important; 
+.backg{
+    background-color: #0d0a3d !important;
 }
-@media (max-width: 991px) {
-  .navbar-brand {
-    font-size: 1.5rem  !important;
-  }
-  .menu_active{
-    font-weight: bold;
-    border-bottom: none;
-  }
-}
-/*responsive*/

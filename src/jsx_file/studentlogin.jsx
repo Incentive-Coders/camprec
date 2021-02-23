@@ -4,15 +4,17 @@ import "../index.css";
 import"../css/home.css";
 import web5 from "../images/student_login.png";
 import "../css/login.css";
+import Navbar from "./Navbar";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
-const studentlogin =() => {
+import { NavLink } from 'react-router-dom';
+const Studentlogin =() => {
     return (
-        <div className=" bg  grid-wrapper">
-            <div className="item2">
-            <img src={web5} className = "image-fluid animated size_img " alt = "login img"/>
-            </div>
-            <div className = "item11">
+        <>
+        <Navbar/>
+        <div className="pop image width height">
+            <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
+            <div className = "col-md-4 col-10 left_margin">
                         <div className="margin-t-lg">
                             <div className="card-body card_us">
                              <h3 className="card-title card_us"><strong>Student Login</strong></h3>
@@ -27,13 +29,16 @@ const studentlogin =() => {
                                         <Input type="password" className="form-control" placeholder="password" required/>
                                     </div>
                                     </FormItem>
+                                    <NavLink to='/studenthome'>
                                     <Input type= "submit" className="btn margin-t" value="Login"/>
+                                    </NavLink>
                                 </Form>
-                            </div>
-                        </div>
+                    </div>
+                </div>
             </div>
         </div> 
+        </>
     );
 };
 
-export default studentlogin;
+export default Studentlogin;
