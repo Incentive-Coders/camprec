@@ -1,6 +1,9 @@
 import React from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+=======
+>>>>>>> parent of 8bac25a (added bootstrap)
 =======
 >>>>>>> parent of 8bac25a (added bootstrap)
 import web from "../images/contactus.png";
