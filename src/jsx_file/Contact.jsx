@@ -1,5 +1,4 @@
 import React from 'react';
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import web from "../images/contactus.png";
 import "../index.css";
 import"../css/home.css";
