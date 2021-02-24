@@ -1,6 +1,6 @@
 import React from 'react';
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "E:/camprec2/node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
 import About from "./About"
@@ -11,6 +11,7 @@ import AdminLogin from './adminlogin';
 import Adminhome from './adminhome';
 import Studentlogin from './studentlogin';
 import CompanyLogin from './companylogin';
+import Companyjobs from './companyjobs';
 const App =() => {
     return (
         <>
@@ -24,6 +25,7 @@ const App =() => {
         <Route exact path="/adminlogin" component={AdminLogin}/>
         <Route exact path="/studentlogin" component={Studentlogin}/>
         <Route exact path="/companylogin" component={CompanyLogin}/>
+        <Route exact path="/companyjobs" component={Companyjobs}/>
         <Redirect to = "/" />
         </Switch>
         </>

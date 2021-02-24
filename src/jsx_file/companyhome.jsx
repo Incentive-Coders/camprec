@@ -10,8 +10,7 @@ const Companyhome =() => {
         <>
         <Navbar_company />
         <section className="">
-    
-          
+            
         </section>
         </>
     );
