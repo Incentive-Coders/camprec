@@ -34,7 +34,7 @@ const Student_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/stundentjobs"
+          to = "/studentjobs"
           >
             jobs
           </NavLink>

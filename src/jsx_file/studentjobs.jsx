@@ -2,7 +2,7 @@ import React from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import Navbar_company from './navbar_company';
+import Navbar_student from './navbar_student';
 function Cards(props) {
     return (
                 <>
@@ -11,8 +11,7 @@ function Cards(props) {
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="#" className="btn btn-primary text_size margin_left">Show Aplicants</a>
-                            <a href="#" className="btn btn-primary  text_size margin_left">Edit</a>
+                            <a href="#" className="btn btn-primary margin-left text_size">Show Intrest</a>
                             </div>
                             
                         </div>
@@ -20,10 +19,10 @@ function Cards(props) {
                     </>
     )
                     }
-const Companyjobs =() => {
+const Studentjobs =() => {
     return (
         <>
-        <Navbar_company />
+        <Navbar_student />
         <section className="image width">
                     <div className = "get_started">
                             <h2 className='text_center margintop'>
@@ -42,4 +41,4 @@ const Companyjobs =() => {
     );
 };
 
-export default Companyjobs ;
+export default Studentjobs ;

@@ -12,6 +12,8 @@ import Adminhome from './adminhome';
 import Studentlogin from './studentlogin';
 import CompanyLogin from './companylogin';
 import Companyjobs from './companyjobs';
+import Adminjobs from './adminjobs';
+import Studentjobs from './studentjobs';
 const App =() => {
     return (
         <>
@@ -26,6 +28,8 @@ const App =() => {
         <Route exact path="/studentlogin" component={Studentlogin}/>
         <Route exact path="/companylogin" component={CompanyLogin}/>
         <Route exact path="/companyjobs" component={Companyjobs}/>
+        <Route exact path="/adminjobs" component={Adminjobs}/>
+        <Route exact path="/studentjobs" component={Studentjobs}/>
         <Redirect to = "/" />
         </Switch>
         </>

@@ -34,7 +34,7 @@ const company_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/adminjobs"
+          to = "/admincompanies"
           >
             Companies
           
