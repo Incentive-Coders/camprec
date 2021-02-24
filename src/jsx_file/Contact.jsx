@@ -4,7 +4,7 @@ import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
 const Contact =() => {
