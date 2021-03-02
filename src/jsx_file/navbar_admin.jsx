@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
 const company_Navbar = () => {
     return (
         <>
@@ -14,7 +14,7 @@ const company_Navbar = () => {
                   <nav class="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
     <NavLink  className="navbar-brand" to = "/">
-    <img src={web} className = "image-fluid  logo padding" alt = "home image"/>
+    <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -47,16 +47,6 @@ const company_Navbar = () => {
           to = "/adminjobs"
           >
             Jobs
-          
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-          activeClassName = "menu_active" 
-          className="nav-link" 
-          to = "/adminstudent"
-          >
-            Student
           
           </NavLink>
         </li>

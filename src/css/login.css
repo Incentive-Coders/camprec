@@ -170,3 +170,11 @@
 .left_margin{
     margin-left: 200px;
 }
+.left_m{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+.text_s{
+    font-size: 1.1em;
+}

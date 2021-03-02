@@ -211,3 +211,11 @@ body {
   margin-top: 1em;
   margin-left: 70px;
 }
+.card_h{
+  width: 20rem;  
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 2em;
+  height: 22em;
+  border-color: #565387;
+}

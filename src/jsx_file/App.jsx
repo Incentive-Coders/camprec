@@ -1,6 +1,6 @@
 import React from 'react';
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "E:/camprec2/node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
 import About from "./About"
@@ -14,6 +14,9 @@ import CompanyLogin from './companylogin';
 import Companyjobs from './companyjobs';
 import Adminjobs from './adminjobs';
 import Studentjobs from './studentjobs';
+import Companycolleges from './companycolleges';
+import Admincompanies from './admincompanies';
+import Studentcourses from './studentcourses';
 const App =() => {
     return (
         <>
@@ -30,6 +33,9 @@ const App =() => {
         <Route exact path="/companyjobs" component={Companyjobs}/>
         <Route exact path="/adminjobs" component={Adminjobs}/>
         <Route exact path="/studentjobs" component={Studentjobs}/>
+        <Route exact path="/companycolleges" component={Companycolleges}/>
+        <Route exact path = "/admincompanies" component = {Admincompanies} />
+        <Route exact path="/studentcourses" component={Studentcourses}/>
         <Redirect to = "/" />
         </Switch>
         </>
