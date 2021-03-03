@@ -5,7 +5,8 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_student from './navbar_student';
 import {Form, Input} from 'antd';
-function Carousel() {
+import Carousel from "react-bootstrap/Carousel";
+function Carousl() {
     return (
 <Carousel>
   <Carousel.Item interval={1000}>
@@ -72,7 +73,7 @@ const Studenthome =() => {
         <Navbar_student />
         <section className="pop image width">
         <div>
-            <Carousel/>
+            <Carousl/>
         </div>   
         <div>
             <Cards name="Afeef Hasan" work="alkssjfddddddjafnghdafnjvgnrtigtuihgiunvijnriven" certification ="I have gain certificate of data structure and algorithm from coursera" education="currently studying in indian institute of information technology dharwad" image="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"/>
