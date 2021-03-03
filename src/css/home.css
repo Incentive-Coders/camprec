@@ -46,3 +46,16 @@
     height: 65% !important;
     width: 100% !important;
 }
+.profile_img{
+    height: 250px !important;
+    width: 250px !important;
+    margin-left:165px;
+}
+.profile_width{
+    width: 600px !important;
+
+}
+.margin-top{
+    margin: 1.5em;
+    
+}
