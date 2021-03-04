@@ -47,15 +47,36 @@
     width: 100% !important;
 }
 .profile_img{
-    height: 250px !important;
-    width: 250px !important;
+    height: 200px !important;
+    width: 200px !important;
     margin-left:165px;
+    border-radius: 200px;
 }
 .profile_width{
-    width: 600px !important;
+    text-justify: auto;
 
 }
 .margin-top{
     margin: 1.5em;
     
+}
+.card2{
+    width:100%;
+    margin-left: 3em;
+}
+.fsize{
+    font-size: 1.5rem;
+}
+.fsize2{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.cb{
+    margin-top: 100px;
+}
+.marginb{
+    margin-bottom: 100px;
+}
+.details{
+    margin-left: -150px;
 }
