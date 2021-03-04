@@ -67,16 +67,20 @@
 .fsize{
     font-size: 1.5rem;
 }
+
 .fsize2{
     font-size: 2rem;
     font-weight: bold;
 }
 .cb{
     margin-top: 100px;
+    
 }
-.marginb{
+.cb2{
+    margin-left: 300px;
     margin-bottom: 100px;
 }
+
 .details{
     margin-left: -150px;
 }
