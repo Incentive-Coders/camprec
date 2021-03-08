@@ -1,5 +1,5 @@
 import {React} from 'react';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
 import web5 from "../images/student_login.png";
@@ -12,6 +12,7 @@ import { render } from '@testing-library/react';
 function login_link (){
     // POST request using fetch with error handling
     const requestOptions = {
+        mode : "no-cors",
         method: 'POST',
         headers: { 'Accept':'*/*','Content-Type': 'application/json' },
         body: JSON.stringify(
