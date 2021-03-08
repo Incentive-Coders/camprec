@@ -14,7 +14,7 @@ function login_link (){
     const requestOptions = {
         mode : "no-cors",
         method: 'POST',
-        headers: { 'Accept':'*/*','Content-Type': 'application/json' },
+        headers: { 'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'},
         body: JSON.stringify(
                                 { 
                                 email: document.getElementById('email'),
