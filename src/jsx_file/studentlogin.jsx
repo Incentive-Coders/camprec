@@ -7,10 +7,10 @@ import "../css/login.css";
 import Navbar from "./Navbar";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
-import { NavLink } from 'react-router-dom';
-import { render } from '@testing-library/react';
 import axios from 'axios';
-class App extends Component {
+import { Redirect } from "react-router";
+import { render } from '@testing-library/react';
+class Studentlogin extends Component {
 
     constructor(props){
     super(props);
@@ -34,6 +34,8 @@ class App extends Component {
         this.setState({password : event.target.value})
     }
 
+    
+
     login_link (){
         console.log(this.state.email);
         console.log(this.state.password);
@@ -45,25 +47,19 @@ class App extends Component {
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/student/login',body,{header})
-            .then(async response => {
-                const data = await response.json();
-                console.log(data);
-                console.log(response.status);
+            .then(function(response) {
+                const data = response.data;
                 // check for error response
                 if (response.status != 200) {
                     // get error message from body or default to response status
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                this.setState({ postId: data.id })
-                render(
-                    <NavLink to="/studenthome"/>
-                )    
-            })
-            .catch(error => {
+                return <Redirect to="/studenthome" />;
+        })
+           /* .catch(error => {
                 console.error('There was an error!');
-            });
-
+            });*/
             
     };
     
@@ -99,4 +95,4 @@ class App extends Component {
     }
 } 
 
-export default App;
+export default Studentlogin;

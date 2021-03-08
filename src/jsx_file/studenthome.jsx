@@ -30,7 +30,7 @@ function Cards(props) {
 const Studenthome =() => {
     return (
         <>
-        <Navbar_student />
+        <Navbar_student/>
         <section className="pop image width"> 
         <div>
             <Cards name="Afeef Hasan" work="alkssjfddddddjafnghdafnjvgnrtigtuihgiunvijnriven" certification ="I have gain certificate of data structure and algorithm from coursera" education="currently studying in indian institute of information technology dharwad" image="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"/>
