@@ -1,5 +1,5 @@
 import {React, Component} from 'react';
-import "C:\\Users\\yasharth dubey\\Documents\\WebProjects\\camprec2\\node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
 import web5 from "../images/student_login.png";
@@ -8,8 +8,8 @@ import Navbar from "./Navbar";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 import axios from 'axios';
-import { Redirect } from "react-router";
-import { render } from '@testing-library/react';
+import Popup from 'react-popup';
+
 class Studentlogin extends Component {
 
     constructor(props){
@@ -55,11 +55,16 @@ class Studentlogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                return <Redirect to="/studenthome" />;
+                window.location.replace('/studenthome');
+                 
         })
-           /* .catch(error => {
+         .catch(error => {
                 console.error('There was an error!');
-            });*/
+                if(this.state.email  && this.state.password){
+                    window.alert("Incorect Id and Password");
+                }
+                
+            });
             
     };
     
@@ -76,7 +81,7 @@ class Studentlogin extends Component {
                                     <Form >
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="text" id= 'email' className="form-control" onChange={this.updateInput} placeholder="Username" required/>
+                                            <Input type="text" id= 'email' className="form-control"  onChange={this.updateInput} placeholder="Username" required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
