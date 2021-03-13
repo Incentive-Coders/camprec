@@ -8,7 +8,6 @@ import Navbar from "./Navbar";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 import axios from 'axios';
-import Popup from 'react-popup';
 
 class Studentlogin extends Component {
 
