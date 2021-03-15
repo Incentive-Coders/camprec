@@ -45,7 +45,7 @@ class Adminlogin extends Component {
                 "password" : this.state.password  
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-        axios.post('https://camprec.herokuapp.com/api/company/login',body,{header})
+        axios.post('https://camprec.herokuapp.com/api/college/login',body,{header})
             .then(function(response) {
                 const data = response.data;
                 // check for error response

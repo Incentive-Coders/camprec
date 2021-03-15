@@ -3,11 +3,24 @@ import web from "../images/contactus.png";
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import FormItem from 'antd/lib/form/FormItem';
 import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
-import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
+import emailjs from 'emailjs-com';
 const Contact =() => {
+    function sendEmail(e) {
+        e.preventDefault();   
+        emailjs.sendForm('default_service', 'camprectemplate', e.target,'user_yvU8BsXFsDcsmwHoVWiWs')
+          .then((result) => {
+              console.log(result.text);
+              window.alert('Sent')
+          }, (error) => {
+              console.log(error.text);
+              window.alert(error.text)
+          });
+        e.target.reset();
+        
+      }
+    
     return (
         <>
         <Navbar/>
@@ -18,29 +31,29 @@ const Contact =() => {
                         <div className = "col-md-4 pt-5 pt-lg-0 order-2 order-lg-1 get_started ">
                         <div className="card-body card_us topmargin">
                              <h3 className="card-title card_us"><strong>Contact Us</strong></h3>
-                                <Form>
-                                    <FormItem>
+                                <form className="contact-form" onSubmit={sendEmail} >
+                                    <formItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control" placeholder="ENTER YOUR NAME" required />
+                                        <input type="TEXT" className="form-control" placeholder="ENTER YOUR NAME" name="name"required />
                                     </div>
-                                    </FormItem>
-                                    <FormItem>
+                                    </formItem>
+                                    <formItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control" placeholder="ENTER YOUR EMAIL-ID" required/>
+                                        <input type="TEXT" className="form-control" placeholder="ENTER YOUR EMAIL-ID" name="email" required/>
                                     </div>
-                                    </FormItem>
-                                        <FormItem>
+                                    </formItem>
+                                        <formItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="form-control" placeholder="SUBJECT" required/>
+                                        <input type="TEXT" className="form-control" placeholder="SUBJECT" name="subject" required/>
                                     </div>
-                                    </FormItem>
-                                    <FormItem>
+                                    </formItem>
+                                    <formItem>
                                     <div className="form-group margin-t">
-                                        <Input type="TEXT" className="size form-control" placeholder="MESSAGE " required/>
+                                        <input type="TEXT" className="size form-control" placeholder="MESSAGE " name="message" required/>
                                     </div>
-                                    </FormItem>
-                                    <Input type= "submit" className="btn margin-t" value="Submit"/>
-                                </Form>
+                                    </formItem>
+                                    <input type= "submit" className="btn margin-t"  id='button'  value="Submit"/>
+                                </form>
                     </div>
                            
                         </div>
