@@ -4,7 +4,5 @@ node_js:
 
 script: 
   - npm run-script build 
-  - npm install -g serve 
-  - serve -s build
 services:
     - mongodb
