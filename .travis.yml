@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - 12
 
-script: npm run-script build
+script: 
+  - npm run-script build 
+  - npm install -g serve 
+  - serve -s build
 services:
     - mongodb
