@@ -1,5 +1,5 @@
 import {React, Component} from 'react';
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
 import web5 from "../images/company_login.png";

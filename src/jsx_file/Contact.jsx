@@ -3,7 +3,7 @@ import web from "../images/contactus.png";
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import "E:/camprec2/node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navbar";
 import emailjs from 'emailjs-com';
 const Contact =() => {
