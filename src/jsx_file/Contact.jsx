@@ -42,7 +42,12 @@ const Contact =() => {
                                         <input type="TEXT" className="form-control" placeholder="ENTER YOUR EMAIL-ID" name="email" required/>
                                     </div>
                                     </formItem>
-                                        <formItem>
+                                    <formItem>
+                                    <div className="form-group margin-t">
+                                        <input type="TEXT" className="form-control" placeholder="Contact no." name="contact" required/>
+                                    </div>
+                                    </formItem>
+                                    <formItem>
                                     <div className="form-group margin-t">
                                         <input type="TEXT" className="form-control" placeholder="SUBJECT" name="subject" required/>
                                     </div>
