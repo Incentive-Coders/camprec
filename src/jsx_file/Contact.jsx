@@ -18,7 +18,6 @@ const Contact =() => {
               window.alert(error.text)
           });
         e.target.reset();
-        
       }
     
     return (
