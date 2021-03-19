@@ -93,3 +93,18 @@
 .marginb{
     margin-bottom: 4em;
 }
+.addheight{
+    height: 200px;
+    width:300px;
+}
+.card3{
+    width:100%;
+}
+.addjb{
+    width:60%;
+    text-align: center;
+    margin: auto;
+}
+.margin-top{
+    margin-top: 50px;
+}

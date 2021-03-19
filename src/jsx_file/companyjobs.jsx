@@ -2,7 +2,9 @@ import React from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
+import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
+import web from "../images/add.png";
 function Cards(props) {
     return (
                 <>
@@ -36,6 +38,11 @@ const Companyjobs =() => {
                         <Cards title="Jobs" content="Some quick example text to build on the job title and make up the bulk of the job's content."/>
                         <Cards title="Jobs" content="Some quick example text to build on the job title and make up the bulk of the job's content."/>
                         <Cards title="Jobs" content="Some quick example text to build on the job title and make up the bulk of the job's content."/>
+                        <div className="card3 widths" >
+                        <div className="card-body">
+                            <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
+                        </div>
+                    </div>
                     </div>
         </section>
         </>
