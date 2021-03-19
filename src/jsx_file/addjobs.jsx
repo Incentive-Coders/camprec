@@ -4,7 +4,9 @@ import"../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar_company from './navbar_company';
+import {Form, Input} from 'antd';
 import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 class addjobs extends Component {
 
     constructor(props){
@@ -12,12 +14,12 @@ class addjobs extends Component {
     
     this.state = {
         job_title : '',
-        job_location: '',
+        location: '',
         job_description:'',
     }
     
     this.updateInput = this.updateInput.bind(this);
-    this.updatejob_location = this.updatejob_location.bind(this);
+    this.updatelocation = this.updatelocation.bind(this);
     this.updatejob_description = this.updatejob_description.bind(this);
     this.add_job = this.add_job.bind(this);
     }
@@ -27,8 +29,8 @@ class addjobs extends Component {
     this.setState({job_title : event.target.value})
     }
 
-    updatejob_location(event){
-        this.setState({job_location : event.target.value})
+    updatelocation(event){
+        this.setState({location : event.target.value})
     }
     updatejob_description(event){
         this.setState({job_description : event.target.value})
@@ -37,20 +39,19 @@ class addjobs extends Component {
 
     add_job (){
         console.log(this.state.job_title);
-        console.log(this.state.job_location);
+        console.log(this.state.location);
         console.log(this.state.job_description);
         // POST request using fetch with error handling
         const body =  
             { 
                 "job_title" : this.state.job_title,
-                "location" : this.state.job_location,  
+                "location" : this.state.location,  
                 "job_description" : this.state.job_description,  
-                "student":[],
-                "college":[],
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/create',body,{header})
             .then(function(response) {
+                console.log("*");
                 const data = response.data;
                 // check for error response
                 if (response.status != 200) {
@@ -78,24 +79,24 @@ class addjobs extends Component {
             <Navbar_company/>
             <section className="image width height">
                                  <h3 className="card-title card_us"><strong>Add New job</strong></h3>
-                                    <form className="addjb margin-top" >
-                                        <formItem >
+                                    <Form className="addjb margin-top" >
+                                        <FormItem >
                                         <div className="form-group margin-t">
-                                            <input type="TEXT" className="form-control" placeholder="Job title" onChange={this.updateInput} required />
+                                            <Input type="TEXT" className="form-control" placeholder="Job title" onChange={this.updateInput} required />
                                         </div>
-                                        </formItem>
-                                        <formItem>
+                                        </FormItem>
+                                        <FormItem>
                                         <div className="form-group margin-t">
-                                            <input type="TEXT" className="form-control" placeholder="Job location" onChange={this.updatejob_location} />
+                                            <Input type="TEXT" className="form-control" placeholder="Job location" onChange={this.updatelocation} />
                                         </div>
-                                        </formItem>
-                                        <formItem>
+                                        </FormItem>
+                                        <FormItem>
                                         <div className="form-group margin-t">
-                                            <input type="TEXT" className="form-control size" placeholder="Job Description"  onChange={this.updatejob_description} required/>
+                                            <Input type="TEXT" className="form-control size" placeholder="Job Description"  onChange={this.updatejob_description} required/>
                                         </div>
-                                        </formItem>
+                                        </FormItem>
                                         <input type= "submit" className="btn margin-top margin-b" onClick={this.add_job} id='button'  value="Submit"/>
-                                    </form>
+                                    </Form>
             </section>
             </>
         );
