@@ -39,7 +39,7 @@ const Studentcourses =() => {
                     </div>
                     <div>
                         <div className="card-body">
-                            <strong><h4 className="card-title  centers color">To Get all courses apply For premium <NavLink to="#" className="color">Get Here</NavLink></h4></strong>   
+                            <strong><h4 className="card-title  centers color">To Get all courses apply For premium <NavLink to="/premium" className="color">Get Here</NavLink></h4></strong>   
                         </div>
                     </div>
 
