@@ -85,7 +85,7 @@ transform: translateY(-10px);
   }
 }
 body {
-  width: 1506px;
+  width: 1506px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

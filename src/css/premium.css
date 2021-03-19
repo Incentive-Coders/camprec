@@ -1,61 +1,69 @@
-.FormGroup {
-	margin: 0 15px 20px;
-	padding: 0;
-	border-style: none;
-	background-color: #7795f8;
-	will-change: opacity, transform;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
-	border-radius: 4px;
-}
-
-.FormRow {
-	display: -ms-flexbox;
+  .lols {
+	background: #ffffff;
 	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-left: 15px;
-	border-top: 1px solid #819efc;
-}
-
-.StripeElement--webkit-autofill {
-	background: transparent !important;
-}
-
-.StripeElement {
+	flex-direction: column;
+	width: 400px;
+	height: 112px;
+	border-radius: 6px;
+	justify-content: space-between;
+  }
+  .product {
+	display: flex;
+  }
+  .description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
+  .imp {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: -0.154px;
+	color: #242d60;
+	height: 100%;
 	width: 100%;
-	padding: 11px 15px 11px 0;
-}
-
-button {
-	display: block;
-	font-size: 16px;
-	width: calc(100% - 30px);
-	height: 40px;
-	margin: 40px 15px 0;
-	background-color: #f6a4eb;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
-	border-radius: 4px;
-	color: #fff;
-	font-weight: 600;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+  }
+  .imj {
+	border-radius: 6px;
+	margin: 10px;
+	width: 54px;
+	height: 57px;
+  }
+  h3,
+  h5 {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: -0.154px;
+	color: #242d60;
+	margin: 0;
+  }
+  h5 {
+	opacity: 0.5;
+  }
+  #checkout-button {
+	height: 36px;
+	background: #556cd6;
+	color: white;
+	width: 100%;
+	font-size: 14px;
+	border: 0;
+	font-weight: 500;
 	cursor: pointer;
-	transition: all 100ms ease-in-out;
-	will-change: transform, background-color, box-shadow;
-	border: none;
-}
-
-button:active {
-	background-color: #d782d9;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
-	transform: scale(0.99);
-}
-
-.App {
-	margin-left: 25%;
-	margin-top: 5%;
-	margin-right: 25%;
-}
-
-h1,
-h3 {
-	text-align: center;
-}
+	letter-spacing: 0.6;
+	border-radius: 0 0 6px 6px;
+	transition: all 0.2s ease;
+	box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  }
+  #checkout-button:hover {
+	opacity: 0.8;
+  }
+  
