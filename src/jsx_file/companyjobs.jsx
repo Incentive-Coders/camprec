@@ -24,6 +24,7 @@ function Cards(props) {
     )
                     }
 const Cardlist = ({ Joblist }) => {
+    console.log(Joblist);
     return (
         <div className="gridwraper">
         {
@@ -33,6 +34,7 @@ const Cardlist = ({ Joblist }) => {
                 key={i}
                 title={Joblist[i].job_title}
                 content={Joblist[i].job_description}
+                location = {Joblist[i].location}
                 />
             );
             })
@@ -52,7 +54,7 @@ class Companyjobs extends Component {
     }
 
     companyjoblist (){
-        console.log(this.state.company_id);
+        var job = [];
         // POST request using fetch with error handling
         const body =  
             { 
@@ -61,27 +63,26 @@ class Companyjobs extends Component {
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/list',body,{header})
             .then(function(response) {
-                const data = response.data;
                 // check for error response
                 if (response.status != 200) {
                     // get error message from body or default to response status
-                    const error = (data && data.message) || response.status;
+                    const error = (response.data && response.data.message) || response.status;
                     return Promise.reject(error);
                 }
                 console.log(response.data)
-                return response.data;
+                job = response.data;
         })
          .catch(error => {
-                console.error('There was an error!');
-                window.alert("somethin went wrong")
+                console.log(error);
+                window.alert("something went wrong")
                 
             });
+            return job;
             
     }; 
 
 
     render() {
-        var Joblist=this.companyjoblist
         return (
             <>
             <Navbar_company />
@@ -92,7 +93,7 @@ class Companyjobs extends Component {
                                 </h2>
                         </div>
                         <div className="gridwraper">
-                            <Cardlist Joblist={Joblist}/>
+                            <Cardlist Joblist={this.companyjoblist()}/>
                             <div className="card3 widths" >
                             <div className="card-body">
                                 <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
