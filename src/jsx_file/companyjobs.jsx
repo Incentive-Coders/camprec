@@ -25,7 +25,6 @@ function Cards(props) {
     )
                     }
 const Cardlist = ({ Joblist }) => {
-    var i=0;
     return (
         <div className="gridwraper">
         {
@@ -45,7 +44,6 @@ const Cardlist = ({ Joblist }) => {
     );
     }
 class Companyjobs extends Component {
-    componentDidMount()
     constructor(props){
     super(props);
     this.body = { 

@@ -39,6 +39,8 @@ class addjobs extends Component {
     
 
     add_job (){
+        var arr = JSON.parse(localStorage.getItem("company"));
+        console.log(this)
         console.log(this.state.job_title);
         console.log(this.state.location);
         console.log(this.state.job_description);
