@@ -36,8 +36,6 @@ class Studentlogin extends Component {
     
 
     login_link (){
-        console.log(this.state.email);
-        console.log(this.state.password);
         // POST request using fetch with error handling
         const body =  
             { 
@@ -54,8 +52,9 @@ class Studentlogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                window.location.replace('/studenthome');
-                 
+                console.log(response.data)
+                localStorage.setItem(response.data)
+                window.location.replace('/studenthome');            
         })
          .catch(error => {
                 console.error('There was an error!');

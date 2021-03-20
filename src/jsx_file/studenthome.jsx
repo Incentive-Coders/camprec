@@ -28,6 +28,7 @@ function Cards(props) {
     )
                     }
 const Studenthome =() => {
+    var arr = localStorage.getItem(response.data);
     return (
         <>
         <Navbar_student/>
