@@ -7,6 +7,7 @@ import Navbar_company from './navbar_company';
 import {Form, Input} from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
+var arr= JSON.parse(localStorage.getItem("company"));
 class addjobs extends Component {
 
     constructor(props){
@@ -15,14 +16,15 @@ class addjobs extends Component {
     this.state = {
         job_title : '',
         location: '',
-        job_description:''
-        
+        job_description:'',
+        company_id:'',
     }
     
     this.updateInput = this.updateInput.bind(this);
     this.updatelocation = this.updatelocation.bind(this);
     this.updatejob_description = this.updatejob_description.bind(this);
     this.add_job = this.add_job.bind(this);
+    this.updatecompany_id = this.updatejob_description.bind(this);
     }
     
     
@@ -50,6 +52,7 @@ class addjobs extends Component {
                 "job_title" : this.state.job_title,
                 "location" : this.state.location,  
                 "job_description" : this.state.job_description,  
+                "company_id" : arr._id,
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/create',body,{header})

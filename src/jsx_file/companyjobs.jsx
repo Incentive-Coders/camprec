@@ -43,11 +43,12 @@ const Cardlist = ({ Joblist }) => {
         </div>
     );
     }
+var arr= JSON.parse(localStorage.getItem("company"));
 class Companyjobs extends Component {
     constructor(props){
     super(props);
     this.body = { 
-        "company_id" : '6036269f37ec673ed0415b17',
+        "company_id" : arr._id,
     }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
