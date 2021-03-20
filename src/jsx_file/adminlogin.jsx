@@ -54,6 +54,7 @@ class Adminlogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
+                localStorage.setItem("college",JSON.stringify(response.data))
                 window.location.replace('/adminhome');
                  
         })

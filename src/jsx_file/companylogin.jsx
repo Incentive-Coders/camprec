@@ -54,7 +54,7 @@ class Companylogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                
+                localStorage.setItem("company",JSON.stringify(response.data))
                 window.location.replace('/companyhome');
                  
         })

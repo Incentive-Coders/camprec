@@ -14,9 +14,9 @@ function Cards(props) {
                           <p className="card-text centers"><strong>Location : </strong> {props.location}</p></div>
                             <div className="details">
                             <p className="card-text  fsize" ><strong>Email:</strong> {props.email}</p>
-                            <p className="card-text  fsize"><strong> Year of Establishment:</strong> {props.college}</p>
-                            <p className="card-text  fsize"><strong>Discription :</strong>  {props.discription}</p>
-                            <ReactPlayer url={props.url} className='vediosize'/>
+                            <p className="card-text  fsize"><strong> Year of Establishment:</strong> {props.year}</p>
+                            <p className="card-text  fsize"><strong>Description :</strong>  {props.description}</p>
+                            <ReactPlayer url={props.url} />
                             <div className='pop' >
                             <a href="#" className="btn btn-primary text_size left_m">Edit</a></div>
                             </div>
@@ -28,12 +28,13 @@ function Cards(props) {
     )
                     }
 const Companyhome =() => {
+    var arr= JSON.parse(localStorage.getItem("company"));
     return (
         <>
         <Navbar_company />
         <section className="pop image width"> 
         <div>
-            <Cards name="Amazon" image="https://i.pinimg.com/474x/53/a3/fa/53a3fa9b77f7dc8c321f05b1661cc305.jpg"/>
+            <Cards name={arr.name} image="https://i.pinimg.com/474x/53/a3/fa/53a3fa9b77f7dc8c321f05b1661cc305.jpg" url={arr.vedio_link} location={arr.location} year={arr.year_of_established} email={arr.email} description={arr.about }/>
         </div> 
         </section>
         </>

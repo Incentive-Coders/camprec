@@ -14,9 +14,9 @@ function Cards(props) {
                           <p className="card-text centers"><strong>Location : </strong> {props.location}</p></div>
                             <div className="details">
                             <p className="card-text  fsize" ><strong>Email:</strong> {props.email}</p>
-                            <p className="card-text  fsize"><strong> Year of Establishment:</strong> {props.college}</p>
-                            <p className="card-text  fsize"><strong>Discription :</strong>  {props.discription}</p>
-                            <ReactPlayer url={props.url} className='vediosize'/>
+                            <p className="card-text  fsize"><strong> Year of Establishment:</strong> {props.year}</p>
+                            <p className="card-text  fsize"><strong>Description :</strong>  {props.description}</p>
+                            <ReactPlayer url={props.url} />
                             <div className='pop' >
                             <a href="#" className="btn btn-primary text_size left_m">Edit</a></div>
                             </div>
@@ -28,12 +28,13 @@ function Cards(props) {
     )
                     }
 const Adminhome =() => {
+    var arr= JSON.parse(localStorage.getItem("college"));
     return (
         <>
         <Navbar_Admin />
         <section className="pop image width"> 
         <div>
-            <Cards name="IIIT Dharwad" image="https://upload.wikimedia.org/wikipedia/en/c/c1/Indian_Institute_of_Information_Technology%2C_Dharwad.png"/>
+            <Cards name={arr.name} location={arr.location} email={arr.email} year={arr.year_of_established} url={arr.vedio_link} description={arr.about } image="https://upload.wikimedia.org/wikipedia/en/c/c1/Indian_Institute_of_Information_Technology%2C_Dharwad.png"/>
         </div> 
         </section>
         </>

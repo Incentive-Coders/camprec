@@ -12,6 +12,7 @@ import"../css/home.css";
 import"./App"
 import CountUp from 'react-countup';
 const Home =() => {
+    localStorage.clear();
     return (
       <>
       <Navbar/>

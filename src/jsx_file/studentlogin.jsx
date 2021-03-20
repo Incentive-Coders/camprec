@@ -52,8 +52,7 @@ class Studentlogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                console.log(response.data)
-                localStorage.setItem(response.data)
+                localStorage.setItem("student",JSON.stringify(response.data));
                 window.location.replace('/studenthome');            
         })
          .catch(error => {

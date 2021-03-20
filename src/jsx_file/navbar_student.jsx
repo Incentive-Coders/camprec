@@ -13,7 +13,7 @@ const Student_Navbar = () => {
 
                   <nav class="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/">
+    <NavLink  className="navbar-brand" to = "/studenthome">
     <img src={web} className = "image-fluid  logo" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">

@@ -15,7 +15,8 @@ class addjobs extends Component {
     this.state = {
         job_title : '',
         location: '',
-        job_description:'',
+        job_description:''
+        
     }
     
     this.updateInput = this.updateInput.bind(this);
@@ -60,7 +61,7 @@ class addjobs extends Component {
                     return Promise.reject(error);
                 }
                 window.alert("Job created Successfuly");
-                window.location.replace('/companyjob');
+                window.location.replace('/companyjobs');
                  
         })
          .catch(error => {

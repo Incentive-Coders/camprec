@@ -25,6 +25,7 @@ function Cards(props) {
     )
                     }
 const Cardlist = ({ Joblist }) => {
+    var i=0;
     return (
         <div className="gridwraper">
         {
@@ -44,7 +45,7 @@ const Cardlist = ({ Joblist }) => {
     );
     }
 class Companyjobs extends Component {
-
+    componentDidMount()
     constructor(props){
     super(props);
     this.body = { 
@@ -52,6 +53,7 @@ class Companyjobs extends Component {
     }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
+    
 
     companyjoblist (){
         var job = [];
@@ -64,7 +66,7 @@ class Companyjobs extends Component {
                     const error = (response.data && response.data.message) || response.status;
                     return Promise.reject(error);
                 }
-                job = response.data;
+                localStorage.setItem('jobs',JSON.stringify(response.data))
         })
          .catch(error => {
                 console.log(error);
@@ -78,6 +80,7 @@ class Companyjobs extends Component {
 
 
     render() {
+        this.companyjoblist()
         return (
             <>
             <Navbar_company />
@@ -88,7 +91,7 @@ class Companyjobs extends Component {
                                 </h2>
                         </div>
                         <div className="gridwraper">
-                            <Cardlist Joblist={this.companyjoblist()}/>
+                            <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
                             <div className="card3 widths" >
                             <div className="card-body">
                                 <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
