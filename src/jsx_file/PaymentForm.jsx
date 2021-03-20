@@ -9,19 +9,19 @@ const CARD_OPTIONS = {
 	style: {
 
 		base: {
-			iconColor: "#c4f0ff",
-			color: "#fff",
+			iconColor: "#565387",
+			color: "#565387",
 			fontWeight: 500,
             innerWidth: 1000,
 			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
 			fontSize: "16px",
 			fontSmoothing: "antialiased",
-			":-webkit-autofill": { color: "#fce883" },
-			"::placeholder": { color: "#87bbfd" }
+			":-webkit-autofill": { color: "#565387" },
+			"::placeholder": { color: "#565387" }
 		},
 		invalid: {
-			iconColor: "#ffc7ee",
-			color: "#ffc7ee"
+			iconColor: "#565387",
+			color: "#565387"
 		}
 	}
 }
@@ -70,14 +70,12 @@ export default function PaymentForm() {
                     <CardElement options={CARD_OPTIONS}/>
                 </div>
             </fieldset>
-            <button>Pay</button>
+            <button className='btn' >Pay</button>
         </form>
         :
-       <div>
-           <h2>You just bought a sweet spatula congrats this is the best decision of you're life</h2>
-       </div> 
+        window.alert("You just bought the premium of Camprec congrats this is the best decision of you're life") 
         }
-            
+          
         </>
     )
 }
