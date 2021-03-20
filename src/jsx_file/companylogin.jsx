@@ -54,6 +54,7 @@ class Companylogin extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
+                
                 window.location.replace('/companyhome');
                  
         })

@@ -43,11 +43,9 @@ export default function PaymentForm() {
     if(!error) {
         try {
             const {id} = paymentMethod
-            const response = await axios.post("http://camprec.heroku.com/api/payment", {
-                amount: 22,
+            const response = await axios.post("https://camprec.herokuapp.com/api/payment", {
+                amount: 50000,
                 id,
-                address: "1/119 MR nagar mathura",
-                name: "Yasharth Dubey"
             })
 
             if(response.data.success) {
