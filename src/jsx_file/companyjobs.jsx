@@ -47,17 +47,15 @@ class Companyjobs extends Component {
 
     constructor(props){
     super(props);
-    this.body =JSON.stringify({ 
-        "company_id" : '6036269f37ec673ed0415b17', 
-    });
-    this.header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-    this.companyjoblist = this.companyjoblist.bind(this);
+    this.body = { 
+        "company_id" : '6036269f37ec673ed0415b17',
+    }
+    this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
 
     companyjoblist (){
         var job = [];
         // POST request using fetch with error handling
-        
         axios.post('https://camprec.herokuapp.com/api/jobs/list',this.body,this.header)
             .then(function(response) {
                 // check for error response
@@ -66,7 +64,6 @@ class Companyjobs extends Component {
                     const error = (response.data && response.data.message) || response.status;
                     return Promise.reject(error);
                 }
-                console.log(response.data)
                 job = response.data;
         })
          .catch(error => {
@@ -74,13 +71,13 @@ class Companyjobs extends Component {
                 window.alert("something went wrong")
                 
             });
+            if(job)
             return job;
             
     }; 
 
 
     render() {
-        console.log(this.companyjoblist())
         return (
             <>
             <Navbar_company />
