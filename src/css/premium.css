@@ -3,15 +3,12 @@ code {
       monospace;
   }
   .FormGroup {
-<<<<<<< HEAD
 	  width: 500px;
 	margin: 0 15px 20px;
-=======
 	margin-left: 0px;
 	margin-top: 15px;
 	margin-right: 0;
 	margin-bottom: 35px;
->>>>>>> 0a88e1bfc55ab5f4e5439234fe01ad5c498dd2e9
 	padding: 0;
 	border-style: none;
 	background-color: #fff;
