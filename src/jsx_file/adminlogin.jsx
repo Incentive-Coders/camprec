@@ -77,7 +77,7 @@ class Adminlogin extends Component {
                 <div className = "col-md-4 col-10 left_margin">
                             <div className="margin-t-lg">
                                 <div className="card-body card_us">
-                                 <h3 className="card-title card_us"><strong>Admin Login</strong></h3>
+                                 <h3 className="card-title card_us"><strong>College Admin Login</strong></h3>
                                     <Form >
                                         <FormItem>
                                         <div className="form-group margin-t">
