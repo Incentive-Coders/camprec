@@ -3,13 +3,17 @@ code {
       monospace;
   }
   .FormGroup {
-	margin: 0 15px 20px;
+	margin-left: 0px;
+	margin-top: 15px;
+	margin-right: 0;
+	margin-bottom: 35px;
 	padding: 0;
 	border-style: none;
 	background-color: #fff;
 	will-change: opacity, transform;
 	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #000000;
 	border-radius: 10px;
+	width: 290px;
 }
 
 .FormRow {
