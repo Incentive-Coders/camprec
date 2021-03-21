@@ -51,6 +51,7 @@ export default function PaymentForm() {
             if(response.data.success) {
                 console.log("Successful payment")
                 setSuccess(true)
+                window.location.replace('/studentcourses')
             }
 
         } catch (error) {
@@ -73,7 +74,7 @@ export default function PaymentForm() {
             <button className='btn' >Pay</button>
         </form>
         :
-        window.alert("You just bought the premium of Camprec congrats this is the best decision of you're life") 
+        window.alert("You just bought the premium of Camprec congrats this is the best decision of you're life")
         }
           
         </>
