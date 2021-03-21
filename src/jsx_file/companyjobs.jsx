@@ -40,6 +40,11 @@ const Cardlist = ({ Joblist }) => {
             );
             })
         }
+         <div className="card3 widths" >
+                            <div className="card-body">
+                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
+                            </div>
+                        </div>
         </div>
     );
     }
@@ -91,11 +96,6 @@ class Companyjobs extends Component {
                         </div>
                         <div className="gridwraper">
                             <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
-                            <div className="card3 widths" >
-                            <div className="card-body">
-                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
-                            </div>
-                        </div>
                         </div>
             </section>
             </>

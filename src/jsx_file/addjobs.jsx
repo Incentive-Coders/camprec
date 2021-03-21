@@ -87,7 +87,7 @@ class addjobs extends Component {
                                  <h3 className="card-title card_us"><strong>Add New job</strong></h3>
                                     <Form className="addjb margin-top" >
                                         <FormItem >
-                                        <div className="form-group margin-t">
+                                        <div className="form-group margin-t ">
                                             <Input type="TEXT" className="form-control" placeholder="Job title" onChange={this.updateInput} required />
                                         </div>
                                         </FormItem>
