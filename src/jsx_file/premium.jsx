@@ -8,7 +8,7 @@ function Premium() {
   return (
     <section className="image width heights margin_t">
       <img src={web4} className = "logo m_l" alt = "home img"/>
-      <div className="card widths" >
+      <div className="card  wt" >
                         <div className="card-body trans">
                             <strong><h4 className="card-title  centers">Premium For Camprec</h4></strong>
                           <div className='centers'>
