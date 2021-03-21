@@ -11,8 +11,8 @@ const CARD_OPTIONS = {
 		base: {
 			iconColor: "#565387",
 			color: "#565387",
+            innerWidth: "300px",
 			fontWeight: 500,
-            innerWidth: 1000,
 			fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
 			fontSize: "16px",
 			fontSmoothing: "antialiased",
@@ -65,10 +65,10 @@ export default function PaymentForm() {
     return (
         <>
         {!success ? 
-        <form onSubmit={handleSubmit}>
-            <fieldset className="FormGroup">
-                <div className="FormRow">
-                    <CardElement options={CARD_OPTIONS}/>
+        <form onSubmit={handleSubmit} className = "wh">
+            <fieldset className="FormGroup wh">
+                <div className="FormRow wh">
+                    <CardElement options={CARD_OPTIONS} className = "wh"/>
                 </div>
             </fieldset>
             <button className='btn' >Pay</button>
