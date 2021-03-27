@@ -10,7 +10,7 @@ import Adminhome from './adminhome';
 import Studentlogin from './studentlogin';
 import CompanyLogin from './companylogin';
 import Companyjobs from './companyjobs';
-import Adminjobs from './adminjobs';
+import Adminstudent from './adminstudent';
 import Studentjobs from './studentjobs';
 import Companycolleges from './companycolleges';
 import Admincompanies from './admincompanies';
@@ -31,7 +31,7 @@ const App =() => {
         <Route exact path="/studentlogin" component={Studentlogin}/>
         <Route exact path="/companylogin" component={CompanyLogin}/>
         <Route exact path="/companyjobs" component={Companyjobs}/>
-        <Route exact path="/adminjobs" component={Adminjobs}/>
+        <Route exact path="/adminstudent" component={Adminstudent}/>
         <Route exact path="/studentjobs" component={Studentjobs}/>
         <Route exact path="/companycolleges" component={Companycolleges}/>
         <Route exact path = "/admincompanies" component = {Admincompanies} />
