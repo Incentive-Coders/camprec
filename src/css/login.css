@@ -178,3 +178,8 @@
 .text_s{
     font-size: 1.1em;
 }
+.left_m2{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}

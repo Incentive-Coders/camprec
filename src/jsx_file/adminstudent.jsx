@@ -4,7 +4,6 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_admin from './navbar_admin';
 import axios from 'axios';
-
 function Rows(props) {
     return (
                 <>
@@ -16,11 +15,11 @@ function Rows(props) {
                     </>
     )
 }
-const Rowlist = ({ rowlist }) => {
+const Rowlist = ({ Rowlists }) => {
     return (
-        rowlist.map((user, i) => {
+        Rowlists.map((user,i) => {
                     return (<>
-                        <Rows key={i} sno={i} name={rowlist[i].name} email={rowlist[i].email}></Rows>
+                        <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email}></Rows>
                         </>
                     );
                     })
@@ -75,7 +74,7 @@ class Adminstudent extends Component {
                         </tr>   
                     </thead>
                     <tbody>
-                    <Rowlist rowlist={JSON.parse(localStorage.getItem('studentlist'))}></Rowlist>
+                    <Rowlist Rowlists={JSON.parse(localStorage.getItem('studentlist'))}></Rowlist>
                     </tbody>
                     </table>
                 </section>

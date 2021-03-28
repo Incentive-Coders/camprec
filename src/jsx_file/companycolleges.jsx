@@ -1,17 +1,19 @@
-import React from 'react';
+import {React, Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import Navbar_company from './navbar_company';
+import axios from 'axios';
 function Cards(props) {
     return (
                 <>
                    <div className="card widths" >
                         <div className="card-body">
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
+                            <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="#" className="btn btn-primary text_size left_m">View</a>
+                            <a href="#" className="btn btn-primary  text_size left_m2">View</a>
                             </div>
                             
                         </div>
@@ -19,26 +21,75 @@ function Cards(props) {
                     </>
     )
                     }
-const Companycolleges =() => {
+const Cardlist = ({ collegelist }) => {
     return (
-        <>
-        <Navbar_company />
-        <section className="image width">
-                    <div className = "get_started">
-                            <h2 className='text_center margintop'>
-                             <strong className = "brand-name leftmargin">Colleges</strong>
-                            </h2>
-                    </div>
-                    <div className="gridwraper">
-                        <Cards title="Colleges" content="Some quick example text to build on the job title and make up the bulk of the college's content."/>
-                        <Cards title="Colleges" content="Some quick example text to build on the job title and make up the bulk of the college's content."/>
-                        <Cards title="Colleges" content="Some quick example text to build on the job title and make up the bulk of the college's content."/>
-                        <Cards title="Colleges" content="Some quick example text to build on the job title and make up the bulk of the college's content."/>
-                        <Cards title="Colleges" content="Some quick example text to build on the job title and make up the bulk of the college's content."/>
-                    </div>
-        </section>
-        </>
+        <div className="gridwraper">
+        {
+            collegelist.map((user, i) => {
+            return (<>
+                <Cards
+                key={i}
+                title={collegelist[i].name}
+                content={collegelist[i].about}
+                location = {collegelist[i].location}
+                />
+                </>
+            );
+            })
+        }
+        </div>
     );
-};
+    }
+var arr= JSON.parse(localStorage.getItem("college"));
+class companycollege extends Component {
+    constructor(props){
+    super(props);
+    }
+    
 
-export default Companycolleges ;
+    collegelist (){
+        var college = [];
+        // POST request using fetch with error handling
+        axios.get('https://camprec.herokuapp.com/api/college/list')
+            .then(function(response) {
+                console.log(response)
+                // check for error response
+                if (response.status != 200) {
+                    // get error message from body or default to response status
+                    const error = (response.data && response.data.message) || response.status;
+                    return Promise.reject(error);
+                }
+                localStorage.setItem('college',JSON.stringify(response.data))
+        })
+         .catch(error => {
+                console.log(error);
+                window.alert("something went wrong")
+                
+            });
+            if(college)
+            return college;
+            
+    }; 
+
+
+    render() {
+        this.collegelist()
+        return (
+            <>
+            <Navbar_company />
+            <section className="image width heights">
+                        <div className = "get_started">
+                                <h2 className='text_center margintop'>
+                                <strong className = "brand-name leftmargin">Colleges</strong>
+                                </h2>
+                        </div>
+                        <div className="gridwraper">
+                            <Cardlist collegelist={JSON.parse(localStorage.getItem('college'))}/>
+                        </div>
+            </section>
+            </>
+        );
+    };
+}
+
+export default companycollege ;
