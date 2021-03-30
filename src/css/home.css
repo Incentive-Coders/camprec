@@ -108,3 +108,12 @@
 .margin-top{
     margin-top: 50px;
 }
+.size2{
+    font-size: 0.8em;
+}
+.tab{
+    margin-left: 100px;
+    margin-right: 25px;
+    width: 80%;
+    
+}

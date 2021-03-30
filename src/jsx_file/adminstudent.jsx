@@ -4,6 +4,7 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_admin from './navbar_admin';
 import axios from 'axios';
+import Table from 'react-bootstrap/Table'
 function Rows(props) {
     return (
                 <>
@@ -11,6 +12,7 @@ function Rows(props) {
                             <td>{props.sno}</td>
                             <td>{props.name}</td>
                             <td>{props.email}</td>
+                            <td><button className="btn size2" >View</button></td>
                 </tr>
                     </>
     )
@@ -46,6 +48,8 @@ class Adminstudent extends Component {
                         const error = (response.data && response.data.message) || response.status;
                         return Promise.reject(error);
                     }
+                    console.log(response.data.length);
+                    
                     localStorage.setItem('studentlist',JSON.stringify(response.data))
             })
              .catch(error => {
@@ -65,18 +69,20 @@ class Adminstudent extends Component {
                 <>
                 <Navbar_admin/>
                 <section className="width">
-                    <table className="">
+                    
+                    <Table className="tab">
                     <thead>
                         <tr>
-                        <th>#</th>
+                        <th>Sno</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>View</th>
                         </tr>   
                     </thead>
                     <tbody>
                     <Rowlist Rowlists={JSON.parse(localStorage.getItem('studentlist'))}></Rowlist>
                     </tbody>
-                    </table>
+                    </Table>
                 </section>
                 </>
             );

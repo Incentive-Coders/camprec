@@ -59,6 +59,8 @@ class companycollege extends Component {
                     const error = (response.data && response.data.message) || response.status;
                     return Promise.reject(error);
                 }
+                console.log(response.data.length);
+                console.log(response.data);
                 localStorage.setItem('college',JSON.stringify(response.data))
         })
          .catch(error => {
