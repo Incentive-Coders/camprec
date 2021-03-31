@@ -6,8 +6,14 @@ import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
 import web from "../images/add.png";
 import axios from 'axios';
+var k;
+sessionStorage.clear();
 function Cards(props) {
+    {
+        k="/editjobs/i="+props.job_id
+    }
     return (
+                
                 <>
                    <div className="card widths" >
                         <div className="card-body">
@@ -16,12 +22,13 @@ function Cards(props) {
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
                             <a href="#" className="btn btn-primary text_size margin_left">Show Aplicants</a>
-                            <a href="#" className="btn btn-primary  text_size margin_left">Edit</a>
+                           <a href={k} className="btn btn-primary  text_size margin_left" > Edit </a>
                             </div>
                             
                         </div>
                     </div>
                     </>
+                    
     )
                     }
 const Cardlist = ({ Joblist }) => {
@@ -32,12 +39,14 @@ const Cardlist = ({ Joblist }) => {
             return (<>
                 <Cards
                 key={i}
+                job_id={Joblist[i]._id}
                 title={Joblist[i].job_title}
                 content={Joblist[i].job_description}
                 location = {Joblist[i].location}
                 />
                 </>
             );
+
             })
         }
          <div className="card3 widths" >

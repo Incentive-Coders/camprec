@@ -17,6 +17,8 @@ import Admincompanies from './admincompanies';
 import Studentcourses from './studentcourses';
 import premium from './premium';
 import addjobs from './addjobs';
+import editjobs from './editjobs';
+import editcompany from './editcompany';
 const App =() => {
     return (
         <>
@@ -38,6 +40,8 @@ const App =() => {
         <Route exact path="/studentcourses" component={Studentcourses}/>
         <Route exact path="/premium" component={premium}/>
         <Route exact path="/addjobs" component={addjobs}/>
+        <Route path="/editjobs/" component={editjobs}/>
+        <Route exact path="/editcompany" component={editcompany}/>
         <Redirect to = "/" />
         </Switch>
         </>
