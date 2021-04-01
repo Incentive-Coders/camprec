@@ -85,23 +85,23 @@ class editjobs extends Component {
             <Navbar_company/>
             <section className="image width height">
                                  <h3 className="card-title card_us"><strong>Edit job</strong></h3>
-                                    <Form className="editjb margin-top center" >
+                                    <Form className="editjb margin-top center m-l" >
                                         <FormItem >
                                         <div className="form-group margin-t ">
-                                            <Input type="TEXT" className="form-control"  placeholder="Job title" onChange={this.updateInput} required />
+                                            <Input type="TEXT" className="form-control boderb"  placeholder="Job title" onChange={this.updateInput} required />
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="TEXT" className="form-control" placeholder="Job location" onChange={this.updatelocation} />
+                                            <Input type="TEXT" className="form-control boderb" placeholder="Job location" onChange={this.updatelocation} />
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="TEXT" className="form-control size" placeholder="Job Description"  onChange={this.updatejob_description} required/>
+                                            <Input type="TEXT" className="form-control size boderb" placeholder="Job Description"  onChange={this.updatejob_description} required/>
                                         </div>
                                         </FormItem>
-                                        <input type= "submit" className="btn margin-top margin-b" onClick={this.edit_job} id='button'  value="Submit"/>
+                                        <input type= "submit" className="btn margin-top m-l2 margin-b" onClick={this.edit_job} id='button'  value="Submit"/>
                                     </Form>
             </section>
             </>
