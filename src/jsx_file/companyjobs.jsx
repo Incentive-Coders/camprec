@@ -6,11 +6,12 @@ import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
 import web from "../images/add.png";
 import axios from 'axios';
-var k;
+var k,i;
 sessionStorage.clear();
 function Cards(props) {
     {
-        k="/editjobs/i="+props.job_id
+        k="/editjobs/i="+props.job_id;
+        i="/showapplicants/i="+props.job_id
     }
     return (
                 
@@ -21,7 +22,7 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="#" className="btn btn-primary text_size margin_left">Show Aplicants</a>
+                            <a href={i} className="btn btn-primary text_size margin_left">Show Aplicants</a>
                            <a href={k} className="btn btn-primary  text_size margin_left" > Edit </a>
                             </div>
                             

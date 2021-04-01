@@ -5,6 +5,7 @@ import "../css/login.css";
 import Navbar_company from './navbar_company';
 import axios from 'axios';
 function Cards(props) {
+      var i="/viewcollege/i="+props.id
     return (
                 <>
                    <div className="card widths" >
@@ -13,7 +14,7 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="#" className="btn btn-primary  text_size left_m2">View</a>
+                            <a href={i} className="btn btn-primary  text_size left_m2">View</a>
                             </div>
                             
                         </div>
@@ -32,6 +33,7 @@ const Cardlist = ({ collegelist }) => {
                 title={collegelist[i].name}
                 content={collegelist[i].about}
                 location = {collegelist[i].location}
+                id={collegelist[i]._id}
                 />
                 </>
             );
