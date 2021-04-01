@@ -5,23 +5,28 @@ import "../css/login.css";
 import Navbar_admin from './navbar_admin';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table'
+var i;
 function Rows(props) {
-    return (
-                <>
-                <tr>
-                            <td>{props.sno}</td>
-                            <td>{props.name}</td>
-                            <td>{props.email}</td>
-                            <td><button className="btn size2" >View</button></td>
-                </tr>
-                    </>
-    )
+        {
+            
+            i="/viewstudent/i="+props.id
+        }
+        return (
+                    <>
+                    <tr>
+                                <td>{props.sno}</td>
+                                <td>{props.name}</td>
+                                <td>{props.email}</td>
+                                <td><a className="btn size2" href={i}>View</a></td>
+                    </tr>
+                        </>
+        )
 }
 const Rowlist = ({ Rowlists }) => {
     return (
         Rowlists.map((user,i) => {
                     return (<>
-                        <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email}></Rows>
+                        <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email} id={Rowlists[i]._id}></Rows>
                         </>
                     );
                     })

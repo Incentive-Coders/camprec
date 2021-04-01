@@ -4,7 +4,8 @@ import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-const company_Navbar = () => {
+const Navbar_Admin = () => {
+    
     return (
         <>
        <div className = "container-fluid nav_bg">
@@ -67,4 +68,4 @@ const company_Navbar = () => {
     );
 };
 
-export default company_Navbar;
+export default Navbar_Admin;

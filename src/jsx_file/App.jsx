@@ -22,6 +22,7 @@ import editcompany from './editcompany';
 import showapplicants from './showapplicant';
 import Viewcollege from './viewcollege';
 import Viewstudent from './viewstudent';
+import editcollege from './editcollege';
 const App =() => {
     return (
         <>
@@ -48,6 +49,7 @@ const App =() => {
         <Route path="/viewcollege/" component={Viewcollege}/>
         <Route path="/viewstudent/" component={Viewstudent}/>
         <Route exact path="/editcompany" component={editcompany}/>
+        <Route exact path="/editcollege" component={editcollege}/>
         <Redirect to = "/" />
         </Switch>
         </>
