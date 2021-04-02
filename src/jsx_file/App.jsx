@@ -1,7 +1,7 @@
 import React , {useEffect} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
-import About from "./About"
+import GoogleAd from "./About"
 import Contact from "./Contact"
 import Companyhome from './companyhome';
 import Studenthome from './studenthome';
@@ -40,7 +40,7 @@ function App (){
         <>
         <Switch>
         <Route exact path = "/" component = {Home} />
-        <Route exact path = "/about" component = {About} />
+        <Route exact path = "/about" component = {GoogleAd} />
         <Route exact path = "/contact" component = {Contact} />
         <Route exact path = "/companyhome" component = {Companyhome} />
         <Route exact path = "/studenthome" component = {Studenthome} />

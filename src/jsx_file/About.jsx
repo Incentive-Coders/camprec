@@ -1,11 +1,34 @@
-import React from 'react';
+import React,{ Component } from 'react';
 import web from "../images/about.png";
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import Navbar from "./Navbar";
+import PropTypes from 'prop-types';
 
-const About =() => {
+const googleAdId = 'ca-pub-3329798013899959';
+
+
+class GoogleAd extends Component {
+    googleInit = null;
+
+    componentDidMount() {
+        const { timeout } = this.props;
+        this.googleInit = setTimeout(() => {
+          if (typeof window !== 'undefined')
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }, timeout);
+      }
+    
+      componentWillUnmount() {
+        if (this.googleInit) clearTimeout(this.googleInit);
+      }
+
+render() {
+    
+
+    const { classNames, slot } = this.props;
+
     return (
         <>
         <Navbar/>
@@ -28,9 +51,31 @@ const About =() => {
                     </div>
                 </div>
             </div>
+            <div className={classNames}>
+            <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client={googleAdId}
+          data-ad-slot={slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        </div>
         </section>
         </>
     );
 };
 
-export default About;
+}
+GoogleAd.propTypes = {
+    classNames: PropTypes.string,
+    slot: PropTypes.string,
+    timeout: PropTypes.number,
+  };
+  
+  GoogleAd.defaultProps = {
+    classNames: '',
+    timeout: 200,
+  };
+
+export default GoogleAd;
