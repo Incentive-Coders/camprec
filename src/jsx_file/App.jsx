@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
 import About from "./About"
@@ -27,7 +27,15 @@ import Viewstudent from './viewstudent';
 import editcollege from './editcollege';
 import viewcollegestudent from './viewcollegestudent';
 import Viewcollegestudentview from './viewcollegestudentview';
+import ReactGa from 'react-ga';
 const App =() => {
+    
+    useEffect(() => {
+        ReactGa.initialize('G-5L4RVJS4LM');
+
+        ReactGa.pageview('/0')
+    }, []);
+
     return (
         <>
         <Switch>

@@ -23,6 +23,7 @@
     "react-cookie": "^4.0.3",
     "react-countup": "^4.3.3",
     "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
     "react-icons": "^4.2.0",
     "react-player": "^2.9.0",
     "react-popup": "^0.10.0",
@@ -35,9 +36,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
