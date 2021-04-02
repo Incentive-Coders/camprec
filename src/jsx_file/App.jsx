@@ -20,9 +20,13 @@ import addjobs from './addjobs';
 import editjobs from './editjobs';
 import editcompany from './editcompany';
 import showapplicants from './showapplicant';
-import Viewcollege from './viewcollege';
+import Viewcompanycollege from './viewcompanycollege';
+import Viewapplicantcollege from './viewapplicantcollege';
+import Viewapplicantstudent from './viewapplicantstudent';
 import Viewstudent from './viewstudent';
 import editcollege from './editcollege';
+import viewcollegestudent from './viewcollegestudent';
+import Viewcollegestudentview from './viewcollegestudentview';
 const App =() => {
     return (
         <>
@@ -46,10 +50,14 @@ const App =() => {
         <Route exact path="/addjobs" component={addjobs}/>
         <Route path="/editjobs/" component={editjobs}/>
         <Route path="/showapplicants/" component={showapplicants}/>
-        <Route path="/viewcollege/" component={Viewcollege}/>
+        <Route path="/viewcompanycollege/" component={Viewcompanycollege}/>
+        <Route path="/viewapplicantcollege/" component={Viewapplicantcollege}/>
+        <Route path="/viewapplicantstudent/" component={Viewapplicantstudent}/>
         <Route path="/viewstudent/" component={Viewstudent}/>
         <Route exact path="/editcompany" component={editcompany}/>
         <Route exact path="/editcollege" component={editcollege}/>
+        <Route exact path="/viewcollegestudent" component={viewcollegestudent}/>
+        <Route exact path="/viewcollegestudentview/" component={Viewcollegestudentview}/>
         <Redirect to = "/" />
         </Switch>
         </>

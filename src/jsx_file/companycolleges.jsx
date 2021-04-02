@@ -5,7 +5,7 @@ import "../css/login.css";
 import Navbar_company from './navbar_company';
 import axios from 'axios';
 function Cards(props) {
-      var i="/viewcollege/i="+props.id
+      var i="/viewcompanycollege/i="+props.id
     return (
                 <>
                    <div className="card widths" >
