@@ -28,16 +28,17 @@ import editcollege from './editcollege';
 import viewcollegestudent from './viewcollegestudent';
 import Viewcollegestudentview from './viewcollegestudentview';
 import ReactGa from 'react-ga';
-const App =() => {
+function App (){
     
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
 
-        ReactGa.pageview('/0')
+        ReactGa.pageview(window.location.pathname + window.location.search)
     }, []);
 
     return (
         <>
+        <script data-ad-client="ca-pub-3329798013899959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <Switch>
         <Route exact path = "/" component = {Home} />
         <Route exact path = "/about" component = {About} />
