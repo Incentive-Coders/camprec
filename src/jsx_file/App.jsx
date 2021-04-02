@@ -31,7 +31,7 @@ import ReactGa from 'react-ga';
 const App =() => {
     
     useEffect(() => {
-        ReactGa.initialize('G-5L4RVJS4LM');
+        ReactGa.initialize('UA-193643826-1');
 
         ReactGa.pageview('/0')
     }, []);
