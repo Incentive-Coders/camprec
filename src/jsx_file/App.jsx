@@ -38,7 +38,6 @@ function App (){
 
     return (
         <>
-        <script data-ad-client="ca-pub-3329798013899959" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <Switch>
         <Route exact path = "/" component = {Home} />
         <Route exact path = "/about" component = {About} />
