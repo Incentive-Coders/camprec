@@ -3,7 +3,7 @@ import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_company from './navbar_company';
+import Navbar_showapplicants from './navbar_showapplicants';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table'
 var l= window.location.href
@@ -13,7 +13,7 @@ var i;
 function Rows(props) {
     {
         
-        i="/viewcollege/i="+props.id
+        i="/viewapplicantcollege/i="+props.id
     }
     return (
                 <>
@@ -29,7 +29,7 @@ function Rows(props) {
 function Rows1(props) {
     {
         
-        i="/viewstudent/i="+props.id
+        i="/viewapplicantstudent/i="+props.id
     }
     return (
                 <>
@@ -119,7 +119,7 @@ class showapplicants extends Component {
         this.showstudent()
         return (
             <>
-            <Navbar_company/>
+            <Navbar_showapplicants/>
             <section className="width">
                   <div className="mart"> 
                   <h2 className=' margintop'>

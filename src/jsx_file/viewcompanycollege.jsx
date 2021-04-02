@@ -4,7 +4,7 @@ import"../css/home.css";
 import "../css/login.css";
 import ReactPlayer from 'react-player'
 import axios from 'axios';
-import Navbar_company from './navbar_company';
+import Navbar_viewcollege from './navbar_viewcollege';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
@@ -66,7 +66,7 @@ class Viewcollege extends Component {
         var arr= JSON.parse(localStorage.getItem("college"));
         return (
             <>
-            <Navbar_company/>
+            <Navbar_viewcollege/>
             <section className="pop image width"> 
             <div>
                 <Cards name={arr.name} location={arr.location} email={arr.email} year={arr.year_of_established} url={arr.vedio_link} description={arr.about } image="https://upload.wikimedia.org/wikipedia/en/c/c1/Indian_Institute_of_Information_Technology%2C_Dharwad.png"/>
