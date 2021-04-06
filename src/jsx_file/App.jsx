@@ -1,7 +1,7 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
-import About from "./About"
+import GoogleAd from "./About"
 import Contact from "./Contact"
 import Companyhome from './companyhome';
 import Studenthome from './studenthome';
@@ -27,12 +27,20 @@ import Viewstudent from './viewstudent';
 import editcollege from './editcollege';
 import viewcollegestudent from './viewcollegestudent';
 import Viewcollegestudentview from './viewcollegestudentview';
-const App =() => {
+import ReactGa from 'react-ga';
+function App (){
+    
+    useEffect(() => {
+        ReactGa.initialize('UA-193643826-1');
+
+        ReactGa.pageview(window.location.pathname + window.location.search)
+    }, []);
+
     return (
         <>
         <Switch>
         <Route exact path = "/" component = {Home} />
-        <Route exact path = "/about" component = {About} />
+        <Route exact path = "/about" component = {GoogleAd} />
         <Route exact path = "/contact" component = {Contact} />
         <Route exact path = "/companyhome" component = {Companyhome} />
         <Route exact path = "/studenthome" component = {Studenthome} />
