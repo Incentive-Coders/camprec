@@ -73,8 +73,7 @@ class Adminstudent extends Component {
             return (
                 <>
                 <Navbar_admin/>
-                <section className="width">
-                    
+                <section className=" width">
                     <Table className="tab">
                     <thead>
                         <tr>
@@ -88,6 +87,9 @@ class Adminstudent extends Component {
                     <Rowlist Rowlists={JSON.parse(localStorage.getItem('studentlist'))}></Rowlist>
                     </tbody>
                     </Table>
+                    <div>
+                        <a className="btn ma" href="./addstudent">Add student</a>
+                    </div>
                 </section>
                 </>
             );

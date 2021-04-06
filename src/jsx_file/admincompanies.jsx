@@ -50,7 +50,7 @@ class AdminCompany extends Component {
     companylist (){
         var company = [];
         // POST request using fetch with error handling
-        axios.get('https://camprec.herokuapp.com/api/company/list')
+        axios.get('https://camprec.herokuapp.com/api/company/list/1')
             .then(function(response) {
                 console.log(response)
                 // check for error response

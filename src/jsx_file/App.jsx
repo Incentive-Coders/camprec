@@ -17,6 +17,7 @@ import Admincompanies from './admincompanies';
 import Studentcourses from './studentcourses';
 import premium from './premium';
 import addjobs from './addjobs';
+import addstudent from './addstudent';
 import editjobs from './editjobs';
 import editcompany from './editcompany';
 import showapplicants from './showapplicant';
@@ -26,7 +27,7 @@ import Viewapplicantstudent from './viewapplicantstudent';
 import Viewstudent from './viewstudent';
 import editcollege from './editcollege';
 import viewcollegestudent from './viewcollegestudent';
-import Viewcollegestudentview from './viewcollegestudentview';
+import Viewadminstd from './viewadminstd';
 import ReactGa from 'react-ga';
 function App (){
     
@@ -56,6 +57,7 @@ function App (){
         <Route exact path="/studentcourses" component={Studentcourses}/>
         <Route exact path="/premium" component={premium}/>
         <Route exact path="/addjobs" component={addjobs}/>
+        <Route exact path="/addstudent" component={addstudent}/>
         <Route path="/editjobs/" component={editjobs}/>
         <Route path="/showapplicants/" component={showapplicants}/>
         <Route path="/viewcompanycollege/" component={Viewcompanycollege}/>
@@ -65,7 +67,7 @@ function App (){
         <Route exact path="/editcompany" component={editcompany}/>
         <Route exact path="/editcollege" component={editcollege}/>
         <Route exact path="/viewcollegestudent" component={viewcollegestudent}/>
-        <Route exact path="/viewcollegestudentview/" component={Viewcollegestudentview}/>
+        <Route exact path="/viewadminstd/" component={Viewadminstd}/>
         <Redirect to = "/" />
         </Switch>
         </>
