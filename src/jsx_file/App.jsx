@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react';
+import React , {useEffect,useState} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from "./Home"
 import GoogleAd from "./About"
@@ -29,8 +29,8 @@ import editcollege from './editcollege';
 import viewcollegestudent from './viewcollegestudent';
 import Viewadminstd from './viewadminstd';
 import ReactGa from 'react-ga';
+import Viewcompany from './viewadmincompany';
 function App (){
-    
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
 
@@ -67,7 +67,8 @@ function App (){
         <Route exact path="/editcompany" component={editcompany}/>
         <Route exact path="/editcollege" component={editcollege}/>
         <Route exact path="/viewcollegestudent" component={viewcollegestudent}/>
-        <Route exact path="/viewadminstd/" component={Viewadminstd}/>
+        <Route path="/viewadminstd/" component={Viewadminstd}/>
+        <Route path="/viewadmincompany/" component={Viewcompany}/>
         <Redirect to = "/" />
         </Switch>
         </>

@@ -2,9 +2,8 @@ import React ,{Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import ReactPlayer from 'react-player'
 import axios from 'axios';
-import Navbar_addstudent from './navbar_student';
+import Navbar_addstudent from './navbar_addstudent';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])

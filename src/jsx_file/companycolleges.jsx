@@ -52,7 +52,7 @@ class companycollege extends Component {
     collegelist (){
         var college = [];
         // POST request using fetch with error handling
-        axios.get('https://camprec.herokuapp.com/api/college/list')
+        axios.get('https://camprec.herokuapp.com/api/college/list/1')
             .then(function(response) {
                 console.log(response)
                 // check for error response

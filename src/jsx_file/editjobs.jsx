@@ -75,8 +75,7 @@ class editjobs extends Component {
                 if(this.state.job_title  && this.state.job_description ){
                     window.alert("There was some error unable to editing Job");
                 }
-            });
-            
+            });      
     };
     
     render(){

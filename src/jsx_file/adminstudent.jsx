@@ -9,7 +9,7 @@ var i;
 function Rows(props) {
         {
             
-            i="/viewstudent/i="+props.id
+            i="/viewadminstd/i="+props.id
         }
         return (
                     <>

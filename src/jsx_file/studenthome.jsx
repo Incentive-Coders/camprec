@@ -28,6 +28,10 @@ function Cards(props) {
     )
                     }
 const Studenthome =() => {
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', function (event) {
+      window.history.pushState(null, document.title, window.location.href);
+    });
     var arr = JSON.parse(localStorage.getItem("student"));
     console.log(arr)
     return (
