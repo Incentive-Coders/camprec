@@ -30,6 +30,9 @@ import viewcollegestudent from './viewcollegestudent';
 import Viewadminstd from './viewadminstd';
 import ReactGa from 'react-ga';
 import Viewcompany from './viewadmincompany';
+import Signupcompany from './companysignup';
+import Signupadmin from './adminsignup';
+import Signupstudent from './studentsignup';
 function App (){
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
@@ -69,6 +72,9 @@ function App (){
         <Route exact path="/viewcollegestudent" component={viewcollegestudent}/>
         <Route path="/viewadminstd/" component={Viewadminstd}/>
         <Route path="/viewadmincompany/" component={Viewcompany}/>
+        <Route path="/companysignup/" component={Signupcompany}/>
+        <Route path="/adminsignup/" component={Signupadmin}/>
+        <Route path="/studentsignup/" component={Signupstudent}/>
         <Redirect to = "/" />
         </Switch>
         </>

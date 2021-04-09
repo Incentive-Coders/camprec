@@ -9,19 +9,41 @@ import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
 import axios from 'axios';
 
-class Companylogin extends Component {
+class CompanySignup extends Component {
 
     constructor(props){
     super(props);
     
     this.state = {
       email : '',
-      password : ''
+      password : '',
+      names : '' ,
+      about : '',
+      year_of_established : '',
+      location : '',
+      website : '',
+      twitter : '',
+      facebook : '',
+      linkedin : '',
+      instagram : '',
+      vedio_link : ''
     }
     
     this.updateInput = this.updateInput.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.login_link = this.login_link.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateContactNo = this.updateContactNo.bind(this);
+    this.updateAbout = this.updateAbout.bind(this);
+    this.updateYear = this.updateYear.bind(this);
+    this.updateLocation = this.updateLocation.bind(this);
+    this.updateWebsite = this.updateWebsite.bind(this);
+    this.updateTwitter = this.updateTwitter.bind(this);
+    this.updateInstagram = this.updateInstagram.bind(this);
+    this.updateLinkedin = this.updateLinkedin.bind(this);
+    this.updateFacebook = this.updateFacebook.bind(this);
+    this.updateVediolink = this.updateVediolink.bind(this);
+
     }
     
     
@@ -61,7 +83,6 @@ class Companylogin extends Component {
         this.setState({twitter : event.target.value})
     }
     
-    
     updateInstagram(event){
         this.setState({instagram : event.target.value})
     }
@@ -70,7 +91,6 @@ class Companylogin extends Component {
     updateFacebook(event){
         this.setState({facebook : event.target.value})
     }
-
     
     updateLinkedin(event){
         this.setState({linkedin : event.target.value})
@@ -88,10 +108,21 @@ class Companylogin extends Component {
             { 
                 "email" : this.state.email,
                 "password" : this.state.password,
-                "name" : this.state.name 
+                "name" : this.state.name,
+                "contactno" : this.state.contactno,
+                "year_of_established" : this.state.year_of_established,
+                "about" : this.state.about,
+                "website" : this.state.website,
+                "socialmedia" : {
+                    "linkedin" : this.state.linkedin,
+                    "instagram" : this.state.instagram,
+                    "facebook" : this.state.facebook,
+                    "twitter" : this.state.twitter,
+                },
+                "vedio_link" : this.state.vedio_link
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-        axios.post('https://camprec.herokuapp.com/api/company/login',body,{header})
+        axios.post('https://camprec.herokuapp.com/api/company/signup',body,{header})
             .then(function(response) {
                 const data = response.data;
                 // check for error response
@@ -123,7 +154,7 @@ class Companylogin extends Component {
                 <div className = "col-md-4 col-10 left_margin">
                             <div className="margin-t-lg">
                                 <div className="card-body card_us">
-                                 <h3 className="card-title card_us"><strong>Company Login</strong></h3>
+                                 <h3 className="card-title card_us"><strong>Company Signup</strong></h3>
                                     <Form >
                                         <FormItem>
                                         <div className="form-group margin-t">
@@ -137,17 +168,17 @@ class Companylogin extends Component {
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="text" id= 'name' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                            <Input type="text" id= 'name' className="form-control" onChange={this.updateName} placeholder="password" required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="text" id= 'contactno' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                            <Input type="text" id= 'contactno' className="form-control" onChange={this.updateContactNo} placeholder="password" required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="password" id= 'password' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                            <Input type="text" id= 'about' className="form-control" onChange={this.updateAbout} required/>
                                         </div>
                                         </FormItem>
                                         <input type= "submit" className="btn margin-t" value="Login"  onClick={this.login_link}></input>
@@ -161,4 +192,4 @@ class Companylogin extends Component {
     }
 } 
 
-export default Companylogin;
+export default CompanySignup;
