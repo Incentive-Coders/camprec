@@ -81,6 +81,10 @@
     margin-bottom: 100px;
 }
 
+.left{
+    margin-right: 30px;
+}
+
 .details{
     margin-left: -150px;
 }
@@ -133,5 +137,4 @@
 }
 .m-l2{
     margin-left: 30%;
-    
 }

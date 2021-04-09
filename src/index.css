@@ -109,7 +109,7 @@ body {
   color: #fff;
   outline: none;
   border: none;
-  border-radius: 1.8em 1.5em 1.5em 0;
+  border-radius: 1.8em 1.8em 1.8em 1.8em;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }

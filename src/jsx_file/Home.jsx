@@ -54,6 +54,9 @@ const Home =() => {
                                 <img src={web1} className = "student card_us" alt = "home img"/>
                                 <h5 className="card-title"><strong>For Student</strong></h5>
                                 <p className="card-text">You are on Right Track. Working with you to Achieve Vision. Join us to get your dream company.</p>
+                                <NavLink className="btn left" to = "/adminlogin">
+                                        Signup
+                                </NavLink>
                                 <NavLink className="btn" to = "/studentlogin">
                                         Login
                                 </NavLink>
@@ -66,6 +69,9 @@ const Home =() => {
                             <img src={web2} className = "company card_us" alt = "home img"/>
                                 <h5 className="card-title"><strong>For Company</strong></h5>
                                 <p className="card-text">The Key To Success Is Staying On Target so, we are the one who provides you. Choose the best employees amongst the best.</p>
+                                <NavLink className="btn left" to = "/adminlogin">
+                                        Signup
+                                </NavLink>
                                 <NavLink className="btn" to = "/companylogin">
                                         Login
                                 </NavLink>
@@ -78,6 +84,9 @@ const Home =() => {
                             <img src={web3} className = "company card_us" alt = "home img"/>
                                 <h5 class="card-title card_us"><strong>For College Admin</strong></h5>
                                 <p class="card-text">We are here to manage and interlink between companies and students as a invisible string.Keep Calm and Focused.</p>
+                                <NavLink className="btn left" to = "/adminlogin">
+                                        Signup
+                                </NavLink>
                                 <NavLink className="btn" to = "/adminlogin">
                                         Login
                                 </NavLink>
@@ -110,7 +119,6 @@ const Home =() => {
                     duration={15}
                 />
             </div>
-            
         </footer>
 
         </>
