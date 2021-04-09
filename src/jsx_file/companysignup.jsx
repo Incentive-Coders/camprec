@@ -119,7 +119,8 @@ class CompanySignup extends Component {
                     "facebook" : this.state.facebook,
                     "twitter" : this.state.twitter,
                 },
-                "vedio_link" : this.state.vedio_link
+                "vedio_link" : this.state.vedio_link,
+                "approve" : false
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/company/signup',body,{header})
