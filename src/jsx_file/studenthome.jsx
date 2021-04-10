@@ -28,7 +28,7 @@ function Cards(props) {
                                 </>
                             );
                             })}
-                           <p ><a href="\addedu"><FaPlus></FaPlus></a>   <a href="#"><FaRegTrashAlt></FaRegTrashAlt></a> </p>
+                           <p ><a href="\addedu"><FaPlus></FaPlus></a>   <a href="/deledu"><FaRegTrashAlt></FaRegTrashAlt></a> </p>
                             </p>
                             <p className="card-body card-text  fsize"><strong>Work experience :</strong> <br/>
                             {props.work.map((user,i) => {
@@ -58,7 +58,7 @@ function Cards(props) {
                                 </>
                             );
                             })}
-                            <p ><a href="\addcer"><FaPlus></FaPlus></a>   <a href="#"><FaRegTrashAlt></FaRegTrashAlt></a> </p>
+                            <p ><a href="\addcer"><FaPlus></FaPlus></a>   <a href="\delcer"><FaRegTrashAlt></FaRegTrashAlt></a> </p>
                             </p>
                             <p className="card-text  fsize"> <a href={props.facebook}><FaFacebookF></FaFacebookF></a>  <a href={props.twitter}><FaTwitter></FaTwitter></a> <a href={props.LinkedIn}> <FaLinkedin></FaLinkedin></a> <a href={props.Insta}> <FaInstagram></FaInstagram></a></p>
                             </div>

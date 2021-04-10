@@ -37,6 +37,8 @@ import addexp from './addexp';
 import addedu from './addedu';
 import addcer from './addcer';
 import delexp from './delexp';
+import deledu from './deledu';
+import delcer from './delcer';
 function App (){
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
@@ -76,6 +78,8 @@ function App (){
         <Route exact path="/viewcollegestudent" component={viewcollegestudent}/>
         <Route exact path="/addexp" component={addexp}/>
         <Route exact path="/delexp" component={delexp}/>
+        <Route exact path="/deledu" component={deledu}/>
+        <Route exact path="/delcer" component={delcer}/>
         <Route exact path="/addedu" component={addedu}/>
         <Route exact path="/addcer" component={addcer}/>
         <Route path="/viewadminstd/" component={Viewadminstd}/>
