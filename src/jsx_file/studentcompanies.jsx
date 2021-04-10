@@ -2,18 +2,11 @@ import {React, Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import { NavLink } from "react-router-dom";
-import Navbar_company from './navbar_company';
-import web from "../images/add.png";
+import Navbar_Student from './navbar_student';
 import axios from 'axios';
-var k;
-sessionStorage.clear();
 function Cards(props) {
-    {
-        k="/studentapply/i="+props.job_id;
-    }
+    var i="/viewstudentcompany/i="+props.id
     return (
-                
                 <>
                    <div className="card widths" >
                         <div className="card-body">
@@ -21,89 +14,79 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href={k} className="btn btn-primary text_size margin_left">Show Interest</a>
+                            <a href={i} className="btn btn-primary  text_size left_m2">View</a>
                             </div>
                             
                         </div>
                     </div>
                     </>
-                    
     )
                     }
-const Cardlist = ({ Joblist }) => {
+const Cardlist = ({ Companylist }) => {
     return (
         <div className="gridwraper">
         {
-            Joblist.map((user, i) => {
+            Companylist.map((user, i) => {
             return (<>
                 <Cards
                 key={i}
-                job_id={Joblist[i]._id}
-                title={Joblist[i].job_title}
-                content={Joblist[i].job_description}
-                location = {Joblist[i].location}
+                title={Companylist[i].name}
+                content={Companylist[i].about}
+                location = {Companylist[i].location}
+                id={Companylist[i]._id}
                 />
                 </>
             );
-
             })
         }
-         <div className="card3 widths" >
-                            <div className="card-body">
-                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
-                            </div>
-                        </div>
         </div>
     );
     }
 var arr= JSON.parse(localStorage.getItem("company"));
-class studentjobs extends Component {
+class StudentCompany extends Component {
     constructor(props){
     super(props);
-    this.body = { 
-        "company_id" : arr._id,
-    }
-    this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
     
 
-    companyjoblist (){
-        var job = [];
+    companylist (){
+        var company = [];
         // POST request using fetch with error handling
-        axios.post('https://camprec.herokuapp.com/api/jobs/list',this.body,this.header)
+        axios.get('https://camprec.herokuapp.com/api/company/list/1')
             .then(function(response) {
+                console.log(response)
                 // check for error response
                 if (response.status != 200) {
                     // get error message from body or default to response status
                     const error = (response.data && response.data.message) || response.status;
                     return Promise.reject(error);
                 }
-                localStorage.setItem('jobs',JSON.stringify(response.data))
+                localStorage.setItem('company',JSON.stringify(response.data))
         })
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
                 
             });
-            if(job)
-            return job;
+            if(company)
+            return company;
             
     }; 
 
 
     render() {
-        this.companyjoblist()
+        this.companylist()
         return (
             <>
-            <Navbar_company />
+            <Navbar_Student />
             <section className="image width heights">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
-                                <strong className = "brand-name leftmargin">Jobs</strong>
+                                <strong className = "brand-name leftmargin">Companies</strong>
                                 </h2>
                         </div>
                         <div className="gridwraper">
-                            <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
+                            <Cardlist Companylist={JSON.parse(localStorage.getItem('company'))}/>
                         </div>
             </section>
             </>
@@ -111,4 +94,4 @@ class studentjobs extends Component {
     };
 }
 
-export default studentjobs ;
+export default StudentCompany ;

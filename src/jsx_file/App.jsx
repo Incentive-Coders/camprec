@@ -39,6 +39,9 @@ import addcer from './addcer';
 import delexp from './delexp';
 import deledu from './deledu';
 import delcer from './delcer';
+import adminjobs from './adminjobs';
+import Viewstdcompany from './viewstudentcompany';
+import StudentCompany from './studentcompanies';
 function App (){
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
@@ -59,10 +62,12 @@ function App (){
         <Route exact path="/studentlogin" component={Studentlogin}/>
         <Route exact path="/companylogin" component={CompanyLogin}/>
         <Route exact path="/companyjobs" component={Companyjobs}/>
+        <Route exact path="/adminjobs" component={adminjobs}/>
         <Route exact path="/adminstudent" component={Adminstudent}/>
         <Route exact path="/studentjobs" component={Studentjobs}/>
         <Route exact path="/companycolleges" component={Companycolleges}/>
         <Route exact path = "/admincompanies" component = {Admincompanies} />
+        <Route exact path = "/studentcompanies" component = {StudentCompany} />
         <Route exact path="/studentcourses" component={Studentcourses}/>
         <Route exact path="/premium" component={premium}/>
         <Route exact path="/addjobs" component={addjobs}/>
@@ -84,6 +89,7 @@ function App (){
         <Route exact path="/addcer" component={addcer}/>
         <Route path="/viewadminstd/" component={Viewadminstd}/>
         <Route path="/viewadmincompany/" component={Viewcompany}/>
+        <Route path="/viewstudentcompany/" component={Viewstdcompany}/>
         <Route path="/companysignup/" component={Signupcompany}/>
         <Route path="/adminsignup/" component={Signupadmin}/>
         <Route path="/studentsignup/" component={Signupstudent}/>

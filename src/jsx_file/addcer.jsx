@@ -93,7 +93,7 @@ class addcer extends Component {
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t">
-                                            <Input type="TEXT" className="form-control" placeholder="valid_till" onChange={this.updatevalid_till} />
+                                            <Input type="TEXT" className="form-control" placeholder="valid_till(yyyy-mm-dd)" onChange={this.updatevalid_till} />
                                         </div>
                                         </FormItem>
                                         <FormItem>

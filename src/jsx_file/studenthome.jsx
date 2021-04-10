@@ -3,7 +3,32 @@ import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import Navbar_student from './navbar_student';
+import axios from 'axios';
 import { FaFacebookF,FaTwitter,FaInstagram,FaLinkedin,FaPlus,FaRegTrashAlt} from "react-icons/fa";
+function collegedata (){
+    var arr = JSON.parse(localStorage.getItem("student"))
+    var body = { 
+        "student_id" : arr._id,
+    }
+    var header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
+    // POST request using fetch with error handling
+    axios.post('https://camprec.herokuapp.com/api/student/data',body,header)
+        .then(function(response) {
+            // check for error response
+            if (response.status != 200) {
+                // get error message from body or default to response status
+                const error = (response.data && response.data.message) || response.status;
+                return Promise.reject(error);
+            }
+            localStorage.setItem('student',JSON.stringify(response.data))
+    })
+     .catch(error => {
+            console.log(error);
+            window.alert("something went wrong")
+            
+        });
+        
+}; 
 function Cards(props) {
     console.log(props.certification)
     return (
@@ -73,6 +98,7 @@ const Studenthome =() => {
     window.addEventListener('popstate', function (event) {
       window.history.pushState(null, document.title, window.location.href);
     });
+    collegedata();
     var arr = JSON.parse(localStorage.getItem("student"))
     return (
         <>
