@@ -2,9 +2,7 @@ import {React, Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import { NavLink } from "react-router-dom";
-import Navbar_company from './navbar_company';
-import web from "../images/add.png";
+import Navbar_viewstdcompany from './navbar_viewstdcompany';
 import axios from 'axios';
 var k;
 sessionStorage.clear();
@@ -48,11 +46,7 @@ const Cardlist = ({ Joblist }) => {
 
             })
         }
-         <div className="card3 widths" >
-                            <div className="card-body">
-                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
-                            </div>
-                        </div>
+         
         </div>
     );
     }
@@ -95,7 +89,7 @@ class studentjobs extends Component {
         this.companyjoblist()
         return (
             <>
-            <Navbar_company />
+            <Navbar_viewstdcompany></Navbar_viewstdcompany>
             <section className="image width heights">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>

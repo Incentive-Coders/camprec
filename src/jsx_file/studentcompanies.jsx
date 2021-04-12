@@ -8,13 +8,13 @@ function Cards(props) {
     var i="/viewstudentcompany/i="+props.id
     return (
                 <>
-                   <div className="card widths" >
+                   <div className="card widths " >
                         <div className="card-body">
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
-                            <p className="card-text">{props.content}</p>
+                            <p className="card-text hfixed">{props.content}</p>
                             <div className='pop' >
-                            <a href={i} className="btn btn-primary  text_size left_m2">View</a>
+                            <a href={i} className="btn btn-primary  text_size left_m2 m_t">View</a>
                             </div>
                             
                         </div>
@@ -22,6 +22,7 @@ function Cards(props) {
                     </>
     )
                     }
+            
 const Cardlist = ({ Companylist }) => {
     return (
         <div className="gridwraper">
@@ -42,17 +43,20 @@ const Cardlist = ({ Companylist }) => {
         </div>
     );
     }
-var arr= JSON.parse(localStorage.getItem("company"));
+var i=1;
+
+
 class StudentCompany extends Component {
     constructor(props){
     super(props);
     }
-    
-
+        
     companylist (){
         var company = [];
+        
+        var k ="https://camprec.herokuapp.com/api/company/list/"+i.toString
         // POST request using fetch with error handling
-        axios.get('https://camprec.herokuapp.com/api/company/list/1')
+        axios.get(k)
             .then(function(response) {
                 console.log(response)
                 // check for error response
@@ -72,6 +76,18 @@ class StudentCompany extends Component {
             return company;
             
     }; 
+    back (){
+        if(i===1){
+            return null;
+        }
+        else{
+            i=i-1;
+            this.render()
+    }}
+    next(){    
+        i=i+1;
+        this.render()
+    }
 
 
     render() {
@@ -79,7 +95,7 @@ class StudentCompany extends Component {
         return (
             <>
             <Navbar_Student />
-            <section className="image width heights">
+            <section className="image width">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
                                 <strong className = "brand-name leftmargin">Companies</strong>
@@ -88,8 +104,13 @@ class StudentCompany extends Component {
                         <div className="gridwraper">
                             <Cardlist Companylist={JSON.parse(localStorage.getItem('company'))}/>
                         </div>
+                        <div className="m-l3">
+                            <button className="btn text_size m_t" onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
+                        </div>
             </section>
+            
             </>
+            
         );
     };
 }

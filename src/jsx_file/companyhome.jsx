@@ -8,9 +8,9 @@ import { FaFacebookF,FaTwitter,FaInstagram,FaLinkedin} from "react-icons/fa";
 function Cards(props) {
     return (
                 <>
-                   <div className="card2 magin-top" >
+                   <div className="magin-top" >
                         <div className="card-body profile_width pop">
-                          <div><img src={props.image} className="profile_img marginl"></img></div>
+                          <div><img src={props.image} className="profile_img"></img></div>
                           <div className="cb"><div className="cb2"><strong><h4 className="card-title  centers fsize2">{props.name}</h4></strong>
                           <p className="card-text centers"><strong>Location : </strong> {props.location}</p></div>
                             <div className="details">

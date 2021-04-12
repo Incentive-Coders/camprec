@@ -160,7 +160,7 @@ body {
   height: 400px;
 }
 .width{
-  width:1540px;
+  width:1519px !important;
 }
 .height{
   height: 512px;

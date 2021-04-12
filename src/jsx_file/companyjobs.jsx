@@ -18,7 +18,8 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="#" className="btn btn-primary text_size margin_left">Show intrest</a>
+                            <a href="/editjobs" className="btn btn-primary text_size margin_left">Edit</a>
+                            <a href="/showapplicants" className="btn btn-primary text_size margin_left">Show Aplicants</a>
                             </div>
                             
                         </div>
