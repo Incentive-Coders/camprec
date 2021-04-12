@@ -8,13 +8,13 @@ function Cards(props) {
     var i="/viewadmincompany/i="+props.id
     return (
                 <>
-                   <div className="card widths" >
+                   <div className="card widths " >
                         <div className="card-body">
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
-                            <p className="card-text">{props.content}</p>
+                            <p className="card-text hfixed">{props.content}</p>
                             <div className='pop' >
-                            <a href={i} className="btn btn-primary  text_size left_m2">View</a>
+                            <a href={i} className="btn btn-primary  text_size left_m2 m_t">View</a>
                             </div>
                             
                         </div>

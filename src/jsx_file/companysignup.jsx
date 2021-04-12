@@ -150,44 +150,57 @@ class CompanySignup extends Component {
     return (
             <>
             <Navbar/>
-            <div className="pop image width height">
-                <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
-                <div className = "col-md-4 col-10 left_margin">
-                            <div className="margin-t-lg">
-                                <div className="card-body card_us">
+                        <div className="image width">
                                  <h3 className="card-title card_us"><strong>Company Signup</strong></h3>
-                                    <Form >
-                                        <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'email' className="form-control"  onChange={this.updateInput} placeholder="Username" required/>
+                                 <Form className="editjb margin-top center m-l" >
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="company name" onChange={this.updateInput} required />
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="password" id= 'password' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="company location" onChange={this.updatelocation} />
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'name' className="form-control" onChange={this.updateName} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="company Website"  onChange={this.updatewebsite} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'contactno' className="form-control" onChange={this.updateContactNo} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control"  placeholder="company facebook-link"  onChange={this.updatefacebook} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'about' className="form-control" onChange={this.updateAbout} required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="company LinkedIn-link"  onChange={this.updatelinkedin} required/>
                                         </div>
                                         </FormItem>
-                                        <input type= "submit" className="btn margin-t" value="Login"  onClick={this.login_link}></input>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="company instagram-link"  onChange={this.updateinstagram} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="company twitter-link"  onChange={this.updatetwitter} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Disc Vedio Link"  onChange={this.updatevedio_link} required/>
+                                        </div>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control size"  placeholder="company Description"  onChange={this.updatecompany_description} required/>
+                                        </div>
+                                        </FormItem>
+                                        </FormItem>
+                                        <input type= "submit" className="btn margin-top m-l2 center" onClick={this.login_link} id='button'  value="Submit"/>
                                     </Form>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+                        </div>   
             </>
         );
     }

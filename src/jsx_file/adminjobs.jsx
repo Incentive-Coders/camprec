@@ -2,11 +2,9 @@ import {React, Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import { NavLink } from "react-router-dom";
-import Navbar_company from './navbar_company';
-import web from "../images/add.png";
+import Navbar_viewcompany from './navbar_viewcompany2';
 import axios from 'axios';
-var k,i;
+var k;
 sessionStorage.clear();
 function Cards(props) {
     {
@@ -21,7 +19,7 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href={i} className="btn btn-primary text_size margin_left">Show Interest</a>
+                            <a href={k} className="btn btn-primary text_size left_m2">Apply</a>
                             </div>
                             
                         </div>
@@ -48,11 +46,6 @@ const Cardlist = ({ Joblist }) => {
 
             })
         }
-         <div className="card3 widths" >
-                            <div className="card-body">
-                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
-                            </div>
-                        </div>
         </div>
     );
     }
@@ -95,7 +88,7 @@ class adminjobs extends Component {
         this.companyjoblist()
         return (
             <>
-            <Navbar_company />
+            <Navbar_viewcompany/>
             <section className="image width heights">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>

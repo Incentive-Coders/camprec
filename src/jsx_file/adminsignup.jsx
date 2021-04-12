@@ -140,30 +140,58 @@ class AdminSignup extends Component {
     render(){
     return (
             <>
+            <section className="image width ">
             <Navbar/>
-            <div className="pop image width height">
-                <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
-                <div className = "col-md-4 col-10 left_margin">
-                            <div className="margin-t-lg">
-                                <div className="card-body card_us">
-                                 <h3 className="card-title card_us"><strong>College Admin Signup</strong></h3>
-                                    <Form >
-                                        <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'email' className="form-control"  onChange={this.updateInput} placeholder="Username" required/>
+                                 <h3 className="card-title card_us"><strong>College Signup</strong></h3>
+                                    <Form className="editjb margin-top center m-l" >
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="college name" onChange={this.updateInput} required />
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="password" id= 'password' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="college location" onChange={this.updatelocation} />
                                         </div>
                                         </FormItem>
-                                        <input type= "submit" className="btn margin-t" value="Login"  onClick={this.login_link}></input>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="college Website"  onChange={this.updatewebsite} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control"  placeholder="college facebook-link"  onChange={this.updatefacebook} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="college LinkedIn-link"  onChange={this.updatelinkedin} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="college instagram-link"  onChange={this.updateinstagram} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="college twitter-link"  onChange={this.updatetwitter} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Disc Vedio Link"  onChange={this.updatevedio_link} required/>
+                                        </div>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control size"  placeholder="college Description"  onChange={this.updatecollege_description} required/>
+                                        </div>
+                                        </FormItem>
+                                        </FormItem>
+                                        <input type= "submit" className="btn margin-top m-l2 center" onClick={this.login_link} id='button'  value="Submit"/>
                                     </Form>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+            </section>
             </>
         );
     }

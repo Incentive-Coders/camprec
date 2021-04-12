@@ -2,7 +2,7 @@ import {React, Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import Navbar_viewstdcompany from './navbar_viewstdcompany';
+import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
 var k;
 sessionStorage.clear();
@@ -19,7 +19,7 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href={k} className="btn btn-primary text_size margin_left">Show Interest</a>
+                            <a href={k} className="btn btn-primary text_size left_m2">Apply</a>
                             </div>
                             
                         </div>
