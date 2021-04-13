@@ -6,8 +6,6 @@ import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
 import web from "../images/add.png";
 import axios from 'axios';
-var k,i;
-sessionStorage.clear();
 import {FaRegTrashAlt} from "react-icons/fa";
 var k,i,n;
 
