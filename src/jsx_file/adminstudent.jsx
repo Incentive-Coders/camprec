@@ -35,6 +35,9 @@ const Rowlist = ({ Rowlists }) => {
 class Adminstudent extends Component {
         constructor(props){
         super(props);
+        this.state = {
+            isLoaded : false
+        }
         this.body = { 
             "email" : arr.email,
         }
@@ -54,9 +57,11 @@ class Adminstudent extends Component {
                         return Promise.reject(error);
                     }
                     console.log(response.data.length);
-                    
                     localStorage.setItem('studentlist',JSON.stringify(response.data))
-            })
+                    this.setState({
+                        isLoaded : true
+                    })
+            }.bind(this))
              .catch(error => {
                     console.log(error);
                     window.alert("something went wrong")
@@ -70,6 +75,14 @@ class Adminstudent extends Component {
     
         render() {
             this.studentlist()
+            console.log(this.isLoaded)
+            if(this.isLoaded == false)
+            {
+                <p>
+                    Loading
+                </p>
+            }
+            else {
             return (
                 <>
                 <Navbar_admin/>
@@ -93,6 +106,7 @@ class Adminstudent extends Component {
                 </section>
                 </>
             );
+            }
         };
     }
 
