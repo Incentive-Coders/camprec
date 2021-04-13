@@ -43,18 +43,25 @@ const Cardlist = ({ Companylist }) => {
         </div>
     );
     }
-var i=1;
+var j=1;
 
 
 class StudentCompany extends Component {
     constructor(props){
     super(props);
+     this.state={
+         j : 1
     }
-        
+    this.next = this.next.bind(this);
+    this.back = this.back.bind(this);
+    this.companylist = this.companylist.bind(this); 
+    }
+    
     companylist (){
         var company = [];
-        
-        var k ="https://camprec.herokuapp.com/api/company/list/"+i.toString
+        console.log(this.state.j);
+        var k ="https://camprec.herokuapp.com/api/company/list/"+this.state.j.toString();
+        console.log(k);
         // POST request using fetch with error handling
         axios.get(k)
             .then(function(response) {
@@ -77,21 +84,21 @@ class StudentCompany extends Component {
             
     }; 
     back (){
-        if(i===1){
+        if(this.state.j===1){
             return null;
         }
         else{
-            i=i-1;
-            this.render()
+            this.setState({j: this.state.j - 1});
+            
     }}
     next(){    
-        i=i+1;
-        this.render()
+        this.setState({j: this.state.j + 1});
+        
     }
-
 
     render() {
         this.companylist()
+        
         return (
             <>
             <Navbar_Student />
@@ -105,7 +112,7 @@ class StudentCompany extends Component {
                             <Cardlist Companylist={JSON.parse(localStorage.getItem('company'))}/>
                         </div>
                         <div className="m-l3">
-                            <button className="btn text_size m_t" onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
+                            <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
                         </div>
             </section>
             

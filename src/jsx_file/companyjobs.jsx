@@ -8,7 +8,13 @@ import web from "../images/add.png";
 import axios from 'axios';
 var k,i;
 sessionStorage.clear();
+import {FaRegTrashAlt} from "react-icons/fa";
+var k,i,n;
+
 function Cards(props) {
+    k="/editjobs/i="+props.job_id;
+    i="/showapplicants/i="+props.job_id;
+    n="/deljobs/i="+props.job_id;
     return (
                 
                 <>
@@ -18,9 +24,11 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href="/editjobs" className="btn btn-primary text_size margin_left">Edit</a>
-                            <a href="/showapplicants" className="btn btn-primary text_size margin_left">Show Aplicants</a>
+                            <a href={k} className="btn btn-primary text_size margin_left">Edit</a>
+                            <a href={i} className="btn btn-primary text_size margin_left">Show Aplicants</a>
+                            
                             </div>
+                           
                             
                         </div>
                     </div>

@@ -46,13 +46,22 @@ var arr= JSON.parse(localStorage.getItem("company"));
 class AdminCompany extends Component {
     constructor(props){
     super(props);
+    this.state={
+        j : 1
+   }
+   this.next = this.next.bind(this);
+   this.back = this.back.bind(this);
     }
     
 
     companylist (){
         var company = [];
         // POST request using fetch with error handling
-        axios.get('https://camprec.herokuapp.com/api/company/list/1')
+        console.log(this.state.j);
+        var k ="https://camprec.herokuapp.com/api/company/list/"+this.state.j.toString();
+        console.log(k);
+        // POST request using fetch with error handling
+        axios.get(k)
             .then(function(response) {
                 console.log(response)
                 // check for error response
@@ -72,7 +81,18 @@ class AdminCompany extends Component {
             return company;
             
     }; 
-
+    back (){
+        if(this.state.j===1){
+            return null;
+        }
+        else{
+            this.setState({j: this.state.j - 1});
+            
+    }}
+    next(){    
+        this.setState({j: this.state.j + 1});
+        
+    }
 
     render() {
         this.companylist()
@@ -89,6 +109,9 @@ class AdminCompany extends Component {
                             <Cardlist Companylist={JSON.parse(localStorage.getItem('company'))}/>
                         </div>
             </section>
+            <div className="m-l3">
+                            <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
+                        </div>
             </>
         );
     };

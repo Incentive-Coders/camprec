@@ -42,17 +42,36 @@ const Cardlist = ({ collegelist }) => {
         </div>
     );
     }
+    
 var arr= JSON.parse(localStorage.getItem("college"));
 class companycollege extends Component {
     constructor(props){
     super(props);
-    }
+    this.state={
+        j : 1
+   }
+   this.next = this.next.bind(this);
+   this.back = this.back.bind(this);
+}
     
-
+    back (){
+        if(this.state.j===1){
+            return null;
+        }
+        else{
+            this.setState({j: this.state.j - 1});
+            
+    }}
+    next(){    
+        this.setState({j: this.state.j + 1});
+        
+    }
     collegelist (){
         var college = [];
+        console.log(this.state.j);
+        var k ="https://camprec.herokuapp.com/api/college/list/"+this.state.j.toString();
         // POST request using fetch with error handling
-        axios.get('https://camprec.herokuapp.com/api/college/list/1')
+        axios.get(k)
             .then(function(response) {
                 console.log(response)
                 // check for error response
@@ -91,6 +110,9 @@ class companycollege extends Component {
                             <Cardlist collegelist={JSON.parse(localStorage.getItem('college'))}/>
                         </div>
             </section>
+            <div className="m-l3">
+                            <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
+            </div>
             </>
         );
     };
