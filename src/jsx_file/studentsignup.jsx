@@ -20,7 +20,7 @@ class studentSignup extends Component {
       contactno:'',
       about : '',
       college : '',
-      location : '',
+      cgpa : '',
       twitter : '',
       facebook : '',
       linkedin : '',
@@ -68,7 +68,7 @@ class studentSignup extends Component {
     }
 
     updateCgpa(event){
-        this.setState({location : event.target.value})
+        this.setState({cgpa : event.target.value})
     }
 
     updateTwitter(event){
@@ -153,9 +153,15 @@ class studentSignup extends Component {
                                             <Input type="password" className=" boderb form-control "  placeholder="student Password" onChange={this.updatePassword} required />
                                         </div>
                                         </FormItem>
+                                        
                                         <FormItem >
                                         <div className="form-group margin-t center">
                                             <Input type="TEXT" className=" boderb form-control "  placeholder="student name" onChange={this.updateName} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="student contact no" onChange={this.updateContactNo} required />
                                         </div>
                                         </FormItem>
                                         <FormItem >
