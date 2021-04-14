@@ -98,8 +98,11 @@
     margin-bottom: 4em;
 }
 .addheight{
-    height: 200px;
-    width:300px;
+    height: 100px;
+    width:100px;
+    margin-top: 40px;
+    margin-left: 40px;
+    color: #565387;
 }
 .card3{
     width:100%;
@@ -154,4 +157,7 @@
 }
 .vis{
     visibility: hidden;
+}
+.fonts{
+    font-size: 12px  !important;
 }

@@ -11,7 +11,7 @@ function Cards(props) {
                    <div className="card widths" >
                         <div className="card-body">
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
-                            <strong><h6 className="card-title  centers">{props.location}</h6></strong>
+                            <strong><h6 className="card-title fonts  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
                             <a href={i} className="btn btn-primary  text_size left_m2">View</a>
@@ -100,7 +100,7 @@ class companycollege extends Component {
         return (
             <>
             <Navbar_company />
-            <section className="image width heights">
+            <section className="image width ">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
                                 <strong className = "brand-name leftmargin">Colleges</strong>
@@ -109,10 +109,11 @@ class companycollege extends Component {
                         <div className="gridwraper">
                             <Cardlist collegelist={JSON.parse(localStorage.getItem('college'))}/>
                         </div>
-            </section>
-            <div className="m-l3">
+                        <div className="m-l3">
                             <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
-            </div>
+                        </div>
+            </section>
+            
             </>
         );
     };

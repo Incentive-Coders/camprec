@@ -36,6 +36,7 @@ class Companylogin extends Component {
     
 
     login_link (){
+        var status;
         console.log(this.state.email);
         console.log(this.state.password);
         // POST request using fetch with error handling
@@ -50,6 +51,7 @@ class Companylogin extends Component {
                 const data = response.data;
                 // check for error response
                 if (response.status != 200) {
+                    status=response.status;
                     // get error message from body or default to response status
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
@@ -63,6 +65,7 @@ class Companylogin extends Component {
                 if(this.state.email  && this.state.password){
                     window.alert("Incorect Id and Password");
                 }
+                
                 
             });
             

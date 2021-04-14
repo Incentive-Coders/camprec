@@ -110,10 +110,11 @@ class CompanySignup extends Component {
                 "password" : this.state.password,
                 "name" : this.state.name,
                 "contactno" : this.state.contactno,
+                "location" :this.state.location,
                 "year_of_established" : this.state.year_of_established,
                 "about" : this.state.about,
                 "website" : this.state.website,
-                "socialmedia" : {
+                "social_media" : {
                     "linkedin" : this.state.linkedin,
                     "instagram" : this.state.instagram,
                     "facebook" : this.state.facebook,
@@ -133,13 +134,13 @@ class CompanySignup extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("company",JSON.stringify(response.data))
-                window.location.replace('/companyhome');
+                window.location.replace('/home');
                  
         })
          .catch(error => {
                 console.error('There was an error!');
                 if(this.state.email  && this.state.password){
-                    window.alert("Incorect Id and Password");
+                    window.alert("Error");
                 }
                 
             });
@@ -155,46 +156,61 @@ class CompanySignup extends Component {
                                  <Form className="editjb margin-top center m-l" >
                                         <FormItem >
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className=" boderb form-control "  placeholder="company name" onChange={this.updateInput} required />
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="Company email" onChange={this.updateInput} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="password" className=" boderb form-control "  placeholder="Company Password" onChange={this.updatePassword} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="Company name" onChange={this.updateName} required />
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="company location" onChange={this.updatelocation} />
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company location" onChange={this.updateLocation} />
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="company Website"  onChange={this.updatewebsite} required/>
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company year of establishment" onChange={this.updateYear} />
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className=" boderb form-control"  placeholder="company facebook-link"  onChange={this.updatefacebook} required/>
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company Website"  onChange={this.updateWebsite} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="company LinkedIn-link"  onChange={this.updatelinkedin} required/>
+                                            <Input type="TEXT" className=" boderb form-control"  placeholder="Company facebook-link"  onChange={this.updateFacebook} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="company instagram-link"  onChange={this.updateinstagram} required/>
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company LinkedIn-link"  onChange={this.updateLinkedin} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="company twitter-link"  onChange={this.updatetwitter} required/>
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company instagram-link"  onChange={this.updateInstagram} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control"  placeholder="Disc Vedio Link"  onChange={this.updatevedio_link} required/>
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Company twitter-link"  onChange={this.updateTwitter} required/>
+                                        </div>
+                                        </FormItem>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="Disc Vedio Link"  onChange={this.updateVediolink} required/>
                                         </div>
                                         <FormItem>
                                         <div className="form-group margin-t center">
-                                            <Input type="TEXT" className="boderb form-control size"  placeholder="company Description"  onChange={this.updatecompany_description} required/>
+                                            <Input type="TEXT" className="boderb form-control size"  placeholder="Company Description"  onChange={this.updateAbout} required/>
                                         </div>
                                         </FormItem>
                                         </FormItem>

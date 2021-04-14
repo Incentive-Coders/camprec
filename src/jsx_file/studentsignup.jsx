@@ -2,14 +2,13 @@ import {React, Component} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import"../css/home.css";
-import web5 from "../images/company_login.png";
 import "../css/login.css";
 import FormItem from 'antd/lib/form/FormItem';
 import {Form, Input} from 'antd';
 import Navbar from "./Navbar";
 import axios from 'axios';
 
-class StudentSignup extends Component {
+class studentSignup extends Component {
 
     constructor(props){
     super(props);
@@ -18,15 +17,14 @@ class StudentSignup extends Component {
       email : '',
       password : '',
       names : '' ,
+      contactno:'',
       about : '',
-      year_of_established : '',
+      college : '',
       location : '',
-      website : '',
       twitter : '',
       facebook : '',
       linkedin : '',
-      instagram : '',
-      vedio_link : ''
+      instagram : ''
     }
     
     this.updateInput = this.updateInput.bind(this);
@@ -35,14 +33,12 @@ class StudentSignup extends Component {
     this.updateName = this.updateName.bind(this);
     this.updateContactNo = this.updateContactNo.bind(this);
     this.updateAbout = this.updateAbout.bind(this);
-    this.updateYear = this.updateYear.bind(this);
-    this.updateLocation = this.updateLocation.bind(this);
-    this.updateWebsite = this.updateWebsite.bind(this);
+    this.updateCgpa = this.updateCgpa.bind(this);
+    this.updateCollege = this.updateCollege.bind(this);
     this.updateTwitter = this.updateTwitter.bind(this);
     this.updateInstagram = this.updateInstagram.bind(this);
     this.updateLinkedin = this.updateLinkedin.bind(this);
     this.updateFacebook = this.updateFacebook.bind(this);
-    this.updateVediolink = this.updateVediolink.bind(this);
 
     }
     
@@ -67,16 +63,12 @@ class StudentSignup extends Component {
         this.setState({about : event.target.value})
     }
 
-    updateYear(event){
-        this.setState({year_of_established : event.target.value})
+    updateCollege(event){
+        this.setState({college : event.target.value})
     }
 
-    updateLocation(event){
+    updateCgpa(event){
         this.setState({location : event.target.value})
-    }
-
-    updateWebsite(event){
-        this.setState({ website : event.target.value})
     }
 
     updateTwitter(event){
@@ -96,9 +88,6 @@ class StudentSignup extends Component {
         this.setState({linkedin : event.target.value})
     }
     
-    updateVediolink(event){
-        this.setState({vedio_link : event.target.value})
-    }
     
     login_link (){
         console.log(this.state.email);
@@ -110,21 +99,23 @@ class StudentSignup extends Component {
                 "password" : this.state.password,
                 "name" : this.state.name,
                 "contactno" : this.state.contactno,
-                "year_of_established" : this.state.year_of_established,
                 "about" : this.state.about,
-                "website" : this.state.website,
-                "socialmedia" : {
+                "college" : this.state.college,
+                "cgpa" :this.state.cgpa,
+                "social_media" : {
                     "linkedin" : this.state.linkedin,
                     "instagram" : this.state.instagram,
                     "facebook" : this.state.facebook,
                     "twitter" : this.state.twitter,
                 },
-                "vedio_link" : this.state.vedio_link,
+                "resume": "",
+                "premium": false,
                 "approve" : false
             };
+        console.log(body)
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-        axios.post('https://camprec.herokuapp.com/api/company/signup',body,{header})
-            .then(function(response) {
+        axios.post('https://camprec.herokuapp.com/api/student/signup',body,{header})
+            .then(function(response) {  
                 const data = response.data;
                 // check for error response
                 if (response.status != 200) {
@@ -132,14 +123,13 @@ class StudentSignup extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                localStorage.setItem("company",JSON.stringify(response.data))
-                window.location.replace('/companyhome');
+                window.location.replace('/home');
                  
         })
          .catch(error => {
                 console.error('There was an error!');
                 if(this.state.email  && this.state.password){
-                    window.alert("Incorect Id and Password");
+                    window.alert("Error");
                 }
                 
             });
@@ -150,47 +140,65 @@ class StudentSignup extends Component {
     return (
             <>
             <Navbar/>
-            <div className="pop image width height">
-                <img src={web5} className = "image-fluid animated size_img margin-l-lg" alt = "login img"/>
-                <div className = "col-md-4 col-10 left_margin">
-                            <div className="margin-t-lg">
-                                <div className="card-body card_us">
-                                 <h3 className="card-title card_us"><strong>Company Signup</strong></h3>
-                                    <Form >
-                                        <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'email' className="form-control"  onChange={this.updateInput} placeholder="Username" required/>
+                        <div className="image width">
+                                 <h3 className="card-title card_us"><strong>Student Signup</strong></h3>
+                                 <Form className="editjb margin-top center m-l" >
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="student email" onChange={this.updateInput} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="password" className=" boderb form-control "  placeholder="student Password" onChange={this.updatePassword} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="student name" onChange={this.updateName} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="student College" onChange={this.updateCollege} required />
+                                        </div>
+                                        </FormItem>
+                                        <FormItem >
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control "  placeholder="student CGPA" onChange={this.updateCgpa} required />
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="password" id= 'password' className="form-control" onChange={this.updatePassword} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className=" boderb form-control"  placeholder="student facebook-link"  onChange={this.updateFacebook} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'name' className="form-control" onChange={this.updateName} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="student LinkedIn-link"  onChange={this.updateLinkedin} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'contactno' className="form-control" onChange={this.updateContactNo} placeholder="password" required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="student instagram-link"  onChange={this.updateInstagram} required/>
                                         </div>
                                         </FormItem>
                                         <FormItem>
-                                        <div className="form-group margin-t">
-                                            <Input type="text" id= 'about' className="form-control" onChange={this.updateAbout} required/>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control"  placeholder="student twitter-link"  onChange={this.updateTwitter} required/>
                                         </div>
                                         </FormItem>
-                                        <input type= "submit" className="btn margin-t" value="Login"  onClick={this.login_link}></input>
+                                        <FormItem>
+                                        <div className="form-group margin-t center">
+                                            <Input type="TEXT" className="boderb form-control size"  placeholder="student Description"  onChange={this.updateAbout} required/>
+                                        </div>
+                                        </FormItem>
+                                        <input type= "submit" className="btn margin-top m-l2 center" onClick={this.login_link} id='button'  value="Submit"/>
                                     </Form>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+                        </div>   
             </>
         );
     }
 } 
 
-export default StudentSignup;
+export default studentSignup;

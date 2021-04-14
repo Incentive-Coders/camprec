@@ -6,24 +6,25 @@ import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
 import web from "../images/add.png";
 import axios from 'axios';
-import {FaRegTrashAlt} from "react-icons/fa";
+import {FaRegTrashAlt,FaRegPlusSquare} from "react-icons/fa";
 var k,i,n;
 
 function Cards(props) {
-    k="/editjobs/i="+props.job_id;
-    i="/showapplicants/i="+props.job_id;
-    n="/deljobs/i="+props.job_id;
+    k="/editjobs/i="+props.id;
+    i="/showapplicants/i="+props.id;
+    n="/deljobs/i="+props.id;
     return (
                 
                 <>
                    <div className="card widths" >
                         <div className="card-body">
+                            <a href={n} className="text_size margin_left"><FaRegTrashAlt></FaRegTrashAlt></a>
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
-                            <a href={k} className="btn btn-primary text_size margin_left">Edit</a>
-                            <a href={i} className="btn btn-primary text_size margin_left">Show Aplicants</a>
+                            <a href={k} className="btn btn-primary text_size left_m2 m_t">Edit</a>
+                            <a href={i} className="btn btn-primary text_size left_m2 m_t">Show Aplicants</a>
                             
                             </div>
                            
@@ -42,7 +43,7 @@ const Cardlist = ({ Joblist }) => {
             return (<>
                 <Cards
                 key={i}
-                job_id={Joblist[i]._id}
+                id={Joblist[i]._id}
                 title={Joblist[i].job_title}
                 content={Joblist[i].job_description}
                 location = {Joblist[i].location}
@@ -54,7 +55,7 @@ const Cardlist = ({ Joblist }) => {
         }
          <div className="card3 widths" >
                             <div className="card-body">
-                                <NavLink to='/addjobs'><img src={web} className="addheight"/></NavLink> 
+                                <NavLink to='/addjobs'><FaRegPlusSquare className="addheight"/></NavLink> 
                             </div>
                         </div>
         </div>
