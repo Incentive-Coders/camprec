@@ -15,7 +15,6 @@ import Studentjobs from './studentjobs';
 import Companycolleges from './companycolleges';
 import Admincompanies from './admincompanies';
 import Studentcourses from './studentcourses';
-import premium from './premium';
 import addjobs from './addjobs';
 import addstudent from './addstudent';
 import editjobs from './editjobs';
@@ -72,7 +71,6 @@ function App (){
         <Route exact path = "/admincompanies" component = {Admincompanies} />
         <Route exact path = "/studentcompanies" component = {StudentCompany} />
         <Route exact path="/studentcourses" component={Studentcourses}/>
-        <Route exact path="/premium" component={premium}/>
         <Route exact path="/addjobs" component={addjobs}/>
         <Route exact path="/addstudent" component={addstudent}/>
         <Route path="/editjobs/" component={editjobs}/>
