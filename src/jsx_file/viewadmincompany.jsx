@@ -5,6 +5,7 @@ import "../css/login.css";
 import Navbar_viewcompany from './navbar_viewcompany';
 import ReactPlayer from 'react-player'
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
@@ -36,6 +37,9 @@ class Viewcompany extends Component {
     this.body = { 
         "company_id" : a[1],
     }
+    this.state={
+        k : false
+   }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
     
@@ -51,7 +55,8 @@ class Viewcompany extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('company',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -66,12 +71,20 @@ class Viewcompany extends Component {
         var arr= JSON.parse(localStorage.getItem("company"));
         return (
             <>
+            { this.state.k ? 
             <section className="pop image width"> 
             <div>
                 <Cards name={arr.name} location={arr.location} email={arr.email} year={arr.year_of_established} url={arr.vedio_link} description={arr.about } image="https://i.pinimg.com/474x/53/a3/fa/53a3fa9b77f7dc8c321f05b1661cc305.jpg" />
             </div>
 
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             </>
         );
 }  

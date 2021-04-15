@@ -4,14 +4,15 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_Student from './navbar_student';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 function Cards(props) {
     var i="/viewstudentcompany/i="+props.id
     return (
                 <>
                    <div className="card widths " >
                         <div className="card-body">
-                            <strong><h4 className="card-title  centers">{props.title}</h4></strong>
-                            <strong><h6 className="card-title  centers">{props.location}</h6></strong>
+                            <strong><h4 className="card-title  centers hfixed2">{props.title}</h4></strong>
+                            <strong><h6 className="card-title  centers hfixed2">{props.location}</h6></strong>
                             <p className="card-text hfixed">{props.content}</p>
                             <div className='pop' >
                             <a href={i} className="btn btn-primary  text_size left_m2 m_t">View</a>
@@ -27,7 +28,7 @@ const Cardlist = ({ Companylist }) => {
     return (
         <div className="gridwraper">
         {
-            Companylist.map((user, i) => {
+            Companylist?.map((user, i) => {
             return (<>
                 <Cards
                 key={i}
@@ -50,12 +51,15 @@ class StudentCompany extends Component {
     constructor(props){
     super(props);
      this.state={
-         j : 1
+         j : 1,
+         k : false
     }
     this.next = this.next.bind(this);
     this.back = this.back.bind(this);
     this.companylist = this.companylist.bind(this); 
+    this.companylist();
     }
+    
     
     companylist (){
         var company = [];
@@ -73,7 +77,8 @@ class StudentCompany extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('company',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+        }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -97,11 +102,11 @@ class StudentCompany extends Component {
     }
 
     render() {
-        this.companylist()
-        
+        this.companylist();
         return (
             <>
             <Navbar_Student />
+           { this.state.k? 
             <section className="image width">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
@@ -115,7 +120,13 @@ class StudentCompany extends Component {
                             <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
                         </div>
             </section>
-            
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+           }
             </>
             
         );

@@ -5,7 +5,8 @@ import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar_showapplicants from './navbar_showapplicants';
 import axios from 'axios';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
@@ -44,7 +45,7 @@ function Rows1(props) {
 }
 const Rowlist = ({ Rowlists }) => {
     return (
-        Rowlists.map((user,i) => {
+        Rowlists?.map((user,i) => {
                     return (<>
                         <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email} id={Rowlists[i]._id}></Rows>
                         </>
@@ -53,7 +54,7 @@ const Rowlist = ({ Rowlists }) => {
     )}
 const Rowlist1 = ({ Rowlists }) => {
         return (
-            Rowlists.map((user,i) => {
+            Rowlists?.map((user,i) => {
                         return (<>
                             <Rows1 key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email}id={Rowlists[i]._id} ></Rows1>
                             </>
@@ -68,6 +69,10 @@ class showapplicants extends Component {
             {  
                 "job_id" : a[1]
             };
+        this.state={
+                k : false,
+                l : false
+           }    
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/slist',body,{header})
             .then(function(response) {
@@ -80,8 +85,8 @@ class showapplicants extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("slist",JSON.stringify(response.data))
-                 
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.error('There was an error!');
                 }
@@ -106,8 +111,8 @@ class showapplicants extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("clist",JSON.stringify(response.data))
-                 
-        })
+                this.setState({l: true});
+            }.bind(this))
          .catch(error => {
                 console.error('There was an error!');
             });
@@ -120,6 +125,7 @@ class showapplicants extends Component {
         return (
             <>
             <Navbar_showapplicants/>
+            { (this.state.k && this.state.l) ?
             <section className="width">
                   <div className="mart"> 
                   <h2 className=' margintop'>
@@ -158,8 +164,15 @@ class showapplicants extends Component {
                     </Table>
                     </div>
                 </section>
-            </>
-        );
+                :
+                <section className="pop image width"> 
+                <div className="load">          
+                <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+                </div>     
+                </section>
+                }
+                </>
+            );
     };
 } 
 

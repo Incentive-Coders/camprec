@@ -4,7 +4,7 @@ import"../css/home.css";
 import "../css/login.css";
 import { NavLink } from "react-router-dom";
 import Navbar_company from './navbar_company';
-import web from "../images/add.png";
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import {FaRegTrashAlt,FaRegPlusSquare} from "react-icons/fa";
 var k,i,n;
@@ -68,6 +68,9 @@ class Companyjobs extends Component {
     this.body = { 
         "company_id" : arr._id,
     }
+    this.state={
+        k : false
+   }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
     
@@ -84,7 +87,8 @@ class Companyjobs extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('jobs',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -101,6 +105,7 @@ class Companyjobs extends Component {
         return (
             <>
             <Navbar_company />
+            { this.state.k ? 
             <section className="image width heights">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
@@ -111,6 +116,13 @@ class Companyjobs extends Component {
                             <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
                         </div>
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             </>
         );
     };

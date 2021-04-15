@@ -2,7 +2,7 @@ import React ,{Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import ReactPlayer from 'react-player'
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import Navbar_company from './navbar_company';
 var l= window.location.href
@@ -34,6 +34,9 @@ function Cards(props) {
 class Viewstudent extends Component {
     constructor(props){
     super(props);
+    this.state={
+        k : false
+   }
     this.body = { 
         "student_id" : a[1],
     }
@@ -52,6 +55,7 @@ class Viewstudent extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('student',JSON.stringify(response.data))
+                this.setState({k: true});
         })
          .catch(error => {
                 console.log(error);
@@ -68,12 +72,20 @@ class Viewstudent extends Component {
         return (
             <>
             <Navbar_company/>
+            { this.state.k ? 
             <section className="pop image width"> 
             <div>
             <Cards name={arr.name} work={arr.experience} email={arr.email} certification ={arr.certification} phone={arr.contactno} education={arr.education} description={arr.about} image="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" college={arr.college}/>
             </div>
 
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             </>
         );
 }  

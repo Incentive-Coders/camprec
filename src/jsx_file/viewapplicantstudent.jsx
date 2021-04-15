@@ -5,6 +5,7 @@ import "../css/login.css";
 import axios from 'axios';
 import Navbar_viewapplicant from './navbar_viewapplicant';
 import { FaFacebookF,FaTwitter,FaInstagram,FaLinkedin} from "react-icons/fa";
+import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
@@ -75,8 +76,12 @@ class Viewstudent extends Component {
     this.body = { 
         "student_id" : a[1],
     }
+    this.state={
+        k : false
+   }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
+
     
 
     collegedata (){
@@ -90,7 +95,8 @@ class Viewstudent extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('student',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -106,12 +112,19 @@ class Viewstudent extends Component {
         return (
             <>
             <Navbar_viewapplicant/>
+            { this.state.k ? 
             <section className="pop image width"> 
             <div>
             <Cards name={arr.name} work={arr.experience} email={arr.email} certification ={arr.certification} phone={arr.contactno} education={arr.education} description={arr.about} image="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" college={arr.college} facebook={arr.social_media.facebook} twitter={arr.social_media.twitter} LinkedIn={arr.social_media.linkedin} Insta={arr.social_media.instagram}/> 
             </div>
-
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             </>
         );
 }  

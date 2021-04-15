@@ -5,6 +5,7 @@ import "../css/login.css";
 import Navbar_viewcollege from './navbar_viewcollege';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table'
+import ReactLoading from 'react-loading';
 var i;
 function Rows(props) {
         {
@@ -38,6 +39,9 @@ class Adminstudent extends Component {
         this.body = { 
             "email" : arr.email,
         }
+        this.state={
+            k : false
+       }
         this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         }
         
@@ -56,7 +60,8 @@ class Adminstudent extends Component {
                     console.log(response.data.length);
                     
                     localStorage.setItem('studentlist',JSON.stringify(response.data))
-            })
+                    this.setState({k: true});
+                }.bind(this))
              .catch(error => {
                     console.log(error);
                     window.alert("something went wrong")
@@ -73,6 +78,7 @@ class Adminstudent extends Component {
             return (
                 <>
                 <Navbar_viewcollege/>
+                { this.state.k ? 
                 <section className="width">
                     
                     <Table className="tab">
@@ -89,6 +95,13 @@ class Adminstudent extends Component {
                     </tbody>
                     </Table>
                 </section>
+                :
+                <section className="pop image width"> 
+                <div className="load">          
+                <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+                </div>     
+                </section>
+                }
                 </>
             );
         };

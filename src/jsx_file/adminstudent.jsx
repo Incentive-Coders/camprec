@@ -4,7 +4,8 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_admin from './navbar_admin';
 import axios from 'axios';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import ReactLoading from 'react-loading';
 var i;
 function Rows(props) {
         {
@@ -24,7 +25,7 @@ function Rows(props) {
 }
 const Rowlist = ({ Rowlists }) => {
     return (
-        Rowlists.map((user,i) => {
+        Rowlists?.map((user,i) => {
                     return (<>
                         <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email} id={Rowlists[i]._id}></Rows>
                         </>
@@ -36,7 +37,7 @@ class Adminstudent extends Component {
         constructor(props){
         super(props);
         this.state = {
-            isLoaded : false
+            k : false
         }
         this.body = { 
             "email" : arr.email,
@@ -59,7 +60,7 @@ class Adminstudent extends Component {
                     console.log(response.data.length);
                     localStorage.setItem('studentlist',JSON.stringify(response.data))
                     this.setState({
-                        isLoaded : true
+                        k : true
                     })
             }.bind(this))
              .catch(error => {
@@ -75,17 +76,10 @@ class Adminstudent extends Component {
     
         render() {
             this.studentlist()
-            console.log(this.isLoaded)
-            if(this.isLoaded == false)
-            {
-                <p>
-                    Loading
-                </p>
-            }
-            else {
             return (
                 <>
                 <Navbar_admin/>
+                { this.state.k ? 
                 <section className=" width">
                     <Table className="tab">
                     <thead>
@@ -104,10 +98,16 @@ class Adminstudent extends Component {
                         <a className="btn ma" href="./addstudent">Add student</a>
                     </div>
                 </section>
+                :
+                <section className="pop image width"> 
+                <div className="load">          
+                <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+                </div>     
+                </section>
+                }
                 </>
             );
             }
         };
-    }
 
 export default Adminstudent ;

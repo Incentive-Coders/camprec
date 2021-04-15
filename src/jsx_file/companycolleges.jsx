@@ -3,6 +3,7 @@ import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import Navbar_company from './navbar_company';
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 function Cards(props) {
       var i="/viewcompanycollege/i="+props.id
@@ -48,7 +49,8 @@ class companycollege extends Component {
     constructor(props){
     super(props);
     this.state={
-        j : 1
+        j : 1,
+        k : false
    }
    this.next = this.next.bind(this);
    this.back = this.back.bind(this);
@@ -83,7 +85,8 @@ class companycollege extends Component {
                 console.log(response.data.length);
                 console.log(response.data);
                 localStorage.setItem('college',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+        }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -100,6 +103,7 @@ class companycollege extends Component {
         return (
             <>
             <Navbar_company />
+            { this.state.k?
             <section className="image width ">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
@@ -113,6 +117,13 @@ class companycollege extends Component {
                             <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
                         </div>
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             
             </>
         );

@@ -4,6 +4,7 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 var k;
 sessionStorage.clear();
 function Cards(props) {
@@ -32,7 +33,7 @@ const Cardlist = ({ Joblist }) => {
     return (
         <div className="gridwraper">
         {
-            Joblist.map((user, i) => {
+            Joblist?.map((user, i) => {
             return (<>
                 <Cards
                 key={i}
@@ -57,6 +58,9 @@ class studentjobs extends Component {
     this.body = { 
         "company_id" : arr._id,
     }
+    this.state={
+        k : false
+   }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
     
@@ -73,7 +77,8 @@ class studentjobs extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('jobs',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+        }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -90,6 +95,7 @@ class studentjobs extends Component {
         return (
             <>
             <Navbar_viewstdcompany></Navbar_viewstdcompany>
+            {  this.state.k?
             <section className="image width heights">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
@@ -100,6 +106,13 @@ class studentjobs extends Component {
                             <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
                         </div>
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            } 
             </>
         );
     };

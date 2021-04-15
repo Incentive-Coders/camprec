@@ -4,6 +4,7 @@ import"../css/home.css";
 import "../css/login.css";
 import ReactPlayer from 'react-player'
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 import Navbar_viewcollege from './navbar_viewcollege';
 var l= window.location.href
 var a=l.split('=')
@@ -36,6 +37,9 @@ class Viewcollege extends Component {
     this.body = { 
         "college_id" : a[1],
     }
+    this.state={
+        k : false
+   }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
     
@@ -51,7 +55,8 @@ class Viewcollege extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('college',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -67,12 +72,20 @@ class Viewcollege extends Component {
         return (
             <>
             <Navbar_viewcollege/>
+            { this.state.k ? 
             <section className="pop image width"> 
             <div>
                 <Cards name={arr.name} location={arr.location} email={arr.email} year={arr.year_of_established} url={arr.vedio_link} description={arr.about } image="https://upload.wikimedia.org/wikipedia/en/c/c1/Indian_Institute_of_Information_Technology%2C_Dharwad.png"/>
             </div>
 
             </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }
             </>
         );
 }  
