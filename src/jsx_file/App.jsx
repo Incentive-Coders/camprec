@@ -44,6 +44,7 @@ import StudentCompany from './studentcompanies';
 import studentapply from './studentapply';
 import adminapply from './adminapply';
 import deljobs from './deljobs';
+import premium from './premium';
 function App (){
     useEffect(() => {
         ReactGa.initialize('UA-193643826-1');
@@ -73,6 +74,7 @@ function App (){
         <Route exact path="/studentcourses" component={Studentcourses}/>
         <Route exact path="/addjobs" component={addjobs}/>
         <Route exact path="/addstudent" component={addstudent}/>
+        <Route exact path="/premium" component={premium}/>
         <Route path="/editjobs/" component={editjobs}/>
         <Route path="/deljobs/" component={deljobs}/>
         <Route path="/showapplicants/" component={showapplicants}/>
