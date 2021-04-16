@@ -96,10 +96,10 @@ class companycollege extends Component {
             return college;
             
     }; 
-
-
+    componentDidMount(){
+        this.collegelist();
+    }
     render() {
-        this.collegelist()
         return (
             <>
             <Navbar_company />

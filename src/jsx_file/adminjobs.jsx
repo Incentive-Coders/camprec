@@ -89,10 +89,11 @@ class adminjobs extends Component {
             return job;
             
     }; 
-
-
+    componentDidMount(){
+        this.companyjoblist();
+    }
     render() {
-        this.companyjoblist()
+        
         return (
             <>
             <Navbar_viewcompany/>

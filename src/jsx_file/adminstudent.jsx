@@ -73,9 +73,11 @@ class Adminstudent extends Component {
                 
         }; 
     
-    
+    componentDidMount(){
+        this.studentlist();
+    }
         render() {
-            this.studentlist()
+            
             return (
                 <>
                 <Navbar_admin/>

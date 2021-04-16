@@ -64,10 +64,12 @@ class Viewcompany extends Component {
             });
             
     }; 
-
+    componentDidMount(){
+        this.companydata()
+    }
 
     render() {
-        this.companydata()
+       
         var arr= JSON.parse(localStorage.getItem("company"));
         return (
             <>

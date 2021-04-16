@@ -118,10 +118,11 @@ class showapplicants extends Component {
             });
             
     };
-    
-    render(){
+    componentDidMount(){
         this.showcollege();
-        this.showstudent()
+        this.showstudent();
+    }
+    render(){
         return (
             <>
             <Navbar_showapplicants/>

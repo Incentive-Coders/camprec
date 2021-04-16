@@ -93,9 +93,10 @@ class AdminCompany extends Component {
         this.setState({j: this.state.j + 1});
         
     }
-
+    componentDidMount(){
+        this.companylist();
+    }   
     render() {
-        this.companylist()
         return (
             <>
             <Navbar_admin />

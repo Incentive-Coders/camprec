@@ -64,10 +64,12 @@ class Viewstudent extends Component {
             });
             
     }; 
-
+    componentDidMount(){
+        this.collegedata();
+    }
 
     render() {
-        this.collegedata()
+        
         var arr= JSON.parse(localStorage.getItem("student"));
         return (
             <>

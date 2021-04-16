@@ -13,7 +13,7 @@ function Cards(props) {
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <img src={props.url} className='vediosize'/>
                             <div className='pop' >
-                            <button href="#" className="btn btn-primary margin-left text_s" disabled='true' >Veiw Course</button>
+                            <button href="#" className="btn btn-primary margin-left text_s" disabled='true' >View Course</button>
                             </div>   
                         </div>
                     </div>

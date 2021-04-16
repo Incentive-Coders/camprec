@@ -89,9 +89,10 @@ class studentjobs extends Component {
             
     }; 
 
-
-    render() {
+    componentDidMount(){
         this.companyjoblist()
+    }
+    render() {
         return (
             <>
             <Navbar_viewstdcompany></Navbar_viewstdcompany>
