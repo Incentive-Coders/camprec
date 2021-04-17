@@ -4,14 +4,15 @@ import"../css/home.css";
 import "../css/login.css";
 import Navbar_admin from './navbar_admin';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 function Cards(props) {
     var i="/viewadmincompany/i="+props.id
     return (
                 <>
                    <div className="card widths " >
                         <div className="card-body">
-                            <strong><h4 className="card-title  centers">{props.title}</h4></strong>
-                            <strong><h6 className="card-title  centers">{props.location}</h6></strong>
+                            <strong><h4 className="card-title  centers hfixed2">{props.title}</h4></strong>
+                            <p className="card-text  centers hfixed2">{props.location}</p>
                             <p className="card-text hfixed">{props.content}</p>
                             <div className='pop' >
                             <a href={i} className="btn btn-primary  text_size left_m2 m_t">View</a>
@@ -47,7 +48,8 @@ class AdminCompany extends Component {
     constructor(props){
     super(props);
     this.state={
-        j : 1
+        j : 1,
+        k : false
    }
    this.next = this.next.bind(this);
    this.back = this.back.bind(this);
@@ -71,7 +73,8 @@ class AdminCompany extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('company',JSON.stringify(response.data))
-        })
+                this.setState({k: true});
+            }.bind(this))
          .catch(error => {
                 console.log(error);
                 window.alert("something went wrong")
@@ -86,21 +89,26 @@ class AdminCompany extends Component {
             return null;
         }
         else{
-            this.setState({j: this.state.j - 1});
-            
+            this.setState({j: this.state.j - 1,k: false});           
     }}
     next(){    
-        this.setState({j: this.state.j + 1});
+        this.setState({j: this.state.j + 1,k: false});
+        
         
     }
     componentDidMount(){
-        this.companylist();
+        if(this.state.j===1){this.companylist()}
+        
     }   
+    componentDidUpdate(){
+        if(this.state.j!=1){this.companylist()}
+    }
     render() {
         return (
             <>
-            <Navbar_admin />
-            <section className="image width heights">
+            <Navbar_admin ></Navbar_admin>
+            { this.state.k ?  
+            <section className="image width ">
                         <div className = "get_started">
                                 <h2 className='text_center margintop'>
                                 <strong className = "brand-name leftmargin">Companies</strong>
@@ -109,10 +117,17 @@ class AdminCompany extends Component {
                         <div className="gridwraper">
                             <Cardlist Companylist={JSON.parse(localStorage.getItem('company'))}/>
                         </div>
-            </section>
-            <div className="m-l3">
+                        <div className="m-l3">
                             <button className="btn text_size m_t " onClick={this.back}>&laquo; Previous</button>&nbsp;&nbsp;&nbsp;<button className="btn text_size m_t" onClick={this.next}>Next &raquo;</button>
                         </div>
+            </section>
+            :
+            <section className="pop image width"> 
+            <div className="load">          
+            <ReactLoading type="spinningBubbles" color="white" height="120px" width="120px" />
+            </div>     
+            </section>
+            }  
             </>
         );
     };
