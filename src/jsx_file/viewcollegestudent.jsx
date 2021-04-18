@@ -32,12 +32,12 @@ const Rowlist = ({ Rowlists }) => {
                     );
                     })
     )}
-    var arr= JSON.parse(localStorage.getItem("college"));
+    var arr= localStorage.getItem("college_id");
 class Adminstudent extends Component {
         constructor(props){
         super(props);
         this.body = { 
-            "email" : arr.email,
+            "college_id" : arr,
         }
         this.state={
             k : false

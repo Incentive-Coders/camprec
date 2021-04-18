@@ -50,12 +50,12 @@ const Cardlist = ({ Joblist }) => {
         </div>
     );
     }
-var arr= JSON.parse(localStorage.getItem("company"));
+var arr= localStorage.getItem("company_id");
 class adminjobs extends Component {
     constructor(props){
     super(props);
     this.body = { 
-        "company_id" : arr._id,
+        "company_id" : arr,
     }
     this.state = {
         k : false

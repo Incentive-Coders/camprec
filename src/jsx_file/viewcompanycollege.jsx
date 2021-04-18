@@ -9,6 +9,7 @@ import Navbar_viewcollege from './navbar_viewcollege';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
+localStorage.setItem("college_id",a[1])
 function Cards(props) {
     return (
                 <>

@@ -6,7 +6,7 @@ import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 var k;
-sessionStorage.clear();
+
 function Cards(props) {
     {
         k="/studentapply/i="+props.job_id;
@@ -51,12 +51,12 @@ const Cardlist = ({ Joblist }) => {
         </div>
     );
     }
-var arr= JSON.parse(localStorage.getItem("company"));
+var arr= localStorage.getItem("company_id");
 class studentjobs extends Component {
     constructor(props){
     super(props);
     this.body = { 
-        "company_id" : arr._id,
+        "company_id" : arr
     }
     this.state={
         k : false
