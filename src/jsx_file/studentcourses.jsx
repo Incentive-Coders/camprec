@@ -3,9 +3,9 @@ import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import Navbar_student from './navbar_student';
-import { NavLink } from 'react-router-dom';
-
+var arr= JSON.parse(localStorage.getItem("student"));
 function Cards(props) {
+    console.log(arr.premium)
     return (
                 <>
                    <div className="card card_h" >
@@ -13,8 +13,13 @@ function Cards(props) {
                             <strong><h4 className="card-title  centers">{props.title}</h4></strong>
                             <img src={props.url} className='vediosize'/>
                             <div className='pop' >
-                            <button href="#" className="btn btn-primary margin-left text_s" disabled='true' >View Course</button>
-                            </div>   
+                            {
+                             
+                             arr.premium ?
+                             <a href="https://www.youtube.com/watch?v=giWIr7U1deA" className="btn btn-primary margin-left text_s" >View Course</a>
+                             :
+                             <a href="/premium" className="btn btn-primary margin-left text_s" >View Course</a>
+                            } </div>   
                         </div>
                     </div>
                 </>
@@ -37,12 +42,6 @@ const Studentcourses =() => {
                         <Cards title="Courses" url="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/cosmetics/cosmeticsdesign-europe.com/article/2019/11/06/cosmetics-consultants-europe-to-launch-safety-assessment-training-course-2020/10338859-1-eng-GB/Cosmetics-Consultants-Europe-to-launch-safety-assessment-training-course-2020_wrbm_large.jpg"/>
                         <Cards title="Courses" url="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/publications/cosmetics/cosmeticsdesign-europe.com/article/2019/11/06/cosmetics-consultants-europe-to-launch-safety-assessment-training-course-2020/10338859-1-eng-GB/Cosmetics-Consultants-Europe-to-launch-safety-assessment-training-course-2020_wrbm_large.jpg"/>
                     </div>
-                    <div>
-                        <div className="card-body">
-                            <strong><h4 className="card-title  centers color">To Get all courses apply For premium <NavLink to="/premium" className="color">Get Here</NavLink></h4></strong>   
-                        </div>
-                    </div>
-
         </section>
         </>
     );

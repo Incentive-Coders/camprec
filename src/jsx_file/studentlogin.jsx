@@ -53,7 +53,10 @@ class Studentlogin extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("student",JSON.stringify(response.data));
-                window.location.replace('/premium');            
+                response.data.premium?
+                window.location.replace('/studenthome')
+                :
+                window.location.replace('/premium')         
         })
          .catch(error => {
                 console.error('There was an error!');
