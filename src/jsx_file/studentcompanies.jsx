@@ -7,6 +7,7 @@ import axios from 'axios';
 import ReactLoading from 'react-loading';
 function Cards(props) {
     var i="/viewstudentcompany/i="+props.id
+    localStorage.setItem("company_id",props.id)
     return (
                 <>
                    <div className="card widths " >

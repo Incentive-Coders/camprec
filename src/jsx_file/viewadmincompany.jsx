@@ -9,7 +9,6 @@ import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
-localStorage.setItem("company_id",a[1])
 function Cards(props) {
     return (
                 <>
