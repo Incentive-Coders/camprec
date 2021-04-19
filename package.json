@@ -16,7 +16,6 @@
     "draft.js": "^0.2.0",
     "emailjs-com": "^2.6.4",
     "fetch": "^1.1.0",
-    "firebase": "^8.4.1",
     "gh-pages": "^3.1.0",
     "history": "^5.0.0",
     "prop-types": "^15.7.2",
