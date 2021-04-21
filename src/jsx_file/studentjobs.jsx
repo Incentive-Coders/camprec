@@ -6,11 +6,25 @@ import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 var k;
-
+let t = JSON.parse(localStorage.getItem("collegejobs"));
+let prem = JSON.parse(localStorage.getItem("student"));
 function Cards(props) {
-    {
-        k="/studentapply/i="+props.job_id;
+    console.log(t)
+    console.log(!prem)
+    if(!prem){
+        if(t.includes(props.job_id))
+        {
+            k="/studentapply/i="+props.job_id;
+        }
+        else
+        {
+            k="/premium"
+        }
     }
+    else
+        {
+            k="/studentapply/i="+props.job_id;
+        }
     return (
                 
                 <>
@@ -88,9 +102,11 @@ class studentjobs extends Component {
             return job;
             
     }; 
-
+    
+    
     componentDidMount(){
         this.companyjoblist()
+        
     }
     render() {
         return (

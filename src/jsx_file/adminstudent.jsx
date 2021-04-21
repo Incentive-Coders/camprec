@@ -40,7 +40,7 @@ class Adminstudent extends Component {
             k : false
         }
         this.body = { 
-            "email" : arr.email,
+            "college_id" : arr._id,
         }
         this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         }

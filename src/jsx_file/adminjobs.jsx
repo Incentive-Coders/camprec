@@ -6,7 +6,6 @@ import Navbar_viewcompany from './navbar_viewcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 var k;
-sessionStorage.clear();
 function Cards(props) {
     {
         k="/adminapply/i="+props.job_id;
@@ -50,7 +49,7 @@ const Cardlist = ({ Joblist }) => {
         </div>
     );
     }
-var arr= localStorage.getItem("company_id");
+var arr=localStorage.getItem("company_id");
 class adminjobs extends Component {
     constructor(props){
     super(props);

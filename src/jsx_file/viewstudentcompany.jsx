@@ -10,6 +10,7 @@ import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
 console.log(a[1])
+localStorage.setItem("company_id",a[1])
 function Cards(props) {
     return (
                 <>
@@ -33,21 +34,26 @@ function Cards(props) {
                     </>
     )
                     }
+var student=JSON.parse(localStorage.getItem("student"));
 class Viewstdcompany extends Component {
     constructor(props){
     super(props);
     this.body = { 
         "company_id" : a[1],
     }
+    this.body2 = {
+        "college":student.college,
+    } 
     this.state={
         k : false
    }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
+   
     
-
     companydata (){
-        // POST request using fetch with error handling
+        
+        // POST request using fetch with error handling 
         axios.post('https://camprec.herokuapp.com/api/company/data',this.body,this.header)
             .then(function(response) {
                 // check for error response
@@ -57,7 +63,6 @@ class Viewstdcompany extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('company',JSON.stringify(response.data));
-                
                 this.setState({k: true});
         }.bind(this))
          .catch(error => {
@@ -65,9 +70,25 @@ class Viewstdcompany extends Component {
                 window.alert("something went wrong")
                 
             });
-            
-    }; 
-
+               
+        // POST request using fetch with error handling
+        axios.post('http://localhost:4000/api/student/showjob',this.body2,this.header)
+            .then(function(response) {
+                // check for error response
+                if (response.status != 200) {
+                    // get error message from body or default to response status
+                    const error = (response.data && response.data.message) || response.status;
+                    return Promise.reject(error);
+                }
+                localStorage.setItem('collegejobs',JSON.stringify(response.data))
+                this.setState({k: true});
+        }.bind(this))
+         .catch(error => {
+                console.log(error);
+                window.alert("something went wrong")
+                
+            });  
+    };  
     componentDidMount(){
         this.companydata();
     }
@@ -81,7 +102,6 @@ class Viewstdcompany extends Component {
             <div>
                 <Cards name={arr.name} location={arr.location} email={arr.email} year={arr.year_of_established} url={arr.vedio_link} description={arr.about } image="https://i.pinimg.com/474x/53/a3/fa/53a3fa9b77f7dc8c321f05b1661cc305.jpg" />
             </div>
-
             </section>
         :
         <section className="pop image width"> 
