@@ -11,7 +11,7 @@ var l= window.location.href
 var a=l.split('=')
 localStorage.removeItem("idc")
 localStorage.removeItem("college_id")
-localStorage.setItem("idc",JSON.stringify(a[1]))
+localStorage.setItem("idc",a[1])
 function Cards(props) {
     return (
                 <>

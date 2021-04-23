@@ -52,7 +52,6 @@ class studentapply extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                   
         })
         .catch(error => {
             console.error('There was an error!');
@@ -73,7 +72,10 @@ class studentapply extends Component {
         return(<>
             {
                 this.state.k ?
-                window.location.replace("/studentcompanies")
+                (
+                    window.alert("The job is applied"),
+                    window.location.replace("/studentcompanies"))
+                
              :
                 <section className="pop image width"> 
                 <div className="load">          
