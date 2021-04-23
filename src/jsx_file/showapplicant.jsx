@@ -62,17 +62,18 @@ const Rowlist1 = ({ Rowlists }) => {
                         })
         )}
 class showapplicants extends Component {
-    
-    showstudent (){
+    constructor(props){
+        super(props);
+        this.state={
+            k : false,
+       }
+    }
+    showapp (){
         // POST request using fetch with error handling
         const body =  
             {  
                 "job_id" : a[1]
-            };
-        this.state={
-                k : false,
-                l : false
-           }    
+            };   
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/slist',body,{header})
             .then(function(response) {
@@ -85,21 +86,11 @@ class showapplicants extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("slist",JSON.stringify(response.data))
-                this.setState({k: true});
             }.bind(this))
          .catch(error => {
                 console.error('There was an error!');
                 }
             );
-            
-    };
-    showcollege (){
-        // POST request using fetch with error handling
-        const body =  
-            {  
-                "job_id" : a[1]
-            };
-        const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
         axios.post('https://camprec.herokuapp.com/api/jobs/clist',body,{header})
             .then(function(response) {
                 console.log("*");
@@ -111,22 +102,20 @@ class showapplicants extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem("clist",JSON.stringify(response.data))
-                this.setState({l: true});
+                this.setState({k: true});
             }.bind(this))
          .catch(error => {
                 console.error('There was an error!');
             });
-            
     };
     componentDidMount(){
-        this.showcollege();
-        this.showstudent();
+        this.showapp();
     }
     render(){
         return (
             <>
             <Navbar_showapplicants/>
-            { (this.state.k && this.state.l) ?
+            { (this.state.k) ?
             <section className="width">
                   <div className="mart"> 
                   <h2 className=' margintop'>

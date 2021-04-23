@@ -104,7 +104,13 @@ class adminjobs extends Component {
                                 </h2>
                         </div>
                         <div className="gridwraper">
+                        { JSON.parse(localStorage.getItem('jobs')).length?
                             <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))}/>
+                            :
+                            <div className="card-body">
+                            <strong><h3 className="card-title  centers">No jobs available</h3></strong>
+                            </div>
+                        }
                         </div>
             </section>
             :
