@@ -50,15 +50,13 @@ class delexp extends Component {
                     return Promise.reject(error);
                 }
                 window.alert("experience deleted Successfuly");
-                window.duration.replace('/studenthome');
+                window.location.replace('/studenthome');
                  
-        })
-         .catch(error => {
+        }).catch(error => {
                 console.error('There was an error!');
                 window.alert("There was some error unable to create experience");
                 
             });
-            
     };
     
     render(){

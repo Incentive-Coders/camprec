@@ -9,8 +9,9 @@ import { FaFacebookF,FaTwitter,FaInstagram,FaLinkedin} from "react-icons/fa";
 import ReactLoading from 'react-loading';
 var l= window.location.href
 var a=l.split('=')
-console.log(a[1])
-localStorage.setItem("company_id",a[1])
+localStorage.removeItem("idc")
+localStorage.removeItem("college_id")
+localStorage.setItem("idc",JSON.stringify(a[1]))
 function Cards(props) {
     return (
                 <>
@@ -42,7 +43,7 @@ class Viewstdcompany extends Component {
         "company_id" : a[1],
     }
     this.body2 = {
-        "college":student.college,
+        "college" : student.college,
     } 
     this.state={
         k : false
@@ -67,12 +68,11 @@ class Viewstdcompany extends Component {
         }.bind(this))
          .catch(error => {
                 console.log(error);
-                window.alert("something went wrong")
-                
-            });
+                //window.alert("something went wrong")
+        });
                
         // POST request using fetch with error handling
-        axios.post('http://localhost:4000/api/student/showjob',this.body2,this.header)
+        axios.post('https://camprec.herokuapp.com/api/student/showjob',this.body2,this.header)
             .then(function(response) {
                 // check for error response
                 if (response.status != 200) {

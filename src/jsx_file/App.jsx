@@ -53,7 +53,6 @@ function App (){
     }, []);
 
     return (
-        <>
         <Switch>
         <Route exact path = "/" component = {Home} />
         <Route exact path = "/about" component = {GoogleAd} />
@@ -101,7 +100,6 @@ function App (){
         <Route path="/studentsignup/" component={Signupstudent}/>
         <Redirect to = "/" />
         </Switch>
-        </>
     );
 };
 

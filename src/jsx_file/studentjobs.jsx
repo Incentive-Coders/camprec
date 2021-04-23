@@ -5,12 +5,10 @@ import "../css/login.css";
 import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-var k;
+var k, arr;
 let t = JSON.parse(localStorage.getItem("collegejobs"));
 let prem = JSON.parse(localStorage.getItem("student"));
 function Cards(props) {
-    console.log(t)
-    console.log(!prem)
     if(!prem){
         if(t.includes(props.job_id))
         {
@@ -64,16 +62,13 @@ const Cardlist = ({ Joblist }) => {
          
         </div>
     );
-    }
-var arr= localStorage.getItem("company_id");
-class studentjobs extends Component {
+}
+class Studentjobs extends Component {
     constructor(props){
     super(props);
-    this.body = { 
-        "company_id" : arr
-    }
     this.state={
-        k : false
+        k : false,
+        arr : localStorage.getItem("idc")
    }
     this.header = {'Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
     }
@@ -81,8 +76,11 @@ class studentjobs extends Component {
 
     companyjoblist (){
         var job = [];
+        var body = { 
+            "company_id" : this.state.arr,
+        }
         // POST request using fetch with error handling
-        axios.post('https://camprec.herokuapp.com/api/jobs/list',this.body,this.header)
+        axios.post('https://camprec.herokuapp.com/api/jobs/list',body,this.header)
             .then(function(response) {
                 // check for error response
                 if (response.status != 200) {
@@ -106,7 +104,6 @@ class studentjobs extends Component {
     
     componentDidMount(){
         this.companyjoblist()
-        
     }
     render() {
         return (
@@ -135,4 +132,4 @@ class studentjobs extends Component {
     };
 }
 
-export default studentjobs ;
+export default Studentjobs ;

@@ -57,19 +57,15 @@ class StudentCompany extends Component {
     this.next = this.next.bind(this);
     this.back = this.back.bind(this);
     this.companylist = this.companylist.bind(this); 
-    this.companylist();
     }
     
     
     companylist (){
         var company = [];
-        console.log(this.state.j);
         var k ="https://camprec.herokuapp.com/api/company/list/"+this.state.j.toString();
-        console.log(k);
         // POST request using fetch with error handling
         axios.get(k)
             .then(function(response) {
-                console.log(response)
                 // check for error response
                 if (response.status != 200) {
                     // get error message from body or default to response status
@@ -93,16 +89,20 @@ class StudentCompany extends Component {
             return null;
         }
         else{
-            this.setState({j: this.state.j - 1});
-            
+            this.setState({j: this.state.j - 1,k: false});           
     }}
     next(){    
-        this.setState({j: this.state.j + 1});
-        
+        this.setState({j: this.state.j + 1,k: false});
     }
-componentDidMount(){
-    this.companylist();
-}
+    componentDidMount(){
+        if(this.state.j===1){this.companylist()}
+    }   
+    componentDidUpdate(){
+        if(this.state.j!=1){this.companylist()}
+    }
+    componentDidMount(){
+        this.companylist();
+    }
     render() {
         
         return (
