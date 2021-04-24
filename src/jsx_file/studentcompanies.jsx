@@ -61,6 +61,27 @@ class StudentCompany extends Component {
     
     
     companylist (){
+        var arr1 = JSON.parse(localStorage.getItem("student"))
+        var body1 = { 
+            "student_id" : arr1._id,
+        }
+        // POST request using fetch with error handling
+        axios.post('https://camprec.herokuapp.com/api/student/data',body1,this.header)
+            .then(function(response) {
+                // check for error response
+                if (response.status != 200) {
+                    // get error message from body or default to response status
+                    const error = (response.data && response.data.message) || response.status;
+                    return Promise.reject(error);
+                }
+                localStorage.clear();
+                localStorage.setItem("student",JSON.stringify(response.data))
+        }.bind(this))
+         .catch(error => {
+                console.log(error);
+                window.alert("something went wrong")
+                
+            });
         var company = [];
         var k ="https://camprec.herokuapp.com/api/company/list/"+this.state.j.toString();
         // POST request using fetch with error handling

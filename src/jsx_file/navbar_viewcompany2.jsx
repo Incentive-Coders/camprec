@@ -44,7 +44,7 @@ const Navbar_viewcompany = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/viewadmincompany"
+          to = "/admincompanies"
           >
             back
           

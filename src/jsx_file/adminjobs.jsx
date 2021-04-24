@@ -5,6 +5,7 @@ import "../css/login.css";
 import Navbar_viewcompany from './navbar_viewcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
+let prem = JSON.parse(localStorage.getItem("college"));
 var k;
 function Cards(props) {
     {
@@ -19,7 +20,12 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
+                            {
+                            (prem.job).includes(props.job_id)?
+                            <a href='#' className="btn btn-primary text_size left_m2 dis">Applied</a>
+                            :
                             <a href={k} className="btn btn-primary text_size left_m2">Apply</a>
+                            }
                             </div>
                             
                         </div>

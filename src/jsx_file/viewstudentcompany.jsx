@@ -64,8 +64,7 @@ class Viewstdcompany extends Component {
                     return Promise.reject(error);
                 }
                 localStorage.setItem('company',JSON.stringify(response.data));
-                this.setState({k: true});
-        }.bind(this))
+        })
          .catch(error => {
                 console.log(error);
                 //window.alert("something went wrong")

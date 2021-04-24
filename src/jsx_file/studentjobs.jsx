@@ -5,11 +5,11 @@ import "../css/login.css";
 import Navbar_viewstdcompany from './navbar_viewstdcompany2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-var k, arr;
+var k;
 let t = JSON.parse(localStorage.getItem("collegejobs"));
 let prem = JSON.parse(localStorage.getItem("student"));
 function Cards(props) {
-    if(!prem){
+    if(!prem.premium){
         if(t.includes(props.job_id))
         {
             k="/studentapply/i="+props.job_id;
@@ -32,7 +32,12 @@ function Cards(props) {
                             <strong><h6 className="card-title  centers">{props.location}</h6></strong>
                             <p className="card-text">{props.content}</p>
                             <div className='pop' >
+                            {
+                            (prem.job).includes(props.job_id)?
+                            <a href='#' className="btn btn-primary text_size left_m2 dis">Applied</a>
+                            :
                             <a href={k} className="btn btn-primary text_size left_m2">Apply</a>
+                            }
                             </div>
                             
                         </div>

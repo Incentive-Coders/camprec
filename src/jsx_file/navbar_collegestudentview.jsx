@@ -22,7 +22,7 @@ const viewcollege_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/viewcollegestudent">Back</NavLink>
+          to = "/companycolleges">Back</NavLink>
           </li>
       </ul>
     </div>

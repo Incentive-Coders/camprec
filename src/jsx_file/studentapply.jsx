@@ -52,14 +52,16 @@ class studentapply extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-        })
+                this.setState({
+                    k : true
+                })
+        }.bind(this))
         .catch(error => {
             console.error('There was an error!');
             }
         );
-        this.setState({
-            k : true
-        })
+
+        
          
     }
 
