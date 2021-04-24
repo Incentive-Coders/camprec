@@ -24,52 +24,50 @@ class adminapply extends Component {
     
 }
  
-    capply(){
-        console.log(arr._id)
-        // POST request using fetch with error handling
-        axios.post('https://camprec.herokuapp.com/api/jobs/caccept',this.body,this.header)
-            .then(function(response) {
-                console.log("*");
-                const data = response.data;
-                // check for error response
-                if (response.status != 200) {
-                    // get error message from body or default to response status
-                    const error = (data && data.message) || response.status;
-                    return Promise.reject(error);
-                }
-                  
-        })
-        .catch(error => {
-            console.error('There was an error!');
+capply(){
+    console.log(arr._id)
+    // POST request using fetch with error handling
+    axios.post('https://camprec.herokuapp.com/api/jobs/caccept',this.body,this.header)
+        .then(function(response) {
+            console.log("*");
+            const data = response.data;
+            // check for error response
+            if (response.status != 200) {
+                // get error message from body or default to response status
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+            }  
+    })
+    .catch(error => {
+        console.error('There was an error!');
+        }
+    );
+    axios.post('https://camprec.herokuapp.com/api/college/jaccept',this.body,this.header)
+        .then(function(response) {
+            console.log("*");
+            const data = response.data;
+            // check for error response
+            if (response.status != 200) {
+                // get error message from body or default to response status
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
             }
-        );
-        console.log(arr._id)
-        // POST request using fetch with error handling
-        axios.post('https://camprec.herokuapp.com/api/college/jaccept',this.body,this.header)
-            .then(function(response) {
-                console.log("*");
-                const data = response.data;
-                // check for error response
-                if (response.status != 200) {
-                    // get error message from body or default to response status
-                    const error = (data && data.message) || response.status;
-                    return Promise.reject(error);
-                }
-                   
-        })
-        .catch(error => {
-            console.error('There was an error!');
-            }
-        );
-        this.setState({
-            k : true
-        })
-         
-    }
+            this.setState({
+                k : true
+            })
+    }.bind(this))
+    .catch(error => {
+        console.error('There was an error!');
+        }
+    );
 
-    componentDidMount(){
-        this.capply();
-    }
+    
+     
+}
+
+componentDidMount(){
+    this.capply();
+}
 
     render() {
         

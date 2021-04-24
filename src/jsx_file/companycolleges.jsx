@@ -11,11 +11,11 @@ function Cards(props) {
                 <>
                    <div className="card widths" >
                         <div className="card-body">
-                            <strong><h4 className="card-title  centers">{props.title}</h4></strong>
-                            <strong><h6 className="card-title fonts  centers">{props.location}</h6></strong>
-                            <p className="card-text">{props.content}</p>
+                            <strong><h4 className="card-title centers">{props.title}</h4></strong>
+                            <strong><h6 className="card-title fonts hfixed2 centers">{props.location}</h6></strong>
+                            <p className="card-text hfixed">{props.content}</p>
                             <div className='pop' >
-                            <a href={i} className="btn btn-primary  text_size left_m2">View</a>
+                            <a href={i} className="btn btn-primary  text_size left_m2 m_t">View</a>
                             </div>
                             
                         </div>
@@ -50,7 +50,8 @@ class companycollege extends Component {
     super(props);
     this.state={
         j : 1,
-        k : false
+        k : false,
+        p : 0
    }
    this.next = this.next.bind(this);
    this.back = this.back.bind(this);
@@ -67,6 +68,15 @@ class companycollege extends Component {
     next(){    
         this.setState({j: this.state.j + 1});
         
+    }
+    componentDidMount(){
+        if(this.state.j===1){this.collegelist()}
+    }   
+    componentDidUpdate(){
+        if(this.state.j!=this.state.p)
+        {
+            this.collegelist()
+        }
     }
     collegelist (){
         var college = [];
@@ -86,6 +96,7 @@ class companycollege extends Component {
                 console.log(response.data);
                 localStorage.setItem('college',JSON.stringify(response.data))
                 this.setState({k: true});
+                this.setState({p : this.state.j});
         }.bind(this))
          .catch(error => {
                 console.log(error);
@@ -96,9 +107,7 @@ class companycollege extends Component {
             return college;
             
     }; 
-    componentDidMount(){
-        this.collegelist();
-    }
+    
     render() {
         return (
             <>

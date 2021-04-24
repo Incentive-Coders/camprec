@@ -15,7 +15,7 @@ function Rows(props) {
         return (
                     <>
                     <tr>
-                                <td>{props.sno}</td>
+                                <td>{props.sno+1}</td>
                                 <td>{props.name}</td>
                                 <td>{props.email}</td>
                                 <td><a className="btn size2" href={i}>View</a></td>

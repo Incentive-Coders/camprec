@@ -25,7 +25,7 @@ function Rows(props) {
 }
 const Rowlist = ({ Rowlists }) => {
     return (
-        Rowlists.map((user,i) => {
+        Rowlists?.map((user,i) => {
                     return (<>
                         <Rows key={i} sno={i} name={Rowlists[i].name} email={Rowlists[i].email} id={Rowlists[i]._id}></Rows>
                         </>
