@@ -52,7 +52,8 @@ class StudentCompany extends Component {
     super(props);
      this.state={
          j : 1,
-         k : false
+         k : false,
+         p : 0
     }
     this.next = this.next.bind(this);
     this.back = this.back.bind(this);
@@ -95,6 +96,7 @@ class StudentCompany extends Component {
                 }
                 localStorage.setItem('company',JSON.stringify(response.data))
                 this.setState({k: true});
+                this.setState({p : this.state.j});
         }.bind(this))
          .catch(error => {
                 console.log(error);
@@ -110,7 +112,7 @@ class StudentCompany extends Component {
             return null;
         }
         else{
-            this.setState({j: this.state.j - 1,k: false});           
+            this.setState({j: this.state.j - 1,k: false,});           
     }}
     next(){    
         this.setState({j: this.state.j + 1,k: false});
@@ -119,10 +121,10 @@ class StudentCompany extends Component {
         if(this.state.j===1){this.companylist()}
     }   
     componentDidUpdate(){
-        if(this.state.j!=1){this.companylist()}
-    }
-    componentDidMount(){
-        this.companylist();
+        if(this.state.j!=this.state.p)
+        {
+            this.companylist()
+        }
     }
     render() {
         
