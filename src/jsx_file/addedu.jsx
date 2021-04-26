@@ -61,7 +61,7 @@ class addedu extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                window.alert("experience Added Successfuly");
+                window.alert("Education Added Successfuly");
                 window.location.replace('/studenthome');
         })
          .catch(error => {
@@ -77,7 +77,7 @@ class addedu extends Component {
             <>
             <Navbar_student/>
             <section className="image width height">
-                                 <h3 className="card-title card_us"><strong>Add New experience</strong></h3>
+                                 <h3 className="card-title card_us"><strong>Add New Education</strong></h3>
                                     <Form className="addjb margin-top" >
                                         <FormItem >
                                         <div className="form-group margin-t ">
