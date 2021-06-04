@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 const Navbar = () => {
     return (
         <>
