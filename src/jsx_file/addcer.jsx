@@ -58,9 +58,9 @@ class addcer extends Component {
                 "student_id" : arr._id,
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-        axios.post('https://camprec.herokuapp.com/api/student/addcer',body,{header})
+        axios.post('http://localhost:4000/signup',body,{header})
             .then(function(response) {
-                console.log("*");
+                console.log("Sigup Succesful");
                 const data = response.data;
                 // check for error response
                 if (response.status != 200) {
@@ -68,8 +68,6 @@ class addcer extends Component {
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
                 }
-                window.alert("experience Added Successfuly");
-                window.location.replace('/studenthome');
         })
          .catch(error => {
                 console.error('There was an error!');
