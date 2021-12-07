@@ -10,7 +10,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.15.3",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "bootstrap": "^5.0.0-beta3",
     "concurrently": "^6.0.2",
     "draft.js": "^0.2.0",
