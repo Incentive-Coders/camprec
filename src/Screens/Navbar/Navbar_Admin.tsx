@@ -3,15 +3,16 @@ import { NavLink } from "react-router-dom";
 import "../index.css";
 import "../css/navbar.css";
 import web from "../images/Capture-removebg-preview.png";
-const Navbar_viewstdcompany = () => {
+import "bootstrap/dist/css/bootstrap.min.css";
+const Navbar_Admin = () => {
   return (
     <>
       <div className="container-fluid nav_bg">
         <div className="row navbar">
           <div className="col-10 mx-auto navbar">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
               <div className="container-fluid navbar">
-                <NavLink className="navbar-brand" to="/studenthome">
+                <NavLink className="navbar-brand" to="/">
                   <img
                     src={web}
                     className="image-fluid  logo padl"
@@ -29,7 +30,7 @@ const Navbar_viewstdcompany = () => {
                         exact
                         className="nav-link active"
                         aria-current="page"
-                        to="/studenthome"
+                        to="/adminhome"
                       >
                         Home
                       </NavLink>
@@ -38,18 +39,18 @@ const Navbar_viewstdcompany = () => {
                       <NavLink
                         activeClassName="menu_active"
                         className="nav-link"
-                        to="/studentjobs"
+                        to="/adminstudent"
                       >
-                        jobs
+                        student
                       </NavLink>
                     </li>
                     <li className="nav-item">
                       <NavLink
                         activeClassName="menu_active"
                         className="nav-link"
-                        to="/viewstudentcompany"
+                        to="/admincompanies"
                       >
-                        back
+                        Companies
                       </NavLink>
                     </li>
                     <li className="nav-item">
@@ -72,4 +73,4 @@ const Navbar_viewstdcompany = () => {
   );
 };
 
-export default Navbar_viewstdcompany;
+export default Navbar_Admin;

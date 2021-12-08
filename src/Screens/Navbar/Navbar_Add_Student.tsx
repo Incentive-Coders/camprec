@@ -10,7 +10,7 @@ const Navbar_Admin = () => {
       <div className="container-fluid nav_bg">
         <div className="row navbar">
           <div className="col-10 mx-auto navbar">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
               <div className="container-fluid navbar">
                 <NavLink className="navbar-brand" to="/">
                   <img
@@ -41,16 +41,7 @@ const Navbar_Admin = () => {
                         className="nav-link"
                         to="/adminstudent"
                       >
-                        student
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink
-                        activeClassName="menu_active"
-                        className="nav-link"
-                        to="/admincompanies"
-                      >
-                        Companies
+                        back
                       </NavLink>
                     </li>
                     <li className="nav-item">

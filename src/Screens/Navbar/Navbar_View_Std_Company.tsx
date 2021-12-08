@@ -3,17 +3,16 @@ import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
 import web from "../images/Capture-removebg-preview.png";
-
-const company_Navbar = () => {
+const Navbar_viewstdcompany = () => {
     return (
         <>
        <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
 
-                  <nav class="navbar navbar-expand-lg navbar-light">
+                  <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/">
+    <NavLink  className="navbar-brand" to = "/studenthome">
     <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,7 +23,7 @@ const company_Navbar = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/companyhome"
+          to = "/studenthome"
           >
             Home
           
@@ -34,7 +33,7 @@ const company_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/companyjobs"
+          to = "/studentjobs"
           >
             jobs
           
@@ -44,9 +43,9 @@ const company_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/companycolleges"
+          to = "/studentcompanies"
           >
-            Colleges
+            back
           
           </NavLink>
         </li>
@@ -67,4 +66,4 @@ const company_Navbar = () => {
     );
 };
 
-export default company_Navbar;
+export default Navbar_viewstdcompany;

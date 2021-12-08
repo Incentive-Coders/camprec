@@ -106,17 +106,17 @@ const Home = () => {
                 </div>
               </div>
               <div className="col-md-4 col-10 mx-auto">
-                <div class="card card_border">
-                  <div class="card-body card_us">
+                <div className="card card_border">
+                  <div className="card-body card_us">
                     <img
                       src={web3}
                       className="company card_us"
                       alt="home img"
                     />
-                    <h5 class="card-title card_us">
+                    <h5 className="card-title card_us">
                       <strong>For College Admin</strong>
                     </h5>
-                    <p class="card-text">
+                    <p className="card-text">
                       We are here to manage and interlink between companies and
                       students as a invisible string.Keep Calm and Focused.
                     </p>
