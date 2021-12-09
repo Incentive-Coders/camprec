@@ -1,15 +1,16 @@
-import {React, Component} from 'react';
+import React = require("react")
+import {Component} from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from './navbar_student';
+import Navbar_student from '../Navbar/navbar_student';
 import {Form, Input} from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
 
 class deledu extends Component {
-
+    state : {names : string, institute: string, courses : string, student_id : string}
     constructor(props){
     super(props);
     
@@ -17,6 +18,7 @@ class deledu extends Component {
         courses : '',
         institute: '',
         student_id:'',
+        names : '',
     }
     
     this.updateInput = this.updateInput.bind(this);
@@ -41,7 +43,7 @@ class deledu extends Component {
                 "student_id" : arr._id,
             };
         const header = {'Accept':'*/*','Content-Type': 'application/json', 'Accept-Encoding' : 'gzip, deflate, br', 'Connection' : 'keep-alive'};
-        axios.post('https://camprec.herokuapp.com/api/student/deledu',body,{header})
+        axios.post('https://camprec.herokuapp.com/api/student/deledu',body,{headers : {header}})
             .then(function(response) {
                 console.log("*");
                 const data = response.data;

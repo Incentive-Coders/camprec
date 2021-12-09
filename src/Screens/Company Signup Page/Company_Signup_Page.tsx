@@ -1,15 +1,32 @@
-import { React, Component } from "react";
+import React = require("react")
+import {Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import "../css/home.css";
-import web5 from "../images/company_login.png";
+const web5 = require( "../images/company_login.png");
 import "../css/login.css";
 import FormItem from "antd/lib/form/FormItem";
 import { Form, Input } from "antd";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import { string } from "prop-types";
 
 class CompanySignup extends Component {
+  state : {
+    email: string,
+      password: string,
+      names: string,
+      about: string,
+      year_of_established: string,
+      location: string,
+      website: string,
+      twitter: string,
+      facebook: string,
+      linkedin: string,
+      instagram: string,
+      vedio_link: string,
+      contactno : string
+  }
   constructor(props) {
     super(props);
 
@@ -17,6 +34,7 @@ class CompanySignup extends Component {
       email: "",
       password: "",
       names: "",
+      contactno : "",
       about: "",
       year_of_established: "",
       location: "",
@@ -99,11 +117,12 @@ class CompanySignup extends Component {
   login_link() {
     console.log(this.state.email);
     console.log(this.state.password);
+    body : {name : string}
     // POST request using fetch with error handling
     const body = {
       email: this.state.email,
       password: this.state.password,
-      name: this.state.name,
+      name: this.state.names,
       contactno: this.state.contactno,
       location: this.state.location,
       year_of_established: this.state.year_of_established,
@@ -126,7 +145,7 @@ class CompanySignup extends Component {
     };
     axios
       .post("https://camprec.herokuapp.com/api/company/signup", body, {
-        header,
+        headers : {header},
       })
       .then(function (response) {
         const data = response.data;

@@ -1,9 +1,9 @@
-import web from "../images/premium.png";
+const web = require("../images/premium.png");
 import React from 'react';
 import "../index.css";
 import"../css/home.css";
 import "../css/login.css";
-import Navbar_student from './navbar_student';
+import Navbar_student from '../Navbar/navbar_student';
 
 const premium =() =>  {
     return(<>

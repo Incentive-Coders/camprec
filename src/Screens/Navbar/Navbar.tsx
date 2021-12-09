@@ -2,19 +2,17 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
-import web from "../images/Capture-removebg-preview.png";
-
-const Navbar_viewcompany = () => {
+const web = require("../images/Capture-removebg-preview.png");
+const Navbar = () => {
     return (
         <>
-       <div className = "container-fluid nav_bg">
+        <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
-
-                  <nav class="navbar navbar-expand-lg navbar-light">
+                  <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/adminhome">
-    <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
+    <NavLink  className="navbar-brand" to = "/">
+    <img src={web} className = "image-fluid  logo" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -24,7 +22,7 @@ const Navbar_viewcompany = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/adminhome"
+          to = "/"
           >
             Home
           
@@ -34,9 +32,9 @@ const Navbar_viewcompany = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/adminjobs"
+          to = "/about"
           >
-            jobs
+            About
           
           </NavLink>
         </li>
@@ -44,18 +42,8 @@ const Navbar_viewcompany = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/admincompanies"
-          >
-            back
-          
-          </NavLink>
+          to = "/contact">Contact</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink
-          activeClassName = "menu_active" 
-          className="nav-link" 
-          to = "/logout">Logout</NavLink>
-          </li>
       </ul>
     </div>
   </div>
@@ -67,4 +55,4 @@ const Navbar_viewcompany = () => {
     );
 };
 
-export default Navbar_viewcompany;
+export default Navbar;

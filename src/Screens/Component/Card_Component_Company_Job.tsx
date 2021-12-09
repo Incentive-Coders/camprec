@@ -1,4 +1,4 @@
-import { React } from "react";
+import React = require("react")
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";

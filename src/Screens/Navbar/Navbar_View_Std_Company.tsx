@@ -2,18 +2,17 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
-import web from "../images/Capture-removebg-preview.png";
-
-const viewcollege_Navbar = () => {
+const web = require("../images/Capture-removebg-preview.png");
+const Navbar_viewstdcompany = () => {
     return (
         <>
        <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
 
-                  <nav class="navbar navbar-expand-lg navbar-light">
+                  <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/">
+    <NavLink  className="navbar-brand" to = "/studenthome">
     <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,7 +23,7 @@ const viewcollege_Navbar = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/companyhome"
+          to = "/studenthome"
           >
             Home
           
@@ -34,7 +33,27 @@ const viewcollege_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/companyjobs">Back</NavLink>
+          to = "/studentjobs"
+          >
+            jobs
+          
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/studentcompanies"
+          >
+            back
+          
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/logout">Logout</NavLink>
           </li>
       </ul>
     </div>
@@ -47,4 +66,4 @@ const viewcollege_Navbar = () => {
     );
 };
 
-export default viewcollege_Navbar;
+export default Navbar_viewstdcompany;

@@ -1,4 +1,5 @@
-import { React, Component } from "react";
+import React = require("react")
+import { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
@@ -9,11 +10,14 @@ var a = l.split("=");
 console.log(a[1]);
 
 class deljobs extends Component {
+  state : {job_id : string, job_description : string, job_title : string}
   constructor(props) {
     super(props);
 
     this.state = {
       job_id: "",
+      job_description : "",
+      job_title : ""
     };
 
     this.del_job = this.del_job.bind(this);
@@ -33,7 +37,7 @@ class deljobs extends Component {
       Connection: "keep-alive",
     };
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/delete", body, { header })
+      .post("https://camprec.herokuapp.com/api/jobs/delete", body, { headers : {header} })
       .then(function (response) {
         console.log("*");
         const data = response.data;
@@ -67,7 +71,7 @@ class deljobs extends Component {
     var job = [];
     // POST request using fetch with error handling
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/list", body, header)
+      .post("https://camprec.herokuapp.com/api/jobs/list", body, {headers : {header}})
       .then(function (response) {
         // check for error response
         if (response.status != 200) {

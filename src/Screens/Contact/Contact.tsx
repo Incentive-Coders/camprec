@@ -1,11 +1,15 @@
 import React from "react";
-import web from "../images/contactus.png";
+const web = require("../images/contactus.png");
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import emailjs from "emailjs-com";
+import FormItem from "antd/lib/form/FormItem";
+
+
+
 const Contact = () => {
   function sendEmail(e) {
     e.preventDefault();
@@ -42,7 +46,7 @@ const Contact = () => {
                     <strong>Contact Us</strong>
                   </h3>
                   <form className="contact-form" onSubmit={sendEmail}>
-                    <formItem>
+                    <FormItem>
                       <div className="form-group margin-t">
                         <input
                           type="TEXT"
@@ -52,8 +56,8 @@ const Contact = () => {
                           required
                         />
                       </div>
-                    </formItem>
-                    <formItem>
+                    </FormItem>
+                    <FormItem>
                       <div className="form-group margin-t">
                         <input
                           type="TEXT"
@@ -63,8 +67,8 @@ const Contact = () => {
                           required
                         />
                       </div>
-                    </formItem>
-                    <formItem>
+                    </FormItem>
+                    <FormItem>
                       <div className="form-group margin-t">
                         <input
                           type="TEXT"
@@ -74,8 +78,8 @@ const Contact = () => {
                           required
                         />
                       </div>
-                    </formItem>
-                    <formItem>
+                    </FormItem>
+                    <FormItem>
                       <div className="form-group margin-t">
                         <input
                           type="TEXT"
@@ -85,8 +89,8 @@ const Contact = () => {
                           required
                         />
                       </div>
-                    </formItem>
-                    <formItem>
+                    </FormItem>
+                    <FormItem>
                       <div className="form-group margin-t">
                         <input
                           type="TEXT"
@@ -96,7 +100,7 @@ const Contact = () => {
                           required
                         />
                       </div>
-                    </formItem>
+                    </FormItem>
                     <input
                       type="submit"
                       className="btn margin-t"

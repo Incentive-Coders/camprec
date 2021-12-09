@@ -2,19 +2,19 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
-import web from "../images/Capture-removebg-preview.png";
-import "bootstrap/dist/css/bootstrap.min.css";
-const Student_Navbar = () => {
+const web = require("../images/Capture-removebg-preview.png");
+
+const Navbar_viewcompany = () => {
     return (
         <>
        <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
 
-                  <nav class="navbar navbar-expand-lg navbar-light">
+                  <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/studenthome">
-    <img src={web} className = "image-fluid   logo padl" alt = "home image"/>
+    <NavLink  className="navbar-brand" to = "/adminhome">
+    <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -24,7 +24,7 @@ const Student_Navbar = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/studenthome"
+          to = "/adminhome"
           >
             Home
           
@@ -34,18 +34,20 @@ const Student_Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/studentcompanies"
+          to = "/adminjobs"
           >
-            companies
+            jobs
+          
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/studentcourses"
+          to = "/admincompanies"
           >
-            Courses
+            back
+          
           </NavLink>
         </li>
         <li className="nav-item">
@@ -65,4 +67,4 @@ const Student_Navbar = () => {
     );
 };
 
-export default Student_Navbar;
+export default Navbar_viewcompany;

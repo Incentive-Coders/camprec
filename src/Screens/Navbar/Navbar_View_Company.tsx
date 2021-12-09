@@ -2,17 +2,19 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import '../index.css';
 import '../css/navbar.css'
-import web from "../images/Capture-removebg-preview.png";
-const Navbar = () => {
+const web = require("../images/Capture-removebg-preview.png");
+
+const Navbar_viewcompany = () => {
     return (
         <>
-        <div className = "container-fluid nav_bg">
+       <div className = "container-fluid nav_bg">
               <div className = "row navbar">
                   <div className = "col-10 mx-auto navbar">
-                  <nav class="navbar navbar-expand-lg navbar-light">
+
+                  <nav className="navbar navbar-expand-lg navbar-light">
   <div className="container-fluid navbar">
-    <NavLink  className="navbar-brand" to = "/">
-    <img src={web} className = "image-fluid  logo" alt = "home image"/>
+    <NavLink  className="navbar-brand" to = "/adminhome">
+    <img src={web} className = "image-fluid  logo padl" alt = "home image"/>
     </NavLink>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -22,7 +24,7 @@ const Navbar = () => {
           exact 
           className="nav-link active" 
           aria-current="page" 
-          to = "/"
+          to = "/adminhome"
           >
             Home
           
@@ -32,9 +34,9 @@ const Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/about"
+          to = "/adminjobs"
           >
-            About
+            jobs
           
           </NavLink>
         </li>
@@ -42,8 +44,18 @@ const Navbar = () => {
           <NavLink
           activeClassName = "menu_active" 
           className="nav-link" 
-          to = "/contact">Contact</NavLink>
+          to = "/admincompanies"
+          >
+            back
+          
+          </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink
+          activeClassName = "menu_active" 
+          className="nav-link" 
+          to = "/logout">Logout</NavLink>
+          </li>
       </ul>
     </div>
   </div>
@@ -55,4 +67,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Navbar_viewcompany;
