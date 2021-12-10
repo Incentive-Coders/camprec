@@ -1,22 +1,22 @@
-import React = require("react")
-import { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
-import "../css/home.css";
-const web5 = require("../../images/company_login.png");
-import "../css/login.css";
-import FormItem from "antd/lib/form/FormItem";
-import { Form, Input } from "antd";
-import Navbar from "../Navbar/Navbar";
-import axios from "axios";
+import React = require('react');
+import { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
+import '../css/home.css';
+const web5 = require('../../images/company_login.png');
+import '../css/login.css';
+import FormItem from 'antd/lib/form/FormItem';
+import { Form, Input } from 'antd';
+import Navbar from '../Navbar/Navbar';
+import axios from 'axios';
 
 class Companylogin extends Component {
-  state : { email: string, password: string }
+  state: { email: string; password: string };
   constructor(props) {
     super(props);
     this.state = {
-      email: " ",
-      password: " ",
+      email: ' ',
+      password: ' ',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -33,7 +33,7 @@ class Companylogin extends Component {
   }
 
   login_link() {
-    var status;
+    let status;
     console.log(this.state.email);
     console.log(this.state.password);
     // POST request using fetch with error handling
@@ -42,19 +42,19 @@ class Companylogin extends Component {
       password: this.state.password,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/company/login", body, {
+      .post('https://camprec.herokuapp.com/api/company/login', body, {
         headers: {
-          Accept: "*/*",
-          "Content-Type": "application/json",
-          "Accept-Encoding": "gzip, deflate, br",
-          Connection: "keep-alive"
-        }
+          Accept: '*/*',
+          'Content-Type': 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
+          Connection: 'keep-alive',
+        },
       })
       .then(function (response) {
         const data = response.data;
@@ -65,13 +65,13 @@ class Companylogin extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem("company", JSON.stringify(response.data));
-        window.location.replace("/companyhome");
+        localStorage.setItem('company', JSON.stringify(response.data));
+        window.location.replace('/companyhome');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
         if (this.state.email && this.state.password) {
-          window.alert("Incorect Id and Password");
+          window.alert('Incorect Id and Password');
         }
       });
   }

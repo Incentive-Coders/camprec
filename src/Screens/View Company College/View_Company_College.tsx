@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import ReactPlayer from "react-player";
-import axios from "axios";
-import ReactLoading from "react-loading";
-import Navbar_viewcollege from "./navbar_viewcollege";
-var l = window.location.href;
-var a = l.split("=");
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import ReactPlayer from 'react-player';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
+import Navbar_viewcollege from './navbar_viewcollege';
+const l = window.location.href;
+const a = l.split('=');
 console.log(a[1]);
-localStorage.setItem("college_id", a[1]);
+localStorage.setItem('college_id', a[1]);
 function Cards(props) {
   return (
     <>
@@ -55,9 +55,9 @@ class Viewcollege extends Component {
       k: false,
     };
     this.header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
   }
 
@@ -65,7 +65,7 @@ class Viewcollege extends Component {
     // POST request using fetch with error handling
     axios
       .post(
-        "https://camprec.herokuapp.com/api/college/data",
+        'https://camprec.herokuapp.com/api/college/data',
         this.body,
         this.header
       )
@@ -78,13 +78,13 @@ class Viewcollege extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("college", JSON.stringify(response.data));
+          localStorage.setItem('college', JSON.stringify(response.data));
           this.setState({ k: true });
         }.bind(this)
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
   }
   componentDidMount() {
@@ -92,7 +92,7 @@ class Viewcollege extends Component {
   }
 
   render() {
-    var arr = JSON.parse(localStorage.getItem("college"));
+    const arr = JSON.parse(localStorage.getItem('college'));
     return (
       <>
         <Navbar_viewcollege />

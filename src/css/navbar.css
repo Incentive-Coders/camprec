@@ -1,22 +1,21 @@
-.logo{
-    height: 90pt;
-    padding-right: 50ex;
-    margin-left: -9%;  
+.logo {
+  height: 90pt;
+  padding-right: 50ex;
+  margin-left: -9%;
 }
-.padding{
-    padding-right: 40ex;
+.padding {
+  padding-right: 40ex;
 }
-.padl{
-    padding-right: 45ex;
+.padl {
+  padding-right: 45ex;
 }
-.pader{
-    margin-left: 280px;
-
+.pader {
+  margin-left: 280px;
 }
-.padding-b{
-    margin-top: 5ex;
-    margin-bottom: 5ex;
+.padding-b {
+  margin-top: 5ex;
+  margin-bottom: 5ex;
 }
-.backg{
-    background-color: #0d0a3d !important;
+.backg {
+  background-color: #0d0a3d !important;
 }

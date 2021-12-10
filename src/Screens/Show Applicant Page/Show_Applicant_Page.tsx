@@ -1,19 +1,19 @@
-import { React, Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_showapplicants from "./navbar_showapplicants";
-import axios from "axios";
-import Table from "react-bootstrap/Table";
-import ReactLoading from "react-loading";
-var l = window.location.href;
-var a = l.split("=");
+import { React, Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_showapplicants from './navbar_showapplicants';
+import axios from 'axios';
+import Table from 'react-bootstrap/Table';
+import ReactLoading from 'react-loading';
+const l = window.location.href;
+const a = l.split('=');
 console.log(a[1]);
-var i;
+let i;
 function Rows(props) {
   {
-    i = "/viewapplicantcollege/i=" + props.id;
+    i = '/viewapplicantcollege/i=' + props.id;
   }
   return (
     <>
@@ -32,7 +32,7 @@ function Rows(props) {
 }
 function Rows1(props) {
   {
-    i = "/viewapplicantstudent/i=" + props.id;
+    i = '/viewapplicantstudent/i=' + props.id;
   }
   return (
     <>
@@ -92,16 +92,16 @@ class showapplicants extends Component {
       job_id: a[1],
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/slist", body, { header })
+      .post('https://camprec.herokuapp.com/api/jobs/slist', body, { header })
       .then(
         function (response) {
-          console.log("*");
+          console.log('*');
           const data = response.data;
           // check for error response
           if (response.status != 200) {
@@ -109,17 +109,17 @@ class showapplicants extends Component {
             const error = (data && data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("slist", JSON.stringify(response.data));
+          localStorage.setItem('slist', JSON.stringify(response.data));
         }.bind(this)
       )
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
       });
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/clist", body, { header })
+      .post('https://camprec.herokuapp.com/api/jobs/clist', body, { header })
       .then(
         function (response) {
-          console.log("*");
+          console.log('*');
           const data = response.data;
           // check for error response
           if (response.status != 200) {
@@ -127,12 +127,12 @@ class showapplicants extends Component {
             const error = (data && data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("clist", JSON.stringify(response.data));
+          localStorage.setItem('clist', JSON.stringify(response.data));
           this.setState({ k: true });
         }.bind(this)
       )
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
       });
   }
   componentDidMount() {
@@ -159,7 +159,7 @@ class showapplicants extends Component {
                 </thead>
                 <tbody>
                   <Rowlist
-                    Rowlists={JSON.parse(localStorage.getItem("clist"))}
+                    Rowlists={JSON.parse(localStorage.getItem('clist'))}
                   ></Rowlist>
                 </tbody>
               </Table>
@@ -179,7 +179,7 @@ class showapplicants extends Component {
                 </thead>
                 <tbody>
                   <Rowlist1
-                    Rowlists={JSON.parse(localStorage.getItem("slist"))}
+                    Rowlists={JSON.parse(localStorage.getItem('slist'))}
                   ></Rowlist1>
                 </tbody>
               </Table>

@@ -1,14 +1,14 @@
-import React = require("react")
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import { FaRegTrashAlt } from "react-icons/fa";
-var k, i, n;
+import React = require('react');
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import { FaRegTrashAlt } from 'react-icons/fa';
+let k, i, n;
 
-const Cards = (props) => {
-  k = "/editjobs/i=" + props.id;
-  i = "/showapplicants/i=" + props.id;
-  n = "/deljobs/i=" + props.id;
+function Cards(props) {
+  k = '/editjobs/i=' + props.id;
+  i = '/showapplicants/i=' + props.id;
+  n = '/deljobs/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -35,5 +35,5 @@ const Cards = (props) => {
       </div>
     </>
   );
-};
+}
 export default Cards;

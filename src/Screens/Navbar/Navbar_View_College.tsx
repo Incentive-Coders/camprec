@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "../index.css";
-import "../css/navbar.css";
-const web = require("../images/Capture-removebg-preview.png");
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../index.css';
+import '../css/navbar.css';
+const web = require('../images/Capture-removebg-preview.png');
 
 const viewcollege_Navbar = () => {
   return (

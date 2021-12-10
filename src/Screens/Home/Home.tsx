@@ -1,17 +1,17 @@
-import React from "react";
-const web = require("../images/4180157-removebg-preview.png");
-const web1 = require( "../images/student-removebg.png");
-const web2 = require( "../images/company.jpg");
-const web3 = require("../images/admin.jpg");
-const web4 = require("../images/Capture-removebg-preview.png");
-import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-import "../index.css";
-import "../css/home.css";
-import "./App";
-import CountUp from "react-countup";
-const Home = () => {
+import React from 'react';
+const web = require('../images/4180157-removebg-preview.png');
+const web1 = require('../images/student-removebg.png');
+const web2 = require('../images/company.jpg');
+const web3 = require('../images/admin.jpg');
+const web4 = require('../images/Capture-removebg-preview.png');
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+import '../index.css';
+import '../css/home.css';
+import './App';
+import CountUp from 'react-countup';
+function Home() {
   localStorage.clear();
   return (
     <>
@@ -22,7 +22,7 @@ const Home = () => {
             <div className="col-10 mx-auto home ">
               <div className="col-md-4 pt-5 pt-lg-0 order-2 order-lg-1 get_started">
                 <h2>
-                  Get hired by the company of your choice with{" "}
+                  Get hired by the company of your choice with{' '}
                   <strong className="brand-name">Camprec</strong>
                 </h2>
                 <h5 className="mt-3">
@@ -49,7 +49,7 @@ const Home = () => {
         <img src={web4} className="logo logos" alt="home img" />
         <div className="my-5 mx-auto align-item-center ">
           <h1 className="tab-center align-item-center join_us">
-            {" "}
+            {' '}
             <strong>Join us</strong>
           </h1>
         </div>
@@ -155,6 +155,6 @@ const Home = () => {
       </footer>
     </>
   );
-};
+}
 
 export default Home;

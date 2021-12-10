@@ -1,29 +1,27 @@
-import React from "react";
-const web = require("../images/contactus.png");
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "../Navbar/Navbar";
-import emailjs from "emailjs-com";
-import FormItem from "antd/lib/form/FormItem";
+import React from 'react';
+const web = require('../images/contactus.png');
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from '../Navbar/Navbar';
+import emailjs from 'emailjs-com';
+import FormItem from 'antd/lib/form/FormItem';
 
-
-
-const Contact = () => {
+function Contact() {
   function sendEmail(e) {
     e.preventDefault();
     emailjs
       .sendForm(
-        "default_service",
-        "camprectemplate",
+        'default_service',
+        'camprectemplate',
         e.target,
-        "user_yvU8BsXFsDcsmwHoVWiWs"
+        'user_yvU8BsXFsDcsmwHoVWiWs'
       )
       .then(
         (result) => {
           console.log(result.text);
-          window.alert("Sent");
+          window.alert('Sent');
         },
         (error) => {
           console.log(error.text);
@@ -123,6 +121,6 @@ const Contact = () => {
       </section>
     </>
   );
-};
+}
 
 export default Contact;

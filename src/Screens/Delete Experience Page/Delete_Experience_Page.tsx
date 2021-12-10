@@ -1,23 +1,23 @@
-import React = require("react")
-import { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from "../Navbar/Navbar_Student";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
+import React = require('react');
+import { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_student from '../Navbar/Navbar_Student';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 
 class delexp extends Component {
-  state : {names : string, student_id : string, companys : string}
+  state: { names: string; student_id: string; companys: string };
   constructor(props) {
     super(props);
 
     this.state = {
-      names: "",
-      student_id: "",
-      companys: "",
+      names: '',
+      student_id: '',
+      companys: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -31,7 +31,7 @@ class delexp extends Component {
     this.setState({ companys: event.target.value });
   }
   del_experience() {
-    var arr = JSON.parse(localStorage.getItem("student"));
+    const arr = JSON.parse(localStorage.getItem('student'));
     // POST request using fetch with error handling
     const body = {
       names: this.state.names,
@@ -39,17 +39,17 @@ class delexp extends Component {
       student_id: arr._id,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/delexp", body, {
-        headers : {header},
+      .post('https://camprec.herokuapp.com/api/student/delexp', body, {
+        headers: { header },
       })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -57,12 +57,12 @@ class delexp extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("experience deleted Successfuly");
-        window.location.replace("/studenthome");
+        window.alert('experience deleted Successfuly');
+        window.location.replace('/studenthome');
       })
       .catch((error) => {
-        console.error("There was an error!");
-        window.alert("There was some error unable to create experience");
+        console.error('There was an error!');
+        window.alert('There was some error unable to create experience');
       });
   }
 

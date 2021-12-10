@@ -1,10 +1,10 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "../index.css";
-import "../css/navbar.css";
-const web = require("../images/Capture-removebg-preview.png");
-import "bootstrap/dist/css/bootstrap.min.css";
-const Navbar_Admin = () => {
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../index.css';
+import '../css/navbar.css';
+const web = require('../images/Capture-removebg-preview.png');
+import 'bootstrap/dist/css/bootstrap.min.css';
+function Navbar_Admin() {
   return (
     <>
       <div className="container-fluid nav_bg">
@@ -62,6 +62,6 @@ const Navbar_Admin = () => {
       </div>
     </>
   );
-};
+}
 
 export default Navbar_Admin;

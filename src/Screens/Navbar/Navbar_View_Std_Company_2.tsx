@@ -1,9 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "../index.css";
-import "../css/navbar.css";
-const web = require("../images/Capture-removebg-preview.png");
-const Navbar_viewstdcompany = () => {
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../index.css';
+import '../css/navbar.css';
+const web = require('../images/Capture-removebg-preview.png');
+function Navbar_viewstdcompany() {
   return (
     <>
       <div className="container-fluid nav_bg">
@@ -70,6 +70,6 @@ const Navbar_viewstdcompany = () => {
       </div>
     </>
   );
-};
+}
 
 export default Navbar_viewstdcompany;

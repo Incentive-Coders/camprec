@@ -1,12 +1,12 @@
-import { React, Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_company from "./navbar_company";
-import ReactLoading from "react-loading";
-import axios from "axios";
+import { React, Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_company from './navbar_company';
+import ReactLoading from 'react-loading';
+import axios from 'axios';
 function Cards(props) {
-  var i = "/viewcompanycollege/i=" + props.id;
+  var i = '/viewcompanycollege/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -30,7 +30,7 @@ function Cards(props) {
     </>
   );
 }
-const Cardlist = ({ collegelist }) => {
+function Cardlist({ collegelist }) {
   return (
     <div className="gridwraper">
       {collegelist.map((user, i) => {
@@ -48,9 +48,9 @@ const Cardlist = ({ collegelist }) => {
       })}
     </div>
   );
-};
+}
 
-var arr = JSON.parse(localStorage.getItem("college"));
+var arr = JSON.parse(localStorage.getItem('college'));
 class companycollege extends Component {
   constructor(props) {
     super(props);
@@ -87,7 +87,7 @@ class companycollege extends Component {
     var college = [];
     console.log(this.state.j);
     var k =
-      "https://camprec.herokuapp.com/api/college/list/" +
+      'https://camprec.herokuapp.com/api/college/list/' +
       this.state.j.toString();
     // POST request using fetch with error handling
     axios
@@ -104,14 +104,14 @@ class companycollege extends Component {
           }
           console.log(response.data.length);
           console.log(response.data);
-          localStorage.setItem("college", JSON.stringify(response.data));
+          localStorage.setItem('college', JSON.stringify(response.data));
           this.setState({ k: true });
           this.setState({ p: this.state.j });
         }.bind(this)
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (college) return college;
   }
@@ -129,7 +129,7 @@ class companycollege extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                collegelist={JSON.parse(localStorage.getItem("college"))}
+                collegelist={JSON.parse(localStorage.getItem('college'))}
               />
             </div>
             <div className="m-l3">

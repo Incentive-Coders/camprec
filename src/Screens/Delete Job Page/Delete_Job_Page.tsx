@@ -1,23 +1,23 @@
-import React = require("react")
-import { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
-var l = window.location.href;
-var a = l.split("=");
+import React = require('react');
+import { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+const l = window.location.href;
+const a = l.split('=');
 console.log(a[1]);
 
 class deljobs extends Component {
-  state : {job_id : string, job_description : string, job_title : string}
+  state: { job_id: string; job_description: string; job_title: string };
   constructor(props) {
     super(props);
 
     this.state = {
-      job_id: "",
-      job_description : "",
-      job_title : ""
+      job_id: '',
+      job_description: '',
+      job_title: '',
     };
 
     this.del_job = this.del_job.bind(this);
@@ -25,21 +25,23 @@ class deljobs extends Component {
 
   del_job() {
     // POST request using fetch with error handling
-    var arr = JSON.parse(localStorage.getItem("company"));
+    const arr = JSON.parse(localStorage.getItem('company'));
     const body = {
       job_id: a[1],
       company_id: arr._id,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/delete", body, { headers : {header} })
+      .post('https://camprec.herokuapp.com/api/jobs/delete', body, {
+        headers: { header },
+      })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -47,31 +49,33 @@ class deljobs extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("Job deleteded Successfuly");
-        window.location.replace("/companyjobs");
+        window.alert('Job deleteded Successfuly');
+        window.location.replace('/companyjobs');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
         if (this.state.job_title && this.state.job_description) {
-          window.alert("There was some error unable to deling Job");
+          window.alert('There was some error unable to deling Job');
         }
       });
   }
 
   companyjoblist() {
-    var arr = JSON.parse(localStorage.getItem("company"));
-    var body = {
+    const arr = JSON.parse(localStorage.getItem('company'));
+    const body = {
       company_id: arr._id,
     };
-    var header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+    const header = {
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
-    var job = [];
+    const job = [];
     // POST request using fetch with error handling
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/list", body, {headers : {header}})
+      .post('https://camprec.herokuapp.com/api/jobs/list', body, {
+        headers: { header },
+      })
       .then(function (response) {
         // check for error response
         if (response.status != 200) {
@@ -80,11 +84,11 @@ class deljobs extends Component {
             (response.data && response.data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem("jobs", JSON.stringify(response.data));
+        localStorage.setItem('jobs', JSON.stringify(response.data));
       })
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (job) return job;
   }

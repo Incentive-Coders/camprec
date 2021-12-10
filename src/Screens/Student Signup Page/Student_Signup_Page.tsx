@@ -1,29 +1,29 @@
-import { React, Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import FormItem from "antd/lib/form/FormItem";
-import { Form, Input } from "antd";
-import Navbar from "./Navbar";
-import axios from "axios";
+import { React, Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import FormItem from 'antd/lib/form/FormItem';
+import { Form, Input } from 'antd';
+import Navbar from './Navbar';
+import axios from 'axios';
 
 class studentSignup extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      names: "",
-      contactno: "",
-      about: "",
-      college: "",
-      cgpa: "",
-      twitter: "",
-      facebook: "",
-      linkedin: "",
-      instagram: "",
+      email: '',
+      password: '',
+      names: '',
+      contactno: '',
+      about: '',
+      college: '',
+      cgpa: '',
+      twitter: '',
+      facebook: '',
+      linkedin: '',
+      instagram: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -102,19 +102,19 @@ class studentSignup extends Component {
         facebook: this.state.facebook,
         twitter: this.state.twitter,
       },
-      resume: "",
+      resume: '',
       premium: false,
       approve: false,
     };
     console.log(body);
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/signup", body, {
+      .post('https://camprec.herokuapp.com/api/student/signup', body, {
         header,
       })
       .then(function (response) {
@@ -125,12 +125,12 @@ class studentSignup extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.location.replace("/home");
+        window.location.replace('/home');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
         if (this.state.email && this.state.password) {
-          window.alert("Error");
+          window.alert('Error');
         }
       });
   }

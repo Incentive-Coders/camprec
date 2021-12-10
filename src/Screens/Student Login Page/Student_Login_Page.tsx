@@ -1,21 +1,21 @@
-import { React, Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
-import "../css/home.css";
-import web5 from "../images/student_login.png";
-import "../css/login.css";
-import Navbar from "./Navbar";
-import FormItem from "antd/lib/form/FormItem";
-import { Form, Input } from "antd";
-import axios from "axios";
+import { React, Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
+import '../css/home.css';
+import web5 from '../images/student_login.png';
+import '../css/login.css';
+import Navbar from './Navbar';
+import FormItem from 'antd/lib/form/FormItem';
+import { Form, Input } from 'antd';
+import axios from 'axios';
 
 class Studentlogin extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -38,13 +38,13 @@ class Studentlogin extends Component {
       password: this.state.password,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/login", body, { header })
+      .post('https://camprec.herokuapp.com/api/student/login', body, { header })
       .then(function (response) {
         const data = response.data;
         // check for error response
@@ -53,15 +53,15 @@ class Studentlogin extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem("student", JSON.stringify(response.data));
+        localStorage.setItem('student', JSON.stringify(response.data));
         response.data.premium
-          ? window.location.replace("/studenthome")
-          : window.location.replace("/premium");
+          ? window.location.replace('/studenthome')
+          : window.location.replace('/premium');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
         if (this.state.email && this.state.password) {
-          window.alert("Incorect Id and Password");
+          window.alert('Incorect Id and Password');
         }
       });
   }

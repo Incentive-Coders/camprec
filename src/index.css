@@ -10,78 +10,78 @@
 .navbar {
   background-color: transparent;
 }
-.join_us{
+.join_us {
   text-align: center;
   margin-top: -5%;
 }
-.card_us{
+.card_us {
   text-align: center;
 }
-.navbar-brand{
+.navbar-brand {
   font-size: 1.9rem !important;
-  color: #565387  !important;
+  color: #565387 !important;
 }
-.color{
-  color: #565387
+.color {
+  color: #565387;
 }
-.colors{
-  color: #ededf1
+.colors {
+  color: #ededf1;
 }
-.back{
+.back {
   background-color: black;
 }
-.navbar a{
+.navbar a {
   font-size: 1.3rem;
   text-transform: capitalize;
 }
 
-.menu_active{
+.menu_active {
   font-weight: bold;
   border-bottom: 1px solid#565387;
 }
 
 .navbar a:hover {
-    color: #3498db  !important; 
+  color: #3498db !important;
 }
 
-.header-img{
+.header-img {
   text-align: right;
 }
-.animated{
+.animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 @media (max-width: 991px) {
   .navbar-brand {
-    font-size: 1.5rem  !important;
+    font-size: 1.5rem !important;
   }
-  .menu_active{
+  .menu_active {
     font-weight: bold;
     border-bottom: none;
   }
 }
-.bg{
-  background-image: linear-gradient(rgb(253, 253, 253),#918fc0);
+.bg {
+  background-image: linear-gradient(rgb(253, 253, 253), #918fc0);
   width: 1520px;
   margin-right: 0%;
   padding-right: 0px;
 }
-.image{
-  background-image: linear-gradient(rgb(253, 253, 253),#918fc0);
+.image {
+  background-image: linear-gradient(rgb(253, 253, 253), #918fc0);
 }
 @-webkit-keyframes up-down {
-  0%{
-      transform: translateY(10px);
+  0% {
+    transform: translateY(10px);
   }
-  100%{
-transform: translateY(-10px);
+  100% {
+    transform: translateY(-10px);
   }
 }
 @keyframes up-down {
-  0%{
-      transform: translateY(10px);
+  0% {
+    transform: translateY(10px);
   }
-  100%{
-transform: translateY(-10px);
+  100% {
+    transform: translateY(-10px);
   }
 }
 body {
@@ -118,115 +118,110 @@ body {
   transform: translateY((-5px));
   box-shadow: 0 5px 5px #00000040;
 }
-.card_border{
+.card_border {
   border-radius: 25px;
   border-width: 2px;
   border-color: #565387;
-
 }
-.card_border:hover{
+.card_border:hover {
   transform: translateY((-10px));
   box-shadow: 0 5px 5px #00000040;
 }
-.login_form{
+.login_form {
   border-radius: 25px;
   border-width: 2px;
   border-color: #565387;
   width: 250px;
 }
-.text_center{
+.text_center {
   text-align: center;
   margin-left: 125px;
-  margin-top:-100px;
-}
-.textjustify{
-  text-align: justify;
-  margin-right: 10px;;
-  margin-top:-100px
-}
-.about{
-  font: size 20px justify;
-  width: 500px;
-
-}
-.leftmargin{
-  margin-top:10px;
-  margin-left:100px;
-}
-.topmargin{
   margin-top: -100px;
 }
-.aboutimg{
+.textjustify {
+  text-align: justify;
+  margin-right: 10px;
+  margin-top: -100px;
+}
+.about {
+  font: size 20px justify;
+  width: 500px;
+}
+.leftmargin {
+  margin-top: 10px;
+  margin-left: 100px;
+}
+.topmargin {
+  margin-top: -100px;
+}
+.aboutimg {
   height: 400px;
 }
-.width{
-  width:1519px !important;
+.width {
+  width: 1519px !important;
 }
-.height{
+.height {
   height: 512px;
 }
-.size{
-  height:150px;
+.size {
+  height: 150px;
 }
-.pad{
+.pad {
   padding-right: 60px;
 }
-.center{
+.center {
   align-content: center;
 }
-.widths{
-  width: 20rem;  
+.widths {
+  width: 20rem;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 2em;
   height: 14em;
   border-color: #565387;
 }
-.card:hover{
+.card:hover {
   box-shadow: 0 5px 5px #565387;
 }
-.card{
+.card {
   border-radius: 20px;
 }
-.centers{
+.centers {
   text-align: center;
 }
-.margin_left{
-  margin-top: 1em;;
+.margin_left {
+  margin-top: 1em;
   margin-left: 20px;
-
 }
-.text_size{
+.text_size {
   font-size: 16px;
-
 }
-.gridwraper{
+.gridwraper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.margintop{
+.margintop {
   margin-top: -130px;
 }
-.margin-left{
+.margin-left {
   margin-top: 1em;
   margin-left: 70px;
 }
-.card_h{
-  width: 20rem;  
+.card_h {
+  width: 20rem;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 2em;
   height: 22em;
   border-color: #565387;
 }
-.color{
-  color:rgb(0, 57, 131);
+.color {
+  color: rgb(0, 57, 131);
 }
-.heights{
-  height: 585.9px;;
+.heights {
+  height: 585.9px;
 }
-.ma{
- margin-left: 500px;
+.ma {
+  margin-left: 500px;
   margin-top: 100px;
 }
-

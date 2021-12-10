@@ -1,23 +1,34 @@
-import React = require("react")
-import { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_company from "../Navbar/Navbar_Company";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
+import React = require('react');
+import { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_company from '../Navbar/Navbar_Company';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 class editcompany extends Component {
-  state: { title: string, location: string, company_description: string, id: string, website: string, facebook: string, twitter: string, linkedin: string, instagram: string, vedio_link: string }
+  state: {
+    title: string;
+    location: string;
+    company_description: string;
+    id: string;
+    website: string;
+    facebook: string;
+    twitter: string;
+    linkedin: string;
+    instagram: string;
+    vedio_link: string;
+  };
   constructor(props) {
-    var arr = JSON.parse(localStorage.getItem("company"));
+    const arr = JSON.parse(localStorage.getItem('company'));
     super(props);
     this.state = {
       title: arr.name,
       location: arr.location,
       company_description: arr.about,
-      id: "",
+      id: '',
       website: arr.website,
       facebook: arr.social_media.facebook,
       twitter: arr.social_media.twitter,
@@ -66,7 +77,7 @@ class editcompany extends Component {
     this.setState({ vedio_link: event.target.value });
   }
   edit_company() {
-    var arr = JSON.parse(localStorage.getItem("company"));
+    const arr = JSON.parse(localStorage.getItem('company'));
     console.log(this.state.title);
     console.log(this.state.location);
     console.log(this.state.company_description);
@@ -86,15 +97,17 @@ class editcompany extends Component {
       vedio_link: this.state.vedio_link,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/company/edit", body, { headers : {header} })
+      .post('https://camprec.herokuapp.com/api/company/edit', body, {
+        headers: { header },
+      })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -102,18 +115,18 @@ class editcompany extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("company data edited Successfuly");
-        localStorage.setItem("company", JSON.stringify(response.data));
-        window.location.replace("/companyhome");
+        window.alert('company data edited Successfuly');
+        localStorage.setItem('company', JSON.stringify(response.data));
+        window.location.replace('/companyhome');
       })
       .catch((error) => {
-        console.error("There was an error!");
-        window.alert("There was some error unable to editing company data");
+        console.error('There was an error!');
+        window.alert('There was some error unable to editing company data');
       });
   }
 
   render() {
-    var arr = JSON.parse(localStorage.getItem("company"));
+    const arr = JSON.parse(localStorage.getItem('company'));
     return (
       <>
         <Navbar_company />

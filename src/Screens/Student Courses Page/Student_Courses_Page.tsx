@@ -1,9 +1,9 @@
-import React from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_student from "./navbar_student";
-var arr = JSON.parse(localStorage.getItem("student"));
+import React from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_student from './navbar_student';
+const arr = JSON.parse(localStorage.getItem('student'));
 function Cards(props) {
   console.log(arr.premium);
   return (
@@ -26,14 +26,14 @@ function Cards(props) {
               <a href="/premium" className="btn btn-primary margin-left text_s">
                 View Course
               </a>
-            )}{" "}
+            )}{' '}
           </div>
         </div>
       </div>
     </>
   );
 }
-const Studentcourses = () => {
+function Studentcourses() {
   return (
     <>
       <Navbar_student />
@@ -68,6 +68,6 @@ const Studentcourses = () => {
       </section>
     </>
   );
-};
+}
 
 export default Studentcourses;

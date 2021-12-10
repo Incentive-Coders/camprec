@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_admin from "../navbar_admin";
-import axios from "axios";
-import Table from "react-bootstrap/Table";
-import ReactLoading from "react-loading";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_admin from '../navbar_admin';
+import axios from 'axios';
+import Table from 'react-bootstrap/Table';
+import ReactLoading from 'react-loading';
 var i;
 function Rows(props) {
   {
-    i = "/viewadminstd/i=" + props.id;
+    i = '/viewadminstd/i=' + props.id;
   }
   return (
     <>
@@ -41,7 +41,7 @@ const Rowlist = ({ Rowlists }) => {
     );
   });
 };
-var arr = JSON.parse(localStorage.getItem("college"));
+var arr = JSON.parse(localStorage.getItem('college'));
 class Adminstudent extends Component {
   constructor(props) {
     super(props);
@@ -52,9 +52,9 @@ class Adminstudent extends Component {
       college_id: arr._id,
     };
     this.header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
   }
 
@@ -63,7 +63,7 @@ class Adminstudent extends Component {
     // POST request using fetch with error handling
     axios
       .post(
-        "https://camprec.herokuapp.com/api/college/studentlist",
+        'https://camprec.herokuapp.com/api/college/studentlist',
         this.body,
         this.header
       )
@@ -77,7 +77,7 @@ class Adminstudent extends Component {
             return Promise.reject(error);
           }
           console.log(response.data.length);
-          localStorage.setItem("studentlist", JSON.stringify(response.data));
+          localStorage.setItem('studentlist', JSON.stringify(response.data));
           this.setState({
             k: true,
           });
@@ -85,7 +85,7 @@ class Adminstudent extends Component {
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (student) return student;
   }
@@ -110,7 +110,7 @@ class Adminstudent extends Component {
               </thead>
               <tbody>
                 <Rowlist
-                  Rowlists={JSON.parse(localStorage.getItem("studentlist"))}
+                  Rowlists={JSON.parse(localStorage.getItem('studentlist'))}
                 ></Rowlist>
               </tbody>
             </Table>

@@ -1,19 +1,19 @@
-import React = require("react");
-import {Component} from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import { NavLink } from "react-router-dom";
-import Navbar_company from "../Navbar/Navbar_company";
-import ReactLoading from "react-loading";
-import axios from "axios";
-import { FaRegTrashAlt, FaRegPlusSquare } from "react-icons/fa";
-var k, i, n;
+import React = require('react');
+import { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import { NavLink } from 'react-router-dom';
+import Navbar_company from '../Navbar/Navbar_company';
+import ReactLoading from 'react-loading';
+import axios from 'axios';
+import { FaRegTrashAlt, FaRegPlusSquare } from 'react-icons/fa';
+let k, i, n;
 
 function Cards(props) {
-  k = "/editjobs/i=" + props.id;
-  i = "/showapplicants/i=" + props.id;
-  n = "/deljobs/i=" + props.id;
+  k = '/editjobs/i=' + props.id;
+  i = '/showapplicants/i=' + props.id;
+  n = '/deljobs/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -41,7 +41,7 @@ function Cards(props) {
     </>
   );
 }
-const Cardlist = ({ Joblist }) => {
+function Cardlist({ Joblist }) {
   return (
     <div className="gridwraper">
       {Joblist.map((user, i) => {
@@ -66,16 +66,18 @@ const Cardlist = ({ Joblist }) => {
       </div>
     </div>
   );
-};
-var arr = JSON.parse(localStorage.getItem("company"));
+}
+const arr = JSON.parse(localStorage.getItem('company'));
 class Companyjobs extends Component {
-  body: { company_id: any; };
-  header: { 
-      "Content-Type" : string; "Accept-Encoding" : string; Connection : string 
-    }
+  body: { company_id: any };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
   state: {
-    k: boolean
-  }
+    k: boolean;
+  };
   constructor(props) {
     super(props);
     this.body = {
@@ -85,23 +87,23 @@ class Companyjobs extends Component {
       k: false,
     };
     this.header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
   }
 
   companyjoblist() {
-    var job = [];
+    const job = [];
     // POST request using fetch with error handling
     axios
-      .post(
-        "https://camprec.herokuapp.com/api/jobs/list",
-        this.body,
-        {headers : {"Content-Type": "application/json",
-        "Accept-Encoding": "gzip, deflate, br",
-        Connection: "keep-alive",}}
-      )
+      .post('https://camprec.herokuapp.com/api/jobs/list', this.body, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
+          Connection: 'keep-alive',
+        },
+      })
       .then(
         function (response) {
           // check for error response
@@ -111,13 +113,13 @@ class Companyjobs extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("jobs", JSON.stringify(response.data));
+          localStorage.setItem('jobs', JSON.stringify(response.data));
           this.setState({ k: true });
         }.bind(this)
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (job) return job;
   }
@@ -136,7 +138,7 @@ class Companyjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              <Cardlist Joblist={JSON.parse(localStorage.getItem("jobs"))} />
+              <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))} />
             </div>
           </section>
         ) : (
