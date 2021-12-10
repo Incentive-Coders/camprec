@@ -1,40 +1,41 @@
-import { React, Component } from "react";
+import React = require("react")
+import { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from "./Navbar_Student";
+import Navbar_student from "../Navbar/Navbar_Student";
 import { Form, Input } from "antd";
 import axios from "axios";
 import FormItem from "antd/lib/form/FormItem";
 
-class delcer extends Component {
+class delexp extends Component {
+  state : {names : string, student_id : string, companys : string}
   constructor(props) {
     super(props);
 
     this.state = {
-      courses: "",
-      institute: "",
+      names: "",
       student_id: "",
+      companys: "",
     };
 
     this.updateInput = this.updateInput.bind(this);
-    this.updateinstitute = this.updateinstitute.bind(this);
-    this.del_cer = this.del_cer.bind(this);
+    this.del_experience = this.del_experience.bind(this);
+    this.updatecompanys = this.updatecompanys.bind(this);
   }
   updateInput(event) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event) {
-    this.setState({ institute: event.target.value });
+  updatecompanys(event) {
+    this.setState({ companys: event.target.value });
   }
-
-  del_cer() {
+  del_experience() {
     var arr = JSON.parse(localStorage.getItem("student"));
     // POST request using fetch with error handling
     const body = {
-      courses: this.state.names,
-      institutes: this.state.institute,
+      names: this.state.names,
+      companys: this.state.companys,
       student_id: arr._id,
     };
     const header = {
@@ -44,8 +45,8 @@ class delcer extends Component {
       Connection: "keep-alive",
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/delcer", body, {
-        header,
+      .post("https://camprec.herokuapp.com/api/student/delexp", body, {
+        headers : {header},
       })
       .then(function (response) {
         console.log("*");
@@ -56,7 +57,7 @@ class delcer extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("experience deled Successfuly");
+        window.alert("experience deleted Successfuly");
         window.location.replace("/studenthome");
       })
       .catch((error) => {
@@ -71,7 +72,7 @@ class delcer extends Component {
         <Navbar_student />
         <section className="image width height">
           <h3 className="card-title card_us">
-            <strong>Delete certification</strong>
+            <strong>Delete experience</strong>
           </h3>
           <Form className="addjb margin-top">
             <FormItem>
@@ -79,7 +80,7 @@ class delcer extends Component {
                 <Input
                   type="TEXT"
                   className="form-control"
-                  placeholder="Course"
+                  placeholder="title"
                   onChange={this.updateInput}
                   required
                 />
@@ -90,8 +91,8 @@ class delcer extends Component {
                 <Input
                   type="TEXT"
                   className="form-control"
-                  placeholder="Institute"
-                  onChange={this.updateinstitute}
+                  placeholder="Company"
+                  onChange={this.updatecompanys}
                   required
                 />
               </div>
@@ -99,7 +100,7 @@ class delcer extends Component {
             <input
               type="submit"
               className="btn margin-top margin-b"
-              onClick={this.del_cer}
+              onClick={this.del_experience}
               id="button"
               value="delete"
             />
@@ -110,4 +111,4 @@ class delcer extends Component {
   }
 }
 
-export default delcer;
+export default delexp;

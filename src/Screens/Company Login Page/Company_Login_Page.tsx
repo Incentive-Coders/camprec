@@ -1,21 +1,22 @@
-import { React, Component } from "react";
+import React = require("react")
+import { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
 import "../css/home.css";
-import web5 from "../images/company_login.png";
+const web5 = require("../../images/company_login.png");
 import "../css/login.css";
 import FormItem from "antd/lib/form/FormItem";
 import { Form, Input } from "antd";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 
 class Companylogin extends Component {
+  state : { email: string, password: string }
   constructor(props) {
     super(props);
-
     this.state = {
-      email: "",
-      password: "",
+      email: " ",
+      password: " ",
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -47,7 +48,14 @@ class Companylogin extends Component {
       Connection: "keep-alive",
     };
     axios
-      .post("https://camprec.herokuapp.com/api/company/login", body, { header })
+      .post("https://camprec.herokuapp.com/api/company/login", body, {
+        headers: {
+          Accept: "*/*",
+          "Content-Type": "application/json",
+          "Accept-Encoding": "gzip, deflate, br",
+          Connection: "keep-alive"
+        }
+      })
       .then(function (response) {
         const data = response.data;
         // check for error response

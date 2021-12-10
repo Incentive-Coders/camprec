@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../index.css";
 import "../css/navbar.css";
-import web from "../images/Capture-removebg-preview.png";
+const web = require("../images/Capture-removebg-preview.png");
 import "bootstrap/dist/css/bootstrap.min.css";
 const Navbar_Admin = () => {
   return (
@@ -10,7 +10,7 @@ const Navbar_Admin = () => {
       <div className="container-fluid nav_bg">
         <div className="row navbar">
           <div className="col-10 mx-auto navbar">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
               <div className="container-fluid navbar">
                 <NavLink className="navbar-brand" to="/">
                   <img

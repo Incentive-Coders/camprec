@@ -1,13 +1,15 @@
-import { React, Component } from "react";
+import React = require("react")
+import { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_Admin from "./Navbar_Admin";
+import Navbar_Admin from "../Navbar/Navbar_Admin";
 import { Form, Input } from "antd";
 import axios from "axios";
 import FormItem from "antd/lib/form/FormItem";
 class editcollege extends Component {
+  state: { title: string, location: string, college_description: string, id: string, website: string, facebook: string, twitter: string, linkedin: string, instagram: string, vedio_link: string }
   constructor(props) {
     var arr = JSON.parse(localStorage.getItem("college"));
     super(props);
@@ -90,7 +92,7 @@ class editcollege extends Component {
       Connection: "keep-alive",
     };
     axios
-      .post("https://camprec.herokuapp.com/api/college/edit", body, { header })
+      .post("https://camprec.herokuapp.com/api/college/edit", body, { headers: { header } })
       .then(function (response) {
         console.log("*");
         const data = response.data;

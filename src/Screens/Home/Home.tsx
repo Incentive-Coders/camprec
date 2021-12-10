@@ -1,12 +1,12 @@
 import React from "react";
-import web from "../images/4180157-removebg-preview.png";
-import web1 from "../images/student-removebg.png";
-import web2 from "../images/company.jpg";
-import web3 from "../images/admin.jpg";
-import web4 from "../images/Capture-removebg-preview.png";
+const web = require("../images/4180157-removebg-preview.png");
+const web1 = require( "../images/student-removebg.png");
+const web2 = require( "../images/company.jpg");
+const web3 = require("../images/admin.jpg");
+const web4 = require("../images/Capture-removebg-preview.png");
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/Navbar";
 import "../index.css";
 import "../css/home.css";
 import "./App";
@@ -106,17 +106,17 @@ const Home = () => {
                 </div>
               </div>
               <div className="col-md-4 col-10 mx-auto">
-                <div class="card card_border">
-                  <div class="card-body card_us">
+                <div className="card card_border">
+                  <div className="card-body card_us">
                     <img
                       src={web3}
                       className="company card_us"
                       alt="home img"
                     />
-                    <h5 class="card-title card_us">
+                    <h5 className="card-title card_us">
                       <strong>For College Admin</strong>
                     </h5>
-                    <p class="card-text">
+                    <p className="card-text">
                       We are here to manage and interlink between companies and
                       students as a invisible string.Keep Calm and Focused.
                     </p>

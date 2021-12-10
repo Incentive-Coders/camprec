@@ -1,9 +1,10 @@
-import { React, Component } from "react";
+import React = require("react")
+import { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_company from "./Navbar_Company";
+import Navbar_company from "../Navbar/Navbar_Company";
 import { Form, Input } from "antd";
 import axios from "axios";
 import FormItem from "antd/lib/form/FormItem";
@@ -11,9 +12,9 @@ var l = window.location.href;
 var a = l.split("=");
 console.log(a[1]);
 class editjobs extends Component {
+  state : {job_title : string, location : string, job_description : string, job_id : string}
   constructor(props) {
     super(props);
-
     this.state = {
       job_title: "",
       location: "",
@@ -58,7 +59,7 @@ class editjobs extends Component {
       Connection: "keep-alive",
     };
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/edit", body, { header })
+      .post("https://camprec.herokuapp.com/api/jobs/edit", body, { headers : {header} })
       .then(function (response) {
         console.log("*");
         const data = response.data;

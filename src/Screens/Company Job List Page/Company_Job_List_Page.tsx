@@ -1,9 +1,10 @@
-import { React, Component } from "react";
+import React = require("react");
+import {Component} from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
 import { NavLink } from "react-router-dom";
-import Navbar_company from "./navbar_company";
+import Navbar_company from "../Navbar/Navbar_company";
 import ReactLoading from "react-loading";
 import axios from "axios";
 import { FaRegTrashAlt, FaRegPlusSquare } from "react-icons/fa";
@@ -68,6 +69,13 @@ const Cardlist = ({ Joblist }) => {
 };
 var arr = JSON.parse(localStorage.getItem("company"));
 class Companyjobs extends Component {
+  body: { company_id: any; };
+  header: { 
+      "Content-Type" : string; "Accept-Encoding" : string; Connection : string 
+    }
+  state: {
+    k: boolean
+  }
   constructor(props) {
     super(props);
     this.body = {
@@ -90,7 +98,9 @@ class Companyjobs extends Component {
       .post(
         "https://camprec.herokuapp.com/api/jobs/list",
         this.body,
-        this.header
+        {headers : {"Content-Type": "application/json",
+        "Accept-Encoding": "gzip, deflate, br",
+        Connection: "keep-alive",}}
       )
       .then(
         function (response) {
