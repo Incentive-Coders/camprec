@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
-import Navbar_admin from "../navbar_admin";
+import Navbar_admin from "../Navbar/Navbar_Admin";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import ReactLoading from "react-loading";
-var i;
-function Rows(props) {
+var i: string;
+
+interface rowsProps {
+  id: string;
+  sno: number;
+  name: string;
+  email: string;
+}
+function Rows(props: rowsProps) {
   {
     i = "/viewadminstd/i=" + props.id;
   }
@@ -26,8 +33,9 @@ function Rows(props) {
     </>
   );
 }
+
 const Rowlist = ({ Rowlists }) => {
-  return Rowlists?.map((user, i) => {
+  return Rowlists?.map((user, i: number) => {
     return (
       <>
         <Rows
@@ -43,30 +51,31 @@ const Rowlist = ({ Rowlists }) => {
 };
 var arr = JSON.parse(localStorage.getItem("college"));
 class Adminstudent extends Component {
+  state: {
+    k: boolean;
+  };
   constructor(props) {
     super(props);
     this.state = {
       k: false,
     };
-    this.body = {
+  }
+
+  studentlist() {
+    const body = {
       college_id: arr._id,
     };
-    this.header = {
+    const header = {
       "Content-Type": "application/json",
       "Accept-Encoding": "gzip, deflate, br",
       Connection: "keep-alive",
     };
-  }
-
-  studentlist() {
     var student = [];
     // POST request using fetch with error handling
     axios
-      .post(
-        "https://camprec.herokuapp.com/api/college/studentlist",
-        this.body,
-        this.header
-      )
+      .post("https://camprec.herokuapp.com/api/college/studentlist", body, {
+        headers: { header },
+      })
       .then(
         function (response) {
           // check for error response
