@@ -1,24 +1,28 @@
-import { React, Component } from "react";
+import React, { Component } from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
-import Navbar_company from "./navbar_company";
-import ReactLoading from "react-loading";
+import Navbar_admin from "../Navbar/Navbar_Admin";
 import axios from "axios";
-function Cards(props) {
-  var i = "/viewcompanycollege/i=" + props.id;
+import ReactLoading from "react-loading";
+
+interface cardProps {
+  key: number;
+  title: string;
+  content: string;
+  location: string;
+  id: string;
+}
+function Cards(props: cardProps) {
+  var i = "/viewadmincompany/i=" + props.id;
   return (
     <>
-      <div className="card widths">
+      <div className="card widths ">
         <div className="card-body">
           <strong>
-            <h4 className="card-title centers">{props.title}</h4>
+            <h4 className="card-title  centers hfixed2">{props.title}</h4>
           </strong>
-          <strong>
-            <h6 className="card-title fonts hfixed2 centers">
-              {props.location}
-            </h6>
-          </strong>
+          <p className="card-text  centers hfixed2">{props.location}</p>
           <p className="card-text hfixed">{props.content}</p>
           <div className="pop">
             <a href={i} className="btn btn-primary  text_size left_m2 m_t">
@@ -30,18 +34,18 @@ function Cards(props) {
     </>
   );
 }
-const Cardlist = ({ collegelist }) => {
+const Cardlist = ({ Companylist }) => {
   return (
     <div className="gridwraper">
-      {collegelist.map((user, i) => {
+      {Companylist.map((user, i: number) => {
         return (
           <>
             <Cards
               key={i}
-              title={collegelist[i].name}
-              content={collegelist[i].about}
-              location={collegelist[i].location}
-              id={collegelist[i]._id}
+              title={Companylist[i].name}
+              content={Companylist[i].about}
+              location={Companylist[i].location}
+              id={Companylist[i]._id}
             />
           </>
         );
@@ -49,9 +53,13 @@ const Cardlist = ({ collegelist }) => {
     </div>
   );
 };
-
-var arr = JSON.parse(localStorage.getItem("college"));
-class companycollege extends Component {
+var arr = JSON.parse(localStorage.getItem("company"));
+class AdminCompany extends Component {
+  state: {
+    j: number;
+    k: boolean;
+    p: number;
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -63,32 +71,14 @@ class companycollege extends Component {
     this.back = this.back.bind(this);
   }
 
-  back() {
-    if (this.state.j === 1) {
-      return null;
-    } else {
-      this.setState({ j: this.state.j - 1 });
-    }
-  }
-  next() {
-    this.setState({ j: this.state.j + 1 });
-  }
-  componentDidMount() {
-    if (this.state.j === 1) {
-      this.collegelist();
-    }
-  }
-  componentDidUpdate() {
-    if (this.state.j != this.state.p) {
-      this.collegelist();
-    }
-  }
-  collegelist() {
-    var college = [];
+  companylist() {
+    var company = [];
+    // POST request using fetch with error handling
     console.log(this.state.j);
     var k =
-      "https://camprec.herokuapp.com/api/college/list/" +
+      "https://camprec.herokuapp.com/api/company/list/" +
       this.state.j.toString();
+    console.log(k);
     // POST request using fetch with error handling
     axios
       .get(k)
@@ -102,9 +92,7 @@ class companycollege extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          console.log(response.data.length);
-          console.log(response.data);
-          localStorage.setItem("college", JSON.stringify(response.data));
+          localStorage.setItem("company", JSON.stringify(response.data));
           this.setState({ k: true });
           this.setState({ p: this.state.j });
         }.bind(this)
@@ -113,23 +101,42 @@ class companycollege extends Component {
         console.log(error);
         window.alert("something went wrong");
       });
-    if (college) return college;
+    if (company) return company;
   }
-
+  back() {
+    if (this.state.j === 1) {
+      return null;
+    } else {
+      this.setState({ j: this.state.j - 1, k: false });
+    }
+  }
+  next() {
+    this.setState({ j: this.state.j + 1, k: false });
+  }
+  componentDidMount() {
+    if (this.state.j === 1) {
+      this.companylist();
+    }
+  }
+  componentDidUpdate() {
+    if (this.state.j != this.state.p) {
+      this.companylist();
+    }
+  }
   render() {
     return (
       <>
-        <Navbar_company />
+        <Navbar_admin></Navbar_admin>
         {this.state.k ? (
           <section className="image width ">
             <div className="get_started">
               <h2 className="text_center margintop">
-                <strong className="brand-name leftmargin">Colleges</strong>
+                <strong className="brand-name leftmargin">Companies</strong>
               </h2>
             </div>
             <div className="gridwraper">
               <Cardlist
-                collegelist={JSON.parse(localStorage.getItem("college"))}
+                Companylist={JSON.parse(localStorage.getItem("company"))}
               />
             </div>
             <div className="m-l3">
@@ -159,4 +166,4 @@ class companycollege extends Component {
   }
 }
 
-export default companycollege;
+export default AdminCompany;

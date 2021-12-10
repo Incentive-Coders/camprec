@@ -2,7 +2,7 @@ import React from "react";
 import "../index.css";
 import "../css/home.css";
 import "../css/login.css";
-import Navbar_company from "./navbar_company";
+import Navbar_Admin from "../Navbar/Navbar_Admin";
 import ReactPlayer from "react-player";
 import {
   FaFacebookF,
@@ -10,13 +10,28 @@ import {
   FaInstagram,
   FaLinkedin,
 } from "react-icons/fa";
-function Cards(props) {
+
+interface cardsProps {
+  image: string;
+  name: string;
+  location: string;
+  email: string;
+  description: string;
+  website: string;
+  facebook: string;
+  twitter: string;
+  LinkedIn: string;
+  Insta: string;
+  url: string;
+  year: Date;
+}
+function Cards(props: cardsProps) {
   return (
     <>
-      <div className="magin-top">
+      <div className="card2 magin-top">
         <div className="card-body profile_width pop">
           <div>
-            <img src={props.image} className="profile_img"></img>
+            <img src={props.image} className="profile_img2 marginl"></img>
           </div>
           <div className="cb">
             <div className="cb2">
@@ -61,7 +76,7 @@ function Cards(props) {
               <ReactPlayer url={props.url} />
               <div className="pop">
                 <a
-                  href="/editcompany"
+                  href="/editcollege"
                   className="btn btn-primary text_size left_m"
                 >
                   Edit
@@ -74,25 +89,25 @@ function Cards(props) {
     </>
   );
 }
-const Companyhome = () => {
+const Adminhome = () => {
   window.history.pushState(null, document.title, window.location.href);
   window.addEventListener("popstate", function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  var arr = JSON.parse(localStorage.getItem("company"));
+  var arr = JSON.parse(localStorage.getItem("college"));
   return (
     <>
-      <Navbar_company />
+      <Navbar_Admin />
       <section className="pop image width">
         <div>
           <Cards
             name={arr.name}
-            image="https://i.pinimg.com/474x/53/a3/fa/53a3fa9b77f7dc8c321f05b1661cc305.jpg"
-            url={arr.vedio_link}
             location={arr.location}
-            year={arr.year_of_established}
             email={arr.email}
+            year={arr.year_of_established}
+            url={arr.vedio_link}
             description={arr.about}
+            image="https://upload.wikimedia.org/wikipedia/en/c/c1/Indian_Institute_of_Information_Technology%2C_Dharwad.png"
             website={arr.website}
             facebook={arr.social_media.facebook}
             twitter={arr.social_media.twitter}
@@ -105,4 +120,4 @@ const Companyhome = () => {
   );
 };
 
-export default Companyhome;
+export default Adminhome;
