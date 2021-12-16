@@ -1,30 +1,47 @@
-import { React, Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import FormItem from 'antd/lib/form/FormItem';
-import { Form, Input } from 'antd';
-import Navbar from '../Navbar';
-import axios from 'axios';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import FormItem from "antd/lib/form/FormItem";
+import { Form, Input } from "antd";
+import Navbar from "../Navbar/Navbar";
+import axios from "axios";
 
 class adminSignup extends Component {
+  state: {
+    email: string;
+    password: string;
+    name: string;
+    about: string;
+    year_of_established: string;
+    location: string;
+    website: string;
+    twitter: string;
+    facebook: string;
+    linkedin: string;
+    instagram: string;
+    video_link: string;
+    contactno: number;
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      names: '',
-      about: '',
-      year_of_established: '',
-      location: '',
-      website: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      instagram: '',
-      vedio_link: '',
+      email: "",
+      password: "",
+      name: "",
+      about: "",
+      year_of_established: "",
+      location: "",
+      website: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      instagram: "",
+      video_link: "",
+      contactno: 0,
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -92,7 +109,7 @@ class adminSignup extends Component {
   }
 
   updateVediolink(event) {
-    this.setState({ vedio_link: event.target.value });
+    this.setState({ video_link: event.target.value });
   }
 
   login_link() {
@@ -114,18 +131,18 @@ class adminSignup extends Component {
         facebook: this.state.facebook,
         twitter: this.state.twitter,
       },
-      vedio_link: this.state.vedio_link,
+      video_link: this.state.video_link,
       approve: false,
     };
     const header = {
-      Accept: '*/*',
-      'Content-Type': 'application/json',
-      'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
     };
     axios
-      .post('https://camprec.herokuapp.com/api/college/signup', body, {
-        header,
+      .post("https://camprec.herokuapp.com/api/college/signup", body, {
+        headers: { header },
       })
       .then(function (response) {
         const data = response.data;
@@ -135,13 +152,13 @@ class adminSignup extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem('college', JSON.stringify(response.data));
-        window.location.replace('/home');
+        localStorage.setItem("college", JSON.stringify(response.data));
+        window.location.replace("/home");
       })
       .catch((error) => {
-        console.error('There was an error!');
+        console.error("There was an error!");
         if (this.state.email && this.state.password) {
-          window.alert('Error');
+          window.alert("Error");
         }
       });
   }

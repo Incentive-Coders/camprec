@@ -1,15 +1,23 @@
-import { React, Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_viewcompany from '../navbar_viewcompany2';
-import axios from 'axios';
-import ReactLoading from 'react-loading';
-let prem = JSON.parse(localStorage.getItem('college'));
-var k;
-function Cards(props) {
+import React, { Component } from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar_viewcompany from "../Navbar/Navbar_View_Company_2";
+import axios from "axios";
+import ReactLoading from "react-loading";
+let prem = JSON.parse(localStorage.getItem("college"));
+var k: string;
+
+interface cardsProps {
+  key: number;
+  job_id: string;
+  title: string;
+  content: string;
+  location: string;
+}
+function Cards(props: cardsProps) {
   {
-    k = '/adminapply/i=' + props.job_id;
+    k = "/adminapply/i=" + props.job_id;
   }
   return (
     <>
@@ -38,10 +46,10 @@ function Cards(props) {
     </>
   );
 }
-function Cardlist({ Joblist }) {
+const Cardlist = ({ Joblist }) => {
   return (
     <div className="gridwraper">
-      {Joblist?.map((user, i) => {
+      {Joblist?.map((user, i: number) => {
         return (
           <>
             <Cards
@@ -56,33 +64,37 @@ function Cardlist({ Joblist }) {
       })}
     </div>
   );
-}
-var arr = localStorage.getItem('company_id');
+};
+var arr = localStorage.getItem("company_id");
+
 class adminjobs extends Component {
+  state: {
+    k: boolean;
+  };
   constructor(props) {
     super(props);
-    this.body = {
-      company_id: arr,
-    };
     this.state = {
       k: false,
-    };
-    this.header = {
-      'Content-Type': 'application/json',
-      'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
     };
   }
 
   companyjoblist() {
+    const body = {
+      company_id: arr,
+    };
+
+    const header = {
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
+    };
+
     var job = [];
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/jobs/list',
-        this.body,
-        this.header
-      )
+      .post("https://camprec.herokuapp.com/api/jobs/list", body, {
+        headers: { header },
+      })
       .then(
         function (response) {
           // check for error response
@@ -92,7 +104,7 @@ class adminjobs extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem('jobs', JSON.stringify(response.data));
+          localStorage.setItem("jobs", JSON.stringify(response.data));
           this.setState({
             k: true,
           });
@@ -100,7 +112,7 @@ class adminjobs extends Component {
       )
       .catch((error) => {
         console.log(error);
-        window.alert('something went wrong');
+        window.alert("something went wrong");
       });
     if (job) return job;
   }
@@ -119,8 +131,8 @@ class adminjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              {JSON.parse(localStorage.getItem('jobs')).length ? (
-                <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))} />
+              {JSON.parse(localStorage.getItem("jobs")).length ? (
+                <Cardlist Joblist={JSON.parse(localStorage.getItem("jobs"))} />
               ) : (
                 <div className="card-body">
                   <strong>

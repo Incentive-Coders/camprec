@@ -1,12 +1,20 @@
-import { React, Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_admin from '../navbar_admin';
-import axios from 'axios';
-import ReactLoading from 'react-loading';
-function Cards(props) {
-  var i = '/viewadmincompany/i=' + props.id;
+import React, { Component } from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar_admin from "../Navbar/Navbar_Admin";
+import axios from "axios";
+import ReactLoading from "react-loading";
+
+interface cardProps {
+  key: number;
+  title: string;
+  content: string;
+  location: string;
+  id: string;
+}
+function Cards(props: cardProps) {
+  var i = "/viewadmincompany/i=" + props.id;
   return (
     <>
       <div className="card widths ">
@@ -26,10 +34,10 @@ function Cards(props) {
     </>
   );
 }
-function Cardlist({ Companylist }) {
+const Cardlist = ({ Companylist }) => {
   return (
     <div className="gridwraper">
-      {Companylist.map((user, i) => {
+      {Companylist.map((user, i: number) => {
         return (
           <>
             <Cards
@@ -44,9 +52,14 @@ function Cardlist({ Companylist }) {
       })}
     </div>
   );
-}
-var arr = JSON.parse(localStorage.getItem('company'));
+};
+var arr = JSON.parse(localStorage.getItem("company"));
 class AdminCompany extends Component {
+  state: {
+    j: number;
+    k: boolean;
+    p: number;
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +76,7 @@ class AdminCompany extends Component {
     // POST request using fetch with error handling
     console.log(this.state.j);
     var k =
-      'https://camprec.herokuapp.com/api/company/list/' +
+      "https://camprec.herokuapp.com/api/company/list/" +
       this.state.j.toString();
     console.log(k);
     // POST request using fetch with error handling
@@ -79,14 +92,14 @@ class AdminCompany extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem('company', JSON.stringify(response.data));
+          localStorage.setItem("company", JSON.stringify(response.data));
           this.setState({ k: true });
           this.setState({ p: this.state.j });
         }.bind(this)
       )
       .catch((error) => {
         console.log(error);
-        window.alert('something went wrong');
+        window.alert("something went wrong");
       });
     if (company) return company;
   }
@@ -123,7 +136,7 @@ class AdminCompany extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                Companylist={JSON.parse(localStorage.getItem('company'))}
+                Companylist={JSON.parse(localStorage.getItem("company"))}
               />
             </div>
             <div className="m-l3">

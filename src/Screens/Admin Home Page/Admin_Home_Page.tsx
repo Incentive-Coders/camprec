@@ -1,16 +1,31 @@
-import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_Admin from '../navbar_admin';
-import ReactPlayer from 'react-player';
+import React from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar_Admin from "../Navbar/Navbar_Admin";
+import ReactPlayer from "react-player";
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-} from 'react-icons/fa';
-function Cards(props) {
+} from "react-icons/fa";
+
+interface cardsProps {
+  image: string;
+  name: string;
+  location: string;
+  email: string;
+  description: string;
+  website: string;
+  facebook: string;
+  twitter: string;
+  LinkedIn: string;
+  Insta: string;
+  url: string;
+  year: Date;
+}
+function Cards(props: cardsProps) {
   return (
     <>
       <div className="card2 magin-top">
@@ -38,23 +53,23 @@ function Cards(props) {
                 <strong>Description :</strong> {props.description}
               </p>
               <p className="card-text  fsize">
-                <strong>Webite :</strong>{' '}
+                <strong>Webite :</strong>{" "}
                 <a href={props.website}>{props.website}</a>
               </p>
               <p className="card-text  fsize">
-                {' '}
+                {" "}
                 <a href={props.facebook}>
                   <FaFacebookF></FaFacebookF>
-                </a>{' '}
+                </a>{" "}
                 <a href={props.twitter}>
                   <FaTwitter></FaTwitter>
-                </a>{' '}
+                </a>{" "}
                 <a href={props.LinkedIn}>
-                  {' '}
+                  {" "}
                   <FaLinkedin></FaLinkedin>
-                </a>{' '}
+                </a>{" "}
                 <a href={props.Insta}>
-                  {' '}
+                  {" "}
                   <FaInstagram></FaInstagram>
                 </a>
               </p>
@@ -74,12 +89,12 @@ function Cards(props) {
     </>
   );
 }
-function Adminhome() {
+const Adminhome = () => {
   window.history.pushState(null, document.title, window.location.href);
-  window.addEventListener('popstate', function (event) {
+  window.addEventListener("popstate", function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  var arr = JSON.parse(localStorage.getItem('college'));
+  var arr = JSON.parse(localStorage.getItem("college"));
   return (
     <>
       <Navbar_Admin />
@@ -103,6 +118,6 @@ function Adminhome() {
       </section>
     </>
   );
-}
+};
 
 export default Adminhome;

@@ -1,23 +1,33 @@
-import { React, Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_student from '../navbar_student';
-import { Form, Input } from 'antd';
-import axios from 'axios';
-import FormItem from 'antd/lib/form/FormItem';
+import React, { Component } from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar_student from "../Navbar/Navbar_Student";
+import { Form, Input } from "antd";
+import axios from "axios";
+import FormItem from "antd/lib/form/FormItem";
 
 class addcer extends Component {
+  state: {
+    courses: string;
+    valid_till: string;
+    student_id: string;
+    link: string;
+    institutes: string;
+    description: string;
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      courses: '',
-      valid_till: '',
-      student_id: '',
-      link: '',
-      institutes: '',
+      courses: "",
+      valid_till: "",
+      student_id: "",
+      link: "",
+      institutes: "",
+      description: "",
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -40,7 +50,7 @@ class addcer extends Component {
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem('student'));
+    var arr = JSON.parse(localStorage.getItem("student"));
     console.log(this);
     console.log(this.state.courses);
     console.log(this.state.valid_till);
@@ -54,15 +64,17 @@ class addcer extends Component {
       student_id: arr._id,
     };
     const header = {
-      Accept: '*/*',
-      'Content-Type': 'application/json',
-      'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
     };
     axios
-      .post('http://localhost:4000/signup', body, { header })
+      .post("http://localhost:4000/signup", body, {
+        headers: { header },
+      })
       .then(function (response) {
-        console.log('Sigup Succesful');
+        console.log("Sigup Succesful");
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -72,8 +84,8 @@ class addcer extends Component {
         }
       })
       .catch((error) => {
-        console.error('There was an error!');
-        window.alert('There was some error unable to create experience');
+        console.error("There was an error!");
+        window.alert("There was some error unable to create experience");
       });
   }
 

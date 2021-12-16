@@ -1,22 +1,28 @@
-import { React, Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_company from '../navbar_company';
-import { Form, Input } from 'antd';
-import axios from 'axios';
-import FormItem from 'antd/lib/form/FormItem';
-var arr = JSON.parse(localStorage.getItem('company'));
+import React, { Component } from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar_company from "../Navbar/Navbar_Student";
+import { Form, Input } from "antd";
+import axios from "axios";
+import FormItem from "antd/lib/form/FormItem";
+var arr = JSON.parse(localStorage.getItem("company"));
 class addjobs extends Component {
+  state: {
+    job_title: string;
+    location: string;
+    job_description: string;
+    company_id: string;
+  };
   constructor(props) {
     super(props);
 
     this.state = {
-      job_title: '',
-      location: '',
-      job_description: '',
-      company_id: '',
+      job_title: "",
+      location: "",
+      job_description: "",
+      company_id: "",
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -36,9 +42,12 @@ class addjobs extends Component {
   updatejob_description(event) {
     this.setState({ job_description: event.target.value });
   }
+  updatecompany_id(event) {
+    this.setState({ company_id: event.target.value });
+  }
 
   add_job() {
-    var arr = JSON.parse(localStorage.getItem('company'));
+    var arr = JSON.parse(localStorage.getItem("company"));
     console.log(this);
     console.log(this.state.job_title);
     console.log(this.state.location);
@@ -51,15 +60,17 @@ class addjobs extends Component {
       company_id: arr._id,
     };
     const header = {
-      Accept: '*/*',
-      'Content-Type': 'application/json',
-      'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
     };
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/create', body, { header })
+      .post("https://camprec.herokuapp.com/api/jobs/create", body, {
+        headers: { header },
+      })
       .then(function (response) {
-        console.log('*');
+        console.log("*");
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -67,13 +78,13 @@ class addjobs extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert('Job created Successfuly');
-        window.location.replace('/companyjobs');
+        window.alert("Job created Successfuly");
+        window.location.replace("/companyjobs");
       })
       .catch((error) => {
-        console.error('There was an error!');
+        console.error("There was an error!");
         if (this.state.job_title && this.state.job_description) {
-          window.alert('There was some error unable to create Job');
+          window.alert("There was some error unable to create Job");
         }
       });
   }

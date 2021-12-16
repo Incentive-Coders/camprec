@@ -1,12 +1,19 @@
-import { React, Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_company from './navbar_company';
-import ReactLoading from 'react-loading';
-import axios from 'axios';
-function Cards(props) {
-  var i = '/viewcompanycollege/i=' + props.id;
+import React, { Component } from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar_company from "../Navbar/Navbar_Company";
+import ReactLoading from "react-loading";
+import axios from "axios";
+
+interface cardsProps {
+  title: string;
+  location: string;
+  content: string;
+  id: string;
+}
+function Cards(props: cardsProps) {
+  var i = "/viewcompanycollege/i=" + props.id;
   return (
     <>
       <div className="card widths">
@@ -33,7 +40,7 @@ function Cards(props) {
 function Cardlist({ collegelist }) {
   return (
     <div className="gridwraper">
-      {collegelist.map((user, i) => {
+      {collegelist.map((user, i: number) => {
         return (
           <>
             <Cards
@@ -52,6 +59,11 @@ function Cardlist({ collegelist }) {
 
 var arr = JSON.parse(localStorage.getItem('college'));
 class companycollege extends Component {
+  state: {
+    j: number;
+    k: boolean;
+    p: number;
+  };
   constructor(props) {
     super(props);
     this.state = {

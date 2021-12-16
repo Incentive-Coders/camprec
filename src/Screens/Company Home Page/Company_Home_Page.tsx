@@ -1,16 +1,31 @@
-import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_company from './navbar_company';
-import ReactPlayer from 'react-player';
+import React from "react";
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar_company from "../Navbar/Navbar_Company";
+import ReactPlayer from "react-player";
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-} from 'react-icons/fa';
-function Cards(props) {
+} from "react-icons/fa";
+
+interface cardsProps {
+  name: string;
+  image: string;
+  url: string;
+  location: string;
+  year: Date;
+  email: string;
+  description: string;
+  website: string;
+  facebook: string;
+  twitter: string;
+  LinkedIn: string;
+  Insta: string;
+}
+function Cards(props: cardsProps) {
   return (
     <>
       <div className="magin-top">

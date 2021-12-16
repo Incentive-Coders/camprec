@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import web from '../images/about.png';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar from '../Navbar';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+const web = require("../../images/about.png");
+import "../index.css";
+import "../css/home.css";
+import "../css/login.css";
+import Navbar from "../Navbar/Navbar";
 
-const googleAdId = 'ca-pub-3329798013899959';
+const googleAdId = "ca-pub-3329798013899959";
 
-class GoogleAd extends Component {
+type GoogleAdInterface = {
+  classNames: string;
+  slot: string;
+  timeout: number;
+};
+
+class GoogleAd extends Component<GoogleAdInterface> {
+  public static defaultProps = {
+    classNames: "",
+    timeout: 200,
+  };
+
   googleInit = null;
 
   componentDidMount() {
     const { timeout } = this.props;
     this.googleInit = setTimeout(() => {
-      if (typeof window !== 'undefined')
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      if (typeof window !== "undefined")
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+          {}
+        );
     }, timeout);
   }
 
@@ -72,7 +84,7 @@ class GoogleAd extends Component {
           <div className={classNames}>
             <ins
               className="adsbygoogle"
-              style={{ display: 'block' }}
+              style={{ display: "block" }}
               data-ad-client={googleAdId}
               data-ad-slot={slot}
               data-ad-format="auto"
@@ -84,15 +96,5 @@ class GoogleAd extends Component {
     );
   }
 }
-GoogleAd.propTypes = {
-  classNames: PropTypes.string,
-  slot: PropTypes.string,
-  timeout: PropTypes.number,
-};
-
-GoogleAd.defaultProps = {
-  classNames: '',
-  timeout: 200,
-};
 
 export default GoogleAd;

@@ -1,21 +1,26 @@
-import { React, Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import '../css/home.css';
-import web5 from '../images/admin_login.png';
-import '../css/login.css';
-import FormItem from 'antd/lib/form/FormItem';
-import { Form, Input } from 'antd';
-import Navbar from '../Navbar';
-import axios from 'axios';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../index.css";
+import "../css/home.css";
+import web5 from "../images/admin_login.png";
+import "../css/login.css";
+import FormItem from "antd/lib/form/FormItem";
+import { Form, Input } from "antd";
+import Navbar from "../Navbar/Navbar";
+import axios from "axios";
 
 class Adminlogin extends Component {
+  state: {
+    email: string;
+    password: string;
+  };
+
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -40,13 +45,15 @@ class Adminlogin extends Component {
       password: this.state.password,
     };
     const header = {
-      Accept: '*/*',
-      'Content-Type': 'application/json',
-      'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "Accept-Encoding": "gzip, deflate, br",
+      Connection: "keep-alive",
     };
     axios
-      .post('https://camprec.herokuapp.com/api/college/login', body, { header })
+      .post("https://camprec.herokuapp.com/api/college/login", body, {
+        headers: { header },
+      })
       .then(function (response) {
         const data = response.data;
         // check for error response
@@ -55,13 +62,13 @@ class Adminlogin extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem('college', JSON.stringify(response.data));
-        window.location.replace('/adminhome');
+        localStorage.setItem("college", JSON.stringify(response.data));
+        window.location.replace("/adminhome");
       })
       .catch((error) => {
-        console.error('There was an error!');
+        console.error("There was an error!");
         if (this.state.email && this.state.password) {
-          window.alert('Incorect Id and Password');
+          window.alert("Incorect Id and Password");
         }
       });
   }
