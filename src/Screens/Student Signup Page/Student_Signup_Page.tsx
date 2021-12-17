@@ -1,21 +1,22 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';
-import Navbar from './Navbar';
+import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 
-class studentSignup extends Component {
-  constructor(props) {
+class studentSignup extends Component <{}, { email : any , password : any,name : any,contactno : any,about : any,college : any,cgpa : any,twitter : any,facebook : any,linkedin : any, instagram : any}>{
+  constructor(props : any) {
     super(props);
 
     this.state = {
       email: '',
       password: '',
-      names: '',
+      name: '',
       contactno: '',
       about: '',
       college: '',
@@ -40,47 +41,47 @@ class studentSignup extends Component {
     this.updateFacebook = this.updateFacebook.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event) {
+  updatePassword(event : any) {
     this.setState({ password: event.target.value });
   }
 
-  updateName(event) {
+  updateName(event : any) {
     this.setState({ name: event.target.value });
   }
 
-  updateContactNo(event) {
+  updateContactNo(event : any) {
     this.setState({ contactno: event.target.value });
   }
 
-  updateAbout(event) {
+  updateAbout(event : any) {
     this.setState({ about: event.target.value });
   }
 
-  updateCollege(event) {
+  updateCollege(event : any) {
     this.setState({ college: event.target.value });
   }
 
-  updateCgpa(event) {
+  updateCgpa(event : any) {
     this.setState({ cgpa: event.target.value });
   }
 
-  updateTwitter(event) {
+  updateTwitter(event : any) {
     this.setState({ twitter: event.target.value });
   }
 
-  updateInstagram(event) {
+  updateInstagram(event : any) {
     this.setState({ instagram: event.target.value });
   }
 
-  updateFacebook(event) {
+  updateFacebook(event : any) {
     this.setState({ facebook: event.target.value });
   }
 
-  updateLinkedin(event) {
+  updateLinkedin(event : any) {
     this.setState({ linkedin: event.target.value });
   }
 

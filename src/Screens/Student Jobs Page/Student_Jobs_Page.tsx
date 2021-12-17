@@ -1,14 +1,15 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
-import Navbar_viewstdcompany from './navbar_viewstdcompany2';
+import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 let k;
-const t = JSON.parse(localStorage.getItem('collegejobs'));
-const prem = JSON.parse(localStorage.getItem('student'));
-function Cards(props) {
+const t = JSON.parse(localStorage.getItem('collegejobs') || "{}");
+const prem = JSON.parse(localStorage.getItem('student') || "{}");
+function Cards(props : any) {
   if (!prem.premium) {
     if (t.includes(props.job_id)) {
       k = '/studentapply/i=' + props.job_id;
@@ -45,10 +46,10 @@ function Cards(props) {
     </>
   );
 }
-function Cardlist({ Joblist }) {
+function Cardlist({ Joblist } : {Joblist : any}) {
   return (
     <div className="gridwraper">
-      {Joblist?.map((user, i) => {
+      {Joblist?.map((user : any, i : number) => {
         return (
           <>
             <Cards
@@ -64,8 +65,9 @@ function Cardlist({ Joblist }) {
     </div>
   );
 }
-class Studentjobs extends Component {
-  constructor(props) {
+class Studentjobs extends Component<{}, { k : any, arr : any}>{
+  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -79,7 +81,7 @@ class Studentjobs extends Component {
   }
 
   companyjoblist() {
-    const job = [];
+    const job: never[] = [];
     const body = {
       company_id: this.state.arr,
     };
@@ -87,7 +89,7 @@ class Studentjobs extends Component {
     axios
       .post('https://camprec.herokuapp.com/api/jobs/list', body, this.header)
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -121,8 +123,8 @@ class Studentjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              {JSON.parse(localStorage.getItem('jobs')).length ? (
-                <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs'))} />
+              {JSON.parse(localStorage.getItem('jobs') || "{}").length ? (
+                <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs') || "{}")} />
               ) : (
                 <div className="card-body">
                   <strong>

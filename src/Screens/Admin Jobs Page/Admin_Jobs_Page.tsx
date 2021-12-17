@@ -5,7 +5,7 @@ import "../css/login.css";
 import Navbar_viewcompany from "../Navbar/Navbar_View_Company_2";
 import axios from "axios";
 import ReactLoading from "react-loading";
-let prem = JSON.parse(localStorage.getItem("college"));
+let prem = JSON.parse(localStorage.getItem("college") || '{}');
 var k: string;
 
 interface cardsProps {
@@ -46,10 +46,10 @@ function Cards(props: cardsProps) {
     </>
   );
 }
-const Cardlist = ({ Joblist }) => {
+const Cardlist = ({Joblist} : {Joblist : any}) => {
   return (
     <div className="gridwraper">
-      {Joblist?.map((user, i: number) => {
+      {Joblist?.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -71,7 +71,7 @@ class adminjobs extends Component {
   state: {
     k: boolean;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -89,14 +89,14 @@ class adminjobs extends Component {
       Connection: "keep-alive",
     };
 
-    var job = [];
+    var job: never[] = [];
     // POST request using fetch with error handling
     axios
       .post("https://camprec.herokuapp.com/api/jobs/list", body, {
         headers: { header },
       })
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -131,8 +131,8 @@ class adminjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              {JSON.parse(localStorage.getItem("jobs")).length ? (
-                <Cardlist Joblist={JSON.parse(localStorage.getItem("jobs"))} />
+              {JSON.parse(localStorage.getItem("jobs") || '{}').length ? (
+                <Cardlist Joblist={JSON.parse(localStorage.getItem("jobs") || '{}')} />
               ) : (
                 <div className="card-body">
                   <strong>

@@ -1,4 +1,4 @@
-import React = require('react');
+import React from 'react';
 import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
@@ -21,8 +21,8 @@ class editcollege extends Component {
     instagram: string;
     vedio_link: string;
   };
-  constructor(props) {
-    const arr = JSON.parse(localStorage.getItem('college'));
+  constructor(props : any) {
+    const arr = JSON.parse(localStorage.getItem('college') || "{}");
     super(props);
     this.state = {
       title: arr.name,
@@ -49,35 +49,35 @@ class editcollege extends Component {
     this.edit_college = this.edit_college.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ title: event.target.value });
   }
-  updatelocation(event) {
+  updatelocation(event : any) {
     this.setState({ location: event.target.value });
   }
-  updatecollege_description(event) {
+  updatecollege_description(event : any) {
     this.setState({ college_description: event.target.value });
   }
-  updatewebsite(event) {
+  updatewebsite(event : any) {
     this.setState({ website: event.target.value });
   }
-  updatetwitter(event) {
+  updatetwitter(event : any) {
     this.setState({ twitter: event.target.value });
   }
-  updateinstagram(event) {
+  updateinstagram(event : any) {
     this.setState({ instagram: event.target.value });
   }
-  updatefacebook(event) {
+  updatefacebook(event : any) {
     this.setState({ facebook: event.target.value });
   }
-  updatelinkedin(event) {
+  updatelinkedin(event : any) {
     this.setState({ linkedin: event.target.value });
   }
-  updatevedio_link(event) {
+  updatevedio_link(event : any) {
     this.setState({ vedio_link: event.target.value });
   }
   edit_college() {
-    const arr = JSON.parse(localStorage.getItem('college'));
+    const arr = JSON.parse(localStorage.getItem('college') || "{}");
     console.log(this.state.title);
     console.log(this.state.location);
     console.log(this.state.college_description);
@@ -126,7 +126,7 @@ class editcollege extends Component {
   }
 
   render() {
-    const arr = JSON.parse(localStorage.getItem('college'));
+    const arr = JSON.parse(localStorage.getItem('college') || "{}");
     return (
       <>
         <Navbar_Admin />

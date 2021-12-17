@@ -34,10 +34,10 @@ function Cards(props: cardProps) {
     </>
   );
 }
-const Cardlist = ({ Companylist }) => {
+const Cardlist = ( {Companylist} : {Companylist : any} ) => {
   return (
     <div className="gridwraper">
-      {Companylist.map((user, i: number) => {
+      {Companylist.map((user : any, i: number) => {
         return (
           <>
             <Cards
@@ -53,14 +53,14 @@ const Cardlist = ({ Companylist }) => {
     </div>
   );
 };
-var arr = JSON.parse(localStorage.getItem("company"));
+var arr = JSON.parse(localStorage.getItem("company") || '{}');
 class AdminCompany extends Component {
   state: {
     j: number;
     k: boolean;
     p: number;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       j: 1,
@@ -72,7 +72,7 @@ class AdminCompany extends Component {
   }
 
   companylist() {
-    var company = [];
+    var company: never[] = [];
     // POST request using fetch with error handling
     console.log(this.state.j);
     var k =
@@ -83,7 +83,7 @@ class AdminCompany extends Component {
     axios
       .get(k)
       .then(
-        function (response) {
+        function (response : any) {
           console.log(response);
           // check for error response
           if (response.status != 200) {
@@ -136,7 +136,7 @@ class AdminCompany extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                Companylist={JSON.parse(localStorage.getItem("company"))}
+                Companylist={JSON.parse(localStorage.getItem("company") || '{}') }
               />
             </div>
             <div className="m-l3">

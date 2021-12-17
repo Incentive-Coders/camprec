@@ -1,4 +1,4 @@
-import React = require('react');
+import React from 'react';
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
@@ -12,7 +12,7 @@ import axios from 'axios';
 
 class Companylogin extends Component {
   state: { email: string; password: string };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       email: ' ',
@@ -24,11 +24,11 @@ class Companylogin extends Component {
     this.login_link = this.login_link.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event) {
+  updatePassword(event : any) {
     this.setState({ password: event.target.value });
   }
 

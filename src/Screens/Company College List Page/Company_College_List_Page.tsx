@@ -37,10 +37,10 @@ function Cards(props: cardsProps) {
     </>
   );
 }
-function Cardlist({ collegelist }) {
+function Cardlist({ collegelist } : {collegelist : any}) {
   return (
     <div className="gridwraper">
-      {collegelist.map((user, i: number) => {
+      {collegelist.map((user : any, i: number) => {
         return (
           <>
             <Cards
@@ -57,14 +57,14 @@ function Cardlist({ collegelist }) {
   );
 }
 
-var arr = JSON.parse(localStorage.getItem('college'));
+var arr = JSON.parse(localStorage.getItem('college') || "{}");
 class companycollege extends Component {
   state: {
     j: number;
     k: boolean;
     p: number;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       j: 1,
@@ -96,7 +96,7 @@ class companycollege extends Component {
     }
   }
   collegelist() {
-    var college = [];
+    var college: never[] = [];
     console.log(this.state.j);
     var k =
       'https://camprec.herokuapp.com/api/college/list/' +
@@ -105,7 +105,7 @@ class companycollege extends Component {
     axios
       .get(k)
       .then(
-        function (response) {
+        function (response : any) {
           console.log(response);
           // check for error response
           if (response.status != 200) {
@@ -141,7 +141,7 @@ class companycollege extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                collegelist={JSON.parse(localStorage.getItem('college'))}
+                collegelist={JSON.parse(localStorage.getItem('college') || "{}")}
               />
             </div>
             <div className="m-l3">

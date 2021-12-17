@@ -3,7 +3,7 @@ import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import axios from 'axios';
-import Navbar_addstudent from './navbar_addstudent';
+import Navbar_addstudent from '../Navbar/Navbar_Add_Student';
 import ReactLoading from 'react-loading';
 import {
   FaFacebookF,
@@ -14,7 +14,7 @@ import {
 const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
-function Cards(props) {
+function Cards(props : any) {
   console.log(props.certification);
   return (
     <>
@@ -50,7 +50,7 @@ function Cards(props) {
               <p className="card-body card-text  fsize">
                 <strong>Education : </strong>
                 <br />
-                {props.education.map((user, i) => {
+                {props.education.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -71,7 +71,7 @@ function Cards(props) {
               </p>
               <p className="card-body card-text  fsize">
                 <strong>Work experience :</strong> <br />
-                {props.work.map((user, i) => {
+                {props.work.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -98,7 +98,7 @@ function Cards(props) {
               <p className="card-body card-text  fsize">
                 <strong>Certification :</strong>
                 <br />{' '}
-                {props.certification.map((user, i) => {
+                {props.certification.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -145,8 +145,10 @@ function Cards(props) {
     </>
   );
 }
-class Viewstudent extends Component {
-  constructor(props) {
+class Viewstudent extends Component<{}, { p : any}>{
+  body: { student_id: string; };
+  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
+  constructor(props : any) {
     super(props);
     this.body = {
       student_id: a[1],
@@ -170,7 +172,7 @@ class Viewstudent extends Component {
         this.header
       )
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -193,7 +195,7 @@ class Viewstudent extends Component {
   }
 
   render() {
-    const arr = JSON.parse(localStorage.getItem('student'));
+    const arr = JSON.parse(localStorage.getItem('student') || "{}");
     return (
       <>
         <Navbar_addstudent />

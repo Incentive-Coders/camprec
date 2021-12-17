@@ -34,8 +34,8 @@ function Rows(props: rowsProps) {
   );
 }
 
-const Rowlist = ({ Rowlists }) => {
-  return Rowlists?.map((user, i: number) => {
+const Rowlist = ({Rowlists} : {Rowlists : any}) => {
+  return Rowlists?.map((user : any, i: number) => {
     return (
       <>
         <Rows
@@ -49,12 +49,12 @@ const Rowlist = ({ Rowlists }) => {
     );
   });
 };
-var arr = JSON.parse(localStorage.getItem('college'));
+var arr = JSON.parse(localStorage.getItem('college') || "{}");
 class Adminstudent extends Component {
   state: {
     k: boolean;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -70,14 +70,14 @@ class Adminstudent extends Component {
       "Accept-Encoding": "gzip, deflate, br",
       Connection: "keep-alive",
     };
-    var student = [];
+    var student: never[] = [];
     // POST request using fetch with error handling
     axios
       .post("https://camprec.herokuapp.com/api/college/studentlist", body, {
         headers: { header },
       })
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -119,7 +119,7 @@ class Adminstudent extends Component {
               </thead>
               <tbody>
                 <Rowlist
-                  Rowlists={JSON.parse(localStorage.getItem('studentlist'))}
+                  Rowlists={JSON.parse(localStorage.getItem('studentlist') || "{}")}
                 ></Rowlist>
               </tbody>
             </Table>

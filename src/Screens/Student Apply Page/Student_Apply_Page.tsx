@@ -1,4 +1,5 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
@@ -8,9 +9,11 @@ import ReactLoading from 'react-loading';
 const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
-const arr = JSON.parse(localStorage.getItem('student'));
-class studentapply extends Component {
-  constructor(props) {
+const arr = JSON.parse(localStorage.getItem('student') || "{}");
+class studentapply extends Component<{}, { k : any}>{
+  body: { job_id: string; student_id: any; };
+  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -55,7 +58,7 @@ class studentapply extends Component {
         this.header
       )
       .then(
-        function (response) {
+        function (response : any) {
           console.log('*');
           const data = response.data;
           // check for error response

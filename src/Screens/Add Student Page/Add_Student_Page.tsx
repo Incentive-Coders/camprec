@@ -7,7 +7,7 @@ import Navbar_addstudent from "../Navbar/Navbar_Add_Student";
 import { Form, Input } from "antd";
 import axios from "axios";
 import FormItem from "antd/lib/form/FormItem";
-var arr = JSON.parse(localStorage.getItem("college"));
+var arr = JSON.parse(localStorage.getItem("college") || '{}');
 class addstudent extends Component {
   state: {
     name: string;
@@ -15,7 +15,7 @@ class addstudent extends Component {
     cgpa: string;
     password: string;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -32,21 +32,21 @@ class addstudent extends Component {
     this.add_student = this.add_student.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ name: event.target.value });
   }
-  updateCgpa(event) {
+  updateCgpa(event : any) {
     this.setState({ cgpa: event.target.value });
   }
-  updateEmail(event) {
+  updateEmail(event : any) {
     this.setState({ email: event.target.value });
   }
-  updatePassword(event) {
+  updatePassword(event : any) {
     this.setState({ password: event.target.value });
   }
 
   add_student() {
-    var arr = JSON.parse(localStorage.getItem("college"));
+    var arr = JSON.parse(localStorage.getItem("college") || '{}');
     console.log(this);
     console.log(this.state.name);
     console.log(this.state.email);

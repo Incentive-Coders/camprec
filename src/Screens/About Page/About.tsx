@@ -20,17 +20,6 @@ class GoogleAd extends Component<GoogleAdInterface> {
   };
 
   googleInit = null;
-
-  componentDidMount() {
-    const { timeout } = this.props;
-    this.googleInit = setTimeout(() => {
-      if (typeof window !== "undefined")
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-          {}
-        );
-    }, timeout);
-  }
-
   componentWillUnmount() {
     if (this.googleInit) clearTimeout(this.googleInit);
   }

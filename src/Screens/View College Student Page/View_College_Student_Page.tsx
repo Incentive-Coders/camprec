@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
-import Navbar_viewcollege from './navbar_viewcollege';
+import Navbar_viewcollege from '../Navbar/Navbar_View_College';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
 let i;
-function Rows(props) {
+function Rows(props : any) {
   {
     i = '/viewstudent/i=' + props.id;
   }
@@ -26,8 +26,8 @@ function Rows(props) {
     </>
   );
 }
-const Rowlist = ({ Rowlists }) => {
-  return Rowlists?.map((user, i) => {
+const Rowlist = ({ Rowlists } : {Rowlists :any}) => {
+  return Rowlists?.map((user : any, i : number) => {
     return (
       <>
         <Rows
@@ -42,8 +42,10 @@ const Rowlist = ({ Rowlists }) => {
   });
 };
 const arr = localStorage.getItem('college_id');
-class Adminstudent extends Component {
-  constructor(props) {
+class Adminstudent extends Component<{}, { k : any}> {
+  body: { college_id: string | null; };
+  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
+  constructor(props : any) {
     super(props);
     this.body = {
       college_id: arr,
@@ -59,7 +61,7 @@ class Adminstudent extends Component {
   }
 
   studentlist() {
-    const student = [];
+    const student: never[] = [];
     // POST request using fetch with error handling
     axios
       .post(
@@ -68,7 +70,7 @@ class Adminstudent extends Component {
         this.header
       )
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -109,7 +111,7 @@ class Adminstudent extends Component {
               </thead>
               <tbody>
                 <Rowlist
-                  Rowlists={JSON.parse(localStorage.getItem('studentlist'))}
+                  Rowlists={JSON.parse(localStorage.getItem('studentlist') || "{}")}
                 ></Rowlist>
               </tbody>
             </Table>

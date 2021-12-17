@@ -15,7 +15,7 @@ class Adminlogin extends Component {
     password: string;
   };
 
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -28,11 +28,11 @@ class Adminlogin extends Component {
     this.login_link = this.login_link.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event) {
+  updatePassword(event : any) {
     this.setState({ password: event.target.value });
   }
 

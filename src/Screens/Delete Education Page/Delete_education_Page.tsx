@@ -1,10 +1,10 @@
-import React = require('react');
+import React from 'react';
 import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_student from '../Navbar/navbar_student';
+import Navbar_student from '../Navbar/Navbar_Student';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
@@ -16,7 +16,8 @@ class deledu extends Component {
     courses: string;
     student_id: string;
   };
-  constructor(props) {
+  setState: any;
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -30,15 +31,15 @@ class deledu extends Component {
     this.updateinstitute = this.updateinstitute.bind(this);
     this.del_edu = this.del_edu.bind(this);
   }
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event) {
+  updateinstitute(event : any) {
     this.setState({ institute: event.target.value });
   }
 
   del_edu() {
-    const arr = JSON.parse(localStorage.getItem('student'));
+    const arr = JSON.parse(localStorage.getItem('student') || "{}");
     // POST request using fetch with error handling
     const body = {
       course: this.state.names,

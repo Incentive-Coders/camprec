@@ -1,16 +1,17 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
 import '../css/home.css';
 import web5 from '../images/student_login.png';
 import '../css/login.css';
-import Navbar from './Navbar';
+import Navbar from '../Navbar/Navbar';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 
-class Studentlogin extends Component {
-  constructor(props) {
+class Studentlogin extends Component <{}, { email : any , password : any}>{
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -23,11 +24,11 @@ class Studentlogin extends Component {
     this.login_link = this.login_link.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event) {
+  updatePassword(event : any) {
     this.setState({ password: event.target.value });
   }
 

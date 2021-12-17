@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
-import Navbar_student from './navbar_student';
+import Navbar_student from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import {
   FaFacebookF,
@@ -13,7 +13,7 @@ import {
   FaRegTrashAlt,
 } from 'react-icons/fa';
 import { Component } from 'react';
-function Cards(props) {
+function Cards(props : any) {
   console.log(props.certification);
   return (
     <>
@@ -49,7 +49,7 @@ function Cards(props) {
               <p className="card-body card-text  fsize">
                 <strong>Education : </strong>
                 <br />
-                {props.education.map((user, i) => {
+                {props.education.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -78,7 +78,7 @@ function Cards(props) {
               </p>
               <p className="card-body card-text  fsize">
                 <strong>Work experience :</strong> <br />
-                {props.work.map((user, i) => {
+                {props.work.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -113,7 +113,7 @@ function Cards(props) {
               <p className="card-body card-text  fsize">
                 <strong>Certification :</strong>
                 <br />{' '}
-                {props.certification.map((user, i) => {
+                {props.certification.map((user : any, i : number) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -169,26 +169,27 @@ function Cards(props) {
   );
 }
 
-class Studenthome extends Component {
-  constructor(props) {
+class Studenthome extends Component<{}, { k : any}>{
+  k: boolean | undefined;
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
     };
   }
   collegedata() {
-    const arr = JSON.parse(localStorage.getItem('student'));
+    const arr = JSON.parse(localStorage.getItem('student') || "{}");
     const body = {
       student_id: arr._id,
     };
     const header = {
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip, deflate, br',
-      Connection: 'keep-alive',
+      'Connection' : 'keep-alive',
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', body, header)
+      .post('https://camprec.herokuapp.com/api/student/data', body,header)
       .then(function (response) {
         // check for error response
         if (response.status != 200) {
@@ -217,7 +218,7 @@ class Studenthome extends Component {
     window.addEventListener('popstate', function (event) {
       window.history.pushState(null, document.title, window.location.href);
     });
-    const arr = JSON.parse(localStorage.getItem('student'));
+    const arr = JSON.parse(localStorage.getItem('student') || "{}");
     return (
       <>
         <Navbar_student />

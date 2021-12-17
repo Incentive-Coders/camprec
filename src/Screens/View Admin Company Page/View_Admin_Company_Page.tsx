@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
-import Navbar_viewcompany from './navbar_viewcompany';
+import Navbar_viewcompany from '../Navbar/Navbar_View_Company';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
@@ -10,7 +10,7 @@ const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
 localStorage.setItem('company_id', a[1]);
-function Cards(props) {
+function Cards(props : any) {
   return (
     <>
       <Navbar_viewcompany></Navbar_viewcompany>
@@ -46,8 +46,10 @@ function Cards(props) {
     </>
   );
 }
-class Viewcompany extends Component {
-  constructor(props) {
+class Viewcompany extends Component<{}, { k : any}>{
+  body: { company_id: string; };
+  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
+  constructor(props : any) {
     super(props);
     this.body = {
       company_id: a[1],
@@ -71,7 +73,7 @@ class Viewcompany extends Component {
         this.header
       )
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -93,7 +95,7 @@ class Viewcompany extends Component {
   }
 
   render() {
-    const arr = JSON.parse(localStorage.getItem('company'));
+    const arr = JSON.parse(localStorage.getItem('company') || "{}");
     return (
       <>
         {this.state.k ? (

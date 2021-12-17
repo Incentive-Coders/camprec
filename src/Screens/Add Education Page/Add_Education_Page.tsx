@@ -17,7 +17,7 @@ class addedu extends Component {
     names: string;
   };
 
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -33,18 +33,18 @@ class addedu extends Component {
     this.updatemarks = this.updatemarks.bind(this);
     this.add_edu = this.add_edu.bind(this);
   }
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event) {
+  updateinstitute(event : any) {
     this.setState({ institute: event.target.value });
   }
-  updatemarks(event) {
+  updatemarks(event : any) {
     this.setState({ marks: event.target.value });
   }
 
   add_edu() {
-    var arr = JSON.parse(localStorage.getItem("student"));
+    var arr = JSON.parse(localStorage.getItem("student") || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.institute);

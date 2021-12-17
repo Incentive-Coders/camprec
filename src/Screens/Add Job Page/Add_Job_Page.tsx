@@ -7,7 +7,7 @@ import Navbar_company from "../Navbar/Navbar_Student";
 import { Form, Input } from "antd";
 import axios from "axios";
 import FormItem from "antd/lib/form/FormItem";
-var arr = JSON.parse(localStorage.getItem("company"));
+var arr = JSON.parse(localStorage.getItem("company") || '{}');
 class addjobs extends Component {
   state: {
     job_title: string;
@@ -15,7 +15,7 @@ class addjobs extends Component {
     job_description: string;
     company_id: string;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -32,22 +32,22 @@ class addjobs extends Component {
     this.updatecompany_id = this.updatejob_description.bind(this);
   }
 
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ job_title: event.target.value });
   }
 
-  updatelocation(event) {
+  updatelocation(event : any) {
     this.setState({ location: event.target.value });
   }
-  updatejob_description(event) {
+  updatejob_description(event : any) {
     this.setState({ job_description: event.target.value });
   }
-  updatecompany_id(event) {
+  updatecompany_id(event : any) {
     this.setState({ company_id: event.target.value });
   }
 
   add_job() {
-    var arr = JSON.parse(localStorage.getItem("company"));
+    var arr = JSON.parse(localStorage.getItem("company") || '{}');
     console.log(this);
     console.log(this.state.job_title);
     console.log(this.state.location);

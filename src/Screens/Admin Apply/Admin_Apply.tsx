@@ -8,12 +8,12 @@ import ReactLoading from "react-loading";
 var l = window.location.href;
 var a = l.split("=");
 console.log(a[1]);
-var arr = JSON.parse(localStorage.getItem("college"));
+var arr = JSON.parse(localStorage.getItem("college") || '{}');
 class adminapply extends Component {
   state: {
     k: boolean;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -54,7 +54,7 @@ class adminapply extends Component {
         headers: { header },
       })
       .then(
-        function (response) {
+        function (response : any) {
           console.log("*");
           const data = response.data;
           // check for error response

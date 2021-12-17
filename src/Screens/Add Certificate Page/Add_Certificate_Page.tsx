@@ -18,7 +18,7 @@ class addcer extends Component {
     description: string;
   };
 
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -36,21 +36,21 @@ class addcer extends Component {
     this.updatelink = this.updatelink.bind(this);
     this.updateinstitutes = this.updateinstitutes.bind(this);
   }
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ courses: event.target.value });
   }
-  updateinstitutes(event) {
+  updateinstitutes(event : any) {
     this.setState({ institutes: event.target.value });
   }
-  updatelink(event) {
+  updatelink(event : any) {
     this.setState({ link: event.target.value });
   }
-  updatevalid_till(event) {
+  updatevalid_till(event : any) {
     this.setState({ valid_till: event.target.value });
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem("student"));
+    var arr = JSON.parse(localStorage.getItem("student") || '{}');
     console.log(this);
     console.log(this.state.courses);
     console.log(this.state.valid_till);

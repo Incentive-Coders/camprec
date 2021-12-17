@@ -18,7 +18,7 @@ class addexp extends Component {
     companys: string;
   };
 
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -37,24 +37,24 @@ class addexp extends Component {
     this.updatelink = this.updatelink.bind(this);
     this.updatecompanys = this.updatecompanys.bind(this);
   }
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ names: event.target.value });
   }
-  updatecompanys(event) {
+  updatecompanys(event : any) {
     this.setState({ companys: event.target.value });
   }
-  updatelink(event) {
+  updatelink(event : any) {
     this.setState({ link: event.target.value });
   }
-  updateduration(event) {
+  updateduration(event : any) {
     this.setState({ duration: event.target.value });
   }
-  updatedescription(event) {
+  updatedescription(event : any) {
     this.setState({ description: event.target.value });
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem("student"));
+    var arr = JSON.parse(localStorage.getItem("student") || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.duration);

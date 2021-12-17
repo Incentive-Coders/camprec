@@ -1,11 +1,12 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
-import Navbar_Student from './navbar_student';
+import Navbar_Student from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-function Cards(props) {
+function Cards(props : any) {
   const i = '/viewstudentcompany/i=' + props.id;
   return (
     <>
@@ -29,10 +30,10 @@ function Cards(props) {
   );
 }
 
-function Cardlist({ Companylist }) {
+function Cardlist({ Companylist } : {Companylist : any}) {
   return (
     <div className="gridwraper">
-      {Companylist?.map((user, i) => {
+      {Companylist?.map((user : any, i : number) => {
         return (
           <>
             <Cards
@@ -50,8 +51,8 @@ function Cardlist({ Companylist }) {
 }
 const j = 1;
 
-class StudentCompany extends Component {
-  constructor(props) {
+class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
+  constructor(props : any) {
     super(props);
     this.state = {
       j: 1,
@@ -64,7 +65,7 @@ class StudentCompany extends Component {
   }
 
   companylist() {
-    const arr1 = JSON.parse(localStorage.getItem('student'));
+    const arr1 = JSON.parse(localStorage.getItem('student') || "{}");
     const body1 = {
       student_id: arr1._id,
     };
@@ -76,7 +77,7 @@ class StudentCompany extends Component {
         this.header
       )
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -92,7 +93,7 @@ class StudentCompany extends Component {
         console.log(error);
         window.alert('something went wrong');
       });
-    const company = [];
+    const company: never[] = [];
     const k =
       'https://camprec.herokuapp.com/api/company/list/' +
       this.state.j.toString();
@@ -100,7 +101,7 @@ class StudentCompany extends Component {
     axios
       .get(k)
       .then(
-        function (response) {
+        function (response : any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -118,6 +119,9 @@ class StudentCompany extends Component {
         window.alert('something went wrong');
       });
     if (company) return company;
+  }
+  header(arg0: string, body1: { student_id: any; }, header: any) {
+    throw new Error('Method not implemented.');
   }
   back() {
     if (this.state.j === 1) {
@@ -152,7 +156,7 @@ class StudentCompany extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                Companylist={JSON.parse(localStorage.getItem('company'))}
+                Companylist={JSON.parse(localStorage.getItem('company') || "{}")}
               />
             </div>
             <div className="m-l3">

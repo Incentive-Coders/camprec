@@ -1,10 +1,10 @@
-import React = require('react');
+import React from 'react';
 import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_student from '../Navbar/Navbar_student';
+import Navbar_student from '../Navbar/Navbar_Student';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
@@ -17,7 +17,7 @@ class delcer extends Component {
     courses: string;
     student_id: string;
   };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -31,15 +31,15 @@ class delcer extends Component {
     this.updateinstitute = this.updateinstitute.bind(this);
     this.del_cer = this.del_cer.bind(this);
   }
-  updateInput(event) {
+  updateInput(event : any) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event) {
+  updateinstitute(event : any) {
     this.setState({ institute: event.target.value });
   }
 
   del_cer() {
-    const arr = JSON.parse(localStorage.getItem('student'));
+    const arr = JSON.parse(localStorage.getItem('student') || "{}");
     // POST request using fetch with error handling
     const body = {
       courses: this.state.names,

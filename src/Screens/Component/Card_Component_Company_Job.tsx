@@ -1,11 +1,11 @@
-import React = require('react');
+import React from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import { FaRegTrashAlt } from 'react-icons/fa';
 let k, i, n;
 
-function Cards(props) {
+function Cards(props : any) {
   k = '/editjobs/i=' + props.id;
   i = '/showapplicants/i=' + props.id;
   n = '/deljobs/i=' + props.id;

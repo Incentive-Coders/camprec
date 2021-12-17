@@ -1,9 +1,10 @@
-import { React, Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
 import '../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_showapplicants from './navbar_showapplicants';
+import Navbar_showapplicants from '../Navbar/Navbar_Show_Applicants';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
@@ -11,7 +12,7 @@ const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
 let i;
-function Rows(props) {
+function Rows(props : any) {
   {
     i = '/viewapplicantcollege/i=' + props.id;
   }
@@ -30,7 +31,7 @@ function Rows(props) {
     </>
   );
 }
-function Rows1(props) {
+function Rows1(props : any) {
   {
     i = '/viewapplicantstudent/i=' + props.id;
   }
@@ -49,8 +50,8 @@ function Rows1(props) {
     </>
   );
 }
-const Rowlist = ({ Rowlists }) => {
-  return Rowlists?.map((user, i) => {
+const Rowlist = ({ Rowlists } : {Rowlists : any}) => {
+  return Rowlists?.map((user : any, i : number) => {
     return (
       <>
         <Rows
@@ -64,8 +65,8 @@ const Rowlist = ({ Rowlists }) => {
     );
   });
 };
-const Rowlist1 = ({ Rowlists }) => {
-  return Rowlists?.map((user, i) => {
+const Rowlist1 = ({ Rowlists } : {Rowlists : any}) => {
+  return Rowlists?.map((user : any, i : number) => {
     return (
       <>
         <Rows1
@@ -79,8 +80,8 @@ const Rowlist1 = ({ Rowlists }) => {
     );
   });
 };
-class showapplicants extends Component {
-  constructor(props) {
+class showapplicants extends Component<{}, { k : any}> {
+  constructor(props : any) {
     super(props);
     this.state = {
       k: false,
@@ -91,16 +92,16 @@ class showapplicants extends Component {
     const body = {
       job_id: a[1],
     };
-    const header = {
+    const header  = {
       Accept: '*/*',
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip, deflate, br',
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/slist', body, { header })
+      .post('https://camprec.herokuapp.com/api/jobs/slist', body, { headers : header })
       .then(
-        function (response) {
+        function (response : any) {
           console.log('*');
           const data = response.data;
           // check for error response
@@ -116,9 +117,9 @@ class showapplicants extends Component {
         console.error('There was an error!');
       });
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/clist', body, { header })
+      .post('https://camprec.herokuapp.com/api/jobs/clist', body, { headers : header })
       .then(
-        function (response) {
+        function (response : any) {
           console.log('*');
           const data = response.data;
           // check for error response
@@ -159,7 +160,7 @@ class showapplicants extends Component {
                 </thead>
                 <tbody>
                   <Rowlist
-                    Rowlists={JSON.parse(localStorage.getItem('clist'))}
+                    Rowlists={JSON.parse(localStorage.getItem('clist') || "{}")}
                   ></Rowlist>
                 </tbody>
               </Table>
@@ -179,7 +180,7 @@ class showapplicants extends Component {
                 </thead>
                 <tbody>
                   <Rowlist1
-                    Rowlists={JSON.parse(localStorage.getItem('slist'))}
+                    Rowlists={JSON.parse(localStorage.getItem('slist') || "{}")}
                   ></Rowlist1>
                 </tbody>
               </Table>

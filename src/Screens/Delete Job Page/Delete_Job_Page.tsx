@@ -1,4 +1,4 @@
-import React = require('react');
+import React from 'react';
 import { Component } from 'react';
 import '../index.css';
 import '../css/home.css';
@@ -11,7 +11,7 @@ console.log(a[1]);
 
 class deljobs extends Component {
   state: { job_id: string; job_description: string; job_title: string };
-  constructor(props) {
+  constructor(props : any) {
     super(props);
 
     this.state = {
@@ -25,7 +25,7 @@ class deljobs extends Component {
 
   del_job() {
     // POST request using fetch with error handling
-    const arr = JSON.parse(localStorage.getItem('company'));
+    const arr = JSON.parse(localStorage.getItem('company') || "{}");
     const body = {
       job_id: a[1],
       company_id: arr._id,
@@ -61,7 +61,7 @@ class deljobs extends Component {
   }
 
   companyjoblist() {
-    const arr = JSON.parse(localStorage.getItem('company'));
+    const arr = JSON.parse(localStorage.getItem('company') || "{}");
     const body = {
       company_id: arr._id,
     };
@@ -70,7 +70,7 @@ class deljobs extends Component {
       'Accept-Encoding': 'gzip, deflate, br',
       Connection: 'keep-alive',
     };
-    const job = [];
+    const job: never[] = [];
     // POST request using fetch with error handling
     axios
       .post('https://camprec.herokuapp.com/api/jobs/list', body, {
