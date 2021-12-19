@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import { NavLink } from 'react-router-dom';
 import Navbar_company from '../Navbar/Navbar_Company';
 import ReactLoading from 'react-loading';

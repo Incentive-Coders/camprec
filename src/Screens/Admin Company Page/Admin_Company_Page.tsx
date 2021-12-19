@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar_admin from '../Navbar/Navbar_Admin';
 import axios from 'axios';
 import ReactLoading from 'react-loading';

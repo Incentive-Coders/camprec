@@ -1,14 +1,14 @@
 import React from 'react';
-const web = require('../images/4180157-removebg-preview.png');
-const web1 = require('../images/student-removebg.png');
-const web2 = require('../images/company.jpg');
-const web3 = require('../images/admin.jpg');
-const web4 = require('../images/Capture-removebg-preview.png');
+const web = require('../../images/4180157-removebg-preview.png');
+const web1 = require('../../images/student-removebg.png');
+const web2 = require('../../images/company.jpg');
+const web3 = require('../../images/admin.jpg');
+const web4 = require('../../images/Capture-removebg-preview.png');
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import '../index.css';
-import '../css/home.css';
+import '../../index.css';
+import '../../css/home.css';
 import './App';
 import CountUp from 'react-countup';
 function Home() {

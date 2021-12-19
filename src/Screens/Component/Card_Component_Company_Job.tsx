@@ -1,7 +1,7 @@
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import { FaRegTrashAlt } from 'react-icons/fa';
 let k, i, n;
 

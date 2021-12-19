@@ -1,8 +1,8 @@
 import React from 'react';
 const web = require('../images/contactus.png');
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../Navbar/Navbar';
 import emailjs from 'emailjs-com';

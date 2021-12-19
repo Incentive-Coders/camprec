@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 const web = require('../../images/about.png');
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar from '../Navbar/Navbar';
 
 const googleAdId = 'ca-pub-3329798013899959';

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar_company from '../Navbar/Navbar_Company';
 import ReactPlayer from 'react-player';
 import {

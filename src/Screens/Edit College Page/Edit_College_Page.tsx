@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar_Admin from '../Navbar/Navbar_Admin';
 import { Form, Input } from 'antd';
