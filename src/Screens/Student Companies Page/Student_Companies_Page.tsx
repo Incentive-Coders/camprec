@@ -51,7 +51,7 @@ function Cardlist({ Companylist }: { Companylist: any }) {
 }
 const j = 1;
 
-class StudentCompany extends Component<{}, { j: any; k: any; p: any }> {
+class StudentCompany extends Component<unknown, { j: any; k: any; p: any }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -71,11 +71,7 @@ class StudentCompany extends Component<{}, { j: any; k: any; p: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/student/data',
-        body1,
-        this.header
-      )
+      .post('https://camprec.herokuapp.com/api/student/data', body1)
       .then(
         function (response: any) {
           // check for error response
@@ -100,20 +96,18 @@ class StudentCompany extends Component<{}, { j: any; k: any; p: any }> {
     // POST request using fetch with error handling
     axios
       .get(k)
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('company', JSON.stringify(response.data));
-          this.setState({ k: true });
-          this.setState({ p: this.state.j });
-        }.bind(this)
-      )
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('company', JSON.stringify(response.data));
+        this.setState({ k: true });
+        this.setState({ p: this.state.j });
+      }, StudentCompany.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');

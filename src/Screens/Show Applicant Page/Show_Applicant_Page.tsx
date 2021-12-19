@@ -80,7 +80,7 @@ const Rowlist1 = ({ Rowlists }: { Rowlists: any }) => {
     );
   });
 };
-class showapplicants extends Component<{}, { k: any }> {
+class showapplicants extends Component<unknown, { k: any }> {
   constructor(props: any) {
     super(props);
     this.state = {

@@ -145,7 +145,7 @@ function Cards(props: any) {
     </>
   );
 }
-class Viewstudent extends Component<{}, { p: any }> {
+class Viewstudent extends Component<unknown, { p: any }> {
   body: { student_id: string };
   header: {
     'Content-Type': string;
@@ -170,25 +170,19 @@ class Viewstudent extends Component<{}, { p: any }> {
   collegedata() {
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/student/data',
-        this.body,
-        this.header
-      )
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          console.log(response.data);
-          localStorage.setItem('student', JSON.stringify(response.data));
-          this.setState({ p: true });
-        }.bind(this)
-      )
+      .post('https://camprec.herokuapp.com/api/student/data', this.body)
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        console.log(response.data);
+        localStorage.setItem('student', JSON.stringify(response.data));
+        this.setState({ p: true });
+      }, Viewstudent.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');

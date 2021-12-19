@@ -10,7 +10,7 @@ const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
 const arr = JSON.parse(localStorage.getItem('student') || '{}');
-class studentapply extends Component<{}, { k: any }> {
+class studentapply extends Component<unknown, { k: any }> {
   body: { job_id: string; student_id: any };
   header: {
     'Content-Type': string;

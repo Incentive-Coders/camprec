@@ -169,7 +169,7 @@ function Cards(props: any) {
   );
 }
 
-class Studenthome extends Component<{}, { k: any }> {
+class Studenthome extends Component<unknown, { k: any }> {
   k: boolean | undefined;
   constructor(props: any) {
     super(props);
@@ -189,7 +189,7 @@ class Studenthome extends Component<{}, { k: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', body, header)
+      .post('https://camprec.herokuapp.com/api/student/data', body)
       .then(function (response) {
         // check for error response
         if (response.status != 200) {
