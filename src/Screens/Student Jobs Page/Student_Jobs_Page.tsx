@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';

@@ -44,7 +44,7 @@ class addedu extends Component {
   }
 
   add_edu() {
-    var arr = JSON.parse(localStorage.getItem('student') || '{}');
+    let arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.institute);

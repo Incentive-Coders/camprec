@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import axios from 'axios';
 import Navbar_viewapplicant from '../Navbar/Navbar_View_Applicant';
 import {

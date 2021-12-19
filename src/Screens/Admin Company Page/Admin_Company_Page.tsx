@@ -14,7 +14,7 @@ interface cardProps {
   id: string;
 }
 function Cards(props: cardProps) {
-  var i = '/viewadmincompany/i=' + props.id;
+  let i = '/viewadmincompany/i=' + props.id;
   return (
     <>
       <div className="card widths ">
@@ -53,7 +53,7 @@ const Cardlist = ({ Companylist }: { Companylist: any }) => {
     </div>
   );
 };
-var arr = JSON.parse(localStorage.getItem('company') || '{}');
+let arr = JSON.parse(localStorage.getItem('company') || '{}');
 class AdminCompany extends Component {
   state: {
     j: number;
@@ -72,10 +72,10 @@ class AdminCompany extends Component {
   }
 
   companylist() {
-    var company: never[] = [];
+    let company: never[] = [];
     // POST request using fetch with error handling
     console.log(this.state.j);
-    var k =
+    let k =
       'https://camprec.herokuapp.com/api/company/list/' +
       this.state.j.toString();
     console.log(k);

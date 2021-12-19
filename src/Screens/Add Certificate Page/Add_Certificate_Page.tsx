@@ -50,7 +50,7 @@ class addcer extends Component {
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem('student') || '{}');
+    let arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.courses);
     console.log(this.state.valid_till);

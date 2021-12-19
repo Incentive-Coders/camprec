@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import '../../index.css';
 import '../../css/home.css';
-import './App';
+import '../App Page/App';
 import CountUp from 'react-countup';
 function Home() {
   localStorage.clear();

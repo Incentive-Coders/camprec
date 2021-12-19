@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar_viewcollege from '../Navbar/Navbar_View_College';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';

@@ -6,7 +6,7 @@ import Navbar_admin from '../Navbar/Navbar_Admin';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
-var i: string;
+let i: string;
 
 interface rowsProps {
   id: string;
@@ -49,7 +49,7 @@ const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
     );
   });
 };
-var arr = JSON.parse(localStorage.getItem('college') || '{}');
+let arr = JSON.parse(localStorage.getItem('college') || '{}');
 class Adminstudent extends Component {
   state: {
     k: boolean;
@@ -70,7 +70,7 @@ class Adminstudent extends Component {
       'Accept-Encoding': 'gzip, deflate, br',
       Connection: 'keep-alive',
     };
-    var student: never[] = [];
+    let student: never[] = [];
     // POST request using fetch with error handling
     axios
       .post('https://camprec.herokuapp.com/api/college/studentlist', body, {

@@ -13,7 +13,7 @@ interface cardsProps {
   id: string;
 }
 function Cards(props: cardsProps) {
-  var i = '/viewcompanycollege/i=' + props.id;
+  let i = '/viewcompanycollege/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -57,7 +57,7 @@ function Cardlist({ collegelist }: { collegelist: any }) {
   );
 }
 
-var arr = JSON.parse(localStorage.getItem('college') || '{}');
+let arr = JSON.parse(localStorage.getItem('college') || '{}');
 class companycollege extends Component {
   state: {
     j: number;
@@ -96,9 +96,9 @@ class companycollege extends Component {
     }
   }
   collegelist() {
-    var college: never[] = [];
+    let college: never[] = [];
     console.log(this.state.j);
-    var k =
+    let k =
       'https://camprec.herokuapp.com/api/college/list/' +
       this.state.j.toString();
     // POST request using fetch with error handling

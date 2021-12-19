@@ -5,10 +5,10 @@ import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-var l = window.location.href;
-var a = l.split('=');
+let l = window.location.href;
+let a = l.split('=');
 console.log(a[1]);
-var arr = JSON.parse(localStorage.getItem('college') || '{}');
+let arr = JSON.parse(localStorage.getItem('college') || '{}');
 class adminapply extends Component {
   state: {
     k: boolean;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import '../css/home.css';
-import web5 from '../images/student_login.png';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import web5 from '../../images/student_login.png';
+import '../../css/login.css';
 import Navbar from '../Navbar/Navbar';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';

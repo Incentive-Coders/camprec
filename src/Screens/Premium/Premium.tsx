@@ -1,8 +1,8 @@
-const web = require('../images/premium.png');
+const web = require('../../images/premium.png');
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import Navbar_student from '../Navbar/Navbar_Student';
 
 const premium = () => {
