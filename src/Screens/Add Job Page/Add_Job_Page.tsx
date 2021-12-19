@@ -7,7 +7,7 @@ import NavbarCompany from '../Navbar/Navbar_Student';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
-let arr = JSON.parse(localStorage.getItem('company') || '{}');
+const arr = JSON.parse(localStorage.getItem('company') || '{}');
 class addjobs extends Component {
   state: {
     job_title: string;
@@ -47,7 +47,7 @@ class addjobs extends Component {
   }
 
   add_job() {
-    let arr = JSON.parse(localStorage.getItem('company') || '{}');
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     console.log(this);
     console.log(this.state.job_title);
     console.log(this.state.location);

@@ -54,7 +54,7 @@ class addexp extends Component {
   }
 
   add_experience() {
-    let arr = JSON.parse(localStorage.getItem('student') || '{}');
+    const arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.duration);

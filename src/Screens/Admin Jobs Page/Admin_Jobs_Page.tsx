@@ -5,7 +5,7 @@ import '../../css/login.css';
 import NavbarViewCompany from '../Navbar/Navbar_View_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-let prem = JSON.parse(localStorage.getItem('college') || '{}');
+const prem = JSON.parse(localStorage.getItem('college') || '{}');
 let k: string;
 
 interface cardsProps {
@@ -65,7 +65,7 @@ const Cardlist = ({ Joblist }: { Joblist: any }) => {
     </div>
   );
 };
-let arr = localStorage.getItem('company_id');
+const arr = localStorage.getItem('company_id');
 
 class adminjobs extends Component {
   state: {
@@ -89,7 +89,7 @@ class adminjobs extends Component {
       Connection: 'keep-alive',
     };
 
-    let job: never[] = [];
+    const job: never[] = [];
     // POST request using fetch with error handling
     axios
       .post('https://camprec.herokuapp.com/api/jobs/list', body, {

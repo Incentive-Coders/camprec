@@ -94,7 +94,7 @@ const Adminhome = () => {
   window.addEventListener('popstate', function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  let arr = JSON.parse(localStorage.getItem('college') || '{}');
+  const arr = JSON.parse(localStorage.getItem('college') || '{}');
   return (
     <>
       <NavbarAdmin />

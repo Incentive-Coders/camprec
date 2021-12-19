@@ -49,7 +49,7 @@ const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
     );
   });
 };
-let arr = JSON.parse(localStorage.getItem('college') || '{}');
+const arr = JSON.parse(localStorage.getItem('college') || '{}');
 class Adminstudent extends Component {
   state: {
     k: boolean;
@@ -70,7 +70,7 @@ class Adminstudent extends Component {
       'Accept-Encoding': 'gzip, deflate, br',
       Connection: 'keep-alive',
     };
-    let student: never[] = [];
+    const student: never[] = [];
     // POST request using fetch with error handling
     axios
       .post('https://camprec.herokuapp.com/api/college/studentlist', body, {

@@ -94,7 +94,7 @@ function Companyhome() {
   window.addEventListener('popstate', function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  let arr = JSON.parse(localStorage.getItem('company') || '{}');
+  const arr = JSON.parse(localStorage.getItem('company') || '{}');
   return (
     <>
       <NavbarCompany />

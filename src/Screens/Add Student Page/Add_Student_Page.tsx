@@ -7,7 +7,7 @@ import NavbarAddStudent from '../Navbar/Navbar_Add_Student';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
-let arr = JSON.parse(localStorage.getItem('college') || '{}');
+const arr = JSON.parse(localStorage.getItem('college') || '{}');
 class addstudent extends Component {
   state: {
     name: string;
@@ -46,7 +46,7 @@ class addstudent extends Component {
   }
 
   add_student() {
-    let arr = JSON.parse(localStorage.getItem('college') || '{}');
+    const arr = JSON.parse(localStorage.getItem('college') || '{}');
     console.log(this);
     console.log(this.state.name);
     console.log(this.state.email);
