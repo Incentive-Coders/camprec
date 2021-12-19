@@ -14,7 +14,7 @@ import Adminstudent from '../Admin Student List Page/Admin_Student_List_Page';
 import Studentjobs from '../Student Jobs Page/Student_Jobs_Page';
 import Companycolleges from '../Company College List Page/Company_College_List_Page';
 import Admincompanies from '../Admin Company Page/Admin_Company_Page';
-import Studentcourses from '../Student Home Page/Student Courses Page/Student_Courses_Page';
+import Studentcourses from '../Student Courses Page/Student_Courses_Page';
 import addjobs from '../Add Job Page/Add_Job_Page';
 import addstudent from '../Add Student Page/Add_Student_Page';
 import editjobs from '../Edit Job Page/Edit_Job_Page';
