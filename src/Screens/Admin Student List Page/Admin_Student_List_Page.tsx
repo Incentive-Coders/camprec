@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_admin from "../Navbar/Navbar_Admin";
-import axios from "axios";
-import Table from "react-bootstrap/Table";
-import ReactLoading from "react-loading";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_admin from '../Navbar/Navbar_Admin';
+import axios from 'axios';
+import Table from 'react-bootstrap/Table';
+import ReactLoading from 'react-loading';
 var i: string;
 
 interface rowsProps {
@@ -34,8 +34,8 @@ function Rows(props: rowsProps) {
   );
 }
 
-const Rowlist = ({Rowlists} : {Rowlists : any}) => {
-  return Rowlists?.map((user : any, i: number) => {
+const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
+  return Rowlists?.map((user: any, i: number) => {
     return (
       <>
         <Rows
@@ -49,12 +49,12 @@ const Rowlist = ({Rowlists} : {Rowlists : any}) => {
     );
   });
 };
-var arr = JSON.parse(localStorage.getItem('college') || "{}");
+var arr = JSON.parse(localStorage.getItem('college') || '{}');
 class Adminstudent extends Component {
   state: {
     k: boolean;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -66,18 +66,18 @@ class Adminstudent extends Component {
       college_id: arr._id,
     };
     const header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     var student: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post("https://camprec.herokuapp.com/api/college/studentlist", body, {
+      .post('https://camprec.herokuapp.com/api/college/studentlist', body, {
         headers: { header },
       })
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -119,7 +119,9 @@ class Adminstudent extends Component {
               </thead>
               <tbody>
                 <Rowlist
-                  Rowlists={JSON.parse(localStorage.getItem('studentlist') || "{}")}
+                  Rowlists={JSON.parse(
+                    localStorage.getItem('studentlist') || '{}'
+                  )}
                 ></Rowlist>
               </tbody>
             </Table>

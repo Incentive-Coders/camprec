@@ -1,15 +1,15 @@
-import React from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_Admin from "../Navbar/Navbar_Admin";
-import ReactPlayer from "react-player";
+import React from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_Admin from '../Navbar/Navbar_Admin';
+import ReactPlayer from 'react-player';
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 interface cardsProps {
   image: string;
@@ -53,23 +53,23 @@ function Cards(props: cardsProps) {
                 <strong>Description :</strong> {props.description}
               </p>
               <p className="card-text  fsize">
-                <strong>Webite :</strong>{" "}
+                <strong>Webite :</strong>{' '}
                 <a href={props.website}>{props.website}</a>
               </p>
               <p className="card-text  fsize">
-                {" "}
+                {' '}
                 <a href={props.facebook}>
                   <FaFacebookF></FaFacebookF>
-                </a>{" "}
+                </a>{' '}
                 <a href={props.twitter}>
                   <FaTwitter></FaTwitter>
-                </a>{" "}
+                </a>{' '}
                 <a href={props.LinkedIn}>
-                  {" "}
+                  {' '}
                   <FaLinkedin></FaLinkedin>
-                </a>{" "}
+                </a>{' '}
                 <a href={props.Insta}>
-                  {" "}
+                  {' '}
                   <FaInstagram></FaInstagram>
                 </a>
               </p>
@@ -91,10 +91,10 @@ function Cards(props: cardsProps) {
 }
 const Adminhome = () => {
   window.history.pushState(null, document.title, window.location.href);
-  window.addEventListener("popstate", function (event) {
+  window.addEventListener('popstate', function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  var arr = JSON.parse(localStorage.getItem("college") || '{}');
+  var arr = JSON.parse(localStorage.getItem('college') || '{}');
   return (
     <>
       <Navbar_Admin />

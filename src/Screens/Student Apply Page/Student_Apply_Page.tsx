@@ -9,11 +9,15 @@ import ReactLoading from 'react-loading';
 const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
-const arr = JSON.parse(localStorage.getItem('student') || "{}");
-class studentapply extends Component<{}, { k : any}>{
-  body: { job_id: string; student_id: any; };
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+const arr = JSON.parse(localStorage.getItem('student') || '{}');
+class studentapply extends Component<{}, { k: any }> {
+  body: { job_id: string; student_id: any };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -58,7 +62,7 @@ class studentapply extends Component<{}, { k : any}>{
         this.header
       )
       .then(
-        function (response : any) {
+        function (response: any) {
           console.log('*');
           const data = response.data;
           // check for error response

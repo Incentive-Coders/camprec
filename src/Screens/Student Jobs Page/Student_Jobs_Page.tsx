@@ -7,9 +7,9 @@ import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 let k;
-const t = JSON.parse(localStorage.getItem('collegejobs') || "{}");
-const prem = JSON.parse(localStorage.getItem('student') || "{}");
-function Cards(props : any) {
+const t = JSON.parse(localStorage.getItem('collegejobs') || '{}');
+const prem = JSON.parse(localStorage.getItem('student') || '{}');
+function Cards(props: any) {
   if (!prem.premium) {
     if (t.includes(props.job_id)) {
       k = '/studentapply/i=' + props.job_id;
@@ -46,10 +46,10 @@ function Cards(props : any) {
     </>
   );
 }
-function Cardlist({ Joblist } : {Joblist : any}) {
+function Cardlist({ Joblist }: { Joblist: any }) {
   return (
     <div className="gridwraper">
-      {Joblist?.map((user : any, i : number) => {
+      {Joblist?.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -65,9 +65,13 @@ function Cardlist({ Joblist } : {Joblist : any}) {
     </div>
   );
 }
-class Studentjobs extends Component<{}, { k : any, arr : any}>{
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+class Studentjobs extends Component<{}, { k: any; arr: any }> {
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -89,7 +93,7 @@ class Studentjobs extends Component<{}, { k : any, arr : any}>{
     axios
       .post('https://camprec.herokuapp.com/api/jobs/list', body, this.header)
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -123,8 +127,10 @@ class Studentjobs extends Component<{}, { k : any, arr : any}>{
               </h2>
             </div>
             <div className="gridwraper">
-              {JSON.parse(localStorage.getItem('jobs') || "{}").length ? (
-                <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs') || "{}")} />
+              {JSON.parse(localStorage.getItem('jobs') || '{}').length ? (
+                <Cardlist
+                  Joblist={JSON.parse(localStorage.getItem('jobs') || '{}')}
+                />
               ) : (
                 <div className="card-body">
                   <strong>

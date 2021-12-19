@@ -18,7 +18,7 @@ class editjobs extends Component {
     job_description: string;
     job_id: string;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       job_title: '',
@@ -33,19 +33,19 @@ class editjobs extends Component {
     this.edit_job = this.edit_job.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ job_title: event.target.value });
   }
 
-  updatelocation(event : any) {
+  updatelocation(event: any) {
     this.setState({ location: event.target.value });
   }
-  updatejob_description(event : any) {
+  updatejob_description(event: any) {
     this.setState({ job_description: event.target.value });
   }
 
   edit_job() {
-    const arr = JSON.parse(localStorage.getItem('job') || "{}");
+    const arr = JSON.parse(localStorage.getItem('job') || '{}');
     console.log(this);
     console.log(this.state.job_title);
     console.log(this.state.location);

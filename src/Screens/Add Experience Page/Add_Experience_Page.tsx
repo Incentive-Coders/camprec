@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from "../Navbar/Navbar_Student";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_student from '../Navbar/Navbar_Student';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 
 class addexp extends Component {
   state: {
@@ -18,16 +18,16 @@ class addexp extends Component {
     companys: string;
   };
 
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      names: "",
-      duration: "",
-      description: "",
-      student_id: "",
-      link: "",
-      companys: "",
+      names: '',
+      duration: '',
+      description: '',
+      student_id: '',
+      link: '',
+      companys: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -37,24 +37,24 @@ class addexp extends Component {
     this.updatelink = this.updatelink.bind(this);
     this.updatecompanys = this.updatecompanys.bind(this);
   }
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ names: event.target.value });
   }
-  updatecompanys(event : any) {
+  updatecompanys(event: any) {
     this.setState({ companys: event.target.value });
   }
-  updatelink(event : any) {
+  updatelink(event: any) {
     this.setState({ link: event.target.value });
   }
-  updateduration(event : any) {
+  updateduration(event: any) {
     this.setState({ duration: event.target.value });
   }
-  updatedescription(event : any) {
+  updatedescription(event: any) {
     this.setState({ description: event.target.value });
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem("student") || '{}');
+    var arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.duration);
@@ -69,17 +69,17 @@ class addexp extends Component {
       student_id: arr._id,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/addexp", body, {
+      .post('https://camprec.herokuapp.com/api/student/addexp', body, {
         headers: { header },
       })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -87,12 +87,12 @@ class addexp extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("experience Added Successfuly");
-        window.location.replace("/studenthome");
+        window.alert('experience Added Successfuly');
+        window.location.replace('/studenthome');
       })
       .catch((error) => {
-        console.error("There was an error!");
-        window.alert("There was some error unable to create experience");
+        console.error('There was an error!');
+        window.alert('There was some error unable to create experience');
       });
   }
 

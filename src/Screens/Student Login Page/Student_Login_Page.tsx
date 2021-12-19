@@ -10,8 +10,8 @@ import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 
-class Studentlogin extends Component <{}, { email : any , password : any}>{
-  constructor(props : any) {
+class Studentlogin extends Component<{}, { email: any; password: any }> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -24,11 +24,11 @@ class Studentlogin extends Component <{}, { email : any , password : any}>{
     this.login_link = this.login_link.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event : any) {
+  updatePassword(event: any) {
     this.setState({ password: event.target.value });
   }
 

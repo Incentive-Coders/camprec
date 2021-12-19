@@ -1,15 +1,15 @@
-import React from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_company from "../Navbar/Navbar_Company";
-import ReactPlayer from "react-player";
+import React from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_company from '../Navbar/Navbar_Company';
+import ReactPlayer from 'react-player';
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedin,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 interface cardsProps {
   name: string;
@@ -94,7 +94,7 @@ function Companyhome() {
   window.addEventListener('popstate', function (event) {
     window.history.pushState(null, document.title, window.location.href);
   });
-  var arr = JSON.parse(localStorage.getItem('company') || "{}");
+  var arr = JSON.parse(localStorage.getItem('company') || '{}');
   return (
     <>
       <Navbar_company />

@@ -10,7 +10,7 @@ import axios from 'axios';
 import { FaRegTrashAlt, FaRegPlusSquare } from 'react-icons/fa';
 let k, i, n;
 
-function Cards(props : any) {
+function Cards(props: any) {
   k = '/editjobs/i=' + props.id;
   i = '/showapplicants/i=' + props.id;
   n = '/deljobs/i=' + props.id;
@@ -41,10 +41,10 @@ function Cards(props : any) {
     </>
   );
 }
-function Cardlist({ Joblist } : {Joblist : any}) {
+function Cardlist({ Joblist }: { Joblist: any }) {
   return (
     <div className="gridwraper">
-      {Joblist.map((user : any, i : number) => {
+      {Joblist.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -67,7 +67,7 @@ function Cardlist({ Joblist } : {Joblist : any}) {
     </div>
   );
 }
-const arr = JSON.parse(localStorage.getItem('company') || "{}");
+const arr = JSON.parse(localStorage.getItem('company') || '{}');
 class Companyjobs extends Component {
   body: { company_id: any };
   header: {
@@ -78,7 +78,7 @@ class Companyjobs extends Component {
   state: {
     k: boolean;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.body = {
       company_id: arr._id,
@@ -105,7 +105,7 @@ class Companyjobs extends Component {
         },
       })
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -138,7 +138,9 @@ class Companyjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              <Cardlist Joblist={JSON.parse(localStorage.getItem('jobs') || "{}")} />
+              <Cardlist
+                Joblist={JSON.parse(localStorage.getItem('jobs') || '{}')}
+              />
             </div>
           </section>
         ) : (

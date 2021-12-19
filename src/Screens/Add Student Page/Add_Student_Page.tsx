@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_addstudent from "../Navbar/Navbar_Add_Student";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
-var arr = JSON.parse(localStorage.getItem("college") || '{}');
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_addstudent from '../Navbar/Navbar_Add_Student';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
+var arr = JSON.parse(localStorage.getItem('college') || '{}');
 class addstudent extends Component {
   state: {
     name: string;
@@ -15,14 +15,14 @@ class addstudent extends Component {
     cgpa: string;
     password: string;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      name: "",
-      email: "",
-      cgpa: "",
-      password: "",
+      name: '',
+      email: '',
+      cgpa: '',
+      password: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -32,21 +32,21 @@ class addstudent extends Component {
     this.add_student = this.add_student.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ name: event.target.value });
   }
-  updateCgpa(event : any) {
+  updateCgpa(event: any) {
     this.setState({ cgpa: event.target.value });
   }
-  updateEmail(event : any) {
+  updateEmail(event: any) {
     this.setState({ email: event.target.value });
   }
-  updatePassword(event : any) {
+  updatePassword(event: any) {
     this.setState({ password: event.target.value });
   }
 
   add_student() {
-    var arr = JSON.parse(localStorage.getItem("college") || '{}');
+    var arr = JSON.parse(localStorage.getItem('college') || '{}');
     console.log(this);
     console.log(this.state.name);
     console.log(this.state.email);
@@ -59,56 +59,56 @@ class addstudent extends Component {
       password: this.state.password,
       cgpa: this.state.cgpa,
       college: arr.name,
-      about: "",
-      date_of_birth: "",
-      skills: [""],
-      contactno: "",
-      resume: "",
+      about: '',
+      date_of_birth: '',
+      skills: [''],
+      contactno: '',
+      resume: '',
       social_media: {
-        twitter: "",
-        facebook: "",
-        linkedin: "",
-        instagram: "",
-        github: "",
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        instagram: '',
+        github: '',
       },
       certification: [
         {
-          courses: "",
-          institutes: "",
-          valid_till: "",
-          links: "",
+          courses: '',
+          institutes: '',
+          valid_till: '',
+          links: '',
         },
       ],
       education: [
         {
-          course: "",
-          institute: "",
-          marks: "",
+          course: '',
+          institute: '',
+          marks: '',
         },
       ],
       experience: [
         {
-          names: "",
-          description: "",
-          companys: "",
-          duration: "",
-          link: "",
+          names: '',
+          description: '',
+          companys: '',
+          duration: '',
+          link: '',
         },
       ],
-      premium: "false",
+      premium: 'false',
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/signup", body, {
+      .post('https://camprec.herokuapp.com/api/student/signup', body, {
         headers: { header },
       })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -116,11 +116,11 @@ class addstudent extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("Student added Successfuly");
-        window.location.replace("/adminstudent");
+        window.alert('Student added Successfuly');
+        window.location.replace('/adminstudent');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
       });
   }
 

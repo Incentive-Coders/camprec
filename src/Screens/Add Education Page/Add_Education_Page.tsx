@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from "../Navbar/Navbar_Student";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_student from '../Navbar/Navbar_Student';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 
 class addedu extends Component {
   state: {
@@ -17,15 +17,15 @@ class addedu extends Component {
     names: string;
   };
 
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      courses: "",
-      institute: "",
-      marks: "",
-      student_id: "",
-      names: "",
+      courses: '',
+      institute: '',
+      marks: '',
+      student_id: '',
+      names: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -33,18 +33,18 @@ class addedu extends Component {
     this.updatemarks = this.updatemarks.bind(this);
     this.add_edu = this.add_edu.bind(this);
   }
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event : any) {
+  updateinstitute(event: any) {
     this.setState({ institute: event.target.value });
   }
-  updatemarks(event : any) {
+  updatemarks(event: any) {
     this.setState({ marks: event.target.value });
   }
 
   add_edu() {
-    var arr = JSON.parse(localStorage.getItem("student") || '{}');
+    var arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.institute);
@@ -57,17 +57,17 @@ class addedu extends Component {
       student_id: arr._id,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/student/addedu", body, {
+      .post('https://camprec.herokuapp.com/api/student/addedu', body, {
         headers: { header },
       })
       .then(function (response) {
-        console.log("*");
+        console.log('*');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -75,12 +75,12 @@ class addedu extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        window.alert("Education Added Successfuly");
-        window.location.replace("/studenthome");
+        window.alert('Education Added Successfuly');
+        window.location.replace('/studenthome');
       })
       .catch((error) => {
-        console.error("There was an error!");
-        window.alert("There was some error unable to create experience");
+        console.error('There was an error!');
+        window.alert('There was some error unable to create experience');
       });
   }
 

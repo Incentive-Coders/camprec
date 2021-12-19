@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_admin from "../Navbar/Navbar_Admin";
-import axios from "axios";
-import ReactLoading from "react-loading";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_admin from '../Navbar/Navbar_Admin';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
 
 interface cardProps {
   key: number;
@@ -14,7 +14,7 @@ interface cardProps {
   id: string;
 }
 function Cards(props: cardProps) {
-  var i = "/viewadmincompany/i=" + props.id;
+  var i = '/viewadmincompany/i=' + props.id;
   return (
     <>
       <div className="card widths ">
@@ -34,10 +34,10 @@ function Cards(props: cardProps) {
     </>
   );
 }
-const Cardlist = ( {Companylist} : {Companylist : any} ) => {
+const Cardlist = ({ Companylist }: { Companylist: any }) => {
   return (
     <div className="gridwraper">
-      {Companylist.map((user : any, i: number) => {
+      {Companylist.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -53,14 +53,14 @@ const Cardlist = ( {Companylist} : {Companylist : any} ) => {
     </div>
   );
 };
-var arr = JSON.parse(localStorage.getItem("company") || '{}');
+var arr = JSON.parse(localStorage.getItem('company') || '{}');
 class AdminCompany extends Component {
   state: {
     j: number;
     k: boolean;
     p: number;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       j: 1,
@@ -76,14 +76,14 @@ class AdminCompany extends Component {
     // POST request using fetch with error handling
     console.log(this.state.j);
     var k =
-      "https://camprec.herokuapp.com/api/company/list/" +
+      'https://camprec.herokuapp.com/api/company/list/' +
       this.state.j.toString();
     console.log(k);
     // POST request using fetch with error handling
     axios
       .get(k)
       .then(
-        function (response : any) {
+        function (response: any) {
           console.log(response);
           // check for error response
           if (response.status != 200) {
@@ -92,14 +92,14 @@ class AdminCompany extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("company", JSON.stringify(response.data));
+          localStorage.setItem('company', JSON.stringify(response.data));
           this.setState({ k: true });
           this.setState({ p: this.state.j });
         }.bind(this)
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (company) return company;
   }
@@ -136,7 +136,9 @@ class AdminCompany extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                Companylist={JSON.parse(localStorage.getItem("company") || '{}') }
+                Companylist={JSON.parse(
+                  localStorage.getItem('company') || '{}'
+                )}
               />
             </div>
             <div className="m-l3">

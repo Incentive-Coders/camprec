@@ -10,7 +10,7 @@ const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
 localStorage.setItem('college_id', a[1]);
-function Cards(props : any) {
+function Cards(props: any) {
   return (
     <>
       <div className="card2 magin-top">
@@ -45,10 +45,14 @@ function Cards(props : any) {
     </>
   );
 }
-class Viewcollege extends Component<{}, { k : any}>{
-  body: { college_id: string; };
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+class Viewcollege extends Component<{}, { k: any }> {
+  body: { college_id: string };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.body = {
       college_id: a[1],
@@ -72,7 +76,7 @@ class Viewcollege extends Component<{}, { k : any}>{
         this.header
       )
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status

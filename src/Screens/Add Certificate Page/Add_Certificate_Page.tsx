@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar_student from "../Navbar/Navbar_Student";
-import { Form, Input } from "antd";
-import axios from "axios";
-import FormItem from "antd/lib/form/FormItem";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar_student from '../Navbar/Navbar_Student';
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import FormItem from 'antd/lib/form/FormItem';
 
 class addcer extends Component {
   state: {
@@ -18,16 +18,16 @@ class addcer extends Component {
     description: string;
   };
 
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      courses: "",
-      valid_till: "",
-      student_id: "",
-      link: "",
-      institutes: "",
-      description: "",
+      courses: '',
+      valid_till: '',
+      student_id: '',
+      link: '',
+      institutes: '',
+      description: '',
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -36,21 +36,21 @@ class addcer extends Component {
     this.updatelink = this.updatelink.bind(this);
     this.updateinstitutes = this.updateinstitutes.bind(this);
   }
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ courses: event.target.value });
   }
-  updateinstitutes(event : any) {
+  updateinstitutes(event: any) {
     this.setState({ institutes: event.target.value });
   }
-  updatelink(event : any) {
+  updatelink(event: any) {
     this.setState({ link: event.target.value });
   }
-  updatevalid_till(event : any) {
+  updatevalid_till(event: any) {
     this.setState({ valid_till: event.target.value });
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem("student") || '{}');
+    var arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.courses);
     console.log(this.state.valid_till);
@@ -64,17 +64,17 @@ class addcer extends Component {
       student_id: arr._id,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("http://localhost:4000/signup", body, {
+      .post('http://localhost:4000/signup', body, {
         headers: { header },
       })
       .then(function (response) {
-        console.log("Sigup Succesful");
+        console.log('Sigup Succesful');
         const data = response.data;
         // check for error response
         if (response.status != 200) {
@@ -84,8 +84,8 @@ class addcer extends Component {
         }
       })
       .catch((error) => {
-        console.error("There was an error!");
-        window.alert("There was some error unable to create experience");
+        console.error('There was an error!');
+        window.alert('There was some error unable to create experience');
       });
   }
 

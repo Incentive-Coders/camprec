@@ -21,8 +21,8 @@ class editcompany extends Component {
     instagram: string;
     vedio_link: string;
   };
-  constructor(props : any) {
-    const arr = JSON.parse(localStorage.getItem('company') || "{}");
+  constructor(props: any) {
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     super(props);
     this.state = {
       title: arr.name,
@@ -49,35 +49,35 @@ class editcompany extends Component {
     this.edit_company = this.edit_company.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ title: event.target.value });
   }
-  updatelocation(event : any) {
+  updatelocation(event: any) {
     this.setState({ location: event.target.value });
   }
-  updatecompany_description(event : any) {
+  updatecompany_description(event: any) {
     this.setState({ company_description: event.target.value });
   }
-  updatewebsite(event : any) {
+  updatewebsite(event: any) {
     this.setState({ website: event.target.value });
   }
-  updatetwitter(event : any) {
+  updatetwitter(event: any) {
     this.setState({ twitter: event.target.value });
   }
-  updateinstagram(event : any) {
+  updateinstagram(event: any) {
     this.setState({ instagram: event.target.value });
   }
-  updatefacebook(event : any) {
+  updatefacebook(event: any) {
     this.setState({ facebook: event.target.value });
   }
-  updatelinkedin(event : any) {
+  updatelinkedin(event: any) {
     this.setState({ linkedin: event.target.value });
   }
-  updatevedio_link(event : any) {
+  updatevedio_link(event: any) {
     this.setState({ vedio_link: event.target.value });
   }
   edit_company() {
-    const arr = JSON.parse(localStorage.getItem('company')|| "{}");
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     console.log(this.state.title);
     console.log(this.state.location);
     console.log(this.state.company_description);
@@ -126,7 +126,7 @@ class editcompany extends Component {
   }
 
   render() {
-    const arr = JSON.parse(localStorage.getItem('company')|| "{}");
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     return (
       <>
         <Navbar_company />

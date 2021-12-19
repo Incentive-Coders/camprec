@@ -14,7 +14,7 @@ import {
 const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
-function Cards(props : any) {
+function Cards(props: any) {
   console.log(props.certification);
   return (
     <>
@@ -50,7 +50,7 @@ function Cards(props : any) {
               <p className="card-body card-text  fsize">
                 <strong>Education : </strong>
                 <br />
-                {props.education.map((user : any, i : any) => {
+                {props.education.map((user: any, i: any) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -71,7 +71,7 @@ function Cards(props : any) {
               </p>
               <p className="card-body card-text  fsize">
                 <strong>Work experience :</strong> <br />
-                {props.work.map((user : any, i : any) => {
+                {props.work.map((user: any, i: any) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -98,7 +98,7 @@ function Cards(props : any) {
               <p className="card-body card-text  fsize">
                 <strong>Certification :</strong>
                 <br />{' '}
-                {props.certification.map((user : any, i : any) => {
+                {props.certification.map((user: any, i: any) => {
                   return (
                     <>
                       <div className="card2" key={i}>
@@ -145,10 +145,14 @@ function Cards(props : any) {
     </>
   );
 }
-class Viewstudent extends Component<{}, { k : any}> {
-  body: { student_id: string; };
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+class Viewstudent extends Component<{}, { k: any }> {
+  body: { student_id: string };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -172,7 +176,7 @@ class Viewstudent extends Component<{}, { k : any}> {
         this.header
       )
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -194,7 +198,7 @@ class Viewstudent extends Component<{}, { k : any}> {
   }
 
   render() {
-    const arr = JSON.parse(localStorage.getItem('student') || "{}");
+    const arr = JSON.parse(localStorage.getItem('student') || '{}');
     return (
       <>
         <Navbar_collegestudentview />

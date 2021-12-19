@@ -7,7 +7,7 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
 let i;
-function Rows(props : any) {
+function Rows(props: any) {
   {
     i = '/viewstudent/i=' + props.id;
   }
@@ -26,8 +26,8 @@ function Rows(props : any) {
     </>
   );
 }
-const Rowlist = ({ Rowlists } : {Rowlists :any}) => {
-  return Rowlists?.map((user : any, i : number) => {
+const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
+  return Rowlists?.map((user: any, i: number) => {
     return (
       <>
         <Rows
@@ -42,10 +42,14 @@ const Rowlist = ({ Rowlists } : {Rowlists :any}) => {
   });
 };
 const arr = localStorage.getItem('college_id');
-class Adminstudent extends Component<{}, { k : any}> {
-  body: { college_id: string | null; };
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+class Adminstudent extends Component<{}, { k: any }> {
+  body: { college_id: string | null };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.body = {
       college_id: arr,
@@ -70,7 +74,7 @@ class Adminstudent extends Component<{}, { k : any}> {
         this.header
       )
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -111,7 +115,9 @@ class Adminstudent extends Component<{}, { k : any}> {
               </thead>
               <tbody>
                 <Rowlist
-                  Rowlists={JSON.parse(localStorage.getItem('studentlist') || "{}")}
+                  Rowlists={JSON.parse(
+                    localStorage.getItem('studentlist') || '{}'
+                  )}
                 ></Rowlist>
               </tbody>
             </Table>

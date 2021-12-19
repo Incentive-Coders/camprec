@@ -5,7 +5,7 @@ import '../css/login.css';
 import { FaRegTrashAlt } from 'react-icons/fa';
 let k, i, n;
 
-function Cards(props : any) {
+function Cards(props: any) {
   k = '/editjobs/i=' + props.id;
   i = '/showapplicants/i=' + props.id;
   n = '/deljobs/i=' + props.id;

@@ -9,8 +9,23 @@ import { Form, Input } from 'antd';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 
-class studentSignup extends Component <{}, { email : any , password : any,name : any,contactno : any,about : any,college : any,cgpa : any,twitter : any,facebook : any,linkedin : any, instagram : any}>{
-  constructor(props : any) {
+class studentSignup extends Component<
+  {},
+  {
+    email: any;
+    password: any;
+    name: any;
+    contactno: any;
+    about: any;
+    college: any;
+    cgpa: any;
+    twitter: any;
+    facebook: any;
+    linkedin: any;
+    instagram: any;
+  }
+> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -41,47 +56,47 @@ class studentSignup extends Component <{}, { email : any , password : any,name :
     this.updateFacebook = this.updateFacebook.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event : any) {
+  updatePassword(event: any) {
     this.setState({ password: event.target.value });
   }
 
-  updateName(event : any) {
+  updateName(event: any) {
     this.setState({ name: event.target.value });
   }
 
-  updateContactNo(event : any) {
+  updateContactNo(event: any) {
     this.setState({ contactno: event.target.value });
   }
 
-  updateAbout(event : any) {
+  updateAbout(event: any) {
     this.setState({ about: event.target.value });
   }
 
-  updateCollege(event : any) {
+  updateCollege(event: any) {
     this.setState({ college: event.target.value });
   }
 
-  updateCgpa(event : any) {
+  updateCgpa(event: any) {
     this.setState({ cgpa: event.target.value });
   }
 
-  updateTwitter(event : any) {
+  updateTwitter(event: any) {
     this.setState({ twitter: event.target.value });
   }
 
-  updateInstagram(event : any) {
+  updateInstagram(event: any) {
     this.setState({ instagram: event.target.value });
   }
 
-  updateFacebook(event : any) {
+  updateFacebook(event: any) {
     this.setState({ facebook: event.target.value });
   }
 
-  updateLinkedin(event : any) {
+  updateLinkedin(event: any) {
     this.setState({ linkedin: event.target.value });
   }
 

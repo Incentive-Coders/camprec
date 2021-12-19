@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_company from "../Navbar/Navbar_Company";
-import ReactLoading from "react-loading";
-import axios from "axios";
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_company from '../Navbar/Navbar_Company';
+import ReactLoading from 'react-loading';
+import axios from 'axios';
 
 interface cardsProps {
   title: string;
@@ -13,7 +13,7 @@ interface cardsProps {
   id: string;
 }
 function Cards(props: cardsProps) {
-  var i = "/viewcompanycollege/i=" + props.id;
+  var i = '/viewcompanycollege/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -37,10 +37,10 @@ function Cards(props: cardsProps) {
     </>
   );
 }
-function Cardlist({ collegelist } : {collegelist : any}) {
+function Cardlist({ collegelist }: { collegelist: any }) {
   return (
     <div className="gridwraper">
-      {collegelist.map((user : any, i: number) => {
+      {collegelist.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -57,14 +57,14 @@ function Cardlist({ collegelist } : {collegelist : any}) {
   );
 }
 
-var arr = JSON.parse(localStorage.getItem('college') || "{}");
+var arr = JSON.parse(localStorage.getItem('college') || '{}');
 class companycollege extends Component {
   state: {
     j: number;
     k: boolean;
     p: number;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       j: 1,
@@ -105,7 +105,7 @@ class companycollege extends Component {
     axios
       .get(k)
       .then(
-        function (response : any) {
+        function (response: any) {
           console.log(response);
           // check for error response
           if (response.status != 200) {
@@ -141,7 +141,9 @@ class companycollege extends Component {
             </div>
             <div className="gridwraper">
               <Cardlist
-                collegelist={JSON.parse(localStorage.getItem('college') || "{}")}
+                collegelist={JSON.parse(
+                  localStorage.getItem('college') || '{}'
+                )}
               />
             </div>
             <div className="m-l3">

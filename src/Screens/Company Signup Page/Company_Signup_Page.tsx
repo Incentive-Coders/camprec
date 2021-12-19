@@ -27,7 +27,7 @@ class CompanySignup extends Component {
     vedio_link: string;
     contactno: string;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -62,55 +62,55 @@ class CompanySignup extends Component {
     this.updateVediolink = this.updateVediolink.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event : any) {
+  updatePassword(event: any) {
     this.setState({ password: event.target.value });
   }
 
-  updateName(event : any) {
+  updateName(event: any) {
     this.setState({ name: event.target.value });
   }
 
-  updateContactNo(event : any) {
+  updateContactNo(event: any) {
     this.setState({ contactno: event.target.value });
   }
 
-  updateAbout(event : any) {
+  updateAbout(event: any) {
     this.setState({ about: event.target.value });
   }
 
-  updateYear(event : any) {
+  updateYear(event: any) {
     this.setState({ year_of_established: event.target.value });
   }
 
-  updateLocation(event : any) {
+  updateLocation(event: any) {
     this.setState({ location: event.target.value });
   }
 
-  updateWebsite(event : any) {
+  updateWebsite(event: any) {
     this.setState({ website: event.target.value });
   }
 
-  updateTwitter(event : any) {
+  updateTwitter(event: any) {
     this.setState({ twitter: event.target.value });
   }
 
-  updateInstagram(event : any) {
+  updateInstagram(event: any) {
     this.setState({ instagram: event.target.value });
   }
 
-  updateFacebook(event : any) {
+  updateFacebook(event: any) {
     this.setState({ facebook: event.target.value });
   }
 
-  updateLinkedin(event : any) {
+  updateLinkedin(event: any) {
     this.setState({ linkedin: event.target.value });
   }
 
-  updateVediolink(event : any) {
+  updateVediolink(event: any) {
     this.setState({ vedio_link: event.target.value });
   }
 

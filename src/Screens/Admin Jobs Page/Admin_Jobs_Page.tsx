@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar_viewcompany from "../Navbar/Navbar_View_Company_2";
-import axios from "axios";
-import ReactLoading from "react-loading";
-let prem = JSON.parse(localStorage.getItem("college") || '{}');
+import React, { Component } from 'react';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar_viewcompany from '../Navbar/Navbar_View_Company_2';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
+let prem = JSON.parse(localStorage.getItem('college') || '{}');
 var k: string;
 
 interface cardsProps {
@@ -17,7 +17,7 @@ interface cardsProps {
 }
 function Cards(props: cardsProps) {
   {
-    k = "/adminapply/i=" + props.job_id;
+    k = '/adminapply/i=' + props.job_id;
   }
   return (
     <>
@@ -46,7 +46,7 @@ function Cards(props: cardsProps) {
     </>
   );
 }
-const Cardlist = ({Joblist} : {Joblist : any}) => {
+const Cardlist = ({ Joblist }: { Joblist: any }) => {
   return (
     <div className="gridwraper">
       {Joblist?.map((user: any, i: number) => {
@@ -65,13 +65,13 @@ const Cardlist = ({Joblist} : {Joblist : any}) => {
     </div>
   );
 };
-var arr = localStorage.getItem("company_id");
+var arr = localStorage.getItem('company_id');
 
 class adminjobs extends Component {
   state: {
     k: boolean;
   };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -84,19 +84,19 @@ class adminjobs extends Component {
     };
 
     const header = {
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
 
     var job: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post("https://camprec.herokuapp.com/api/jobs/list", body, {
+      .post('https://camprec.herokuapp.com/api/jobs/list', body, {
         headers: { header },
       })
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -104,7 +104,7 @@ class adminjobs extends Component {
               (response.data && response.data.message) || response.status;
             return Promise.reject(error);
           }
-          localStorage.setItem("jobs", JSON.stringify(response.data));
+          localStorage.setItem('jobs', JSON.stringify(response.data));
           this.setState({
             k: true,
           });
@@ -112,7 +112,7 @@ class adminjobs extends Component {
       )
       .catch((error) => {
         console.log(error);
-        window.alert("something went wrong");
+        window.alert('something went wrong');
       });
     if (job) return job;
   }
@@ -131,8 +131,10 @@ class adminjobs extends Component {
               </h2>
             </div>
             <div className="gridwraper">
-              {JSON.parse(localStorage.getItem("jobs") || '{}').length ? (
-                <Cardlist Joblist={JSON.parse(localStorage.getItem("jobs") || '{}')} />
+              {JSON.parse(localStorage.getItem('jobs') || '{}').length ? (
+                <Cardlist
+                  Joblist={JSON.parse(localStorage.getItem('jobs') || '{}')}
+                />
               ) : (
                 <div className="card-body">
                   <strong>

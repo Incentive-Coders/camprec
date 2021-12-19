@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import FormItem from "antd/lib/form/FormItem";
-import { Form, Input } from "antd";
-import Navbar from "../Navbar/Navbar";
-import axios from "axios";
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import FormItem from 'antd/lib/form/FormItem';
+import { Form, Input } from 'antd';
+import Navbar from '../Navbar/Navbar';
+import axios from 'axios';
 
 class adminSignup extends Component {
   state: {
@@ -25,22 +25,22 @@ class adminSignup extends Component {
     contactno: number;
   };
 
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      name: "",
-      about: "",
-      year_of_established: "",
-      location: "",
-      website: "",
-      twitter: "",
-      facebook: "",
-      linkedin: "",
-      instagram: "",
-      video_link: "",
+      email: '',
+      password: '',
+      name: '',
+      about: '',
+      year_of_established: '',
+      location: '',
+      website: '',
+      twitter: '',
+      facebook: '',
+      linkedin: '',
+      instagram: '',
+      video_link: '',
       contactno: 0,
     };
 
@@ -60,55 +60,55 @@ class adminSignup extends Component {
     this.updateVediolink = this.updateVediolink.bind(this);
   }
 
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ email: event.target.value });
   }
 
-  updatePassword(event : any) {
+  updatePassword(event: any) {
     this.setState({ password: event.target.value });
   }
 
-  updateName(event : any) {
+  updateName(event: any) {
     this.setState({ name: event.target.value });
   }
 
-  updateContactNo(event : any) {
+  updateContactNo(event: any) {
     this.setState({ contactno: event.target.value });
   }
 
-  updateAbout(event : any) {
+  updateAbout(event: any) {
     this.setState({ about: event.target.value });
   }
 
-  updateYear(event : any) {
+  updateYear(event: any) {
     this.setState({ year_of_established: event.target.value });
   }
 
-  updateLocation(event : any) {
+  updateLocation(event: any) {
     this.setState({ location: event.target.value });
   }
 
-  updateWebsite(event : any) {
+  updateWebsite(event: any) {
     this.setState({ website: event.target.value });
   }
 
-  updateTwitter(event : any) {
+  updateTwitter(event: any) {
     this.setState({ twitter: event.target.value });
   }
 
-  updateInstagram(event : any) {
+  updateInstagram(event: any) {
     this.setState({ instagram: event.target.value });
   }
 
-  updateFacebook(event : any) {
+  updateFacebook(event: any) {
     this.setState({ facebook: event.target.value });
   }
 
-  updateLinkedin(event : any) {
+  updateLinkedin(event: any) {
     this.setState({ linkedin: event.target.value });
   }
 
-  updateVediolink(event : any) {
+  updateVediolink(event: any) {
     this.setState({ video_link: event.target.value });
   }
 
@@ -135,13 +135,13 @@ class adminSignup extends Component {
       approve: false,
     };
     const header = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
+      Accept: '*/*',
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'gzip, deflate, br',
+      Connection: 'keep-alive',
     };
     axios
-      .post("https://camprec.herokuapp.com/api/college/signup", body, {
+      .post('https://camprec.herokuapp.com/api/college/signup', body, {
         headers: { header },
       })
       .then(function (response) {
@@ -152,13 +152,13 @@ class adminSignup extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        localStorage.setItem("college", JSON.stringify(response.data));
-        window.location.replace("/home");
+        localStorage.setItem('college', JSON.stringify(response.data));
+        window.location.replace('/home');
       })
       .catch((error) => {
-        console.error("There was an error!");
+        console.error('There was an error!');
         if (this.state.email && this.state.password) {
-          window.alert("Error");
+          window.alert('Error');
         }
       });
   }

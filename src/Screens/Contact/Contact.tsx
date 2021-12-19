@@ -9,7 +9,7 @@ import emailjs from 'emailjs-com';
 import FormItem from 'antd/lib/form/FormItem';
 
 function Contact() {
-  function sendEmail(e : any) {
+  function sendEmail(e: any) {
     e.preventDefault();
     emailjs
       .sendForm(

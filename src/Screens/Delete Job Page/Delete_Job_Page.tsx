@@ -11,7 +11,7 @@ console.log(a[1]);
 
 class deljobs extends Component {
   state: { job_id: string; job_description: string; job_title: string };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -25,7 +25,7 @@ class deljobs extends Component {
 
   del_job() {
     // POST request using fetch with error handling
-    const arr = JSON.parse(localStorage.getItem('company') || "{}");
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     const body = {
       job_id: a[1],
       company_id: arr._id,
@@ -61,7 +61,7 @@ class deljobs extends Component {
   }
 
   companyjoblist() {
-    const arr = JSON.parse(localStorage.getItem('company') || "{}");
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     const body = {
       company_id: arr._id,
     };

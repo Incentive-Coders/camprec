@@ -11,7 +11,7 @@ import FormItem from 'antd/lib/form/FormItem';
 
 class delexp extends Component {
   state: { names: string; student_id: string; companys: string };
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -24,14 +24,14 @@ class delexp extends Component {
     this.del_experience = this.del_experience.bind(this);
     this.updatecompanys = this.updatecompanys.bind(this);
   }
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ names: event.target.value });
   }
-  updatecompanys(event : any) {
+  updatecompanys(event: any) {
     this.setState({ companys: event.target.value });
   }
   del_experience() {
-    const arr = JSON.parse((localStorage.getItem('student') || "{}"));
+    const arr = JSON.parse(localStorage.getItem('student') || '{}');
     // POST request using fetch with error handling
     const body = {
       names: this.state.names,

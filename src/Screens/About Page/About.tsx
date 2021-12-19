@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-const web = require("../../images/about.png");
-import "../index.css";
-import "../css/home.css";
-import "../css/login.css";
-import Navbar from "../Navbar/Navbar";
+import React, { Component } from 'react';
+const web = require('../../images/about.png');
+import '../index.css';
+import '../css/home.css';
+import '../css/login.css';
+import Navbar from '../Navbar/Navbar';
 
-const googleAdId = "ca-pub-3329798013899959";
+const googleAdId = 'ca-pub-3329798013899959';
 
 type GoogleAdInterface = {
   classNames: string;
@@ -15,7 +15,7 @@ type GoogleAdInterface = {
 
 class GoogleAd extends Component<GoogleAdInterface> {
   public static defaultProps = {
-    classNames: "",
+    classNames: '',
     timeout: 200,
   };
 
@@ -73,7 +73,7 @@ class GoogleAd extends Component<GoogleAdInterface> {
           <div className={classNames}>
             <ins
               className="adsbygoogle"
-              style={{ display: "block" }}
+              style={{ display: 'block' }}
               data-ad-client={googleAdId}
               data-ad-slot={slot}
               data-ad-format="auto"

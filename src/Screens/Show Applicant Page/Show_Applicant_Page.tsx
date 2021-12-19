@@ -12,7 +12,7 @@ const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
 let i;
-function Rows(props : any) {
+function Rows(props: any) {
   {
     i = '/viewapplicantcollege/i=' + props.id;
   }
@@ -31,7 +31,7 @@ function Rows(props : any) {
     </>
   );
 }
-function Rows1(props : any) {
+function Rows1(props: any) {
   {
     i = '/viewapplicantstudent/i=' + props.id;
   }
@@ -50,8 +50,8 @@ function Rows1(props : any) {
     </>
   );
 }
-const Rowlist = ({ Rowlists } : {Rowlists : any}) => {
-  return Rowlists?.map((user : any, i : number) => {
+const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
+  return Rowlists?.map((user: any, i: number) => {
     return (
       <>
         <Rows
@@ -65,8 +65,8 @@ const Rowlist = ({ Rowlists } : {Rowlists : any}) => {
     );
   });
 };
-const Rowlist1 = ({ Rowlists } : {Rowlists : any}) => {
-  return Rowlists?.map((user : any, i : number) => {
+const Rowlist1 = ({ Rowlists }: { Rowlists: any }) => {
+  return Rowlists?.map((user: any, i: number) => {
     return (
       <>
         <Rows1
@@ -80,8 +80,8 @@ const Rowlist1 = ({ Rowlists } : {Rowlists : any}) => {
     );
   });
 };
-class showapplicants extends Component<{}, { k : any}> {
-  constructor(props : any) {
+class showapplicants extends Component<{}, { k: any }> {
+  constructor(props: any) {
     super(props);
     this.state = {
       k: false,
@@ -92,16 +92,18 @@ class showapplicants extends Component<{}, { k : any}> {
     const body = {
       job_id: a[1],
     };
-    const header  = {
+    const header = {
       Accept: '*/*',
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip, deflate, br',
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/slist', body, { headers : header })
+      .post('https://camprec.herokuapp.com/api/jobs/slist', body, {
+        headers: header,
+      })
       .then(
-        function (response : any) {
+        function (response: any) {
           console.log('*');
           const data = response.data;
           // check for error response
@@ -117,9 +119,11 @@ class showapplicants extends Component<{}, { k : any}> {
         console.error('There was an error!');
       });
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/clist', body, { headers : header })
+      .post('https://camprec.herokuapp.com/api/jobs/clist', body, {
+        headers: header,
+      })
       .then(
-        function (response : any) {
+        function (response: any) {
           console.log('*');
           const data = response.data;
           // check for error response
@@ -160,7 +164,7 @@ class showapplicants extends Component<{}, { k : any}> {
                 </thead>
                 <tbody>
                   <Rowlist
-                    Rowlists={JSON.parse(localStorage.getItem('clist') || "{}")}
+                    Rowlists={JSON.parse(localStorage.getItem('clist') || '{}')}
                   ></Rowlist>
                 </tbody>
               </Table>
@@ -180,7 +184,7 @@ class showapplicants extends Component<{}, { k : any}> {
                 </thead>
                 <tbody>
                   <Rowlist1
-                    Rowlists={JSON.parse(localStorage.getItem('slist') || "{}")}
+                    Rowlists={JSON.parse(localStorage.getItem('slist') || '{}')}
                   ></Rowlist1>
                 </tbody>
               </Table>

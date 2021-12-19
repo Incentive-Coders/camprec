@@ -17,7 +17,7 @@ class deledu extends Component {
     student_id: string;
   };
   setState: any;
-  constructor(props : any) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -31,15 +31,15 @@ class deledu extends Component {
     this.updateinstitute = this.updateinstitute.bind(this);
     this.del_edu = this.del_edu.bind(this);
   }
-  updateInput(event : any) {
+  updateInput(event: any) {
     this.setState({ names: event.target.value });
   }
-  updateinstitute(event : any) {
+  updateinstitute(event: any) {
     this.setState({ institute: event.target.value });
   }
 
   del_edu() {
-    const arr = JSON.parse(localStorage.getItem('student') || "{}");
+    const arr = JSON.parse(localStorage.getItem('student') || '{}');
     // POST request using fetch with error handling
     const body = {
       course: this.state.names,

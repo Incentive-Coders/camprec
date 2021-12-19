@@ -6,7 +6,7 @@ import '../css/login.css';
 import Navbar_Student from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-function Cards(props : any) {
+function Cards(props: any) {
   const i = '/viewstudentcompany/i=' + props.id;
   return (
     <>
@@ -30,10 +30,10 @@ function Cards(props : any) {
   );
 }
 
-function Cardlist({ Companylist } : {Companylist : any}) {
+function Cardlist({ Companylist }: { Companylist: any }) {
   return (
     <div className="gridwraper">
-      {Companylist?.map((user : any, i : number) => {
+      {Companylist?.map((user: any, i: number) => {
         return (
           <>
             <Cards
@@ -51,8 +51,8 @@ function Cardlist({ Companylist } : {Companylist : any}) {
 }
 const j = 1;
 
-class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
-  constructor(props : any) {
+class StudentCompany extends Component<{}, { j: any; k: any; p: any }> {
+  constructor(props: any) {
     super(props);
     this.state = {
       j: 1,
@@ -65,7 +65,7 @@ class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
   }
 
   companylist() {
-    const arr1 = JSON.parse(localStorage.getItem('student') || "{}");
+    const arr1 = JSON.parse(localStorage.getItem('student') || '{}');
     const body1 = {
       student_id: arr1._id,
     };
@@ -77,7 +77,7 @@ class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
         this.header
       )
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -101,7 +101,7 @@ class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
     axios
       .get(k)
       .then(
-        function (response : any) {
+        function (response: any) {
           // check for error response
           if (response.status != 200) {
             // get error message from body or default to response status
@@ -120,7 +120,7 @@ class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
       });
     if (company) return company;
   }
-  header(arg0: string, body1: { student_id: any; }, header: any) {
+  header(arg0: string, body1: { student_id: any }, header: any) {
     throw new Error('Method not implemented.');
   }
   back() {
@@ -156,7 +156,9 @@ class StudentCompany extends Component<{}, { j: any, k : any, p : any }>{
             </div>
             <div className="gridwraper">
               <Cardlist
-                Companylist={JSON.parse(localStorage.getItem('company') || "{}")}
+                Companylist={JSON.parse(
+                  localStorage.getItem('company') || '{}'
+                )}
               />
             </div>
             <div className="m-l3">
