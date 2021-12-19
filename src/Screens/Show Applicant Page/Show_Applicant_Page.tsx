@@ -1,10 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_showapplicants from '../Navbar/Navbar_Show_Applicants';
+import NavbarShowApplicants from '../Navbar/Navbar_Show_Applicants';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
@@ -80,7 +80,7 @@ const Rowlist1 = ({ Rowlists }: { Rowlists: any }) => {
     );
   });
 };
-class showapplicants extends Component<{}, { k: any }> {
+class showapplicants extends Component<unknown, { k: any }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -122,20 +122,18 @@ class showapplicants extends Component<{}, { k: any }> {
       .post('https://camprec.herokuapp.com/api/jobs/clist', body, {
         headers: header,
       })
-      .then(
-        function (response: any) {
-          console.log('*');
-          const data = response.data;
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('clist', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+      .then((response: any) => {
+        console.log('*');
+        const data = response.data;
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('clist', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, showapplicants.bind)
       .catch((error) => {
         console.error('There was an error!');
       });
@@ -146,7 +144,7 @@ class showapplicants extends Component<{}, { k: any }> {
   render() {
     return (
       <>
-        <Navbar_showapplicants />
+        <NavbarShowApplicants />
         {this.state.k ? (
           <section className="width">
             <div className="mart">

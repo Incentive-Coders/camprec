@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import Navbar_viewcollege from '../Navbar/Navbar_View_College';
+import NavbarViewCollege from '../Navbar/Navbar_View_College';
 const l = window.location.href;
 const a = l.split('=');
 console.log(a[1]);
@@ -45,7 +45,7 @@ function Cards(props: any) {
     </>
   );
 }
-class Viewcollege extends Component<{}, { k: any }> {
+class Viewcollege extends Component<unknown, { k: any }> {
   body: { college_id: string };
   header: {
     'Content-Type': string;
@@ -70,24 +70,18 @@ class Viewcollege extends Component<{}, { k: any }> {
   collegedata() {
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/college/data',
-        this.body,
-        this.header
-      )
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('college', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+      .post('https://camprec.herokuapp.com/api/college/data', this.body)
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('college', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, Viewcollege.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');
@@ -101,7 +95,7 @@ class Viewcollege extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('college') || '{}');
     return (
       <>
-        <Navbar_viewcollege />
+        <NavbarViewCollege />
         {this.state.k ? (
           <section className="pop image width">
             <div>

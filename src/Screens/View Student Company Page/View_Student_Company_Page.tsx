@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarViewStdCompany from '../Navbar/Navbar_View_Std_Company';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import {
@@ -17,10 +17,10 @@ const a = l.split('=');
 localStorage.removeItem('idc');
 localStorage.removeItem('college_id');
 localStorage.setItem('idc', a[1]);
-function Cards(props : any) {
+function Cards(props: any) {
   return (
     <>
-      <Navbar_viewstdcompany></Navbar_viewstdcompany>
+      <NavbarViewStdCompany></NavbarViewStdCompany>
       <div className="card1 magin-top">
         <div className="card-body profile_width pop">
           <div>
@@ -74,12 +74,16 @@ function Cards(props : any) {
     </>
   );
 }
-const student = JSON.parse(localStorage.getItem('student') || "{}");
-class Viewstdcompany extends Component<{}, { k : any}>{
-  body: { company_id: string; };
-  body2: { college: any; };
-  header: { 'Content-Type': string; 'Accept-Encoding': string; Connection: string; };
-  constructor(props : any) {
+const student = JSON.parse(localStorage.getItem('student') || '{}');
+class Viewstdcompany extends Component<unknown, { k: any }> {
+  body: { company_id: string };
+  body2: { college: any };
+  header: {
+    'Content-Type': string;
+    'Accept-Encoding': string;
+    Connection: string;
+  };
+  constructor(props: any) {
     super(props);
     this.body = {
       company_id: a[1],
@@ -100,11 +104,7 @@ class Viewstdcompany extends Component<{}, { k : any}>{
   companydata() {
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/company/data',
-        this.body,
-        this.header
-      )
+      .post('https://camprec.herokuapp.com/api/company/data', this.body)
       .then(function (response) {
         // check for error response
         if (response.status != 200) {
@@ -122,24 +122,18 @@ class Viewstdcompany extends Component<{}, { k : any}>{
 
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/student/showjob',
-        this.body2,
-        this.header
-      )
-      .then(
-        function (response : any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('collegejobs', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+      .post('https://camprec.herokuapp.com/api/student/showjob', this.body2)
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('collegejobs', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, Viewstdcompany.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');
@@ -149,7 +143,7 @@ class Viewstdcompany extends Component<{}, { k : any}>{
     this.companydata();
   }
   render() {
-    const arr = JSON.parse(localStorage.getItem('company') || "{}");
+    const arr = JSON.parse(localStorage.getItem('company') || '{}');
     return (
       <>
         {this.state.k ? (

@@ -1,8 +1,8 @@
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_student from '../Navbar/Navbar_Student';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarStudent from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import {
   FaFacebookF,
@@ -169,7 +169,7 @@ function Cards(props: any) {
   );
 }
 
-class Studenthome extends Component<{}, { k: any }> {
+class Studenthome extends Component<unknown, { k: any }> {
   k: boolean | undefined;
   constructor(props: any) {
     super(props);
@@ -189,7 +189,7 @@ class Studenthome extends Component<{}, { k: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', body, header)
+      .post('https://camprec.herokuapp.com/api/student/data', body)
       .then(function (response) {
         // check for error response
         if (response.status != 200) {
@@ -221,7 +221,7 @@ class Studenthome extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('student') || '{}');
     return (
       <>
-        <Navbar_student />
+        <NavbarStudent />
         <section className="pop image width">
           <div>
             <Cards

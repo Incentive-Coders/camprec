@@ -1,14 +1,14 @@
-const web = require('../images/premium.png');
+import web from '../../images/premium.png';
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_student from '../Navbar/Navbar_Student';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarStudent from '../Navbar/Navbar_Student';
 
 const premium = () => {
   return (
     <>
-      <Navbar_student />
+      <NavbarStudent />
       <section id="header" className="bg d-flex align-items-center heights">
         <div className="contianer-fluid ">
           <div className="row ">

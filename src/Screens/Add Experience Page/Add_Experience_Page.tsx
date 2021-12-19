@@ -3,7 +3,7 @@ import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_student from '../Navbar/Navbar_Student';
+import NavbarStudent from '../Navbar/Navbar_Student';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
@@ -54,7 +54,7 @@ class addexp extends Component {
   }
 
   add_experience() {
-    var arr = JSON.parse(localStorage.getItem('student') || '{}');
+    const arr = JSON.parse(localStorage.getItem('student') || '{}');
     console.log(this);
     console.log(this.state.names);
     console.log(this.state.duration);
@@ -99,7 +99,7 @@ class addexp extends Component {
   render() {
     return (
       <>
-        <Navbar_student />
+        <NavbarStudent />
         <section className="image width">
           <h3 className="card-title card_us">
             <strong>Add New experience</strong>

@@ -3,7 +3,7 @@ import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../index.css';
 import '../../css/home.css';
-const web5 = require('../images/company_login.png');
+import web5 from '../../images/company_login.png';
 import '../../css/login.css';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';

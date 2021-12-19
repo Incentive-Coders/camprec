@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_viewcompany from '../Navbar/Navbar_View_Company';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarViewCompany from '../Navbar/Navbar_View_Company';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
@@ -13,7 +13,7 @@ localStorage.setItem('company_id', a[1]);
 function Cards(props: any) {
   return (
     <>
-      <Navbar_viewcompany></Navbar_viewcompany>
+      <NavbarViewCompany></NavbarViewCompany>
       <div className="magin-top">
         <div className="card-body profile_width pop">
           <div>
@@ -46,7 +46,7 @@ function Cards(props: any) {
     </>
   );
 }
-class Viewcompany extends Component<{}, { k: any }> {
+class Viewcompany extends Component<unknown, { k: any }> {
   body: { company_id: string };
   header: {
     'Content-Type': string;
@@ -71,24 +71,18 @@ class Viewcompany extends Component<{}, { k: any }> {
   companydata() {
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/company/data',
-        this.body,
-        this.header
-      )
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('company', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+      .post('https://camprec.herokuapp.com/api/company/data', this.body)
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('company', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, Viewcompany.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_admin from '../Navbar/Navbar_Admin';
+import NavbarAdmin from '../Navbar/Navbar_Admin';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 
@@ -14,7 +14,7 @@ interface cardProps {
   id: string;
 }
 function Cards(props: cardProps) {
-  var i = '/viewadmincompany/i=' + props.id;
+  const i = '/viewadmincompany/i=' + props.id;
   return (
     <>
       <div className="card widths ">
@@ -53,7 +53,7 @@ const Cardlist = ({ Companylist }: { Companylist: any }) => {
     </div>
   );
 };
-var arr = JSON.parse(localStorage.getItem('company') || '{}');
+const arr = JSON.parse(localStorage.getItem('company') || '{}');
 class AdminCompany extends Component {
   state: {
     j: number;
@@ -72,10 +72,10 @@ class AdminCompany extends Component {
   }
 
   companylist() {
-    var company: never[] = [];
+    const company: never[] = [];
     // POST request using fetch with error handling
     console.log(this.state.j);
-    var k =
+    const k =
       'https://camprec.herokuapp.com/api/company/list/' +
       this.state.j.toString();
     console.log(k);
@@ -126,7 +126,7 @@ class AdminCompany extends Component {
   render() {
     return (
       <>
-        <Navbar_admin></Navbar_admin>
+        <NavbarAdmin></NavbarAdmin>
         {this.state.k ? (
           <section className="image width ">
             <div className="get_started">

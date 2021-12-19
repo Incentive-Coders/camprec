@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_viewcollege from '../Navbar/Navbar_View_College';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarViewCollege from '../Navbar/Navbar_View_College';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
@@ -42,7 +42,7 @@ const Rowlist = ({ Rowlists }: { Rowlists: any }) => {
   });
 };
 const arr = localStorage.getItem('college_id');
-class Adminstudent extends Component<{}, { k: any }> {
+class Adminstudent extends Component<unknown, { k: any }> {
   body: { college_id: string | null };
   header: {
     'Content-Type': string;
@@ -68,26 +68,20 @@ class Adminstudent extends Component<{}, { k: any }> {
     const student: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/college/studentlist',
-        this.body,
-        this.header
-      )
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          console.log(response.data.length);
+      .post('https://camprec.herokuapp.com/api/college/studentlist', this.body)
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        console.log(response.data.length);
 
-          localStorage.setItem('studentlist', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+        localStorage.setItem('studentlist', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, Adminstudent.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');
@@ -101,7 +95,7 @@ class Adminstudent extends Component<{}, { k: any }> {
   render() {
     return (
       <>
-        <Navbar_viewcollege />
+        <NavbarViewCollege />
         {this.state.k ? (
           <section className="width">
             <Table className="tab">

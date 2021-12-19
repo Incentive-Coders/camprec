@@ -1,16 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 
 class studentSignup extends Component<
-  {},
+  unknown,
   {
     email: any;
     password: any;
@@ -101,7 +101,7 @@ class studentSignup extends Component<
   }
 
   login_link() {
-    console.log(this.state.email);
+    console.log(this.state.email); //these needs to be remove
     console.log(this.state.password);
     // POST request using fetch with error handling
     const body = {
@@ -130,9 +130,7 @@ class studentSignup extends Component<
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/signup', body, {
-        header,
-      })
+      .post('https://camprec.herokuapp.com/api/student/signup', body)
       .then(function (response) {
         const data = response.data;
         // check for error response

@@ -1,15 +1,15 @@
 import React from 'react';
-const web = require('../../images/4180157-removebg-preview.png');
-const web1 = require('../../images/student-removebg.png');
-const web2 = require('../../images/company.jpg');
-const web3 = require('../../images/admin.jpg');
-const web4 = require('../../images/Capture-removebg-preview.png');
+import web from '../../images/4180157-removebg-preview.png';
+import web1 from '../../images/student-removebg.png';
+import web2 from '../../images/company.jpg';
+import web3 from '../../images/admin.jpg';
+import web4 from '../../images/Capture-removebg-preview.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import '../../index.css';
 import '../../css/home.css';
-import './App';
+import '../App Page/App';
 import CountUp from 'react-countup';
 function Home() {
   localStorage.clear();

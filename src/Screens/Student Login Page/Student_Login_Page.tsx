@@ -1,16 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import '../css/home.css';
-import web5 from '../images/student_login.png';
-import '../css/login.css';
+import '../../index.css';
+import '../../css/home.css';
+import web5 from '../../images/student_login.png';
+import '../../css/login.css';
 import Navbar from '../Navbar/Navbar';
 import FormItem from 'antd/lib/form/FormItem';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 
-class Studentlogin extends Component<{}, { email: any; password: any }> {
+class Studentlogin extends Component<unknown, { email: any; password: any }> {
   constructor(props: any) {
     super(props);
 
@@ -45,7 +45,7 @@ class Studentlogin extends Component<{}, { email: any; password: any }> {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/login', body, { header })
+      .post('https://camprec.herokuapp.com/api/student/login', body)
       .then(function (response) {
         const data = response.data;
         // check for error response

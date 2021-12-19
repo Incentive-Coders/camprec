@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_company from '../Navbar/Navbar_Company';
+import NavbarCompany from '../Navbar/Navbar_Company';
 import ReactLoading from 'react-loading';
 import axios from 'axios';
 
@@ -13,7 +13,7 @@ interface cardsProps {
   id: string;
 }
 function Cards(props: cardsProps) {
-  var i = '/viewcompanycollege/i=' + props.id;
+  const i = '/viewcompanycollege/i=' + props.id;
   return (
     <>
       <div className="card widths">
@@ -57,7 +57,7 @@ function Cardlist({ collegelist }: { collegelist: any }) {
   );
 }
 
-var arr = JSON.parse(localStorage.getItem('college') || '{}');
+const arr = JSON.parse(localStorage.getItem('college') || '{}');
 class companycollege extends Component {
   state: {
     j: number;
@@ -96,9 +96,9 @@ class companycollege extends Component {
     }
   }
   collegelist() {
-    var college: never[] = [];
+    const college: never[] = [];
     console.log(this.state.j);
-    var k =
+    const k =
       'https://camprec.herokuapp.com/api/college/list/' +
       this.state.j.toString();
     // POST request using fetch with error handling
@@ -131,7 +131,7 @@ class companycollege extends Component {
   render() {
     return (
       <>
-        <Navbar_company />
+        <NavbarCompany />
         {this.state.k ? (
           <section className="image width ">
             <div className="get_started">

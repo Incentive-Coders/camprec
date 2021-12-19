@@ -19,7 +19,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": false
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
@@ -29,7 +29,7 @@
   "plugins": ["react", "@typescript-eslint", "react-hooks", "jest"],
   "rules": {
     "react/destructuring-assignment": ["warn", "always"],
-    "react/no-multi-comp": ["error", { "ignoreStateless": false }],
+    "react/no-multi-comp": ["off", { "ignoreStateless": true }],
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
 
     // Ensures that components are always written in PascalCase
@@ -56,7 +56,7 @@
     // Enforce Strictly functional components
     "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
     "react/function-component-definition": [
-      "error",
+      "off",
       { "namedComponents": "function-declaration" }
     ]
   },

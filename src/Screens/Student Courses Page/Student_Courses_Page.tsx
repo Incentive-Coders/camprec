@@ -1,8 +1,8 @@
 import React from 'react';
-import '../index.css';
-import '../css/home.css';
-import '../css/login.css';
-import Navbar_student from '../Navbar/Navbar_Student';
+import '../../index.css';
+import '../../css/home.css';
+import '../../css/login.css';
+import NavbarStudent from '../Navbar/Navbar_Student';
 const arr = JSON.parse(localStorage.getItem('student') || '{}');
 function Cards(props: any) {
   console.log(arr.premium);
@@ -36,7 +36,7 @@ function Cards(props: any) {
 function Studentcourses() {
   return (
     <>
-      <Navbar_student />
+      <NavbarStudent />
       <section className="image width">
         <div className="get_started">
           <h2 className="text_center margintop">
