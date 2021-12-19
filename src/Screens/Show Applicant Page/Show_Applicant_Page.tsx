@@ -122,20 +122,18 @@ class showapplicants extends Component<{}, { k: any }> {
       .post('https://camprec.herokuapp.com/api/jobs/clist', body, {
         headers: header,
       })
-      .then(
-        function (response: any) {
-          console.log('*');
-          const data = response.data;
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('clist', JSON.stringify(response.data));
-          this.setState({ k: true });
-        }.bind(this)
-      )
+      .then((response: any) => {
+        console.log('*');
+        const data = response.data;
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('clist', JSON.stringify(response.data));
+        this.setState({ k: true });
+      }, showapplicants.bind)
       .catch((error) => {
         console.error('There was an error!');
       });

@@ -37,11 +37,7 @@ class studentapply extends Component<{}, { k: any }> {
     console.log(arr._id);
     // POST request using fetch with error handling
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/jobs/saccept',
-        this.body,
-        this.header
-      )
+      .post('https://camprec.herokuapp.com/api/jobs/saccept', this.body)
       .then(function (response) {
         console.log('*');
         const data = response.data;
@@ -56,26 +52,20 @@ class studentapply extends Component<{}, { k: any }> {
         console.error('There was an error!');
       });
     axios
-      .post(
-        'https://camprec.herokuapp.com/api/student/jaccept',
-        this.body,
-        this.header
-      )
-      .then(
-        function (response: any) {
-          console.log('*');
-          const data = response.data;
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          this.setState({
-            k: true,
-          });
-        }.bind(this)
-      )
+      .post('https://camprec.herokuapp.com/api/student/jaccept', this.body)
+      .then((response: any) => {
+        console.log('*');
+        const data = response.data;
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+        this.setState({
+          k: true,
+        });
+      }, studentapply.bind)
       .catch((error) => {
         console.error('There was an error!');
       });
