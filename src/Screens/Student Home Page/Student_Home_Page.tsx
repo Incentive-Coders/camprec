@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_student from '../Navbar/Navbar_Student';
+import NavbarStudent from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import {
   FaFacebookF,
@@ -221,7 +221,7 @@ class Studenthome extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('student') || '{}');
     return (
       <>
-        <Navbar_student />
+        <NavbarStudent />
         <section className="pop image width">
           <div>
             <Cards

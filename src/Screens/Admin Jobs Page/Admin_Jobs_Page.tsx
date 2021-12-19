@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_viewcompany from '../Navbar/Navbar_View_Company_2';
+import NavbarViewCompany from '../Navbar/Navbar_View_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 let prem = JSON.parse(localStorage.getItem('college') || '{}');
@@ -122,7 +122,7 @@ class adminjobs extends Component {
   render() {
     return (
       <>
-        <Navbar_viewcompany />
+        <NavbarViewCompany />
         {this.state.k ? (
           <section className="image width heights">
             <div className="get_started">

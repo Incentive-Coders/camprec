@@ -4,7 +4,7 @@ import '../../css/home.css';
 import '../../css/login.css';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-import Navbar_viewapplicant from '../Navbar/Navbar_View_Applicant';
+import NavbarViewApplicant from '../Navbar/Navbar_View_Applicant';
 import ReactLoading from 'react-loading';
 const l = window.location.href;
 const a = l.split('=');
@@ -100,7 +100,7 @@ class Viewcollege extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('college') || '{}');
     return (
       <>
-        <Navbar_viewapplicant />
+        <NavbarViewApplicant />
         {this.state.k ? (
           <section className="pop image width">
             <div>

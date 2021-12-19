@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_admin from '../Navbar/Navbar_Admin';
+import NavbarAdmin from '../Navbar/Navbar_Admin';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 
@@ -126,7 +126,7 @@ class AdminCompany extends Component {
   render() {
     return (
       <>
-        <Navbar_admin></Navbar_admin>
+        <NavbarAdmin></NavbarAdmin>
         {this.state.k ? (
           <section className="image width ">
             <div className="get_started">

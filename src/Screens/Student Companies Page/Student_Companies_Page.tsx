@@ -3,7 +3,7 @@ import { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_Student from '../Navbar/Navbar_Student';
+import NavbarStudent from '../Navbar/Navbar_Student';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 function Cards(props: any) {
@@ -146,7 +146,7 @@ class StudentCompany extends Component<{}, { j: any; k: any; p: any }> {
   render() {
     return (
       <>
-        <Navbar_Student />
+        <NavbarStudent />
         {this.state.k ? (
           <section className="image width">
             <div className="get_started">

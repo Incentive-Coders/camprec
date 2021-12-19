@@ -3,7 +3,7 @@ import { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company_2';
+import NavbarViewStdCompany from '../Navbar/Navbar_View_Std_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 let k;
@@ -118,7 +118,7 @@ class Studentjobs extends Component<{}, { k: any; arr: any }> {
   render() {
     return (
       <>
-        <Navbar_viewstdcompany></Navbar_viewstdcompany>
+        <NavbarViewStdCompany></NavbarViewStdCompany>
         {this.state.k ? (
           <section className="image width heights">
             <div className="get_started">

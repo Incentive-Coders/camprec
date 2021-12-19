@@ -4,7 +4,7 @@ import '../../css/home.css';
 import '../../css/login.css';
 import ReactLoading from 'react-loading';
 import axios from 'axios';
-import Navbar_collegestudentview from '../Navbar/Navbar_College_Student_View';
+import NavbarCollegeStudentView from '../Navbar/Navbar_College_Student_View';
 import {
   FaFacebookF,
   FaTwitter,
@@ -201,7 +201,7 @@ class Viewstudent extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('student') || '{}');
     return (
       <>
-        <Navbar_collegestudentview />
+        <NavbarCollegeStudentView />
         {this.state.k ? (
           <section className="pop image width">
             <div>

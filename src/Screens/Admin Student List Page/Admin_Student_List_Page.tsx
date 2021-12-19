@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_admin from '../Navbar/Navbar_Admin';
+import NavbarAdmin from '../Navbar/Navbar_Admin';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
@@ -105,7 +105,7 @@ class Adminstudent extends Component {
   render() {
     return (
       <>
-        <Navbar_admin />
+        <NavbarAdmin />
         {this.state.k ? (
           <section className=" width">
             <Table className="tab">

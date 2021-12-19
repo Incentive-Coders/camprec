@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_company from '../Navbar/Navbar_Company';
+import NavbarCompany from '../Navbar/Navbar_Company';
 import ReactPlayer from 'react-player';
 import {
   FaFacebookF,
@@ -97,7 +97,7 @@ function Companyhome() {
   let arr = JSON.parse(localStorage.getItem('company') || '{}');
   return (
     <>
-      <Navbar_company />
+      <NavbarCompany />
       <section className="pop image width">
         <div>
           <Cards

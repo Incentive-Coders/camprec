@@ -4,7 +4,7 @@ import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_company from '../Navbar/Navbar_Company';
+import NavbarCompany from '../Navbar/Navbar_Company';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
@@ -129,7 +129,7 @@ class editcompany extends Component {
     const arr = JSON.parse(localStorage.getItem('company') || '{}');
     return (
       <>
-        <Navbar_company />
+        <NavbarCompany />
         <section className="image width ">
           <h3 className="card-title card_us">
             <strong>Edit company</strong>

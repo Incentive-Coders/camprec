@@ -4,7 +4,7 @@ import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_showapplicants from '../Navbar/Navbar_Show_Applicants';
+import NavbarShowApplicants from '../Navbar/Navbar_Show_Applicants';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import ReactLoading from 'react-loading';
@@ -146,7 +146,7 @@ class showapplicants extends Component<{}, { k: any }> {
   render() {
     return (
       <>
-        <Navbar_showapplicants />
+        <NavbarShowApplicants />
         {this.state.k ? (
           <section className="width">
             <div className="mart">

@@ -1,5 +1,5 @@
 import React from 'react';
-const web = require('../../images/contactus.png');
+import web from '../../images/contactus.png';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';

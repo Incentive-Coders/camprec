@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_company from '../Navbar/Navbar_Company';
+import NavbarCompany from '../Navbar/Navbar_Company';
 import ReactLoading from 'react-loading';
 import axios from 'axios';
 
@@ -131,7 +131,7 @@ class companycollege extends Component {
   render() {
     return (
       <>
-        <Navbar_company />
+        <NavbarCompany />
         {this.state.k ? (
           <section className="image width ">
             <div className="get_started">

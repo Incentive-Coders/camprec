@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_Admin from '../Navbar/Navbar_Admin';
+import NavbarAdmin from '../Navbar/Navbar_Admin';
 import ReactPlayer from 'react-player';
 import {
   FaFacebookF,
@@ -97,7 +97,7 @@ const Adminhome = () => {
   let arr = JSON.parse(localStorage.getItem('college') || '{}');
   return (
     <>
-      <Navbar_Admin />
+      <NavbarAdmin />
       <section className="pop image width">
         <div>
           <Cards

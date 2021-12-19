@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
-import Navbar_viewstdcompany from '../Navbar/Navbar_View_Std_Company';
+import NavbarViewStdCompany from '../Navbar/Navbar_View_Std_Company';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
 import {
@@ -20,7 +20,7 @@ localStorage.setItem('idc', a[1]);
 function Cards(props: any) {
   return (
     <>
-      <Navbar_viewstdcompany></Navbar_viewstdcompany>
+      <NavbarViewStdCompany></NavbarViewStdCompany>
       <div className="card1 magin-top">
         <div className="card-body profile_width pop">
           <div>

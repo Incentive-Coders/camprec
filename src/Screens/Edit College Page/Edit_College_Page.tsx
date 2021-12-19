@@ -4,7 +4,7 @@ import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar_Admin from '../Navbar/Navbar_Admin';
+import NavbarAdmin from '../Navbar/Navbar_Admin';
 import { Form, Input } from 'antd';
 import axios from 'axios';
 import FormItem from 'antd/lib/form/FormItem';
@@ -129,7 +129,7 @@ class editcollege extends Component {
     const arr = JSON.parse(localStorage.getItem('college') || '{}');
     return (
       <>
-        <Navbar_Admin />
+        <NavbarAdmin />
         <section className="image width ">
           <h3 className="card-title card_us">
             <strong>Edit college</strong>

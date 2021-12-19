@@ -3,7 +3,7 @@ import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
 import axios from 'axios';
-import Navbar_viewapplicant from '../Navbar/Navbar_View_Applicant';
+import NavbarViewApplicant from '../Navbar/Navbar_View_Applicant';
 import {
   FaFacebookF,
   FaTwitter,
@@ -199,7 +199,7 @@ class Viewstudent extends Component<{}, { k: any }> {
     const arr = JSON.parse(localStorage.getItem('student') || '{}');
     return (
       <>
-        <Navbar_viewapplicant />
+        <NavbarViewApplicant />
         {this.state.k ? (
           <section className="pop image width">
             <div>
