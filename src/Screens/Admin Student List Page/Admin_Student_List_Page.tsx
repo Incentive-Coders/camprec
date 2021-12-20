@@ -76,22 +76,20 @@ class Adminstudent extends Component {
       .post('https://camprec.herokuapp.com/api/college/studentlist', body, {
         headers: { header },
       })
-      .then(
-        function (response: any) {
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          console.log(response.data.length);
-          localStorage.setItem('studentlist', JSON.stringify(response.data));
-          this.setState({
-            k: true,
-          });
-        }.bind(this)
-      )
+      .then((response: any) => {
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        console.log(response.data.length);
+        localStorage.setItem('studentlist', JSON.stringify(response.data));
+        this.setState({
+          k: true,
+        });
+      }, Adminstudent.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');

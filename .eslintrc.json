@@ -30,7 +30,10 @@
   "rules": {
     "react/destructuring-assignment": ["warn", "always"],
     "react/no-multi-comp": ["off", { "ignoreStateless": true }],
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".tsx"] }
+    ],
 
     // Ensures that components are always written in PascalCase
     "react/jsx-pascal-case": [
