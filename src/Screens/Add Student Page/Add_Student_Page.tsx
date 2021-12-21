@@ -126,7 +126,8 @@ class addstudent extends Component {
 
   render() {
     return (
-      <>
+      <meta name="viewport" content="width=device-width, 
+      initial-scale=1.0">
         <NavbarAddStudent />
         <section className="image width height">
           <h3 className="card-title card_us">
@@ -183,7 +184,7 @@ class addstudent extends Component {
             />
           </Form>
         </section>
-      </>
+      </meta>
     );
   }
 }
