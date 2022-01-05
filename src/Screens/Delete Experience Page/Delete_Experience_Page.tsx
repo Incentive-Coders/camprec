@@ -45,7 +45,7 @@ class delexp extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/delexp', body, {
+      .post('http://localhost:4000/api/student/delexp', body, {
         headers: { header },
       })
       .then(function (response) {

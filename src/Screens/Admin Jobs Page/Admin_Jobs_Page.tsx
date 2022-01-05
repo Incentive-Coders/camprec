@@ -92,7 +92,7 @@ class adminjobs extends Component {
     const job: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/list', body, {
+      .post('http://localhost:4000/api/jobs/list', body, {
         headers: { header },
       })
       .then(

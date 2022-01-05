@@ -170,7 +170,7 @@ class Viewstudent extends Component<unknown, { p: any }> {
   collegedata() {
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', this.body)
+      .post('http://localhost:4000/api/student/data', this.body)
       .then((response: any) => {
         // check for error response
         if (response.status != 200) {

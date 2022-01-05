@@ -146,7 +146,7 @@ class CompanySignup extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/company/signup', body, {
+      .post('http://localhost:4000/api/company/signup', body, {
         headers: { header },
       })
       .then(function (response) {

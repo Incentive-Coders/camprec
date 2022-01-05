@@ -64,7 +64,7 @@ class editjobs extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/edit', body, {
+      .post('http://localhost:4000/api/jobs/edit', body, {
         headers: { header },
       })
       .then(function (response) {

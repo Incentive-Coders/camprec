@@ -53,7 +53,7 @@ class deledu extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/deledu', body, {
+      .post('http://localhost:4000/api/student/deledu', body, {
         headers: { header },
       })
       .then(function (response) {

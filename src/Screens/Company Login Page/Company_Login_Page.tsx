@@ -48,7 +48,7 @@ class Companylogin extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/company/login', body, {
+      .post('http://localhost:4000/api/company/login', body, {
         headers: {
           Accept: '*/*',
           'Content-Type': 'application/json',

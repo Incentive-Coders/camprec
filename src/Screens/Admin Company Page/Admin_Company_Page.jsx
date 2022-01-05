@@ -56,9 +56,9 @@ const Cardlist = ({ Companylist }: { Companylist: any }) => {
 const arr = JSON.parse(localStorage.getItem('company') || '{}');
 class AdminCompany extends Component {
   state: {
-    j: number;
-    k: boolean;
-    p: number;
+    j: number,
+    k: boolean,
+    p: number,
   };
   constructor(props: any) {
     super(props);
@@ -76,8 +76,7 @@ class AdminCompany extends Component {
     // POST request using fetch with error handling
     console.log(this.state.j);
     const k =
-      'https://camprec.herokuapp.com/api/company/list/' +
-      this.state.j.toString();
+      'http://localhost:4000/api/company/list/' + this.state.j.toString();
     console.log(k);
     // POST request using fetch with error handling
     axios

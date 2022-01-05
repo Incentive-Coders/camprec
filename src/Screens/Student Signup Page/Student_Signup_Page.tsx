@@ -130,7 +130,7 @@ class studentSignup extends Component<
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/signup', body)
+      .post('http://localhost:4000/api/student/signup', body)
       .then(function (response) {
         const data = response.data;
         // check for error response

@@ -68,7 +68,7 @@ class Adminstudent extends Component<unknown, { k: any }> {
     const student: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/college/studentlist', this.body)
+      .post('http://localhost:4000/api/college/studentlist', this.body)
       .then((response: any) => {
         // check for error response
         if (response.status != 200) {

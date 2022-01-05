@@ -37,7 +37,7 @@ class deljobs extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/delete', body, {
+      .post('http://localhost:4000/api/jobs/delete', body, {
         headers: { header },
       })
       .then(function (response) {

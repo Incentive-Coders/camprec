@@ -99,8 +99,7 @@ class companycollege extends Component {
     const college: never[] = [];
     console.log(this.state.j);
     const k =
-      'https://camprec.herokuapp.com/api/college/list/' +
-      this.state.j.toString();
+      'http://localhost:4000/api/college/list/' + this.state.j.toString();
     // POST request using fetch with error handling
     axios
       .get(k)
