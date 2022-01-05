@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
 import GoogleAd from '../About Page/About';

@@ -81,21 +81,19 @@ class AdminCompany extends Component {
     // POST request using fetch with error handling
     axios
       .get(k)
-      .then(
-        function (response: any) {
-          console.log(response);
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error =
-              (response.data && response.data.message) || response.status;
-            return Promise.reject(error);
-          }
-          localStorage.setItem('company', JSON.stringify(response.data));
-          this.setState({ k: true });
-          this.setState({ p: this.state.j });
-        }.bind(this)
-      )
+      .then((response: any) => {
+        console.log(response);
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error =
+            (response.data && response.data.message) || response.status;
+          return Promise.reject(error);
+        }
+        localStorage.setItem('company', JSON.stringify(response.data));
+        this.setState({ k: true });
+        this.setState({ p: this.state.j });
+      }, AdminCompany.bind)
       .catch((error) => {
         console.log(error);
         window.alert('something went wrong');

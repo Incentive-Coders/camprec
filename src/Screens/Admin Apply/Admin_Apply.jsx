@@ -50,21 +50,19 @@ class adminapply extends Component {
       .post('https://camprec.herokuapp.com/api/college/jaccept', body, {
         headers: { header },
       })
-      .then(
-        function (response) {
-          console.log('*');
-          const data = response.data;
-          // check for error response
-          if (response.status != 200) {
-            // get error message from body or default to response status
-            const error = (data && data.message) || response.status;
-            return Promise.reject(error);
-          }
-          this.setState({
-            k: true,
-          });
-        }.bind(this)
-      )
+      .then((response) => {
+        console.log('*');
+        const data = response.data;
+        // check for error response
+        if (response.status != 200) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+        this.setState({
+          k: true,
+        });
+      }, adminapply.bind)
       .catch((error) => {
         console.error('There was an error!');
       });
