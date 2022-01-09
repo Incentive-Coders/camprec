@@ -225,3 +225,28 @@ body {
   margin-left: 500px;
   margin-top: 100px;
 }
+@media (max-width: 991px) {
+  .aboutimg {
+    height: 250px;
+    margin-left: -8rem;
+    display: inline-block;
+  }
+  .textjustify {
+    text-align: justify;
+    margin-right: 10px;
+    margin-top: -100px;
+  }
+  .about {
+    font-size: 1rem justify;
+    margin-left: -200px;
+
+    width: 430px;
+  }
+
+  .text_center {
+    text-align: center;
+    margin-left: 80px;
+    margin-top: -40px;
+    margin-bottom: 2rem;
+  }
+}
