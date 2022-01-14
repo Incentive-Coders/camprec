@@ -164,3 +164,19 @@
   height: 25px;
   overflow: hidden;
 }
+@media (max-width: 991px) {
+  .get_started {
+    display: flex;
+    /* align-content: center; */
+    margin-left: -15em;
+    /* padding-right: -2em; */
+    margin-top: 20em;
+    margin-left: -20em;
+    padding: 2%;
+  }
+
+  .home {
+    display: flex;
+    height: 900px;
+  }
+}
