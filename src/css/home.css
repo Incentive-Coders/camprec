@@ -4,7 +4,7 @@
 }
 .get_started {
   align-content: center;
-  margin-right: 15em;
+  /* margin-right: 15em; */
   padding-right: 2em;
   margin-top: 5em;
 }
@@ -26,7 +26,7 @@
   width: 200px;
 }
 .logos {
-  margin-left: 5% !important;
+  /* margin-left: 5% !important; */
 }
 .pop {
   display: flex;

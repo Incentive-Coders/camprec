@@ -52,7 +52,7 @@ class studentapply extends Component<unknown, { k: any }> {
         console.error('There was an error!');
       });
     axios
-      .post('https://camprec.herokuapp.com/api/student/jaccept', this.body)
+      .post('http://localhost:4000/api/student/jaccept', this.body)
       .then((response: any) => {
         console.log('*');
         const data = response.data;

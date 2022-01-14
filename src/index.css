@@ -5,10 +5,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Mulish', sans-serif;
+  /* border: 1px solid red !important; */
 }
 
 .navbar {
-  background-color: transparent;
+  width: 100%;
 }
 .join_us {
   text-align: center;
@@ -20,6 +21,7 @@
 .navbar-brand {
   font-size: 1.9rem !important;
   color: #565387 !important;
+  /* border: 1px solid darkred; */
 }
 .color {
   color: #565387;
@@ -86,7 +88,7 @@
   }
 }
 body {
-  width: 1506px !important;
+  /* width: 1506px !important; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -159,10 +161,10 @@ body {
   height: 400px;
 }
 .width {
-  width: 1519px !important;
+  width: 100vw !important;
 }
 .height {
-  height: 512px;
+  height: 100%;
 }
 .size {
   height: 150px;
@@ -197,10 +199,13 @@ body {
 .text_size {
   font-size: 16px;
 }
-.gridwraper {
+.gridwraper .gridwraper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
 }
+
 .margintop {
   margin-top: -130px;
 }

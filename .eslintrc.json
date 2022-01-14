@@ -32,7 +32,7 @@
     "react/no-multi-comp": ["off", { "ignoreStateless": true }],
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".tsx"] }
+      { "extensions": [".tsx", ".js", ".jsx"] }
     ],
 
     // Ensures that components are always written in PascalCase

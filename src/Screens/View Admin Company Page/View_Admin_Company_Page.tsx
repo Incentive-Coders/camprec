@@ -71,7 +71,7 @@ class Viewcompany extends Component<unknown, { k: any }> {
   companydata() {
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/company/data', this.body)
+      .post('http://localhost:4000/api/company/data', this.body)
       .then((response: any) => {
         // check for error response
         if (response.status != 200) {

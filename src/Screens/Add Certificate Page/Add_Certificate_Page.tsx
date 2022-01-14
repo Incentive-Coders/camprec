@@ -74,7 +74,7 @@ class addcer extends Component {
         headers: { header },
       })
       .then(function (response) {
-        console.log('Sigup Succesful');
+        console.log('Singup Succesful');
         const data = response.data;
         // check for error response
         if (response.status != 200) {

@@ -45,7 +45,7 @@ class Studentlogin extends Component<unknown, { email: any; password: any }> {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/login', body)
+      .post('http://localhost:4000/api/student/login', body)
       .then(function (response) {
         const data = response.data;
         // check for error response
@@ -61,7 +61,7 @@ class Studentlogin extends Component<unknown, { email: any; password: any }> {
       })
       .catch((error) => {
         console.error('There was an error!');
-        if (this.state.email && this.state.password) {
+        if (!(this.state.email && this.state.password)) {
           window.alert('Incorect Id and Password');
         }
       });

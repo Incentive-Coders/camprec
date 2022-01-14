@@ -91,7 +91,7 @@ class Studentjobs extends Component<unknown, { k: any; arr: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/list', body)
+      .post('http://localhost:4000/api/jobs/list', body)
       .then((response: any) => {
         // check for error response
         if (response.status != 200) {

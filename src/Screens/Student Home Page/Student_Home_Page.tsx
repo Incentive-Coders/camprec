@@ -189,7 +189,7 @@ class Studenthome extends Component<unknown, { k: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', body)
+      .post('http://localhost:4000/api/student/data', body)
       .then(function (response) {
         // check for error response
         if (response.status != 200) {

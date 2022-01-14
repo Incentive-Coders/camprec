@@ -53,7 +53,7 @@ class delcer extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/delcer', body, {
+      .post('http://localhost:4000/api/student/delcer', body, {
         headers: { header },
       })
       .then(function (response) {

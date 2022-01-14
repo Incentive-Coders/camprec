@@ -71,7 +71,7 @@ class StudentCompany extends Component<unknown, { j: any; k: any; p: any }> {
     };
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/data', body1)
+      .post('http://localhost:4000/api/student/data', body1)
       .then(
         function (response: any) {
           // check for error response

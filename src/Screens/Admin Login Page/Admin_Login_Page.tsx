@@ -51,7 +51,7 @@ class Adminlogin extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/college/login', body, {
+      .post('http://localhost:4000/api/college/login', body, {
         headers: { header },
       })
       .then(function (response) {

@@ -63,7 +63,7 @@ class addedu extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/addedu', body, {
+      .post('http://localhost:4000/api/student/addedu', body, {
         headers: { header },
       })
       .then(function (response) {

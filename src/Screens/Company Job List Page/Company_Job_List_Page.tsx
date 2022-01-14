@@ -97,7 +97,7 @@ class Companyjobs extends Component {
     const job: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/list', this.body, {
+      .post('http://localhost:4000/api/jobs/list', this.body, {
         headers: {
           'Content-Type': 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',

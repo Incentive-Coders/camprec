@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
 import '../../css/login.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarViewCompany from '../Navbar/Navbar_View_Company_2';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
@@ -92,7 +93,7 @@ class adminjobs extends Component {
     const job: never[] = [];
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/list', body, {
+      .post('http://localhost:4000/api/jobs/list', body, {
         headers: { header },
       })
       .then((response: any) => {
@@ -125,7 +126,7 @@ class adminjobs extends Component {
           <section className="image width heights">
             <div className="get_started">
               <h2 className="text_center margintop">
-                <strong className="brand-name leftmargin">Jobs</strong>
+                <strong className="brand-name">Jobs</strong>
               </h2>
             </div>
             <div className="gridwraper">

@@ -10,10 +10,7 @@ const a = l.split('=');
 console.log(a[1]); // above console log
 const arr = JSON.parse(localStorage.getItem('college') || '{}');
 class adminapply extends Component {
-  state: {
-    k: boolean;
-  };
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     this.state = {
       k: false,
@@ -33,7 +30,7 @@ class adminapply extends Component {
     console.log(arr._id);
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/jobs/caccept', body, {
+      .post('http://localhost:4000/api/jobs/caccept', body, {
         headers: { header },
       })
       .then(function (response) {
@@ -53,7 +50,7 @@ class adminapply extends Component {
       .post('https://camprec.herokuapp.com/api/college/jaccept', body, {
         headers: { header },
       })
-      .then((response: any) => {
+      .then((response) => {
         console.log('*');
         const data = response.data;
         // check for error response

@@ -10,7 +10,7 @@
   padding-right: 40ex;
 }
 .padl {
-  padding-right: 45ex;
+  padding-right: 15ex;
 }
 .pader {
   margin-left: 280px;
@@ -35,4 +35,23 @@
     margin-top: -5rem;
     margin-left: -8rem;
   }
+}
+.nav_bg {
+  /* border: 1px solid darkblue; */
+  justify-content: center;
+}
+
+#navbar-content {
+  /* border: 1px solid darkmagenta; */
+  display: flex;
+}
+
+.navbar-collapse {
+  /* border: 1px solid darksalmon; */
+  display: flex;
+}
+
+ul.navbar-nav {
+  width: 100%;
+  justify-content: flex-end;
 }

@@ -75,7 +75,7 @@ class addexp extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/student/addexp', body, {
+      .post('http://localhost:4000/api/student/addexp', body, {
         headers: { header },
       })
       .then(function (response) {

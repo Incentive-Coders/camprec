@@ -103,7 +103,7 @@ class editcollege extends Component {
       Connection: 'keep-alive',
     };
     axios
-      .post('https://camprec.herokuapp.com/api/college/edit', body, {
+      .post('http://localhost:4000/api/college/edit', body, {
         headers: { header },
       })
       .then(function (response) {

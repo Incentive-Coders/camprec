@@ -122,7 +122,7 @@ class Viewstdcompany extends Component<unknown, { k: any }> {
 
     // POST request using fetch with error handling
     axios
-      .post('https://camprec.herokuapp.com/api/student/showjob', this.body2)
+      .post('http://localhost:4000/api/student/showjob', this.body2)
       .then((response: any) => {
         // check for error response
         if (response.status != 200) {
