@@ -168,9 +168,11 @@
   .get_started {
     display: flex;
     /* align-content: center; */
-    margin-left: -20em;
+    margin-left: -15em;
     /* padding-right: -2em; */
     margin-top: 20em;
+    margin-left: -20em;
+    padding: 2%;
   }
 
   .home {

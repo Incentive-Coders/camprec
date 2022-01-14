@@ -35,9 +35,12 @@ class GoogleAd extends Component<GoogleAdInterface> {
             <div className="row ">
               <div className="col-10 mx-auto home">
                 <div className="col-md-4 pt-5 pt-lg-0 order-2 order-lg-1 get_started">
-                  <h2 className="text_center  ">
-                    <strong className="brand-name">About Us</strong>
-                  </h2>
+                  <div className="text_center  ">
+                    <h2>
+                      <strong className="brand-name">About Us</strong>
+                    </h2>
+                  </div>
+
                   <p className="mt-3 textjustify about">
                     This is college recruitment system. We are to help you. It
                     is a best platform for companies and student. We will

@@ -234,8 +234,8 @@ body {
 @media (max-width: 991px) {
   .aboutimg {
     height: 250px;
-    margin-left: -8rem;
-    display: inline-block;
+    margin-left: -2rem;
+    display: block;
   }
   .textjustify {
     text-align: justify;
@@ -251,8 +251,8 @@ body {
 
   .text_center {
     text-align: center;
-    margin-left: 80px;
-    margin-top: -40px;
+    margin-left: 65px;
+    margin-top: -4rem;
     margin-bottom: 2rem;
   }
 }

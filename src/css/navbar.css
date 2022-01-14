@@ -4,7 +4,7 @@
   /* margin-top: -5rem;
   margin-left: -10rem; */
 
-  margin-left: -9%;
+  margin-left: -4%;
 }
 .padding {
   padding-right: 40ex;
@@ -24,7 +24,7 @@
 }
 
 .position {
-  margin: 2% 0% 0% 30%;
+  margin: 2% 0% 0% 50%;
 
   display: inline-block;
 }
@@ -33,7 +33,7 @@
     height: 60pt;
     padding-right: 50ex;
     margin-top: -5rem;
-    margin-left: -8rem;
+    margin-left: -2rem;
   }
 }
 .nav_bg {
