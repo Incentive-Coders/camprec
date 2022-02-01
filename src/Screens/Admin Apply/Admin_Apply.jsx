@@ -6,7 +6,6 @@ import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import Admin_jobs_page from '../Admin Jobs Page/Admin_Jobs_Page';
 
 const l = window.location.href;
 const a = l.split('=');

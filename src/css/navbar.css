@@ -1,7 +1,10 @@
 .logo {
   height: 90pt;
   padding-right: 50ex;
-  /* margin-left: -9%; */
+  /* margin-top: -5rem;
+  margin-left: -10rem; */
+
+  margin-left: -4%;
 }
 .padding {
   padding-right: 40ex;
@@ -20,6 +23,19 @@
   background-color: #0d0a3d !important;
 }
 
+.position {
+  margin: 2% 0% 0% 50%;
+
+  display: inline-block;
+}
+@media (max-width: 991px) {
+  .logo {
+    height: 60pt;
+    padding-right: 50ex;
+    margin-top: -5rem;
+    margin-left: -2rem;
+  }
+}
 .nav_bg {
   /* border: 1px solid darkblue; */
   justify-content: center;
@@ -32,12 +48,10 @@
 
 .navbar-collapse {
   /* border: 1px solid darksalmon; */
-display: flex;
+  display: flex;
 }
 
 ul.navbar-nav {
   width: 100%;
   justify-content: flex-end;
 }
-
-
