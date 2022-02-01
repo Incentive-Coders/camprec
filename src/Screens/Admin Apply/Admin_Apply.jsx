@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 import '../../index.css';
 import '../../css/home.css';
@@ -5,10 +6,12 @@ import '../../css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
+
 const l = window.location.href;
 const a = l.split('=');
-console.log(a[1]); // above console log
+console.log(a[1]); // above console log ---- Company id
 const arr = JSON.parse(localStorage.getItem('college') || '{}');
+
 class adminapply extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,7 @@ class adminapply extends Component {
       job_id: a[1],
       college_id: arr._id,
     };
+    console.log(body);
     const header = {
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip, deflate, br',
@@ -47,7 +51,7 @@ class adminapply extends Component {
         console.error('There was an error!');
       });
     axios
-      .post('https://camprec.herokuapp.com/api/college/jaccept', body, {
+      .post('http://localhost:4000/api/college/jaccept', body, {
         headers: { header },
       })
       .then((response) => {
@@ -62,6 +66,7 @@ class adminapply extends Component {
         this.setState({
           k: true,
         });
+        //alert('Thank you for applying!');
       }, adminapply.bind)
       .catch((error) => {
         console.error('There was an error!');
@@ -76,7 +81,8 @@ class adminapply extends Component {
     return (
       <>
         {this.state.k ? (
-          window.location.replace('/admincompanies')
+          (alert('Thank you for applying'),
+          window.location.replace('/admincompanies'))
         ) : (
           <section className="pop image width">
             <div className="load">
