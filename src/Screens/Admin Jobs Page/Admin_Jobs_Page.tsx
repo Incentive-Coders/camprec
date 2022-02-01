@@ -33,11 +33,18 @@ function Cards(props: cardsProps) {
           <p className="card-text">{props.content}</p>
           <div className="pop">
             {prem.job.includes(props.job_id) ? (
-              <a href="#" className="btn btn-primary text_size left_m2 dis">
+              <a
+                href="javascript: alert('You have already Applied to this Job.')"
+                className="btn btn-primary text_size left_m2 dis"
+              >
                 Applied
               </a>
             ) : (
-              <a href={k} className="btn btn-primary text_size left_m2">
+              <a
+                //href="javascript: alert('Thank You for Applying')"
+                href={k}
+                className="btn btn-primary text_size left_m2"
+              >
                 Apply
               </a>
             )}
